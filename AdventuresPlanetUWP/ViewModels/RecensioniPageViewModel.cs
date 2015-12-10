@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Navigation;
 
 namespace AdventuresPlanetUWP.ViewModels
@@ -18,23 +19,24 @@ namespace AdventuresPlanetUWP.ViewModels
 
         public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            GroupByLetter();
+            Debug.WriteLine("Recensioni on navigatedTo");
+            if(ListaRecensioni==null || ListaRecensioni.Count == 0)
+                GroupByLetter();
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
-            Debug.WriteLine("Recensioni on navigatedFromAsync");
-            ListaRecensioni?.Clear();
+            ListaRecensioni.Clear();
             ListaRecensioni = null;
+            Debug.WriteLine("Recensioni on navigatedFromAsync");
             return base.OnNavigatedFromAsync(state, suspending);
         }
         public void GroupByLetter()
         {
             ListaRecensioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.AlphaKey;
-            List<RecensioneItem> list = AdventuresPlanetManager.Instance.ListaRecensioni;
-            ListaRecensioni = MyGrouping<RecensioneItem>.AlphaKeyGroup(list.ToList(), (t => t.Titolo), true);
-            list.Clear();
-            list = null;
+            ListaRecensioni = MyGrouping<RecensioneItem>.AlphaKeyGroup(AdventuresPlanetManager.Instance.ListaRecensioni, 
+                                                                        (t => t.Titolo), 
+                                                                        true);
         }
         public async void AggiornaRecensioni(object s, object e)
         {
@@ -55,7 +57,19 @@ namespace AdventuresPlanetUWP.ViewModels
             {
                 Set<bool>(ref _isUpdating, value);
             }
-        } 
+        }
+        private CollectionViewSource _collection;
+        public CollectionViewSource Collection
+        {
+            get
+            {
+                return _collection;
+            }
+            set
+            {
+                Set<CollectionViewSource>(ref _collection, value);
+            }
+        }
         private Dictionary<string, List<RecensioneItem>> _list;
         public Dictionary<string, List<RecensioneItem>> ListaRecensioni
         {

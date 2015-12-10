@@ -16,23 +16,23 @@ namespace AdventuresPlanetUWP.ViewModels
     {
         public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            GroupByAlpha();
+            if(ListaSoluzioni==null ||ListaSoluzioni.Count == 0)
+                GroupByAlpha();
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
-            Debug.WriteLine("Soluzioni on navigatedFromAsync");
             ListaSoluzioni?.Clear();
             ListaSoluzioni = null;
+            Debug.WriteLine("Soluzioni on navigatedFromAsync");
             return base.OnNavigatedFromAsync(state, suspending);
         }
         public void GroupByAlpha()
         {
             ListaSoluzioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.AlphaKey;
-            List<SoluzioneItem> list = AdventuresPlanetManager.Instance.ListaSoluzioni;
-            ListaSoluzioni = MyGrouping<SoluzioneItem>.AlphaKeyGroup(list, (x) => { return x.Titolo; }, true);
-            list.Clear();
-            list = null;
+            ListaSoluzioni = MyGrouping<SoluzioneItem>.AlphaKeyGroup(AdventuresPlanetManager.Instance.ListaSoluzioni, 
+                                                                    (x) => { return x.Titolo; }, 
+                                                                    true);
         }
         public async void AggiornaSoluzioni(object s, object e)
         {
