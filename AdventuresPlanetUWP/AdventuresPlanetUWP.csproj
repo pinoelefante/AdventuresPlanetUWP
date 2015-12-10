@@ -149,6 +149,7 @@
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="ViewModels\ContentsPageViewModel.cs" />
     <Compile Include="ViewModels\FirstStartViewModel.cs" />
+    <Compile Include="ViewModels\InfoPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\NewsPageViewModel.cs" />
     <Compile Include="ViewModels\OpzioniPageViewModel.cs" />
@@ -166,6 +167,9 @@
     </Compile>
     <Compile Include="Views\ImageViewPage.xaml.cs">
       <DependentUpon>ImageViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InfoPage.xaml.cs">
+      <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewsPage.xaml.cs">
       <DependentUpon>NewsPage.xaml</DependentUpon>
@@ -249,6 +253,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ImageViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

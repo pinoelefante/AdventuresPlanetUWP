@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="AdventuresPlanetUWP.Views.InfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdventuresPlanetUWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:vm="using:AdventuresPlanetUWP.ViewModels">
+
+    <Page.DataContext>
+        <vm:InfoPageViewModel/>
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageHeader Content="Info" BackButtonVisibility="Collapsed" IsEnabled="False"/>
+
+        <Image Grid.Row="1" Stretch="Uniform" Tapped="{x:Bind VM.VaiAlSitoWeb}" Source="ms-appx:///Assets/SplashScreen.png"/>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Margin="4,4" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Stretch" TextWrapping="Wrap">
+                <Hyperlink Click="{x:Bind VM.Vota}">
+                    <Run Text="Vota l'applicazione"></Run>
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Margin="4,4" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Stretch" TextWrapping="Wrap">
+                <Hyperlink Click="{x:Bind VM.ContattaSviluppatore}">
+                    <Run Text="Contatta lo sviluppatore"/>
+                </Hyperlink>
+            </TextBlock>
+            
+            <TextBlock Margin="4,4" VerticalAlignment="Center" Text="Applicazione sviluppata da Giuseppe Elefante. Tutto il materiale presente è proprietà di Adventure's Planet s.r.l." FontSize="12" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+            
+            <TextBlock Margin="4,4" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16">
+                <Run Text="Versione "/>
+                <Run Text="{Binding Versione}"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>
