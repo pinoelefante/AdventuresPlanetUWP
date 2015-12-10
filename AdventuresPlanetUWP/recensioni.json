@@ -1,0 +1,3125 @@
+{
+  "time": 1448552928,
+  "avventure": [
+    {
+      "titolo": "15 Days",
+      "link": "scheda_recensione.php?game=15 days",
+      "autore": "Rushes ",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "2001 - Odissea nel tempo",
+      "link": "scheda_recensione.php?game=2001",
+      "autore": "Luca Massari",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "80 Giorni",
+      "link": "scheda_recensione.php?game=80giorni",
+      "autore": "Carlo De Rensis",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "A Golden Wake",
+      "link": "scheda_recensione.php?game=goldenwake",
+      "autore": "Vittorio De Sanctis",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "A New Beginning",
+      "link": "scheda_recensione.php?game=earttb",
+      "autore": "Mattia Seppolini",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "A Stroke of Fate: Operation Valkyrie",
+      "link": "scheda_recensione.php?game=TAofNKYD",
+      "autore": "Mattia Brognoli",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "A Vampyre Story - Una storia di Vampiri",
+      "link": "scheda_recensione.php?game=avs",
+      "autore": "Simonetta Terra",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Ace Ventura",
+      "link": "scheda_recensione.php?game=ACEVENT",
+      "autore": "Cristiano Caliendo",
+      "voto": "52\/100"
+    },
+    {
+      "titolo": "Adam's Venture 2: Il Segreto di Salomone",
+      "link": "scheda_recensione.php?game=AdamSolomon",
+      "autore": "Ivan Vailati",
+      "voto": "59\/100"
+    },
+    {
+      "titolo": "Adam's Venture: Alla ricerca del Giardino Perduto",
+      "link": "scheda_recensione.php?game=AdamLostGarden",
+      "autore": "Nathaniel Berens",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Agatha Christie - Assassinio sull'Orient Express",
+      "link": "scheda_recensione.php?game=orient",
+      "autore": "Ivan Vailati",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Agatha Christie - Delitto Sotto il Sole",
+      "link": "scheda_recensione.php?game=agathasun",
+      "autore": "Ivan Vailati",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Agatha Christie - E Non Ne Rimase Nessuno",
+      "link": "scheda_recensione.php?game=ac10",
+      "autore": "Ivan Vailati",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Agatha Christie: Death on the Nile",
+      "link": "scheda_recensione.php?game=agathadon",
+      "autore": "Fabio Rella",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Agatha Christie: The ABC Murders (Nintendo DS)",
+      "link": "scheda_recensione.php?game=ABC",
+      "autore": "Marco Sgolmin",
+      "voto": "30\/100"
+    },
+    {
+      "titolo": "Age of Enigma",
+      "link": "scheda_recensione.php?game=aoe",
+      "autore": "Luca Massari",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Agon 4: The Lost Sword of Toledo",
+      "link": "scheda_recensione.php?game=agon4",
+      "autore": "Pietro Lietti",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Agon: Il Codice del Mistero",
+      "link": "scheda_recensione.php?game=agonpack",
+      "autore": "Ivan Vailati",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Alpha Polaris",
+      "link": "scheda_recensione.php?game=Alpha",
+      "autore": "Alberto Semprini",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Alter Ego",
+      "link": "scheda_recensione.php?game=Alterego",
+      "autore": "Mattia Seppolini",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Alternativa",
+      "link": "scheda_recensione.php?game=alternativa",
+      "autore": "Becky Waxman",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Amber's Blood",
+      "link": "scheda_recensione.php?game=Ambers",
+      "autore": "Alberto Semprini",
+      "voto": "53\/100"
+    },
+    {
+      "titolo": "Amerzone",
+      "link": "scheda_recensione.php?game=amerzone",
+      "autore": "Claudio Del Monte",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Amnesia: The Dark Descent",
+      "link": "scheda_recensione.php?game=UFGP",
+      "autore": "Pietro Lietti",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Anacapri - The Dream",
+      "link": "scheda_recensione.php?game=anacapri",
+      "autore": " ",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Ankh",
+      "link": "scheda_recensione.php?game=ankh",
+      "autore": "Carlo De Rensis",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Ankh: Il Cuore di Osiride",
+      "link": "scheda_recensione.php?game=ankh2",
+      "autore": "Ivan Vailati",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Ankh: La Battaglia degli Dei",
+      "link": "scheda_recensione.php?game=AnkhBotG",
+      "autore": "Ivan Vailati",
+      "voto": "69\/100"
+    },
+    {
+      "titolo": "Ankh: La Maledizione del Re Scarabeo (Nintendo DS)",
+      "link": "scheda_recensione.php?game=AnkhDS",
+      "autore": "Simonetta Terra",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Anna",
+      "link": "scheda_recensione.php?game=Ann",
+      "autore": "Alberto Semprini",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Anna - Extended Edition",
+      "link": "scheda_recensione.php?game=annaext",
+      "autore": "Alberto Semprini",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Another Code - Two Memories (Nintendo DS)",
+      "link": "scheda_recensione.php?game=ancode",
+      "autore": "Ciro Trocciola",
+      "voto": "83\/100"
+    },
+    {
+      "titolo": "Apollo Justice: Ace Attorney",
+      "link": "scheda_recensione.php?game=Apollo",
+      "autore": "Cristiano Caliendo",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "AR-K - Episodio 1",
+      "link": "scheda_recensione.php?game=ark1",
+      "autore": "Vittorio De Sanctis",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Art of Murder 2: Caccia al Burattinaio",
+      "link": "scheda_recensione.php?game=aom2",
+      "autore": "Fabio Rella",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Art of Murder 3: Le Carte del Destino",
+      "link": "scheda_recensione.php?game=AOMCards",
+      "autore": "Matteo Inzaghi",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Art of Murder: La Crudele Arte dell'Omicidio",
+      "link": "scheda_recensione.php?game=ARTMURDFBI",
+      "autore": "Simonetta Terra",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "ASA: A Space Adventure",
+      "link": "scheda_recensione.php?game=ASA",
+      "autore": "Daniele Picone",
+      "voto": "76\/100"
+    },
+    {
+      "titolo": "Atlantis Evolution",
+      "link": "scheda_recensione.php?game=atlevo",
+      "autore": "Ivan Vailati",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Aura 2 - Gli Anelli Sacri",
+      "link": "scheda_recensione.php?game=auratwo",
+      "autore": "Ivan Vailati",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Aurora - The Secret Within",
+      "link": "scheda_recensione.php?game=aurora",
+      "autore": "Ivan Vailati",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "Axel & Pixel",
+      "link": "scheda_recensione.php?game=AxPix",
+      "autore": "Matteo Inzaghi",
+      "voto": "81\/100"
+    },
+    {
+      "titolo": "Babylon",
+      "link": "scheda_recensione.php?game=BABYL",
+      "autore": "Adriano Bizzoco",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Back to the Future: The Game",
+      "link": "scheda_recensione.php?game=BackFuture",
+      "autore": "Luca Massari",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Bad Mojo Redux",
+      "link": "scheda_recensione.php?game=badmojo",
+      "autore": "Ivan Vailati",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Baron Wittard: L'Ombra del Ragnarok",
+      "link": "scheda_recensione.php?game=Wittard",
+      "autore": "Mattia Seppolini",
+      "voto": "63\/100"
+    },
+    {
+      "titolo": "Barrow Hill",
+      "link": "scheda_recensione.php?game=bhill",
+      "autore": " ",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Ben there, Dan that!",
+      "link": "scheda_recensione.php?game=Ben there",
+      "autore": "Luca Massari",
+      "voto": "74\/100"
+    },
+    {
+      "titolo": "Beneath a Steel Sky",
+      "link": "scheda_recensione.php?game=bass",
+      "autore": "Alberto Semprini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Beyond: Two Souls",
+      "link": "scheda_recensione.php?game=beyond2souls",
+      "autore": "Mattia Seppolini",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Black Mirror",
+      "link": "scheda_recensione.php?game=bmirror",
+      "autore": "Carlo de Caesaris",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Black Mirror 2",
+      "link": "scheda_recensione.php?game=bm2",
+      "autore": "Rushes ",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Black Mirror 3",
+      "link": "scheda_recensione.php?game=blackmirror3",
+      "autore": "Mattia Seppolini",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Blade Runner",
+      "link": "scheda_recensione.php?game=blrunner",
+      "autore": "Carlo De Rensis",
+      "voto": "86\/100"
+    },
+    {
+      "titolo": "Bloodwood Reload",
+      "link": "scheda_recensione.php?game=bloodwoodreload",
+      "autore": "Alberto Semprini",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Blue Force",
+      "link": "scheda_recensione.php?game=BLUEFORCE",
+      "autore": "Adriano Bizzoco",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Blue Toad Murder Files: The Mysteries of Little Riddle",
+      "link": "scheda_recensione.php?game=bluetoad",
+      "autore": "Luca Massari",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Bone Ep.1 - Out From Boneville",
+      "link": "scheda_recensione.php?game=bone",
+      "autore": "Carlo de Caesaris",
+      "voto": "74\/100"
+    },
+    {
+      "titolo": "Bone Ep.2 - The Great Cow Race",
+      "link": "scheda_recensione.php?game=bonegcr",
+      "autore": "Carlo De Rensis",
+      "voto": "81\/100"
+    },
+    {
+      "titolo": "Botanicula",
+      "link": "scheda_recensione.php?game=botanicula",
+      "autore": "Alberto Semprini",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Broken Age",
+      "link": "scheda_recensione.php?game=DFAdv",
+      "autore": "Roberto Bertoni",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Broken Sword - Il Segreto dei Templari",
+      "link": "scheda_recensione.php?game=bs1",
+      "autore": "Carlo De Rensis",
+      "voto": "93\/100"
+    },
+    {
+      "titolo": "Broken Sword 2 - La Profezia dei Maya",
+      "link": "scheda_recensione.php?game=bs2",
+      "autore": "Carlo De Rensis",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Broken Sword 2.5 - The Return of the Templars",
+      "link": "scheda_recensione.php?game=bs25",
+      "autore": "Marco Sgolmin",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Broken Sword 3 - Il Sonno del Drago",
+      "link": "scheda_recensione.php?game=bs3",
+      "autore": "Carlo de Caesaris",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Broken Sword 4 - L'Angelo della Morte",
+      "link": "scheda_recensione.php?game=brokeniv",
+      "autore": " ",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Broken Sword 5 - The Serpent's Curse",
+      "link": "scheda_recensione.php?game=broken5",
+      "autore": "Alberto Semprini",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Broken Sword: Shadows of the Templars - The Director's Cut",
+      "link": "scheda_recensione.php?game=bs1dc",
+      "autore": "Paolo De Luca",
+      "voto": "93\/100"
+    },
+    {
+      "titolo": "Brothers: A Tale of Two Sons",
+      "link": "scheda_recensione.php?game=brothers",
+      "autore": "Overmann ",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Call of Cthulhu: Dark Corners of the Earth",
+      "link": "scheda_recensione.php?game=chtulhu",
+      "autore": "Ivan Vailati",
+      "voto": "86\/100"
+    },
+    {
+      "titolo": "Caos a Deponia",
+      "link": "scheda_recensione.php?game=ChaosDEp",
+      "autore": "Daniele Picone",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Captain Morgane e la Tartaruga d'Oro",
+      "link": "scheda_recensione.php?game=capmorgan",
+      "autore": "Alberto Semprini",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 1: Remedy",
+      "link": "scheda_recensione.php?game=remedy",
+      "autore": "Carlo de Caesaris",
+      "voto": "48\/100"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 2: Hope Springs Eternal",
+      "link": "scheda_recensione.php?game=hse",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 3: Time Stand Still",
+      "link": "scheda_recensione.php?game=timestand",
+      "autore": "Ivan Vailati",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 4: East Side Story",
+      "link": "scheda_recensione.php?game=east",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 5: The Colour of Murder",
+      "link": "scheda_recensione.php?game=colmurd",
+      "autore": "Ivan Vailati",
+      "voto": "69\/100"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 6: Black Circle",
+      "link": "scheda_recensione.php?game=BlackCir",
+      "autore": "Ivan Vailati",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 7: Blue Madonna",
+      "link": "scheda_recensione.php?game=blue",
+      "autore": "Ivan Vailati",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Carte Blanche - Ep. 1: For a Fistful of Teeth",
+      "link": "scheda_recensione.php?game=carteblanche",
+      "autore": "Ivan Vailati",
+      "voto": "25\/100"
+    },
+    {
+      "titolo": "Catherine",
+      "link": "scheda_recensione.php?game=cat",
+      "autore": "Luca Massari",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Cedric and the Revolution",
+      "link": "scheda_recensione.php?game=cedric",
+      "autore": " ",
+      "voto": "91\/100"
+    },
+    {
+      "titolo": "Ceville",
+      "link": "scheda_recensione.php?game=Ceville",
+      "autore": "Matteo Inzaghi",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Chronicles of Mystery - Il rituale dello scorpione",
+      "link": "scheda_recensione.php?game=ToF",
+      "autore": "Simonetta Terra",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Chronicles of Mystery: L'Albero della Vita",
+      "link": "scheda_recensione.php?game=COM_Tree",
+      "autore": "Simonetta Terra",
+      "voto": "71\/100"
+    },
+    {
+      "titolo": "Cirque De Zale",
+      "link": "scheda_recensione.php?game=cirque",
+      "autore": "Vittorio De Sanctis",
+      "voto": "66\/100"
+    },
+    {
+      "titolo": "Cleopatra - Il Destino di una Regina",
+      "link": "scheda_recensione.php?game=cleopatra",
+      "autore": "Ivan Vailati",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Episode 1 - The Hangman",
+      "link": "scheda_recensione.php?game=Hangman",
+      "autore": "Daniele Picone",
+      "voto": "74\/100"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Episode 2 - The Wise Monkey",
+      "link": "scheda_recensione.php?game=wisemonkey",
+      "autore": "Daniele Picone",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Episode 3 - The Oracle",
+      "link": "scheda_recensione.php?game=cogn3oracle",
+      "autore": "Daniele Picone",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Episode 4 - The Cain Killer",
+      "link": "scheda_recensione.php?game=cogn4cain",
+      "autore": "Daniele Picone",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Season Pass",
+      "link": "scheda_recensione.php?game=cognition",
+      "autore": "Daniele Picone",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Cold Fear",
+      "link": "scheda_recensione.php?game=coldfear",
+      "autore": "Ivan Vailati",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Conspiracies",
+      "link": "scheda_recensione.php?game=conspiracies",
+      "autore": "Carlo de Caesaris",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Contrast",
+      "link": "scheda_recensione.php?game=contrast",
+      "autore": "Daniele Picone",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Corto Maltese - I Segreti di Venezia",
+      "link": "scheda_recensione.php?game=cortomaltesevenezia",
+      "autore": "Simone Iacovino",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Cruise for a Corpse",
+      "link": "scheda_recensione.php?game=CRUISE",
+      "autore": "Adriano Bizzoco",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "CSI: Cospirazione Letale",
+      "link": "scheda_recensione.php?game=CSI_cospletale",
+      "autore": "Pietro Lietti",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "CSI: Crime Scene Investigation",
+      "link": "scheda_recensione.php?game=csi",
+      "autore": "Carlo De Rensis",
+      "voto": "45\/100"
+    },
+    {
+      "titolo": "CSI: Dark Motives",
+      "link": "scheda_recensione.php?game=csi2",
+      "autore": "Carlo De Rensis",
+      "voto": "63\/100"
+    },
+    {
+      "titolo": "CSI: Intento Mortale",
+      "link": "scheda_recensione.php?game=CSIDI",
+      "autore": "Pietro Lietti",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "CSI: Miami",
+      "link": "scheda_recensione.php?game=csimiami",
+      "autore": "Carlo De Rensis",
+      "voto": "53\/100"
+    },
+    {
+      "titolo": "CSI: Omicidio in 3 Dimensioni",
+      "link": "scheda_recensione.php?game=csidom",
+      "autore": "Carlo De Rensis",
+      "voto": "67\/100"
+    },
+    {
+      "titolo": "CSI: Prova Schiacciante",
+      "link": "scheda_recensione.php?game=csihe",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Culpa Innata",
+      "link": "scheda_recensione.php?game=culpa",
+      "autore": "Adriano Bizzoco",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Curse - The Eye of Isis",
+      "link": "scheda_recensione.php?game=curse",
+      "autore": "Ivan Vailati",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "Cypher - Nome in Codice Raven",
+      "link": "scheda_recensione.php?game=cypher",
+      "autore": "Ivan Vailati",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Da New Guys: Day of the Jackass",
+      "link": "scheda_recensione.php?game=dng",
+      "autore": "Luca Massari",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Daemonica",
+      "link": "scheda_recensione.php?game=daemonica",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Danganronpa: Trigger Happy Havoc",
+      "link": "scheda_recensione.php?game=dangan",
+      "autore": "Daniele Picone",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Dangerous Heaven - La Leggenda dell'Arca",
+      "link": "scheda_recensione.php?game=arca",
+      "autore": "Carlo de Caesaris",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Dark Fall",
+      "link": "scheda_recensione.php?game=darkfall",
+      "autore": "Carlo de Caesaris",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Dark Fall 2",
+      "link": "scheda_recensione.php?game=darkfall2",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Dark Fall 3: Lost Souls",
+      "link": "scheda_recensione.php?game=DF_",
+      "autore": "Nathaniel Berens",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Dark Tales: La Maschera della Morte Rossa di Edgar Allan Poe",
+      "link": "scheda_recensione.php?game=dtalesredmask",
+      "autore": "Ekaterina ",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Darkness Within: Sulle tracce di Loath Nolder",
+      "link": "scheda_recensione.php?game=loathlabores",
+      "autore": "Becky Waxman",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Day of the Tentacle",
+      "link": "scheda_recensione.php?game=dott",
+      "autore": "Salvo Puccio",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Dead City",
+      "link": "scheda_recensione.php?game=deadcity",
+      "autore": "Ivan Vailati",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Dead Mountaineer's Hotel",
+      "link": "scheda_recensione.php?game=dmh",
+      "autore": "Julien Clement",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Dead Reefs",
+      "link": "scheda_recensione.php?game=reefs",
+      "autore": "Ivan Vailati",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Dead Synchronicity: Tomorrow comes Today",
+      "link": "scheda_extra.php?game=deadsync&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Dear Esther",
+      "link": "scheda_recensione.php?game=dearesther",
+      "autore": "Alberto Semprini",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Decay \u2013 The Mare",
+      "link": "scheda_recensione.php?game=decaythemare",
+      "autore": "Simone Iacovino",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Delaware St. John - La Maledizione di Midnight Manor",
+      "link": "scheda_recensione.php?game=sjcmm",
+      "autore": "Ivan Vailati",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Delaware St. John - Vol. 2: La Citt\u00e0 Senza Nome",
+      "link": "scheda_recensione.php?game=sjtnn",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Delaware St. John - Vol. 3: La Tragedia sulla Scogliera",
+      "link": "scheda_recensione.php?game=delawarest",
+      "autore": "Ivan Vailati",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Destinazione: L'Isola del Tesoro",
+      "link": "scheda_recensione.php?game=isolatesoro",
+      "autore": "Adriano Bizzoco",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Diabolik - Original Sin",
+      "link": "scheda_recensione.php?game=diabolik",
+      "autore": "Carlo De Rensis",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Dinner Date",
+      "link": "scheda_recensione.php?game=Dinner",
+      "autore": "Matteo Inzaghi",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Discworld Noir",
+      "link": "scheda_recensione.php?game=discnoir",
+      "autore": "Carlo De Rensis",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Doctor Who - Ep. 1: City of the Daleks",
+      "link": "scheda_recensione.php?game=DWDaleks",
+      "autore": "Ivan Vailati",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "Doctor Who - Ep. 2: Blood of the Cybermen",
+      "link": "scheda_recensione.php?game=DWhoTwo",
+      "autore": "Ivan Vailati",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Doctor Who - Ep. 3: Tardis",
+      "link": "scheda_recensione.php?game=tardis",
+      "autore": "Ivan Vailati",
+      "voto": "45\/100"
+    },
+    {
+      "titolo": "Doctor Who - Ep. 4: Shadows of the Vashta Nerada",
+      "link": "scheda_recensione.php?game=DWhoFour",
+      "autore": "Ivan Vailati",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Donald Dowell and the Ghost of Barker Manor",
+      "link": "scheda_recensione.php?game=ddowell",
+      "autore": "Vittorio De Sanctis",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Dracula 2 - L'Ultimo Santuario",
+      "link": "scheda_recensione.php?game=dracula2",
+      "autore": "Salvo Puccio",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Dracula 3 - Il Sentiero del Drago",
+      "link": "scheda_recensione.php?game=draculatre",
+      "autore": "Claudio Del Monte",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Dracula 4 - L'Ombra del Drago",
+      "link": "scheda_recensione.php?game=Drac_Dragon",
+      "autore": "Alberto Semprini",
+      "voto": "54\/100"
+    },
+    {
+      "titolo": "Dracula: Origin",
+      "link": "scheda_recensione.php?game=drorigin",
+      "autore": "Ivan Vailati",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Dragonsphere",
+      "link": "scheda_recensione.php?game=dgsphere",
+      "autore": "Luca Massari",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Dream Chamber",
+      "link": "scheda_recensione.php?game=dreamchamber",
+      "autore": "Vittorio De Sanctis",
+      "voto": "58\/100"
+    },
+    {
+      "titolo": "Dreamfall Chapters - Book One: Reborn",
+      "link": "scheda_extra.php?game=dreamchapt1&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Dreamfall Chapters - Book Three: Realms",
+      "link": "scheda_extra.php?game=dreamchapt3&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Dreamfall Chapters - Book Two: Rebels",
+      "link": "scheda_extra.php?game=dreamchapt2&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Dreamfall: The Longest Journey",
+      "link": "scheda_recensione.php?game=dreamfall",
+      "autore": "Carlo De Rensis",
+      "voto": "83\/100"
+    },
+    {
+      "titolo": "Dreamweb",
+      "link": "scheda_recensione.php?game=dreamweb",
+      "autore": "Alberto Semprini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Dylan Dog 01: La Regina delle Tenebre",
+      "link": "scheda_recensione.php?game=DD01",
+      "autore": "Adriano Bizzoco",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Dylan Dog 02: Ritorno al Crepuscolo",
+      "link": "scheda_recensione.php?game=DD02",
+      "autore": "Adriano Bizzoco",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Edna & Harvey: Harvey's New Eyes",
+      "link": "scheda_recensione.php?game=Harvey",
+      "autore": "Daniele Picone",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Egypt 3  - Il Destino di Ramses",
+      "link": "scheda_recensione.php?game=egypt3",
+      "autore": "Carlo De Rensis",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "El Dorado",
+      "link": "scheda_recensione.php?game=eldorado",
+      "autore": "Ivan Vailati",
+      "voto": "69\/100"
+    },
+    {
+      "titolo": "Eleusis",
+      "link": "scheda_recensione.php?game=eleusis",
+      "autore": "Alberto Semprini",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Emerald City Confidential",
+      "link": "scheda_recensione.php?game=Emerald",
+      "autore": "Mattia Seppolini",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Eternal Journey: Nuova Atlantide",
+      "link": "scheda_recensione.php?game=ejourney",
+      "autore": "Marinella Balbinutti",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Ether One",
+      "link": "scheda_extra.php?game=etherone&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Evany - La Chiave per Mondi Sconosciuti",
+      "link": "scheda_recensione.php?game=ck2",
+      "autore": "Ivan Vailati",
+      "voto": "45\/100"
+    },
+    {
+      "titolo": "Everybody's Gone to the Rapture",
+      "link": "scheda_recensione.php?game=rapture",
+      "autore": "Simone Pizzi",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Evil Days of Luckless John",
+      "link": "scheda_recensione.php?game=raiderscasino",
+      "autore": "Ivan Vailati",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Evil Dead: Regeneration",
+      "link": "scheda_recensione.php?game=regeneration",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Evocation: La Sfida",
+      "link": "scheda_recensione.php?game=evocation1",
+      "autore": "Federico Meoni",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Experience 112",
+      "link": "scheda_recensione.php?game=experience",
+      "autore": "Adriano Bizzoco",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Fable",
+      "link": "scheda_recensione.php?game=FBL",
+      "autore": "Adriano Bizzoco",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Face Noir",
+      "link": "scheda_recensione.php?game=FaceN",
+      "autore": "Alberto Semprini",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Fahrenheit",
+      "link": "scheda_recensione.php?game=fahrenheit",
+      "autore": "Carlo De Rensis",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Fenimore Fillmore's Revenge",
+      "link": "scheda_recensione.php?game=revenge",
+      "autore": "Matteo Inzaghi",
+      "voto": "63\/100"
+    },
+    {
+      "titolo": "Fester Mudd - Curse of the Gold: Episode 1",
+      "link": "scheda_recensione.php?game=festermudd",
+      "autore": "Alberto Semprini",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Flight of the Amazon Queen",
+      "link": "scheda_recensione.php?game=fotaq",
+      "autore": "Fabrizio Degni",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Forever Worlds",
+      "link": "scheda_recensione.php?game=forworlds",
+      "autore": "Ivan Vailati",
+      "voto": "35\/100"
+    },
+    {
+      "titolo": "Forge - Capitolo 1",
+      "link": "scheda_recensione.php?game=Forge",
+      "autore": "Daniele Picone",
+      "voto": "71\/100"
+    },
+    {
+      "titolo": "Fran Bow",
+      "link": "scheda_recensione.php?game=franbow",
+      "autore": "Alberto Semprini",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Fuga da Deponia",
+      "link": "scheda_recensione.php?game=Deponia",
+      "autore": "Mattia Seppolini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Full Throttle",
+      "link": "scheda_recensione.php?game=fthrottle",
+      "autore": " ",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Gabriel Knight 1: Sins of the Fathers",
+      "link": "scheda_recensione.php?game=gk",
+      "autore": "Cristiano Caliendo",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Gabriel Knight 2: The Beast Within",
+      "link": "scheda_recensione.php?game=gk2bw",
+      "autore": "Claudio Del Monte",
+      "voto": "93\/100"
+    },
+    {
+      "titolo": "Gabriel Knight 3: Il Mistero Macchiato di Sangue",
+      "link": "scheda_recensione.php?game=gk3",
+      "autore": "Claudio Del Monte",
+      "voto": "95\/100"
+    },
+    {
+      "titolo": "Gabriel Knight: Le Colpe dei Padri - 20th Anniversary Edition",
+      "link": "scheda_recensione.php?game=gk1remake",
+      "autore": "Alberto Semprini",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Game of Thrones - Ep. 1 Iron from Ice",
+      "link": "scheda_extra.php?game=gotep1&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Game of Thrones - Ep. 2 The Lost Lords",
+      "link": "scheda_extra.php?game=gotep2&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Game of Thrones - Ep. 3 The Sword in the Darkness",
+      "link": "scheda_extra.php?game=gotep3&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Game of Thrones - Ep. 4 Sons of Winter",
+      "link": "scheda_extra.php?game=gotep4&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Game of Thrones - Ep. 5 A Nest of Vipers",
+      "link": "scheda_extra.php?game=gotep5&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Game of Thrones - Ep. 6 The Ice Dragon",
+      "link": "scheda_extra.php?game=gotep6&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Gast - Alla Ricerca della Risata Perduta",
+      "link": "scheda_recensione.php?game=gast",
+      "autore": "Ivan Vailati",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Gemini Rue",
+      "link": "scheda_recensione.php?game=geminirue",
+      "autore": "Luca Massari",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Ghost in the Sheet - Il Segreto del Settore Omega",
+      "link": "scheda_recensione.php?game=ghost",
+      "autore": "Cristiano Caliendo",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Ghost Pirates of Vooju Island",
+      "link": "scheda_recensione.php?game=GhostPirates",
+      "autore": "Dante Kleinberg",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Ghost Trick: Detective fantasma",
+      "link": "scheda_recensione.php?game=GTrick",
+      "autore": "Marco Sgolmin",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Gilbert Goodmate",
+      "link": "scheda_recensione.php?game=ggoodmate",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Gobliins 2: The Prince Buffoon",
+      "link": "scheda_recensione.php?game=GobPrince",
+      "autore": "Luca Massari",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Gods Will Be Watching",
+      "link": "scheda_recensione.php?game=godswatching",
+      "autore": "Simone Iacovino",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Goin' Downtown",
+      "link": "scheda_recensione.php?game=GDowntown",
+      "autore": "Ivan Vailati",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Gold Rush! Anniversary",
+      "link": "scheda_recensione.php?game=goldrushanniversary",
+      "autore": "Simone Iacovino",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Gomo",
+      "link": "scheda_recensione.php?game=Gomo",
+      "autore": "Vittorio De Sanctis",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Gone Home",
+      "link": "scheda_recensione.php?game=goneh",
+      "autore": "Alberto Semprini",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Gooka: Il Mistero di Janatris",
+      "link": "scheda_recensione.php?game=gooka",
+      "autore": "Ivan Vailati",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Gray Matter",
+      "link": "scheda_recensione.php?game=gmatter",
+      "autore": "Cristiano Caliendo",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Grim Fandango",
+      "link": "scheda_recensione.php?game=gfandango",
+      "autore": "Claudio Del Monte",
+      "voto": "93\/100"
+    },
+    {
+      "titolo": "Grim Fandango Remastered",
+      "link": "scheda_extra.php?game=GFRema&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Hamlet",
+      "link": "scheda_recensione.php?game=Hamlet",
+      "autore": "Matteo Inzaghi",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "HCA \u2013 The Ugly Prince Duckling",
+      "link": "scheda_recensione.php?game=hca",
+      "autore": "Ivan Vailati",
+      "voto": "76\/100"
+    },
+    {
+      "titolo": "Heaven",
+      "link": "scheda_recensione.php?game=heaven",
+      "autore": "Ivan Vailati",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "Heavy Rain (Playstation 3)",
+      "link": "scheda_recensione.php?game=heavy",
+      "autore": "Fabio Rella e Matteo Radogna",
+      "voto": "89\/100"
+    },
+    {
+      "titolo": "Hector: Badge of Carnage - Episode 1: We Negotiate With Terrorists",
+      "link": "scheda_recensione.php?game=hector",
+      "autore": "Luca Massari",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Hector: Badge of Carnage - Episode 2: Senseless Acts of Justice",
+      "link": "scheda_recensione.php?game=hector2",
+      "autore": "Luca Massari",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Hector: Badge of Carnage - Episode 3: Beyond Reasonable Doom",
+      "link": "scheda_recensione.php?game=hector3",
+      "autore": "Luca Massari",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Hell - A Cyberpunk Thriller",
+      "link": "scheda_recensione.php?game=hell",
+      "autore": "Adriano Bizzoco",
+      "voto": "58\/100"
+    },
+    {
+      "titolo": "Her Story",
+      "link": "scheda_recensione.php?game=herstory",
+      "autore": "Andrea Dresseno",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Heroine's Quest: The Herald of Ragnarok",
+      "link": "scheda_recensione.php?game=hquest",
+      "autore": "Alberto Semprini",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Hollywood Monsters",
+      "link": "scheda_recensione.php?game=hollymonsters",
+      "autore": "Carlo De Rensis",
+      "voto": "58\/100"
+    },
+    {
+      "titolo": "Hollywood Monsters 2 (The Next BIG Thing)",
+      "link": "scheda_recensione.php?game=TNBT",
+      "autore": "Pietro Lietti",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Hotel - I Segreti del Bellevue",
+      "link": "scheda_recensione.php?game=Hotel",
+      "autore": "Ivan Vailati",
+      "voto": "45\/100"
+    },
+    {
+      "titolo": "Hotel Dusk: Room 215 (Nintendo DS)",
+      "link": "scheda_recensione.php?game=dusk",
+      "autore": "Simonetta Terra",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "I Casi Perduti di Sherlock Holmes",
+      "link": "scheda_recensione.php?game=lostcasessh",
+      "autore": "Adriano Bizzoco",
+      "voto": "40\/100"
+    },
+    {
+      "titolo": "I Have No Mouth and I Must Scream",
+      "link": "scheda_recensione.php?game=nomouth",
+      "autore": "Adriano Bizzoco",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "I Misteri di Maggia",
+      "link": "scheda_recensione.php?game=maggia",
+      "autore": "Carlo de Caesaris",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Il Codice Da Vinci",
+      "link": "scheda_recensione.php?game=codicedavinci",
+      "autore": "Carlo De Rensis",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Il Mistero di Notre Dame",
+      "link": "scheda_recensione.php?game=notredame",
+      "autore": "Ivan Vailati",
+      "voto": "30\/100"
+    },
+    {
+      "titolo": "Il Ritorno all'Isola Misteriosa",
+      "link": "scheda_recensione.php?game=rim",
+      "autore": "Carlo De Rensis",
+      "voto": "81\/100"
+    },
+    {
+      "titolo": "Il Ritorno all'Isola Misteriosa 2: Il Destino di Mina",
+      "link": "scheda_recensione.php?game=RTMI2_",
+      "autore": "Angelo Bruno",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Il Testamento di Sherlock Holmes",
+      "link": "scheda_recensione.php?game=SHtestament",
+      "autore": "Adriano Bizzoco",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "In Memoriam",
+      "link": "scheda_recensione.php?game=inmemoriam",
+      "autore": "Carlo de Caesaris",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Indiana Jones and the Fate of Atlantis",
+      "link": "scheda_recensione.php?game=ijatlantide",
+      "autore": "Luca Massari",
+      "voto": "95\/100"
+    },
+    {
+      "titolo": "Indiana Jones and the Last Crusade",
+      "link": "scheda_recensione.php?game=INDY3",
+      "autore": "Alberto Semprini",
+      "voto": "89\/100"
+    },
+    {
+      "titolo": "Insecticide: Part 1",
+      "link": "scheda_recensione.php?game=insecticide1",
+      "autore": "Luca Massari",
+      "voto": "57\/100"
+    },
+    {
+      "titolo": "J.U.L.I.A.",
+      "link": "scheda_recensione.php?game=J.U.L.I.A.",
+      "autore": "Luca Massari",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Jack Keane - Al Riscatto dell'Impero Britannico",
+      "link": "scheda_recensione.php?game=keane",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Jack Keane 2 - The Fire Within",
+      "link": "scheda_recensione.php?game=JKTwo",
+      "autore": "Daniele Picone",
+      "voto": "63\/100"
+    },
+    {
+      "titolo": "Jack lo Squartatore",
+      "link": "scheda_recensione.php?game=jack",
+      "autore": "Carlo de Caesaris",
+      "voto": "25\/100"
+    },
+    {
+      "titolo": "Jazz & Faust",
+      "link": "scheda_recensione.php?game=jazzfaust",
+      "autore": "Ivan Vailati",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Jekyll & Hyde: The Secret of London Undergrounds",
+      "link": "scheda_recensione.php?game=JHSecretLondon",
+      "autore": "Ivan Vailati",
+      "voto": "58\/100"
+    },
+    {
+      "titolo": "Joe Dever's Lone Wolf HD Remastered",
+      "link": "scheda_recensione.php?game=lonewolf",
+      "autore": "Simone Iacovino",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Jolly Rover",
+      "link": "scheda_recensione.php?game=jollyrover",
+      "autore": "Vittorio De Sanctis",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Jonathan Danter - Nel Sangue di Giuda",
+      "link": "scheda_recensione.php?game=belief",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Journey",
+      "link": "scheda_recensione.php?game=journey",
+      "autore": "Luca Massari",
+      "voto": "94\/100"
+    },
+    {
+      "titolo": "Journey of a Roach",
+      "link": "scheda_recensione.php?game=jouroach",
+      "autore": "Vittorio De Sanctis",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Julia: Innocent Eyes - Istinto predatore",
+      "link": "scheda_recensione.php?game=Ep2Julia",
+      "autore": "Mattia Seppolini",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Julia: Innocent Eyes - Lacrime Nere",
+      "link": "scheda_recensione.php?game=JuliaLN",
+      "autore": "Mattia Seppolini",
+      "voto": "58\/100"
+    },
+    {
+      "titolo": "Julia: Innocent Eyes - Parole non dette",
+      "link": "scheda_recensione.php?game=Julia1ep",
+      "autore": "Mattia Seppolini",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "Jurassic Park: The Game",
+      "link": "scheda_recensione.php?game=JurPark",
+      "autore": "Luca Massari",
+      "voto": "39\/100"
+    },
+    {
+      "titolo": "Kaptain Brawe: A Brawe New World",
+      "link": "scheda_recensione.php?game=kapbrawe_",
+      "autore": "Mattia Seppolini",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Keepsake - Il Mistero di Dragonvale",
+      "link": "scheda_recensione.php?game=keepsake",
+      "autore": "Carlo De Rensis",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Kentucky Route Zero - Act 1",
+      "link": "scheda_recensione.php?game=kentucky1",
+      "autore": "Overmann ",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Kentucky Route Zero - Act 2",
+      "link": "scheda_recensione.php?game=kentucky2",
+      "autore": "Overmann ",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Kentucky Route Zero - Act 3",
+      "link": "scheda_recensione.php?game=kentucky3",
+      "autore": "Overmann ",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "King's Quest 2: Romancing the Stones VGA Remake",
+      "link": "scheda_recensione.php?game=kq2vga",
+      "autore": "Luca Massari",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "King's Quest 3: To Heir is Human VGA Remake",
+      "link": "scheda_recensione.php?game=KQ3Remake",
+      "autore": "Luca Massari",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "King's Quest 7: The Princeless Bride",
+      "link": "scheda_recensione.php?game=kq7",
+      "autore": "Luca Massari",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "King's Quest 8: Mask of Eternity",
+      "link": "scheda_recensione.php?game=kq8",
+      "autore": "Luca Massari",
+      "voto": "76\/100"
+    },
+    {
+      "titolo": "Kronolog: The Nazi Paradox",
+      "link": "scheda_recensione.php?game=KRONO",
+      "autore": "Adriano Bizzoco",
+      "voto": "40\/100"
+    },
+    {
+      "titolo": "L.A. Noire",
+      "link": "scheda_recensione.php?game=LaNoir",
+      "autore": "Mattia Seppolini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "La Citt\u00e0 Perduta di Zerzura",
+      "link": "scheda_recensione.php?game=zerzura",
+      "autore": "Mattia Seppolini",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "La Terribile Minaccia degli Invasori dall'Audiogalassia",
+      "link": "scheda_recensione.php?game=invasori",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Last Half of Darkness 2: Beyond the Spirit's Eye",
+      "link": "scheda_recensione.php?game=LHOD2",
+      "autore": "Ivan Vailati",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Last Window: Il Segreto di Cape West (Nintendo DS)",
+      "link": "scheda_recensione.php?game=LastWinDS",
+      "autore": "Fabio Rella",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Laura Bow: The Colonel's Bequest",
+      "link": "scheda_recensione.php?game=laurabow1",
+      "autore": "Alberto Semprini",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Law & Order I: Omicidio A Central Park",
+      "link": "scheda_recensione.php?game=leo",
+      "autore": "Carlo De Rensis",
+      "voto": "49\/100"
+    },
+    {
+      "titolo": "Law & Order II: Omicidio A Manhattan",
+      "link": "scheda_recensione.php?game=leo2",
+      "autore": "Carlo De Rensis",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Law & Order III: Giustizia E' Fatta",
+      "link": "scheda_recensione.php?game=leo3",
+      "autore": "Carlo De Rensis",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Leisure Suit Larry 8: Magna Cum Laude",
+      "link": "scheda_recensione.php?game=lslmcl",
+      "autore": "Cristiano Caliendo",
+      "voto": "58\/100"
+    },
+    {
+      "titolo": "Leisure Suit Larry 9: Box Office Bust",
+      "link": "scheda_recensione.php?game=larrybox",
+      "autore": "Cristiano Caliendo",
+      "voto": "20\/100"
+    },
+    {
+      "titolo": "Life is Strange - Episodio 1: Chrysalis",
+      "link": "scheda_recensione.php?game=Lifestrange",
+      "autore": "Andrea Dresseno",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Life is Strange - Episodio 2: Out of Time",
+      "link": "scheda_recensione.php?game=Lifestrange2",
+      "autore": "Andrea Dresseno",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Life is Strange - Episodio 3: Chaos Theory",
+      "link": "scheda_recensione.php?game=Lifestrange3",
+      "autore": "Andrea Dresseno",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Life is Strange - Episodio 4: Dark Room",
+      "link": "scheda_recensione.php?game=Lifestrange4",
+      "autore": "Andrea Dresseno",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Life is Strange - Episodio 5: Polarized",
+      "link": "scheda_recensione.php?game=Lifestrange5",
+      "autore": "Andrea Dresseno",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Lilly Looking Through",
+      "link": "scheda_recensione.php?game=Lilly",
+      "autore": "Mattia Seppolini",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Little Big Adventure",
+      "link": "scheda_recensione.php?game=lba",
+      "autore": "Daniele Picone",
+      "voto": "92\/100"
+    },
+    {
+      "titolo": "Loom",
+      "link": "scheda_recensione.php?game=loom",
+      "autore": "Carlo De Rensis",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Lost - Via Domus",
+      "link": "scheda_recensione.php?game=Lost",
+      "autore": "Cristiano Caliendo",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Lost Horizon",
+      "link": "scheda_recensione.php?game=USDA",
+      "autore": "Fabio Rella",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Louisiana Adventure",
+      "link": "scheda_recensione.php?game=Lou",
+      "autore": "Mattia Seppolini",
+      "voto": "45\/100"
+    },
+    {
+      "titolo": "Lucius",
+      "link": "scheda_recensione.php?game=lucius",
+      "autore": "Alberto Semprini",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Lunar Deep - The Adventure Below",
+      "link": "scheda_recensione.php?game=ldeep",
+      "autore": "Ivan Vailati",
+      "voto": "15\/100"
+    },
+    {
+      "titolo": "Machinarium",
+      "link": "scheda_recensione.php?game=Machi",
+      "autore": "Matteo Inzaghi",
+      "voto": "91\/100"
+    },
+    {
+      "titolo": "Maestro: Music Of Death",
+      "link": "scheda_recensione.php?game=Maestro",
+      "autore": "Marinella Balbinutti",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Maniac Mansion Deluxe",
+      "link": "scheda_recensione.php?game=mmd",
+      "autore": "Alberto Semprini",
+      "voto": "91\/100"
+    },
+    {
+      "titolo": "Martin Myst\u00e8re",
+      "link": "scheda_recensione.php?game=mmystere",
+      "autore": "Carlo De Rensis",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Mata Hari",
+      "link": "scheda_recensione.php?game=mata",
+      "autore": "Matteo Inzaghi",
+      "voto": "40\/100"
+    },
+    {
+      "titolo": "McPixel",
+      "link": "scheda_recensione.php?game=mcpixel",
+      "autore": "Alberto Semprini",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Memento Mori: Il segreto della vita eterna",
+      "link": "scheda_recensione.php?game=mmori",
+      "autore": "Fabio Rella",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Memoria",
+      "link": "scheda_recensione.php?game=memoria",
+      "autore": "Daniele Picone",
+      "voto": "86\/100"
+    },
+    {
+      "titolo": "Metal Dead",
+      "link": "scheda_recensione.php?game=metaldead",
+      "autore": "Vittorio De Sanctis",
+      "voto": "40\/100"
+    },
+    {
+      "titolo": "Midnight Nowhere",
+      "link": "scheda_recensione.php?game=midnight",
+      "autore": "Carlo De Rensis",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Miskatonic Ep.1: The Inhuman Stain",
+      "link": "scheda_recensione.php?game=miska",
+      "autore": "Luca Massari",
+      "voto": "71\/100"
+    },
+    {
+      "titolo": "Moebius: Empire Rising",
+      "link": "scheda_recensione.php?game=moebius",
+      "autore": "Daniele Picone",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Monkey Island 2 - Le Chuck's Revenge",
+      "link": "scheda_recensione.php?game=monkey2",
+      "autore": " ",
+      "voto": "95\/100"
+    },
+    {
+      "titolo": "Monkey Island 2 Special Edition: LeChuck's Revenge",
+      "link": "scheda_recensione.php?game=Mkey2SE",
+      "autore": "Matteo Inzaghi",
+      "voto": "96\/100"
+    },
+    {
+      "titolo": "Monkey Island 3 - The Curse of Monkey Island",
+      "link": "scheda_recensione.php?game=monkey3",
+      "autore": " ",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Monkey Island 4 - Fuga Da Monkey Island",
+      "link": "scheda_recensione.php?game=monkey4",
+      "autore": "Paolo Novarese",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Monkey Island Adventures Special Edition Collection",
+      "link": "scheda_recensione.php?game=MIEdSpec",
+      "autore": "Matteo Inzaghi",
+      "voto": "86\/100"
+    },
+    {
+      "titolo": "Morningstar: Descent to Deadrock",
+      "link": "scheda_recensione.php?game=morningstar",
+      "autore": "Alberto Semprini",
+      "voto": "76\/100"
+    },
+    {
+      "titolo": "Munin",
+      "link": "scheda_recensione.php?game=munin",
+      "autore": "Mattia Seppolini",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Murdered: Soul Suspect",
+      "link": "scheda_recensione.php?game=murdered",
+      "autore": "Overmann ",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Myst 3: Exile",
+      "link": "scheda_recensione.php?game=myst3",
+      "autore": " ",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Myst IV - Revelation",
+      "link": "scheda_recensione.php?game=mystiv",
+      "autore": " ",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Myst V - End Of Ages",
+      "link": "scheda_recensione.php?game=myst5",
+      "autore": " ",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Mystery Detective",
+      "link": "scheda_recensione.php?game=MysteryD",
+      "autore": "Cristiano Caliendo",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Mystery Detective II",
+      "link": "scheda_recensione.php?game=MD2",
+      "autore": "Cristiano Caliendo",
+      "voto": "59\/100"
+    },
+    {
+      "titolo": "Mystery Of The Druids",
+      "link": "scheda_recensione.php?game=motd",
+      "autore": "Ivan Vailati",
+      "voto": "69\/100"
+    },
+    {
+      "titolo": "Nancy Drew [Nintendo DS]",
+      "link": "scheda_recensione.php?game=NDrewDS",
+      "autore": "Cristiano Caliendo",
+      "voto": "49\/100"
+    },
+    {
+      "titolo": "NCIS The Game",
+      "link": "scheda_recensione.php?game=ncis",
+      "autore": "Pietro Lietti",
+      "voto": "59\/100"
+    },
+    {
+      "titolo": "Necronomicon",
+      "link": "scheda_recensione.php?game=necronomicon",
+      "autore": "Salvo Puccio",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "Nelly Cootalot, Spoonbeaks Ahoy!",
+      "link": "scheda_recensione.php?game=nellyspoonbeaks",
+      "autore": "Vittorio De Sanctis",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Nelson Tethers: Puzzle Agent",
+      "link": "scheda_recensione.php?game=PAgent",
+      "autore": "Mattia Seppolini",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Never Alone",
+      "link": "scheda_recensione.php?game=neveralone",
+      "autore": "Andrea Dresseno",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "New York Crimes",
+      "link": "scheda_recensione.php?game=y",
+      "autore": "Mattia Seppolini",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Ni.Bi.Ru: Il Messaggero degli Dei",
+      "link": "scheda_recensione.php?game=nibiru",
+      "autore": "Carlo De Rensis",
+      "voto": "74\/100"
+    },
+    {
+      "titolo": "Nicolas Eymerich, Inquisitore: Il Villaggio",
+      "link": "scheda_recensione.php?game=NEymerich2",
+      "autore": "Alberto Semprini",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Nicolas Eymerich, Inquisitore: La Peste",
+      "link": "scheda_recensione.php?game=NEymerich",
+      "autore": "Adriano Bizzoco",
+      "voto": "74\/100"
+    },
+    {
+      "titolo": "Nightfall Mysteries: Asylum Conspiracy",
+      "link": "scheda_recensione.php?game=NigthfallMyst",
+      "autore": "Marinella Balbinutti",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Nightlong: Union City Conspiracy",
+      "link": "scheda_recensione.php?game=nightlong",
+      "autore": "Carlo De Rensis",
+      "voto": "74\/100"
+    },
+    {
+      "titolo": "Nikopol",
+      "link": "scheda_recensione.php?game=NK",
+      "autore": "Arianna Vacca",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Nostradamus: L'Ultima Profezia",
+      "link": "scheda_recensione.php?game=NOSTRAD",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Obscure",
+      "link": "scheda_recensione.php?game=obscure",
+      "autore": "Antonio Serra",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Obscure 2",
+      "link": "scheda_recensione.php?game=obscure2",
+      "autore": "Ivan Vailati",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Oknytt",
+      "link": "scheda_recensione.php?game=oknytt",
+      "autore": "Alberto Semprini",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Outcry (aka Sublustrum)",
+      "link": "scheda_recensione.php?game=Sublustr",
+      "autore": "Ivan Vailati",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Overclocked: Una Storia di Violenza",
+      "link": "scheda_recensione.php?game=overclocked",
+      "autore": "Matteo Inzaghi",
+      "voto": "83\/100"
+    },
+    {
+      "titolo": "Papers, please",
+      "link": "scheda_recensione.php?game=papers",
+      "autore": "Daniele Picone",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Paradise",
+      "link": "scheda_recensione.php?game=lparadise",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Pathologic",
+      "link": "scheda_recensione.php?game=pathologic",
+      "autore": "Salvo Puccio",
+      "voto": "63\/100"
+    },
+    {
+      "titolo": "Penumbra: Black Plague",
+      "link": "scheda_recensione.php?game=penumbrabp",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Penumbra: Overture",
+      "link": "scheda_recensione.php?game=penumbraov",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Perry Rhodan: Il Mito di Illochim",
+      "link": "scheda_recensione.php?game=PERRYRHOD",
+      "autore": "Paolo Novarese",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Personal Nightmare",
+      "link": "scheda_recensione.php?game=PERSNIGHT",
+      "autore": "Alberto Semprini",
+      "voto": "57\/100"
+    },
+    {
+      "titolo": "Phantasmagoria",
+      "link": "scheda_recensione.php?game=phantasm",
+      "autore": "Carmine Fele",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Phantasmagoria 2: A Puzzle of Flesh",
+      "link": "scheda_recensione.php?game=phantasm2",
+      "autore": "Alberto Semprini",
+      "voto": "69\/100"
+    },
+    {
+      "titolo": "Phoenix Wright: Ace Attorney",
+      "link": "scheda_recensione.php?game=pwace",
+      "autore": "Cristiano Caliendo",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Phoenix Wright: Ace Attorney - Justice For All",
+      "link": "scheda_recensione.php?game=pwjustice",
+      "autore": "Cristiano Caliendo",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Phoenix Wright: Ace Attorney - Trials and Tribulations",
+      "link": "scheda_recensione.php?game=phoenixtt",
+      "autore": "Arianna Vacca",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Police Quest: In Pursuit of the Death Angel",
+      "link": "scheda_recensione.php?game=policequest1",
+      "autore": "Tommaso Barbieri",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Post Mortem",
+      "link": "scheda_recensione.php?game=pmortem",
+      "autore": "Salvo Puccio",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Prezzemolo in un Viaggio da Sogno",
+      "link": "scheda_recensione.php?game=prezzemolo2",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Prezzemolo in una Giornata da Incubo",
+      "link": "scheda_recensione.php?game=prezzemolo1",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Primordia",
+      "link": "scheda_recensione.php?game=primordia",
+      "autore": "Daniele Picone",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Project Zero",
+      "link": "scheda_recensione.php?game=pzero",
+      "autore": "Antonio Serra",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Puzzle Agent 2",
+      "link": "scheda_recensione.php?game=PATwo",
+      "autore": "Mattia Seppolini",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Puzzle Bots",
+      "link": "scheda_recensione.php?game=p-bots",
+      "autore": "Matteo Inzaghi",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Quest for Infamy",
+      "link": "scheda_recensione.php?game=qinfamy",
+      "autore": "Alberto Semprini",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Raiders of the Lost Ark",
+      "link": "scheda_recensione.php?game=raidersark",
+      "autore": "Adriano Bizzoco",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Randal's Monday",
+      "link": "scheda_recensione.php?game=randal",
+      "autore": "Alberto Semprini",
+      "voto": "76\/100"
+    },
+    {
+      "titolo": "Reperfection Vol. 1",
+      "link": "scheda_recensione.php?game=reperf1",
+      "autore": "Mattia Seppolini",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Reprobates - L'Isola Dei Dannati",
+      "link": "scheda_recensione.php?game=reprobates",
+      "autore": "Adriano Bizzoco",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Resonance",
+      "link": "scheda_recensione.php?game=resonance",
+      "autore": "Daniele Picone",
+      "voto": "81\/100"
+    },
+    {
+      "titolo": "Reversion - Capitolo 1: La Fuga",
+      "link": "scheda_recensione.php?game=rev1",
+      "autore": "Mattia Seppolini",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Reversion - Capitolo 2: L'incontro",
+      "link": "scheda_recensione.php?game=rev2",
+      "autore": "Mattia Seppolini",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Rhem 2: The Cave",
+      "link": "scheda_recensione.php?game=rhem2",
+      "autore": " ",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Rhem 3: La Biblioteca Segreta",
+      "link": "scheda_recensione.php?game=rhem3",
+      "autore": "Adriano Bizzoco",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Rhem 4: I Frammenti Dorati",
+      "link": "scheda_recensione.php?game=RFour",
+      "autore": "flotsam ",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Richard e Alice",
+      "link": "scheda_recensione.php?game=richardalice",
+      "autore": "Overmann ",
+      "voto": "76\/100"
+    },
+    {
+      "titolo": "Ring 2: Il Crepuscolo degli Dei",
+      "link": "scheda_recensione.php?game=ringii",
+      "autore": "Ivan Vailati",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Ring: La Leggenda dei Nibelunghi",
+      "link": "scheda_recensione.php?game=ring",
+      "autore": "Ivan Vailati",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Ripper",
+      "link": "scheda_recensione.php?game=ripper",
+      "autore": "Adriano Bizzoco",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "RIS: Delitti Imperfetti",
+      "link": "scheda_recensione.php?game=ris",
+      "autore": "Simonetta Terra",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "Runaway",
+      "link": "scheda_recensione.php?game=runaway",
+      "autore": "Carlo De Rensis",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Runaway 2: The Dream of the Turtle",
+      "link": "scheda_recensione.php?game=runaway2",
+      "autore": "Paolo Novarese",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Runaway 3: A Twist of Fate",
+      "link": "scheda_recensione.php?game=Run3",
+      "autore": "Pietro Lietti",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Safecracker: The Ultimate Puzzle Adventure",
+      "link": "scheda_recensione.php?game=safecrack",
+      "autore": "Adriano Bizzoco",
+      "voto": "63\/100"
+    },
+    {
+      "titolo": "Salammb\u00f2",
+      "link": "scheda_recensione.php?game=salammb\u00f2",
+      "autore": "Carlo De Rensis",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.1 - Culture Shock",
+      "link": "scheda_recensione.php?game=samax2",
+      "autore": " ",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.2 - Situation: Comedy",
+      "link": "scheda_recensione.php?game=smsc",
+      "autore": "Adriano Bizzoco",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.3 - The Mole, The Mob And The Meatball",
+      "link": "scheda_recensione.php?game=sm3m",
+      "autore": "Adriano Bizzoco",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.4 - Abe Lincoln Must Die",
+      "link": "scheda_recensione.php?game=smabe",
+      "autore": "Adriano Bizzoco",
+      "voto": "86\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.5 - Reality 2.0",
+      "link": "scheda_recensione.php?game=smreality",
+      "autore": "Adriano Bizzoco",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.6 - Bright Side of the Moon",
+      "link": "scheda_recensione.php?game=smbright",
+      "autore": "Adriano Bizzoco",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.2 Ep.1 - Ice Station Santa",
+      "link": "scheda_recensione.php?game=samsanta",
+      "autore": "Cristiano Caliendo",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.2 Ep.2 - Moai Better Blues",
+      "link": "scheda_recensione.php?game=smmoai",
+      "autore": "Cristiano Caliendo",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.2 Ep.3 - Night Of The Raving Dead",
+      "link": "scheda_recensione.php?game=samdead",
+      "autore": "Cristiano Caliendo",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.2 Ep.4 - Chariots of the Dogs",
+      "link": "scheda_recensione.php?game=smdogs",
+      "autore": "Cristiano Caliendo",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.2 Ep.5 - What\u2019s New, Beelzebub?",
+      "link": "scheda_recensione.php?game=sambelz",
+      "autore": "Cristiano Caliendo",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.1: The Penal Zone",
+      "link": "scheda_recensione.php?game=Penalzone",
+      "autore": "Marco Sgolmin",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.2: The Tomb of Sammun-Mak",
+      "link": "scheda_recensione.php?game=Sammun-Mak",
+      "autore": "Marco Sgolmin",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.3: They Stole Max's Brain!",
+      "link": "scheda_recensione.php?game=SM303",
+      "autore": "Marco Sgolmin",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.4: Beyond the Alley of the Dolls",
+      "link": "scheda_recensione.php?game=smn4ep",
+      "autore": "Marco Sgolmin",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.5: The City that Dares not Sleep",
+      "link": "scheda_recensione.php?game=305_SeM",
+      "autore": "Marco Sgolmin",
+      "voto": "89\/100"
+    },
+    {
+      "titolo": "Sam & Max - Season One",
+      "link": "scheda_recensione.php?game=smseasonone",
+      "autore": "Adriano Bizzoco",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Sam & Max: Hit The Road",
+      "link": "scheda_recensione.php?game=sammax",
+      "autore": "Paolo Novarese",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Samorost",
+      "link": "scheda_recensione.php?game=samo",
+      "autore": "Luca Massari",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Samorost 2",
+      "link": "scheda_recensione.php?game=samo2",
+      "autore": "Luca Massari",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Sanitarium",
+      "link": "scheda_recensione.php?game=sanitarium",
+      "autore": "Carlo De Rensis",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Schizm 2",
+      "link": "scheda_recensione.php?game=schizm2",
+      "autore": "Carlo de Caesaris",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Scratches: Graffi Mortali",
+      "link": "scheda_recensione.php?game=scratches",
+      "autore": "Ivan Vailati",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Secret Files 2: Puritas Cordis",
+      "link": "scheda_recensione.php?game=SF2",
+      "autore": "Fabio Rella",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Secret Files 3",
+      "link": "scheda_recensione.php?game=SF3",
+      "autore": "Mattia Seppolini",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Secret Files: Il Mistero di Tunguska",
+      "link": "scheda_recensione.php?game=tunguska",
+      "autore": "Paolo Novarese",
+      "voto": "91\/100"
+    },
+    {
+      "titolo": "Secret of the Lost Cavern",
+      "link": "scheda_recensione.php?game=sotlc",
+      "autore": "Carlo de Caesaris",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Sentinel",
+      "link": "scheda_recensione.php?game=sentinel",
+      "autore": "Ivan Vailati",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Shadow of Memories",
+      "link": "scheda_recensione.php?game=shamemory",
+      "autore": "Ivan Vailati",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Shadows on the Vatican Atto I: Avarizia",
+      "link": "scheda_recensione.php?game=sotv",
+      "autore": "Luca Massari",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Shadows on the Vatican Atto II: Ira",
+      "link": "scheda_recensione.php?game=sotv2",
+      "autore": "Gianpaolo Iglio",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Sherlock Holmes contro Ars\u00e8ne Lupin",
+      "link": "scheda_recensione.php?game=sherlocklupin",
+      "autore": "Arianna Vacca",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Sherlock Holmes contro Jack lo Squartatore",
+      "link": "scheda_recensione.php?game=SherlockvsJack1",
+      "autore": "Cristiano Caliendo",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Sherlock Holmes: Crimes and Punishments",
+      "link": "scheda_recensione.php?game=sh_crimes",
+      "autore": "Roberto Bertoni",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Sherlock Holmes: Il Mistero della Mummia",
+      "link": "scheda_recensione.php?game=shmm",
+      "autore": "Salvo Puccio",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Sherlock Holmes: Il Risveglio della Divinit\u00e0",
+      "link": "scheda_recensione.php?game=shawaken",
+      "autore": "Adriano Bizzoco",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Sherlock Holmes: L'Orecchino d'Argento",
+      "link": "scheda_recensione.php?game=shoa",
+      "autore": "Ivan Vailati",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Silent Hill 4: The Room",
+      "link": "scheda_recensione.php?game=sh4",
+      "autore": "Ivan Vailati",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Simon The Sorcerer",
+      "link": "scheda_recensione.php?game=simon",
+      "autore": "Ivan Vailati",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Simon The Sorcerer 2: Il Leone, il Mago e l'Armadio",
+      "link": "scheda_recensione.php?game=simon2",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Simon The Sorcerer 3D",
+      "link": "scheda_recensione.php?game=simon3d",
+      "autore": "Ivan Vailati",
+      "voto": "35\/100"
+    },
+    {
+      "titolo": "Simon The Sorcerer 4: Chaos Happens",
+      "link": "scheda_recensione.php?game=simoniv",
+      "autore": "Ivan Vailati",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Simon the Sorcerer V: L'Invasione degli Extraterrestri",
+      "link": "scheda_recensione.php?game=simon5",
+      "autore": "Ivan Vailati",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Sinking Island",
+      "link": "scheda_recensione.php?game=sinking",
+      "autore": "Ivan Vailati",
+      "voto": "91\/100"
+    },
+    {
+      "titolo": "Slip Space: The Burma - Shave Analogy",
+      "link": "scheda_recensione.php?game=SlipSpace",
+      "autore": "Marina Bucciarelli",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "So Blonde",
+      "link": "scheda_recensione.php?game=SBlonde",
+      "autore": "Ivan Vailati",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Stacking",
+      "link": "scheda_recensione.php?game=Stack",
+      "autore": "Mattia Seppolini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Stargate Adventure",
+      "link": "scheda_recensione.php?game=staradv",
+      "autore": "Cristiano Caliendo",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "Stasis",
+      "link": "scheda_recensione.php?game=stasis",
+      "autore": "Stefano Rossitto",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "Sterling's Gift",
+      "link": "scheda_recensione.php?game=sterling",
+      "autore": "Ivan Vailati",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "Still Life",
+      "link": "scheda_recensione.php?game=slife",
+      "autore": "Carlo De Rensis",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Still Life 2",
+      "link": "scheda_recensione.php?game=sltwo",
+      "autore": "Matteo Inzaghi",
+      "voto": "64\/100"
+    },
+    {
+      "titolo": "Stray Souls: Il Segreto della Casa Giocattolo",
+      "link": "scheda_recensione.php?game=straysouls",
+      "autore": "Luca Massari",
+      "voto": "72\/100"
+    },
+    {
+      "titolo": "Strong Bad - Episode 1: Homestar Ruiner",
+      "link": "scheda_recensione.php?game=sbcg4ap",
+      "autore": "Lorenzo Fantoni",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Strong Bad - Episode 2: Strong Badia the Free",
+      "link": "scheda_recensione.php?game=strongbadep2",
+      "autore": "Lorenzo Fantoni",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Stupid Invaders",
+      "link": "scheda_recensione.php?game=stupinv",
+      "autore": "Ivan Vailati",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Subject 13",
+      "link": "scheda_extra.php?game=subject13&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Syberia",
+      "link": "scheda_recensione.php?game=syberia",
+      "autore": "Carlo de Caesaris",
+      "voto": "92\/100"
+    },
+    {
+      "titolo": "Syberia 2",
+      "link": "scheda_recensione.php?game=syb2",
+      "autore": "Carlo de Caesaris",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "Tale of a Hero - Il Destino di un Eroe",
+      "link": "scheda_recensione.php?game=tale",
+      "autore": "Fabio Rella",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Tales From the Borderlands Ep.2: Atlas mugged",
+      "link": "scheda_extra.php?game=Borderlands2&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Tales From the Borderlands Ep.3: Catch a Ride",
+      "link": "scheda_extra.php?game=Borderlands3&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Tales From the Borderlands Ep.4: Escape Plan Bravo",
+      "link": "scheda_extra.php?game=Borderlands4&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Technobabylon",
+      "link": "scheda_recensione.php?game=technobabylon",
+      "autore": "Vittorio De Sanctis",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Teenagent",
+      "link": "scheda_recensione.php?game=teenagent",
+      "autore": "Alberto Semprini",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "Tengami",
+      "link": "scheda_recensione.php?game=tengami",
+      "autore": "Andrea Dresseno",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "Tesla Effect: A Tex Murphy Adventure",
+      "link": "scheda_extra.php?game=texfedora&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "The 7th Guest",
+      "link": "scheda_recensione.php?game=sevenguest",
+      "autore": "Adriano Bizzoco",
+      "voto": "62\/100"
+    },
+    {
+      "titolo": "The Abbey",
+      "link": "scheda_recensione.php?game=abbey",
+      "autore": "Kim Wild",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "The Blackwell Epiphany Ep. 5",
+      "link": "scheda_recensione.php?game=BWEpiphany",
+      "autore": "Daniele Picone",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "The Book of Unwritten Tales",
+      "link": "scheda_recensione.php?game=TheBookOUT",
+      "autore": "Daniele Picone",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "The Book of Unwritten Tales 2",
+      "link": "scheda_extra.php?game=TheBookOUTales2&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "The Book of Unwritten Tales: The Critter Chronicles",
+      "link": "scheda_recensione.php?game=butCC",
+      "autore": "Daniele Picone",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "The Cat Lady",
+      "link": "scheda_recensione.php?game=TheCat",
+      "autore": "Vittorio De Sanctis",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "The Cave",
+      "link": "scheda_recensione.php?game=cave",
+      "autore": "Alberto Semprini",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "The Dark Eye: Chains of Satinav",
+      "link": "scheda_recensione.php?game=darkeye",
+      "autore": "Angelo Bruno",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "The Dig",
+      "link": "scheda_recensione.php?game=dig",
+      "autore": "Paolo Novarese",
+      "voto": "91\/100"
+    },
+    {
+      "titolo": "The Exchange Student Ep.1 - First Day In Sweden",
+      "link": "scheda_recensione.php?game=tes",
+      "autore": "Carlo De Rensis",
+      "voto": "68\/100"
+    },
+    {
+      "titolo": "The Fall Trilogy - Chapter 1: Separation",
+      "link": "scheda_recensione.php?game=TFT-Ep1",
+      "autore": "Marinella Balbinutti",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "The Fall Trilogy - Chapter 3: Revelation",
+      "link": "scheda_recensione.php?game=Revelation",
+      "autore": "Marinella Balbinutti",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "The Fall Trilogy \u2013 Chapter 2: Reconstruction",
+      "link": "scheda_recensione.php?game=Ep2FallTrilogy",
+      "autore": "Marinella Balbinutti",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "The Hardy Boys  - The Hidden Theft",
+      "link": "scheda_recensione.php?game=THBoys",
+      "autore": "Matteo Inzaghi",
+      "voto": "57\/100"
+    },
+    {
+      "titolo": "The Infinity String",
+      "link": "scheda_recensione.php?game=infinitys",
+      "autore": "Pietro Lietti",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "The Inner World",
+      "link": "scheda_recensione.php?game=InnerWorld",
+      "autore": "Vittorio De Sanctis",
+      "voto": "82\/100"
+    },
+    {
+      "titolo": "The Journey Down - Chapter One",
+      "link": "scheda_recensione.php?game=journeydown",
+      "autore": "Angelo Bruno",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "The Journey Down - Chapter Two",
+      "link": "scheda_recensione.php?game=journeydown2",
+      "autore": "Daniele Picone",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "The Journey To Wild Divine",
+      "link": "scheda_recensione.php?game=tjtwd",
+      "autore": "Carlo de Caesaris",
+      "voto": "94\/100"
+    },
+    {
+      "titolo": "The Lake House: I Bambini del Silenzio - Collector's Edition",
+      "link": "scheda_recensione.php?game=lakehouse",
+      "autore": "Marinella Balbinutti",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "The Last Express",
+      "link": "scheda_recensione.php?game=lastexpress",
+      "autore": "Carlo De Rensis",
+      "voto": "95\/100"
+    },
+    {
+      "titolo": "The Legend of Crystal Valley",
+      "link": "scheda_recensione.php?game=locv",
+      "autore": "Andrea Morstabilini",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "The Longest Journey",
+      "link": "scheda_recensione.php?game=tlj",
+      "autore": "Carlo De Rensis",
+      "voto": "93\/100"
+    },
+    {
+      "titolo": "The Lost Crown: Un'avventura di Fantasmi",
+      "link": "scheda_recensione.php?game=lostcrown",
+      "autore": "Matteo Inzaghi",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "The Lost Files of Sherlock Holmes: The Case of Serrated Scalpel",
+      "link": "scheda_recensione.php?game=Scapel",
+      "autore": "Cristiano Caliendo",
+      "voto": "***\/100"
+    },
+    {
+      "titolo": "The Lost Mansion: The Secret of Naereaon - Ep. 1 - Boathouse",
+      "link": "scheda_recensione.php?game=mansboat",
+      "autore": "Ivan Vailati",
+      "voto": "59\/100"
+    },
+    {
+      "titolo": "The Moment Of Silence",
+      "link": "scheda_recensione.php?game=tmos",
+      "autore": "Carlo De Rensis",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "The Night of the Rabbit",
+      "link": "scheda_recensione.php?game=RabbitAppr",
+      "autore": "Alberto Semprini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "The Orion Conspiracy",
+      "link": "scheda_recensione.php?game=Orion",
+      "autore": "Cristiano Caliendo",
+      "voto": "59\/100"
+    },
+    {
+      "titolo": "The Path",
+      "link": "scheda_recensione.php?game=Path",
+      "autore": "Overmann ",
+      "voto": "60\/100"
+    },
+    {
+      "titolo": "The Raven: Legacy of a Master Thief",
+      "link": "scheda_recensione.php?game=raven",
+      "autore": "Daniele Picone",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "The Samaritan Paradox",
+      "link": "scheda_recensione.php?game=samaritan",
+      "autore": "Mattia Seppolini",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "The Secret Of Atlantis - L'Eredit\u00e0 Sacra",
+      "link": "scheda_recensione.php?game=atlantisv",
+      "autore": " ",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "The Secret of Monkey Island: Special Edition",
+      "link": "scheda_recensione.php?game=SOMI_SpecialEd",
+      "autore": "Matteo Inzaghi",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "The Secrets of Da Vinci - Il Manoscritto Proibito",
+      "link": "scheda_recensione.php?game=davinci",
+      "autore": "Ivan Vailati",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "The Shine of a Star",
+      "link": "scheda_recensione.php?game=shine",
+      "autore": "Alberto Semprini",
+      "voto": "55\/100"
+    },
+    {
+      "titolo": "The Shivah",
+      "link": "scheda_recensione.php?game=shivah",
+      "autore": "Luca Massari",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "The Stanley Parable",
+      "link": "scheda_recensione.php?game=stanley",
+      "autore": "Daniele Picone",
+      "voto": "74\/100"
+    },
+    {
+      "titolo": "The Sydney Mystery",
+      "link": "scheda_recensione.php?game=sidney",
+      "autore": "Ivan Vailati",
+      "voto": "45\/100"
+    },
+    {
+      "titolo": "The Talos Principle",
+      "link": "scheda_recensione.php?game=talos",
+      "autore": "Daniele Picone",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "The Tiny Bang Story",
+      "link": "scheda_recensione.php?game=TinyBS",
+      "autore": "Luca Massari",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 1 (Seconda Stagione): All That Remains",
+      "link": "scheda_recensione.php?game=wd2x01",
+      "autore": "Alberto Semprini",
+      "voto": "74\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 1: A New Day",
+      "link": "scheda_recensione.php?game=TWD_Newday",
+      "autore": "Mattia Seppolini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 2 (Seconda Stagione): A House Divided",
+      "link": "scheda_recensione.php?game=TWD2_house1",
+      "autore": "Alberto Semprini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 2: Starved for Help",
+      "link": "scheda_recensione.php?game=TWD_Help",
+      "autore": "Mattia Seppolini",
+      "voto": "85\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 3 (Seconda Stagione): In Harm's Way",
+      "link": "scheda_recensione.php?game=TWD2_harms",
+      "autore": "Alberto Semprini",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 3: Long Road Ahead",
+      "link": "scheda_recensione.php?game=TWD_Road",
+      "autore": "Mattia Seppolini",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 4 (Seconda Stagione): Amid The Ruins",
+      "link": "scheda_recensione.php?game=TWD2_amid",
+      "autore": "Alberto Semprini",
+      "voto": "76\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 4: Around Every Corner",
+      "link": "scheda_recensione.php?game=TWD_Corner",
+      "autore": "Mattia Seppolini",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 5 (Seconda Stagione): No Going Back",
+      "link": "scheda_recensione.php?game=TWD2_nogoing",
+      "autore": "Alberto Semprini",
+      "voto": "86\/100"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 5: No Time Left",
+      "link": "scheda_recensione.php?game=TWD_Time",
+      "autore": "Mattia Seppolini",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "The Walking Dead: 400 Days",
+      "link": "scheda_recensione.php?game=TWD_400",
+      "autore": "Alberto Semprini",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "The Westerner",
+      "link": "scheda_recensione.php?game=westerner",
+      "autore": "Carlo de Caesaris",
+      "voto": "89\/100"
+    },
+    {
+      "titolo": "The Whispered World",
+      "link": "scheda_recensione.php?game=whisworld",
+      "autore": "Matteo Inzaghi",
+      "voto": "88\/100"
+    },
+    {
+      "titolo": "The Wolf Among Us - Episode 1: Faith",
+      "link": "scheda_recensione.php?game=Fables",
+      "autore": "Overmann ",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "The Wolf Among Us - Episode 2: Smoke & Mirrors",
+      "link": "scheda_recensione.php?game=TWAU2Ep",
+      "autore": "Overmann ",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "The Wolf Among Us - Episode 3: A Crooked Mile",
+      "link": "scheda_recensione.php?game=TWAU3Ep",
+      "autore": "Overmann ",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "The Wolf Among Us - Episode 4: In Sheep's Clothing",
+      "link": "scheda_recensione.php?game=TWAU4Ep",
+      "autore": "Overmann ",
+      "voto": "70\/100"
+    },
+    {
+      "titolo": "The Wolf Among Us - Episode 5: Cry Wolf",
+      "link": "scheda_recensione.php?game=TWAU5Ep",
+      "autore": "Overmann ",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Thorgal - La Maledizione Di Odino",
+      "link": "scheda_recensione.php?game=thorgal",
+      "autore": " ",
+      "voto": "61\/100"
+    },
+    {
+      "titolo": "Time Gentlemen, Please!",
+      "link": "scheda_recensione.php?game=timegentle",
+      "autore": "Luca Massari",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Time Hollow (Nintendo DS)",
+      "link": "scheda_recensione.php?game=TimeH",
+      "autore": "Cristiano Caliendo",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "To the Moon",
+      "link": "scheda_recensione.php?game=tothemoon",
+      "autore": "Adriano Bizzoco",
+      "voto": "90\/100"
+    },
+    {
+      "titolo": "Tony Tough 2: A Rake's Progress",
+      "link": "scheda_recensione.php?game=tony2",
+      "autore": "Julien Clement",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Tony Tough and the Night of Roasted Moths",
+      "link": "scheda_recensione.php?game=tonyt",
+      "autore": "Carlo De Rensis",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Trauma",
+      "link": "scheda_recensione.php?game=trauma",
+      "autore": "Luca Massari",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "Tristan Et Le Myst\u00e8re Du Dragon",
+      "link": "scheda_recensione.php?game=tristan",
+      "autore": "Ivan Vailati",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "Twisted Lands: La Citt\u00e0 delle Ombre - Collector's Edition",
+      "link": "scheda_recensione.php?game=twistedlands",
+      "autore": "Luca Massari",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Un Tranquillo Weekend A Capri",
+      "link": "scheda_recensione.php?game=capri",
+      "autore": "Carlo de Caesaris",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Under a Killing Moon",
+      "link": "scheda_recensione.php?game=uakm",
+      "autore": "Carlo De Rensis",
+      "voto": "87\/100"
+    },
+    {
+      "titolo": "Undercover - Dual Motives (Nintendo DS)",
+      "link": "scheda_recensione.php?game=undercoverdm",
+      "autore": "Simonetta Terra",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Undercover - Operation Wintersun",
+      "link": "scheda_recensione.php?game=undercover",
+      "autore": "Paolo Novarese",
+      "voto": "79\/100"
+    },
+    {
+      "titolo": "Unsolved Crimes (Nintendo DS)",
+      "link": "scheda_recensione.php?game=UCrimes",
+      "autore": "Simonetta Terra",
+      "voto": "67\/100"
+    },
+    {
+      "titolo": "Until Dawn",
+      "link": "scheda_recensione.php?game=untildawn",
+      "autore": "Simone Pizzi",
+      "voto": "86\/100"
+    },
+    {
+      "titolo": "Uru - Ages Beyond Myst",
+      "link": "scheda_recensione.php?game=uru",
+      "autore": "Carlo de Caesaris",
+      "voto": "92\/100"
+    },
+    {
+      "titolo": "Uru - The Path of the Shell",
+      "link": "scheda_recensione.php?game=urutpots",
+      "autore": "Carlo de Caesaris",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Uru - To D'ni",
+      "link": "scheda_recensione.php?game=urutd",
+      "autore": "Carlo de Caesaris",
+      "voto": "--\/100"
+    },
+    {
+      "titolo": "Valiant Hearts: The Great War",
+      "link": "scheda_extra.php?game=valiant&cont=Video Recensione",
+      "autore": " ",
+      "voto": ""
+    },
+    {
+      "titolo": "Versailles II - Il Testamento Del Re (DVD-ROM Version)",
+      "link": "scheda_recensione.php?game=versaillesdvg",
+      "autore": " ",
+      "voto": "45\/100"
+    },
+    {
+      "titolo": "Viaggio Al Centro Della Luna",
+      "link": "scheda_recensione.php?game=vcdl",
+      "autore": "Carlo De Rensis",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Viaggio Al Centro Della Terra",
+      "link": "scheda_recensione.php?game=vcdt",
+      "autore": "Carlo de Caesaris",
+      "voto": "84\/100"
+    },
+    {
+      "titolo": "Virtual Murder 1: Who Killed Sam Rupert",
+      "link": "scheda_recensione.php?game=WKSR",
+      "autore": "Adriano Bizzoco",
+      "voto": "40\/100"
+    },
+    {
+      "titolo": "Vohaul Strikes Back",
+      "link": "scheda_recensione.php?game=vohaul",
+      "autore": "Luca Massari",
+      "voto": "65\/100"
+    },
+    {
+      "titolo": "Wallace & Gromit Episode 1: Fright of the Bumblebees",
+      "link": "scheda_recensione.php?game=W_G_Ep1",
+      "autore": "Cristiano Caliendo",
+      "voto": "75\/100"
+    },
+    {
+      "titolo": "Wallace & Gromit Episode 2: The Last Resort",
+      "link": "scheda_recensione.php?game=WG_EpTwo_",
+      "autore": "Cristiano Caliendo",
+      "voto": "77\/100"
+    },
+    {
+      "titolo": "Wallace & Gromit Episode 3: Muzzled!",
+      "link": "scheda_recensione.php?game=WG_Ep_Muzzled",
+      "autore": "Cristiano Caliendo",
+      "voto": "78\/100"
+    },
+    {
+      "titolo": "Wallace & Gromit Episode 4: The Bogey Man",
+      "link": "scheda_recensione.php?game=BogeyMan",
+      "autore": "Cristiano Caliendo",
+      "voto": "73\/100"
+    },
+    {
+      "titolo": "Ween: The Prophecy",
+      "link": "scheda_recensione.php?game=WEEN",
+      "autore": "Adriano Bizzoco",
+      "voto": "50\/100"
+    },
+    {
+      "titolo": "WWF Panda Junior",
+      "link": "scheda_recensione.php?game=wwfppc",
+      "autore": "Ivan Vailati",
+      "voto": "69\/100"
+    },
+    {
+      "titolo": "Youda Legend: The Golden Bird of  Paradise",
+      "link": "scheda_recensione.php?game=youda",
+      "autore": "Marinella Balbinutti",
+      "voto": "80\/100"
+    },
+    {
+      "titolo": "Zak McKracken and the Alien Mindbenders",
+      "link": "scheda_recensione.php?game=zak",
+      "autore": "Alberto Semprini",
+      "voto": "91\/100"
+    },
+    {
+      "titolo": "Zero Comico",
+      "link": "scheda_recensione.php?game=zerocomico",
+      "autore": "Cristiano Caliendo",
+      "voto": "XXX\/100"
+    },
+    {
+      "titolo": "Zwerg Nase",
+      "link": "scheda_recensione.php?game=zwerg",
+      "autore": "Ivan Vailati",
+      "voto": "50\/100"
+    }
+  ]
+}

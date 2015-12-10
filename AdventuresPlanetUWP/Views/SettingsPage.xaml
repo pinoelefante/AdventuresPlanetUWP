@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="AdventuresPlanetUWP.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdventuresPlanetUWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:vm="using:AdventuresPlanetUWP.ViewModels">
+    <Page.DataContext>
+        <vm:OpzioniPageViewModel/>
+    </Page.DataContext>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--  page header  -->
+
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Impostazioni" Frame="{x:Bind Frame}" IsEnabled="False"/>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Slider x:Name="slider" Grid.Column="0" Header="Dimensione del font" Value="{Binding Settings.DimensioneFont, Mode=TwoWay}" Minimum="12" Maximum="24"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="8,0" Text="{Binding Value, ElementName=slider}" />
+                </Grid>
+
+                <ToggleSwitch Header="Chiedi conferma alla chiusura dell'app" IsOn="{Binding Settings.AskToClose, Mode=TwoWay}" />
+
+                <ToggleSwitch Header="Aggiorna elenco recensioni manualmente" IsOn="{Binding Settings.UpdateRecensioniManualmente, Mode=TwoWay}" />
+                <ToggleSwitch Header="Aggiorna elenco soluzioni manualmente" IsOn="{Binding Settings.UpdateSoluzioniManualmente, Mode=TwoWay}" />
+                <ToggleSwitch Header="Carica le immagini di soluzioni/recensioni" IsOn="{Binding Settings.IsLoadImages, Mode=TwoWay}" />
+                <ToggleSwitch IsOn="{Binding Settings.RicordaPosizioneSoluzioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle soluzioni"/>
+                <ToggleSwitch IsOn="{Binding Settings.RicordaPosizioneRecensioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle recensioni"/>
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                    <TextBlock Text="Qualità massima video" VerticalAlignment="Center"/>
+                    <ComboBox SelectedIndex="{Binding IndexQualitaYoutube}" Margin="8,0,8,0">
+                        <ComboBoxItem Content="144p" Tag="144"/>
+                        <ComboBoxItem Content="240p" Tag="240"/>
+                        <ComboBoxItem Content="360p" Tag="360"/>
+                        <ComboBoxItem Content="480p" Tag="480"/>
+                        <ComboBoxItem Content="720p" Tag="720"/>
+                        <ComboBoxItem Content="1080p" Tag="1080"/>
+                        <ComboBoxItem Content="2160p" Tag="2160"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                    <TextBlock Text="Aggiorna news ogni" VerticalAlignment="Center"/>
+                    <ComboBox SelectedIndex="{Binding IndexUpdateNews}" Margin="8,0,8,0">
+                        <ComboBoxItem Content="1 ora" Tag="3600"/>
+                        <ComboBoxItem Content="4 ore" Tag="14400"/>
+                        <ComboBoxItem Content="8 ore" Tag="28800"/>
+                        <ComboBoxItem Content="12 ora" Tag="43200"/>
+                        <ComboBoxItem Content="1 giorno" Tag="86400"/>
+                    </ComboBox>
+                </StackPanel>
+                <Button Content="Cancella tutti i dati" Click="{x:Bind VM.cancella_dati}" Margin="8,15"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,109 @@
+﻿<UserControl
+    x:Class="AdventuresPlanetUWP.Views.UserControls.UCPodcast"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdventuresPlanetUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:conv="using:AdventuresPlanetUWP.Converters">
+    <UserControl.Resources>
+        <conv:BoolToVisibility x:Key="VisibilityConverter"/>
+    </UserControl.Resources>
+    <RelativePanel Margin="0,4,4,8" Holding="OpenFlyout" RightTapped="OpenFlyout" Tapped="onTapPodcast">
+        <FlyoutBase.AttachedFlyout>
+            <MenuFlyout>
+                <MenuFlyoutItem Text="Ascolta" Tapped="onTapPodcast"/>
+                <MenuFlyoutItem Text="Descrizione" Tapped="podcastDescrizione" />
+                <MenuFlyoutItem Text="Scarica" Tapped="scaricaPodcast" IsEnabled="True" />
+                <!--
+                <MenuFlyoutItem Text="Condividi" Tapped="share" />
+                -->
+            </MenuFlyout>
+        </FlyoutBase.AttachedFlyout>
+        
+                   
+        <Image Height="120" x:Name="image" Source="{Binding Immagine}"/>
+        <TextBlock x:Name="Titolo" Text="{Binding Titolo}" Margin="4" FontSize="20"/>
+        <TextBlock x:Name="Anteprima" Text="{Binding Descrizione}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Margin="4,8"/>
+        <TextBlock x:Name="progressDownload" Text="Avvio del download..." Margin="0,4" Visibility="Collapsed"/>
+        
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="phone">
+                    <VisualState.Setters>
+                        <Setter Target="image.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="image.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="Titolo.(RelativePanel.RightOf)" Value="image"/>
+                        <Setter Target="Titolo.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="Titolo.(TextBlock.TextTrimming)" Value="CharacterEllipsis"/>
+                        <Setter Target="Titolo.(TextBlock.TextWrapping)" Value="Wrap"/>
+                        <Setter Target="image.(FrameworkElement.Height)" Value="120"/>
+                        <Setter Target="Anteprima.(UIElement.Visibility)" Value="Collapsed"/>
+                        <Setter Target="progressDownload.(RelativePanel.Below)" Value="image"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignBottomWithPanel)" Value="True"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="tablet">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="601" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Titolo.(TextBlock.FontWeight)">
+                            <Setter.Value>
+                                <FontWeight>Bold</FontWeight>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="Titolo.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="Titolo.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="image.(RelativePanel.Below)" Value="Titolo"/>
+                        <Setter Target="image.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="image.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="Anteprima.(RelativePanel.RightOf)" Value="image"/>
+                        <Setter Target="Anteprima.(RelativePanel.Below)" Value="Titolo"/>
+                        <Setter Target="Anteprima.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="Anteprima.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="image.(FrameworkElement.Height)" Value="160"/>
+                        <Setter Target="progressDownload.(RelativePanel.Below)" Value="image"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignBottomWithPanel)" Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="pc1024">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="801" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Titolo.(TextBlock.FontWeight)">
+                            <Setter.Value>
+                                <FontWeight>Bold</FontWeight>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="Titolo.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="Titolo.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="image.(RelativePanel.Below)" Value="Titolo"/>
+                        <Setter Target="image.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="image.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="Anteprima.(RelativePanel.RightOf)" Value="image"/>
+                        <Setter Target="Anteprima.(RelativePanel.Below)" Value="Titolo"/>
+                        <Setter Target="Anteprima.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="Anteprima.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="image.(FrameworkElement.Height)" Value="180"/>
+                        <Setter Target="progressDownload.(RelativePanel.Below)" Value="image"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="progressDownload.(RelativePanel.AlignBottomWithPanel)" Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </RelativePanel>
+</UserControl>

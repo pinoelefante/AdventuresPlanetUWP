@@ -1,0 +1,2565 @@
+{
+  "time": 1448552935,
+  "avventure": [
+    {
+      "titolo": "15 Days",
+      "link": "scheda_soluzione.php?game=15 days",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "1953 - KGB Unleashed",
+      "link": "scheda_soluzione.php?game=Phobos",
+      "autore": "Toni Alagna"
+    },
+    {
+      "titolo": "2001 - Odissea nel tempo",
+      "link": "scheda_soluzione.php?game=2001",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "5 Days a Stranger",
+      "link": "scheda_soluzione.php?game=5days",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "6 Days a Sacrifice",
+      "link": "scheda_soluzione.php?game=6das",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "7 Days a Skeptic",
+      "link": "scheda_soluzione.php?game=7days",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "80 Giorni",
+      "link": "scheda_soluzione.php?game=80giorni",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "A Cure for the Common Cold",
+      "link": "scheda_soluzione.php?game=acfcc",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "A Friend Indeed",
+      "link": "scheda_soluzione.php?game=afi",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "A Golden Wake",
+      "link": "scheda_soluzione.php?game=goldenwake",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "A New Beginning",
+      "link": "scheda_soluzione.php?game=earttb",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "A Stroke of Fate: Operation Valkyrie",
+      "link": "scheda_soluzione.php?game=TAofNKYD",
+      "autore": "Mattia Brognoli"
+    },
+    {
+      "titolo": "A Vampyre Story - Una storia di Vampiri",
+      "link": "scheda_soluzione.php?game=avs",
+      "autore": "Simonetta Terra"
+    },
+    {
+      "titolo": "Ace Ventura",
+      "link": "scheda_extra.php?game=ACEVENT&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Adam's Venture 2: Il Segreto di Salomone",
+      "link": "scheda_soluzione.php?game=AdamSolomon",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Adam's Venture: Alla ricerca del Giardino Perduto",
+      "link": "scheda_soluzione.php?game=AdamLostGarden",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Addio Deponia",
+      "link": "scheda_extra.php?game=GoodbyeDeponia&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Agatha Christie - Assassinio sull'Orient Express",
+      "link": "scheda_soluzione.php?game=orient",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Agatha Christie - Delitto Sotto il Sole",
+      "link": "scheda_soluzione.php?game=agathasun",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Agatha Christie - E Non Ne Rimase Nessuno",
+      "link": "scheda_soluzione.php?game=ac10",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Age of Enigma",
+      "link": "scheda_soluzione.php?game=aoe",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Agon 4: The Lost Sword of Toledo",
+      "link": "scheda_soluzione.php?game=agon4",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Agon: Il Codice del Mistero",
+      "link": "scheda_soluzione.php?game=agonpack",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Alisia Chronicles: Levanda World",
+      "link": "scheda_soluzione.php?game=alisia",
+      "autore": " "
+    },
+    {
+      "titolo": "Alone in the Dark",
+      "link": "scheda_extra.php?game=aitd1&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Alpha Polaris",
+      "link": "scheda_soluzione.php?game=Alpha",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Alter Ego",
+      "link": "scheda_soluzione.php?game=Alterego",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Alternativa",
+      "link": "scheda_soluzione.php?game=alternativa",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Amerzone",
+      "link": "scheda_soluzione.php?game=amerzone",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Amnesia: The Dark Descent",
+      "link": "scheda_soluzione.php?game=UFGP",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Anacapri - The Dream",
+      "link": "scheda_soluzione.php?game=anacapri",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Ankh",
+      "link": "scheda_soluzione.php?game=ankh",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Ankh: Il Cuore di Osiride",
+      "link": "scheda_soluzione.php?game=ankh2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Ankh: La Battaglia degli Dei",
+      "link": "scheda_soluzione.php?game=AnkhBotG",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Anna",
+      "link": "scheda_soluzione.php?game=Ann",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Apollo Justice: Ace Attorney",
+      "link": "scheda_soluzione.php?game=Apollo",
+      "autore": "Alessandra Ippoliti"
+    },
+    {
+      "titolo": "AR-K - Episodio 1",
+      "link": "scheda_soluzione.php?game=ark1",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Art of Murder 2: Caccia al Burattinaio",
+      "link": "scheda_soluzione.php?game=aom2",
+      "autore": "Fabio Rella"
+    },
+    {
+      "titolo": "Art of Murder 3: Le Carte del Destino",
+      "link": "scheda_soluzione.php?game=AOMCards",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Art of Murder: La Crudele Arte dell'Omicidio",
+      "link": "scheda_soluzione.php?game=ARTMURDFBI",
+      "autore": "Simonetta Terra"
+    },
+    {
+      "titolo": "ASA: A Space Adventure",
+      "link": "scheda_soluzione.php?game=ASA",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Atlantis Evolution",
+      "link": "scheda_soluzione.php?game=atlevo",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Aura 2 - Gli Anelli Sacri",
+      "link": "scheda_soluzione.php?game=auratwo",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Aurora - The Secret Within",
+      "link": "scheda_soluzione.php?game=aurora",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Axel & Pixel",
+      "link": "scheda_soluzione.php?game=AxPix",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Babylon",
+      "link": "scheda_soluzione.php?game=BABYL",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Back to the Future Ep. 1: It's About Time",
+      "link": "scheda_soluzione.php?game=BTTF1ep",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Back to the Future Ep. 2: Get Tannen!",
+      "link": "scheda_soluzione.php?game=BTTF2p",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Back to the Future Ep. 3: Citizen Brown",
+      "link": "scheda_soluzione.php?game=CitizenBr",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Back to the Future Ep. 4: Double Visions",
+      "link": "scheda_soluzione.php?game=DoubleVs",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Back to the Future Ep. 5: OUTATIME",
+      "link": "scheda_soluzione.php?game=OutAt",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Backsliding",
+      "link": "scheda_soluzione.php?game=bcksli",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Bad Mojo Redux",
+      "link": "scheda_soluzione.php?game=badmojo",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Baron Wittard: L'Ombra del Ragnarok",
+      "link": "scheda_soluzione.php?game=Wittard",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Barrow Hill",
+      "link": "scheda_soluzione.php?game=bhill",
+      "autore": " "
+    },
+    {
+      "titolo": "Ben there, Dan that!",
+      "link": "scheda_soluzione.php?game=Ben there",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Beneath a Steel Sky",
+      "link": "scheda_soluzione.php?game=bass",
+      "autore": "Gwath "
+    },
+    {
+      "titolo": "Black Mirror",
+      "link": "scheda_soluzione.php?game=bmirror",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Black Mirror 2",
+      "link": "scheda_soluzione.php?game=bm2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Black Mirror 3",
+      "link": "scheda_soluzione.php?game=blackmirror3",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Blake and Mortimer - The Tables of Babylon",
+      "link": "scheda_soluzione.php?game=bmtables",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Bloodwood Reload",
+      "link": "scheda_soluzione.php?game=bloodwoodreload",
+      "autore": "Andrea Rinaldi"
+    },
+    {
+      "titolo": "Blue Force",
+      "link": "scheda_soluzione.php?game=BLUEFORCE",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Blue Ice",
+      "link": "scheda_extra.php?game=blueice&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Bone Ep.1 - Out From Boneville",
+      "link": "scheda_soluzione.php?game=bone",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Bone Ep.2 - The Great Cow Race",
+      "link": "scheda_soluzione.php?game=bonegcr",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "Broken Age",
+      "link": "scheda_extra.php?game=DFAdv&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Broken Sword - Il Segreto dei Templari",
+      "link": "scheda_soluzione.php?game=bs1",
+      "autore": "Fabio Rella"
+    },
+    {
+      "titolo": "Broken Sword 2 - La Profezia dei Maya",
+      "link": "scheda_soluzione.php?game=bs2",
+      "autore": "Fabio Rella"
+    },
+    {
+      "titolo": "Broken Sword 2.5 - The Return of the Templars",
+      "link": "scheda_soluzione.php?game=bs25",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Broken Sword 4 - L'Angelo della Morte",
+      "link": "scheda_soluzione.php?game=brokeniv",
+      "autore": " "
+    },
+    {
+      "titolo": "Broken Sword 5 - The Serpent's Curse",
+      "link": "scheda_soluzione.php?game=broken5",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Broken Sword: Shadows of the Templars - The Director's Cut",
+      "link": "scheda_soluzione.php?game=bs1dc",
+      "autore": "Paolo De Luca"
+    },
+    {
+      "titolo": "Call of Cthulhu: Dark Corners of the Earth",
+      "link": "scheda_soluzione.php?game=chtulhu",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Call of Cthulhu: Prisoner of Ice",
+      "link": "scheda_extra.php?game=poi&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Call of Cthulhu: Shadow of the Comet",
+      "link": "scheda_extra.php?game=sotc&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Caos a Deponia",
+      "link": "scheda_soluzione.php?game=ChaosDEp",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Captain Morgane e la Tartaruga d'Oro",
+      "link": "scheda_soluzione.php?game=capmorgan",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 2: Hope Springs Eternal",
+      "link": "scheda_soluzione.php?game=hse",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 3: Time Stand Still",
+      "link": "scheda_soluzione.php?game=timestand",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 4: East Side Story",
+      "link": "scheda_soluzione.php?game=east",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 5: The Colour of Murder",
+      "link": "scheda_soluzione.php?game=colmurd",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 6: Black Circle",
+      "link": "scheda_soluzione.php?game=BlackCir",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Carol Reed Mistery Ep. 7: Blue Madonna",
+      "link": "scheda_soluzione.php?game=blue",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Carte Blanche - Ep. 1: For a Fistful of Teeth",
+      "link": "scheda_soluzione.php?game=carteblanche",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Ceville",
+      "link": "scheda_soluzione.php?game=Ceville",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Chronicles of Mystery - Il rituale dello scorpione",
+      "link": "scheda_soluzione.php?game=ToF",
+      "autore": "Simonetta Terra e Ivan Vailati"
+    },
+    {
+      "titolo": "Chronicles of Mystery: L'Albero della Vita",
+      "link": "scheda_soluzione.php?game=COM_Tree",
+      "autore": "Simonetta Terra"
+    },
+    {
+      "titolo": "Cirque De Zale",
+      "link": "scheda_soluzione.php?game=cirque",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Cleopatra - Il Destino di una Regina",
+      "link": "scheda_soluzione.php?game=cleopatra",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Cluedo Chronicles: Fatal Illusion",
+      "link": "scheda_soluzione.php?game=Cluedo",
+      "autore": "Toni Alagna"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Episode 1 - The Hangman",
+      "link": "scheda_soluzione.php?game=Hangman",
+      "autore": "Toni Alagna"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Episode 2 - The Wise Monkey",
+      "link": "scheda_soluzione.php?game=wisemonkey",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Episode 3 - The Oracle",
+      "link": "scheda_soluzione.php?game=cogn3oracle",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Cognition: An Erica Reed Thriller Episode 4 - The Cain Killer",
+      "link": "scheda_soluzione.php?game=cogn4cain",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Cold Fear",
+      "link": "scheda_soluzione.php?game=coldfear",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Conquests of the Longbow: The Legend of Robin Hood",
+      "link": "scheda_soluzione.php?game=conqlongbow",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Corto Maltese - I Segreti di Venezia",
+      "link": "scheda_soluzione.php?game=cortomaltesevenezia",
+      "autore": "Simone Iacovino"
+    },
+    {
+      "titolo": "Cruise for a Corpse",
+      "link": "scheda_soluzione.php?game=CRUISE",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "CSI: Cospirazione Letale",
+      "link": "scheda_soluzione.php?game=CSI_cospletale",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "CSI: Crime Scene Investigation",
+      "link": "scheda_soluzione.php?game=csi",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "CSI: Dark Motives",
+      "link": "scheda_soluzione.php?game=csi2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "CSI: Intento Mortale",
+      "link": "scheda_soluzione.php?game=CSIDI",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "CSI: Omicidio in 3 Dimensioni",
+      "link": "scheda_soluzione.php?game=csidom",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "CSI: Prova Schiacciante",
+      "link": "scheda_soluzione.php?game=csihe",
+      "autore": " "
+    },
+    {
+      "titolo": "Cubert Badbone, P.I.",
+      "link": "scheda_soluzione.php?game=cubert",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Culpa Innata",
+      "link": "scheda_soluzione.php?game=culpa",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Curse - The Eye of Isis",
+      "link": "scheda_soluzione.php?game=curse",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Cypher - Nome in Codice Raven",
+      "link": "scheda_soluzione.php?game=cypher",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Da New Guys: Day of the Jackass",
+      "link": "scheda_soluzione.php?game=dng",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Daemonica",
+      "link": "scheda_soluzione.php?game=daemonica",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dangerous Heaven - La Leggenda dell'Arca",
+      "link": "scheda_soluzione.php?game=arca",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dark Fall",
+      "link": "scheda_soluzione.php?game=darkfall",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dark Fall 2",
+      "link": "scheda_soluzione.php?game=darkfall2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dark Fall 3: Lost Souls",
+      "link": "scheda_soluzione.php?game=DF_",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Dark Seed",
+      "link": "scheda_extra.php?game=DRKSEED&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Darkness Within 2: La Stirpe Oscura",
+      "link": "scheda_soluzione.php?game=DarknessWTDL",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Darkness Within: Sulle tracce di Loath Nolder",
+      "link": "scheda_soluzione.php?game=loathlabores",
+      "autore": "Claudio Del Monte"
+    },
+    {
+      "titolo": "Day of the Tentacle",
+      "link": "scheda_soluzione.php?game=dott",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Dead City",
+      "link": "scheda_soluzione.php?game=deadcity",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dead Mountaineer's Hotel",
+      "link": "scheda_soluzione.php?game=dmh",
+      "autore": "Julien Clement"
+    },
+    {
+      "titolo": "Dead Reefs",
+      "link": "scheda_soluzione.php?game=reefs",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dead Synchronicity: Tomorrow comes Today",
+      "link": "scheda_soluzione.php?game=deadsync",
+      "autore": "Mattia Brognoli"
+    },
+    {
+      "titolo": "Decay \u2013 The Mare",
+      "link": "scheda_soluzione.php?game=decaythemare",
+      "autore": "Simone Iacovino"
+    },
+    {
+      "titolo": "Delaware St. John - La Maledizione di Midnight Manor",
+      "link": "scheda_soluzione.php?game=sjcmm",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Delaware St. John - Vol. 2: La Citt\u00e0 Senza Nome",
+      "link": "scheda_soluzione.php?game=sjtnn",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Delaware St. John - Vol. 3: La Tragedia sulla Scogliera",
+      "link": "scheda_soluzione.php?game=delawarest",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Destinazione: L'Isola del Tesoro",
+      "link": "scheda_soluzione.php?game=isolatesoro",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Diabolik - Original Sin",
+      "link": "scheda_soluzione.php?game=diabolik",
+      "autore": " "
+    },
+    {
+      "titolo": "Discworld",
+      "link": "scheda_extra.php?game=dw&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Discworld 2",
+      "link": "scheda_extra.php?game=dw2&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Discworld Noir",
+      "link": "scheda_soluzione.php?game=discnoir",
+      "autore": "Salvo Puccio"
+    },
+    {
+      "titolo": "Doctor Who - Ep. 1: City of the Daleks",
+      "link": "scheda_soluzione.php?game=DWDaleks",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Doctor Who - Ep. 2: Blood of the Cybermen",
+      "link": "scheda_soluzione.php?game=DWhoTwo",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Doctor Who - Ep. 3: Tardis",
+      "link": "scheda_soluzione.php?game=tardis",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Doctor Who - Ep. 4: Shadows of the Vashta Nerada",
+      "link": "scheda_soluzione.php?game=DWhoFour",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Donald Dowell and the Ghost of Barker Manor",
+      "link": "scheda_soluzione.php?game=ddowell",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Dr. Lutz and the Time Travel Machine",
+      "link": "scheda_soluzione.php?game=lutz",
+      "autore": "Marco Sgolmin"
+    },
+    {
+      "titolo": "Dracula - La Risurrezione",
+      "link": "scheda_soluzione.php?game=dracula",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Dracula 2 - L'Ultimo Santuario",
+      "link": "scheda_soluzione.php?game=dracula2",
+      "autore": "Salvo Puccio"
+    },
+    {
+      "titolo": "Dracula 3 - Il Sentiero del Drago",
+      "link": "scheda_soluzione.php?game=draculatre",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dracula 4 - L'Ombra del Drago",
+      "link": "scheda_soluzione.php?game=Drac_Dragon",
+      "autore": " "
+    },
+    {
+      "titolo": "Dracula: Love Kills",
+      "link": "scheda_soluzione.php?game=DraOriTwo",
+      "autore": "Ekaterina "
+    },
+    {
+      "titolo": "Dracula: Origin",
+      "link": "scheda_soluzione.php?game=drorigin",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dragonsphere",
+      "link": "scheda_soluzione.php?game=dgsphere",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Drascula",
+      "link": "scheda_soluzione.php?game=drascula",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dread Mac Farlane",
+      "link": "scheda_soluzione.php?game=dmc",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Dream Chamber",
+      "link": "scheda_soluzione.php?game=dreamchamber",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Dreamfall Chapters - Book One: Reborn",
+      "link": "scheda_soluzione.php?game=dreamchapt1",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Dreamfall: The Longest Journey",
+      "link": "scheda_soluzione.php?game=dreamfall",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "Dreamweb",
+      "link": "scheda_soluzione.php?game=dreamweb",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Dylan Dog 01: La Regina delle Tenebre",
+      "link": "scheda_soluzione.php?game=DD01",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 02: Ritorno al Crepuscolo",
+      "link": "scheda_soluzione.php?game=DD02",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 03: Storia di Nessuno",
+      "link": "scheda_soluzione.php?game=DD03",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 04: Ombre",
+      "link": "scheda_soluzione.php?game=DD04",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 05: La Mummia",
+      "link": "scheda_soluzione.php?game=DD05",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 06: Maelstrom",
+      "link": "scheda_soluzione.php?game=DD06",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 07: Gente che Scompare",
+      "link": "scheda_soluzione.php?game=DD07",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 08: La Clessidra di Pietra",
+      "link": "scheda_soluzione.php?game=DD08",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 09: Il Male",
+      "link": "scheda_soluzione.php?game=DD09",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 10: I Vampiri",
+      "link": "scheda_soluzione.php?game=DD10",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 11: Il Marchio Rosso",
+      "link": "scheda_soluzione.php?game=DD11",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 12: Il Lungo Addio",
+      "link": "scheda_soluzione.php?game=DD12",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 13: I Killer Venuti dal Buio",
+      "link": "scheda_soluzione.php?game=DD13",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 14: Il Bosco degli Assassini",
+      "link": "scheda_soluzione.php?game=DD14",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 15: Inferni",
+      "link": "scheda_soluzione.php?game=DD15",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 16: Fantasmi",
+      "link": "scheda_soluzione.php?game=DD16",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog 17: Il Cimitero Dimenticato",
+      "link": "scheda_soluzione.php?game=DD17",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Dylan Dog: Horror Luna Park",
+      "link": "scheda_extra.php?game=DDHLP&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "EcoQuest: The Search for Cetus",
+      "link": "scheda_soluzione.php?game=ecoquest1",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Edna & Harvey: Harvey's New Eyes",
+      "link": "scheda_soluzione.php?game=Harvey",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Egypt 2 - La Profezia di Heliopolis",
+      "link": "scheda_soluzione.php?game=egypt2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Egypt III - Il Destino Di Ramses (DVG Version)",
+      "link": "scheda_soluzione.php?game=egypt3dvg",
+      "autore": " "
+    },
+    {
+      "titolo": "El Dorado",
+      "link": "scheda_soluzione.php?game=eldorado",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Eleusis",
+      "link": "scheda_soluzione.php?game=eleusis",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Emerald City Confidential",
+      "link": "scheda_soluzione.php?game=Emerald",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Evany - La Chiave per Mondi Sconosciuti",
+      "link": "scheda_soluzione.php?game=ck2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Everlight",
+      "link": "scheda_soluzione.php?game=everlight",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Evil Dead: Regeneration",
+      "link": "scheda_soluzione.php?game=regeneration",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Evocation: La Sfida",
+      "link": "scheda_soluzione.php?game=evocation1",
+      "autore": "Federico Meoni"
+    },
+    {
+      "titolo": "Experience 112",
+      "link": "scheda_soluzione.php?game=experience",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Fable",
+      "link": "scheda_soluzione.php?game=FBL",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Face Noir",
+      "link": "scheda_soluzione.php?game=FaceN",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Fahrenheit",
+      "link": "scheda_soluzione.php?game=fahrenheit",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Faust - I Sette Giochi dell'Anima",
+      "link": "scheda_extra.php?game=faust&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Fenimore Fillmore's Revenge",
+      "link": "scheda_soluzione.php?game=revenge",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Fester Mudd - Curse of the Gold: Episode 1",
+      "link": "scheda_soluzione.php?game=festermudd",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Fire",
+      "link": "scheda_soluzione.php?game=Fire",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Flight of the Amazon Queen",
+      "link": "scheda_soluzione.php?game=fotaq",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Forever Worlds",
+      "link": "scheda_soluzione.php?game=forworlds",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Forge - Capitolo 1",
+      "link": "scheda_soluzione.php?game=Forge",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Fran Bow",
+      "link": "scheda_soluzione.php?game=franbow",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Freddy Pharkas: Frontier Pharmacist",
+      "link": "scheda_soluzione.php?game=freddy",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Fuga da Deponia",
+      "link": "scheda_soluzione.php?game=Deponia",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Full Throttle",
+      "link": "scheda_soluzione.php?game=fthrottle",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Gabriel Knight 1: Sins of the Fathers",
+      "link": "scheda_soluzione.php?game=gk",
+      "autore": "Pietro Lietti e Simonetta Terra"
+    },
+    {
+      "titolo": "Gabriel Knight 2: The Beast Within",
+      "link": "scheda_soluzione.php?game=gk2bw",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "Gabriel Knight 3: Il Mistero Macchiato di Sangue",
+      "link": "scheda_soluzione.php?game=gk3",
+      "autore": "Salvo Puccio"
+    },
+    {
+      "titolo": "Gast - Alla Ricerca della Risata Perduta",
+      "link": "scheda_soluzione.php?game=gast",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Gemini Rue",
+      "link": "scheda_soluzione.php?game=geminirue",
+      "autore": "Tommaso Barbieri"
+    },
+    {
+      "titolo": "Ghost in the Sheet - Il Segreto del Settore Omega",
+      "link": "scheda_soluzione.php?game=ghost",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Ghost Pirates of Vooju Island",
+      "link": "scheda_soluzione.php?game=GhostPirates",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Gilbert Goodmate",
+      "link": "scheda_soluzione.php?game=ggoodmate",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Gobliiins",
+      "link": "scheda_soluzione.php?game=gobliiins",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Gobliiins 4",
+      "link": "scheda_soluzione.php?game=Goobl4_",
+      "autore": "Ivan Vailati e Paolo De Luca"
+    },
+    {
+      "titolo": "Gobliins 2: The Prince Buffoon",
+      "link": "scheda_soluzione.php?game=GobPrince",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Goblins 3",
+      "link": "scheda_soluzione.php?game=goblins3",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Gods Will Be Watching",
+      "link": "scheda_soluzione.php?game=godswatching",
+      "autore": "Simone Iacovino"
+    },
+    {
+      "titolo": "Goin' Downtown",
+      "link": "scheda_soluzione.php?game=GDowntown",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Gold Rush! Anniversary",
+      "link": "scheda_soluzione.php?game=goldrushanniversary",
+      "autore": "Simone Iacovino"
+    },
+    {
+      "titolo": "Gomo",
+      "link": "scheda_soluzione.php?game=Gomo",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Gooka: Il Mistero di Janatris",
+      "link": "scheda_soluzione.php?game=gooka",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Gray Matter",
+      "link": "scheda_soluzione.php?game=gmatter",
+      "autore": "Marco Sgolmin"
+    },
+    {
+      "titolo": "Grim Fandango",
+      "link": "scheda_soluzione.php?game=gfandango",
+      "autore": "Flavio Burrai"
+    },
+    {
+      "titolo": "Hamlet",
+      "link": "scheda_soluzione.php?game=Hamlet",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "HCA \u2013 The Ugly Prince Duckling",
+      "link": "scheda_soluzione.php?game=hca",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Heaven",
+      "link": "scheda_soluzione.php?game=heaven",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Hector: Badge of Carnage - Episode 1: We Negotiate With Terrorists",
+      "link": "scheda_soluzione.php?game=hector",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Hector: Badge of Carnage - Episode 2: Senseless Acts of Justice",
+      "link": "scheda_soluzione.php?game=hector2",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Hector: Badge of Carnage - Episode 3: Beyond Reasonable Doom",
+      "link": "scheda_soluzione.php?game=hector3",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Hidden - Essenza Primitiva",
+      "link": "scheda_soluzione.php?game=hcap1",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Hollywood Monsters",
+      "link": "scheda_soluzione.php?game=hollymonsters",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Hollywood Monsters 2 (The Next BIG Thing)",
+      "link": "scheda_soluzione.php?game=TNBT",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Hotel - I Segreti del Bellevue",
+      "link": "scheda_soluzione.php?game=Hotel",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "I Cristalli di Avalon",
+      "link": "scheda_soluzione.php?game=avcryst",
+      "autore": " "
+    },
+    {
+      "titolo": "I Have No Mouth and I Must Scream",
+      "link": "scheda_soluzione.php?game=nomouth",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Il Codice Da Vinci",
+      "link": "scheda_soluzione.php?game=codicedavinci",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "Il Mistero di Notre Dame",
+      "link": "scheda_soluzione.php?game=notredame",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Il Professor Layton e il Futuro Perduto (Nintendo DS)",
+      "link": "scheda_soluzione.php?game=laytonmachine",
+      "autore": "Fabio Rella"
+    },
+    {
+      "titolo": "Il Professor Layton e il Paese dei Misteri (Nintendo DS)",
+      "link": "scheda_soluzione.php?game=PLeytonVillage",
+      "autore": "Fantasya "
+    },
+    {
+      "titolo": "Il Professor Layton e lo Scrigno di Pandora (Nintendo DS)",
+      "link": "scheda_soluzione.php?game=laytonpandora",
+      "autore": "Alessandra Ippoliti"
+    },
+    {
+      "titolo": "Il Ritorno all'Isola Misteriosa 2: Il Destino di Mina",
+      "link": "scheda_soluzione.php?game=RTMI2_",
+      "autore": "Angelo Bruno"
+    },
+    {
+      "titolo": "Il Testamento di Sherlock Holmes",
+      "link": "scheda_soluzione.php?game=SHtestament",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Indiana Jones and the Fate of Atlantis",
+      "link": "scheda_soluzione.php?game=ijatlantide",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Indiana Jones and the Last Crusade",
+      "link": "scheda_soluzione.php?game=INDY3",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Innocent Until Caught",
+      "link": "scheda_extra.php?game=iuc&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Innocent Until Caught 2: Guilty",
+      "link": "scheda_extra.php?game=iuc2&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "J.U.L.I.A.",
+      "link": "scheda_soluzione.php?game=J.U.L.I.A.",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Jack Keane - Al Riscatto dell'Impero Britannico",
+      "link": "scheda_soluzione.php?game=keane",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Jack Keane 2 - The Fire Within",
+      "link": "scheda_soluzione.php?game=JKTwo",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Jazz & Faust",
+      "link": "scheda_soluzione.php?game=jazzfaust",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Jekyll & Hyde: The Secret of London Undergrounds",
+      "link": "scheda_soluzione.php?game=JHSecretLondon",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Jolly Rover",
+      "link": "scheda_soluzione.php?game=jollyrover",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Jonathan Danter - Nel Sangue di Giuda",
+      "link": "scheda_soluzione.php?game=belief",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Journey",
+      "link": "scheda_soluzione.php?game=journey",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Journey of a Roach",
+      "link": "scheda_soluzione.php?game=jouroach",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Julia: Innocent Eyes - Istinto predatore",
+      "link": "scheda_soluzione.php?game=Ep2Julia",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Julia: Innocent Eyes - Lacrime Nere",
+      "link": "scheda_soluzione.php?game=JuliaLN",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Julia: Innocent Eyes - Parole non dette",
+      "link": "scheda_soluzione.php?game=Julia1ep",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Jurassic Park: The Game",
+      "link": "scheda_soluzione.php?game=JurPark",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Kaptain Brawe: A Brawe New World",
+      "link": "scheda_soluzione.php?game=kapbrawe_",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Keepsake - Il Mistero di Dragonvale",
+      "link": "scheda_soluzione.php?game=keepsake",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "King's Quest 1: Quest for the Crown",
+      "link": "scheda_soluzione.php?game=kingsquest",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "King's Quest 1: Quest for the Crown VGA Remake",
+      "link": "scheda_soluzione.php?game=kqvga",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "King's Quest 2: Romancing the Stones VGA Remake",
+      "link": "scheda_soluzione.php?game=kq2vga",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "King's Quest 2: Romancing the Throne",
+      "link": "scheda_soluzione.php?game=kq2",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "King's Quest 3: To Heir is Human",
+      "link": "scheda_soluzione.php?game=kqiii",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "King's Quest 3: To Heir is Human VGA Remake",
+      "link": "scheda_soluzione.php?game=KQ3Remake",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "King's Quest 7: The Princeless Bride",
+      "link": "scheda_soluzione.php?game=kq7",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "King's Quest: A Knight to Remember",
+      "link": "scheda_extra.php?game=kingquestep1&cont=Video soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Kronolog: The Nazi Paradox",
+      "link": "scheda_soluzione.php?game=KRONO",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "L'Enigma di Master Lu",
+      "link": "scheda_extra.php?game=masterlu&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "La Citt\u00e0 Perduta di Zerzura",
+      "link": "scheda_soluzione.php?game=zerzura",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "La Terribile Minaccia degli Invasori dall'Audiogalassia",
+      "link": "scheda_soluzione.php?game=invasori",
+      "autore": " "
+    },
+    {
+      "titolo": "Last Half of Darkness 2: Beyond the Spirit's Eye",
+      "link": "scheda_soluzione.php?game=LHOD2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Last Window: Il Segreto di Cape West (Nintendo DS)",
+      "link": "scheda_soluzione.php?game=LastWinDS",
+      "autore": "Fabio Rella"
+    },
+    {
+      "titolo": "Laura Bow: The Colonel's Bequest",
+      "link": "scheda_soluzione.php?game=laurabow1",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Leisure Suit Larry 1:  In the Land of the Lounge Lizards",
+      "link": "scheda_soluzione.php?game=Larryone",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Leisure Suit Larry 2: Goes Looking for Love (In Several Wrong Places)",
+      "link": "scheda_soluzione.php?game=Larry2",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Leisure Suit Larry 3: Passionate Patti in Pursuit of the Pulsating Pectorals",
+      "link": "scheda_soluzione.php?game=Larry3",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work!",
+      "link": "scheda_soluzione.php?game=larry5",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Leisure Suit Larry: Reloaded",
+      "link": "scheda_soluzione.php?game=larryremake",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Lighthouse - Il Faro",
+      "link": "scheda_extra.php?game=lighthouse&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Lilly Looking Through",
+      "link": "scheda_soluzione.php?game=Lilly",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Loom",
+      "link": "scheda_soluzione.php?game=loom",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "Lost - Via Domus",
+      "link": "scheda_soluzione.php?game=Lost",
+      "autore": "Cristiano Caliendo"
+    },
+    {
+      "titolo": "Lost Horizon",
+      "link": "scheda_soluzione.php?game=USDA",
+      "autore": "Fabio Rella"
+    },
+    {
+      "titolo": "Lost Horizon 2",
+      "link": "scheda_soluzione.php?game=losthorizon2",
+      "autore": "Raffaele Bonfanti"
+    },
+    {
+      "titolo": "Louisiana Adventure",
+      "link": "scheda_soluzione.php?game=Lou",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Lucius",
+      "link": "scheda_soluzione.php?game=lucius",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Lunar Deep - The Adventure Below",
+      "link": "scheda_soluzione.php?game=ldeep",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Lure Of The Temptress",
+      "link": "scheda_extra.php?game=lott&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Machinarium",
+      "link": "scheda_soluzione.php?game=Machi",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Manhunter 2: San Francisco",
+      "link": "scheda_soluzione.php?game=MANHUNTER2",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Manhunter: New York",
+      "link": "scheda_soluzione.php?game=MANHUNTER1",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Maniac Mansion",
+      "link": "scheda_soluzione.php?game=MANIACMANS",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Maniac Mansion Deluxe",
+      "link": "scheda_soluzione.php?game=mmd",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Martin Myst\u00e8re",
+      "link": "scheda_soluzione.php?game=mmystere",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Mata Hari",
+      "link": "scheda_soluzione.php?game=mata",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Memento Mori: Il segreto della vita eterna",
+      "link": "scheda_soluzione.php?game=mmori",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Memoria",
+      "link": "scheda_soluzione.php?game=memoria",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Metal Dead",
+      "link": "scheda_soluzione.php?game=metaldead",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Midnight Nowhere",
+      "link": "scheda_soluzione.php?game=midnight",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Miskatonic Ep.1: The Inhuman Stain",
+      "link": "scheda_soluzione.php?game=miska",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Moebius: Empire Rising",
+      "link": "scheda_soluzione.php?game=moebius",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Monkey Island 1 - The Secret of Monkey Island",
+      "link": "scheda_soluzione.php?game=monkey",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Monkey Island 2 - Le Chuck's Revenge",
+      "link": "scheda_soluzione.php?game=monkey2",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Monkey Island 2 Special Edition: LeChuck's Revenge",
+      "link": "scheda_soluzione.php?game=Mkey2SE",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Monkey Island 3 - The Curse of Monkey Island",
+      "link": "scheda_soluzione.php?game=monkey3",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Monkey Island 4 - Fuga Da Monkey Island",
+      "link": "scheda_soluzione.php?game=monkey4",
+      "autore": "Vincenzo Marzano"
+    },
+    {
+      "titolo": "Morningstar: Descent to Deadrock",
+      "link": "scheda_soluzione.php?game=morningstar",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Myst V - End Of Ages",
+      "link": "scheda_soluzione.php?game=myst5",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Nancy Drew 29 - The Silent Spy",
+      "link": "scheda_soluzione.php?game=nancysilent",
+      "autore": "Simone Iacovino"
+    },
+    {
+      "titolo": "NCIS The Game",
+      "link": "scheda_soluzione.php?game=ncis",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Nelly Cootalot, Spoonbeaks Ahoy!",
+      "link": "scheda_soluzione.php?game=nellyspoonbeaks",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Nelson Tethers: Puzzle Agent",
+      "link": "scheda_soluzione.php?game=PAgent",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "New York Crimes",
+      "link": "scheda_soluzione.php?game=y",
+      "autore": "Toni Alagna"
+    },
+    {
+      "titolo": "Ni.Bi.Ru: Il Messaggero degli Dei",
+      "link": "scheda_soluzione.php?game=nibiru",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Nicolas Eymerich, Inquisitore: Il Villaggio",
+      "link": "scheda_soluzione.php?game=NEymerich2",
+      "autore": " "
+    },
+    {
+      "titolo": "Nicolas Eymerich, Inquisitore: La Peste",
+      "link": "scheda_soluzione.php?game=NEymerich",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Nightlong: Union City Conspiracy",
+      "link": "scheda_soluzione.php?game=nightlong",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "Nikopol",
+      "link": "scheda_soluzione.php?game=NK",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Noctropolis",
+      "link": "scheda_soluzione.php?game=noctropolis",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Normality",
+      "link": "scheda_soluzione.php?game=normality",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Nostradamus: L'Ultima Profezia",
+      "link": "scheda_soluzione.php?game=NOSTRAD",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Obscure",
+      "link": "scheda_soluzione.php?game=obscure",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Obscure 2",
+      "link": "scheda_soluzione.php?game=obscure2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Oknytt",
+      "link": "scheda_soluzione.php?game=oknytt",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Outcry (aka Sublustrum)",
+      "link": "scheda_soluzione.php?game=Sublustr",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Overclocked: Una Storia di Violenza",
+      "link": "scheda_soluzione.php?game=overclocked",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Papers, please",
+      "link": "scheda_soluzione.php?game=papers",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Paradise",
+      "link": "scheda_soluzione.php?game=lparadise",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Penumbra Tech Demo",
+      "link": "scheda_soluzione.php?game=penumbratdemo",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Penumbra: Black Plague",
+      "link": "scheda_soluzione.php?game=penumbrabp",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Penumbra: Overture",
+      "link": "scheda_soluzione.php?game=penumbraov",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Penumbra: Requiem",
+      "link": "scheda_soluzione.php?game=penumbrareq",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Perry Rhodan: Il Mito di Illochim",
+      "link": "scheda_soluzione.php?game=PERRYRHOD",
+      "autore": "Simonetta Terra e Ivan Vailati"
+    },
+    {
+      "titolo": "Personal Nightmare",
+      "link": "scheda_soluzione.php?game=PERSNIGHT",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Phantasmagoria",
+      "link": "scheda_soluzione.php?game=phantasm",
+      "autore": "Carmine Fele"
+    },
+    {
+      "titolo": "Phantasmagoria 2: A Puzzle of Flesh",
+      "link": "scheda_soluzione.php?game=phantasm2",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Phoenix Wright: Ace Attorney - Trials and Tribulations",
+      "link": "scheda_soluzione.php?game=phoenixtt",
+      "autore": "Alessandra Ippoliti"
+    },
+    {
+      "titolo": "Post Mortem",
+      "link": "scheda_soluzione.php?game=pmortem",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Prezzemolo in un Viaggio da Sogno",
+      "link": "scheda_soluzione.php?game=prezzemolo2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Prezzemolo in una Giornata da Incubo",
+      "link": "scheda_soluzione.php?game=prezzemolo1",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Primordia",
+      "link": "scheda_soluzione.php?game=primordia",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Puzzle Agent 2",
+      "link": "scheda_soluzione.php?game=PATwo",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Puzzle Bots",
+      "link": "scheda_soluzione.php?game=p-bots",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Quest for Infamy",
+      "link": "scheda_soluzione.php?game=qinfamy",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Raiders of the Lost Ark",
+      "link": "scheda_soluzione.php?game=raidersark",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Randal's Monday",
+      "link": "scheda_soluzione.php?game=randal",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Reperfection Vol. 1",
+      "link": "scheda_soluzione.php?game=reperf1",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Reprobates - L'Isola Dei Dannati",
+      "link": "scheda_soluzione.php?game=reprobates",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Resonance",
+      "link": "scheda_soluzione.php?game=resonance",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "Return to Zork",
+      "link": "scheda_extra.php?game=zorkvii&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Reversion - Capitolo 1: La Fuga",
+      "link": "scheda_soluzione.php?game=rev1",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Reversion - Capitolo 2: L'incontro",
+      "link": "scheda_soluzione.php?game=rev2",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Rhem 2: The Cave",
+      "link": "scheda_soluzione.php?game=rhem2",
+      "autore": " "
+    },
+    {
+      "titolo": "Rhem 3: La Biblioteca Segreta",
+      "link": "scheda_soluzione.php?game=rhem3",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "Rhem 4: I Frammenti Dorati",
+      "link": "scheda_soluzione.php?game=RFour",
+      "autore": "Struzzo e Laverne"
+    },
+    {
+      "titolo": "Righteous City: Part 1",
+      "link": "scheda_soluzione.php?game=rigtsctp1",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Righteous City: Part 2",
+      "link": "scheda_soluzione.php?game=rigtsctp2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Ring 2: Il Crepuscolo degli Dei",
+      "link": "scheda_soluzione.php?game=ringii",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Ring: La Leggenda dei Nibelunghi",
+      "link": "scheda_soluzione.php?game=ring",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Ripper",
+      "link": "scheda_soluzione.php?game=ripper",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "RIS: Delitti Imperfetti",
+      "link": "scheda_soluzione.php?game=ris",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Roccio Quest",
+      "link": "scheda_soluzione.php?game=roccioq",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Rosemary",
+      "link": "scheda_soluzione.php?game=rose",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Runaway",
+      "link": "scheda_soluzione.php?game=runaway",
+      "autore": "Carlo de Caesaris"
+    },
+    {
+      "titolo": "Runaway 2: The Dream of the Turtle",
+      "link": "scheda_soluzione.php?game=runaway2",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Runaway 3: A Twist of Fate",
+      "link": "scheda_soluzione.php?game=Run3",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "Safecracker: The Ultimate Puzzle Adventure",
+      "link": "scheda_soluzione.php?game=safecrack",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Salammb\u00f2",
+      "link": "scheda_soluzione.php?game=salammb\u00f2",
+      "autore": "Salvo Puccio"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.1 - Culture Shock",
+      "link": "scheda_soluzione.php?game=samax2",
+      "autore": " "
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.2 - Situation: Comedy",
+      "link": "scheda_soluzione.php?game=smsc",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.3 - The Mole, The Mob And The Meatball",
+      "link": "scheda_soluzione.php?game=sm3m",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.4 - Abe Lincoln Must Die",
+      "link": "scheda_soluzione.php?game=smabe",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.5 - Reality 2.0",
+      "link": "scheda_soluzione.php?game=smreality",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Sam & Max - Se.1 Ep.6 - Bright Side of the Moon",
+      "link": "scheda_soluzione.php?game=smbright",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Sam & Max - Se.2 Ep.1 - Ice Station Santa",
+      "link": "scheda_soluzione.php?game=samsanta",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.1: The Penal Zone",
+      "link": "scheda_soluzione.php?game=Penalzone",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.2: The Tomb of Sammun-Mak",
+      "link": "scheda_soluzione.php?game=Sammun-Mak",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.3: They Stole Max's Brain!",
+      "link": "scheda_soluzione.php?game=SM303",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.4: Beyond the Alley of the Dolls",
+      "link": "scheda_soluzione.php?game=smn4ep",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Sam & Max - Se.3 Ep.5: The City that Dares not Sleep",
+      "link": "scheda_soluzione.php?game=305_SeM",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Sam & Max: Hit The Road",
+      "link": "scheda_soluzione.php?game=sammax",
+      "autore": "Salvo Puccio"
+    },
+    {
+      "titolo": "Samorost",
+      "link": "scheda_soluzione.php?game=samo",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Samorost 2",
+      "link": "scheda_soluzione.php?game=samo2",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Sanitarium",
+      "link": "scheda_soluzione.php?game=sanitarium",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Scratches: Graffi Mortali",
+      "link": "scheda_soluzione.php?game=scratches",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Secret Files 2: Puritas Cordis",
+      "link": "scheda_soluzione.php?game=SF2",
+      "autore": "Fabio Rella"
+    },
+    {
+      "titolo": "Secret Files 3",
+      "link": "scheda_soluzione.php?game=SF3",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Secret Files: Il Mistero di Tunguska",
+      "link": "scheda_soluzione.php?game=tunguska",
+      "autore": "Paolo Novarese"
+    },
+    {
+      "titolo": "Secret of the Lost Cavern",
+      "link": "scheda_soluzione.php?game=sotlc",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Sentinel",
+      "link": "scheda_soluzione.php?game=sentinel",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Shadow of Memories",
+      "link": "scheda_soluzione.php?game=shamemory",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Shadows on the Vatican Atto I: Avarizia",
+      "link": "scheda_soluzione.php?game=sotv",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "Shadows on the Vatican Atto II: Ira",
+      "link": "scheda_soluzione.php?game=sotv2",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Sherlock Holmes contro Ars\u00e8ne Lupin",
+      "link": "scheda_soluzione.php?game=sherlocklupin",
+      "autore": "Arianna Vacca"
+    },
+    {
+      "titolo": "Sherlock Holmes contro Jack lo Squartatore",
+      "link": "scheda_soluzione.php?game=SherlockvsJack1",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Sherlock Holmes: Crimes and Punishments",
+      "link": "scheda_extra.php?game=sh_crimes&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Sherlock Holmes: Il Mastino dei Baskerville",
+      "link": "scheda_soluzione.php?game=sh_bask",
+      "autore": "Andrea Canino"
+    },
+    {
+      "titolo": "Sherlock Holmes: Il Mistero della Mummia",
+      "link": "scheda_soluzione.php?game=shmm",
+      "autore": "Salvo Puccio"
+    },
+    {
+      "titolo": "Sherlock Holmes: Il Risveglio della Divinit\u00e0",
+      "link": "scheda_soluzione.php?game=shawaken",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Sherlock Holmes: L'Avventura",
+      "link": "scheda_soluzione.php?game=SHPremium",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Sherlock Holmes: L'Orecchino d'Argento",
+      "link": "scheda_soluzione.php?game=shoa",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Silent Hill 4: The Room",
+      "link": "scheda_soluzione.php?game=sh4",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Simon The Sorcerer",
+      "link": "scheda_soluzione.php?game=simon",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "Simon The Sorcerer 2: Il Leone, il Mago e l'Armadio",
+      "link": "scheda_soluzione.php?game=simon2",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Simon The Sorcerer 4: Chaos Happens",
+      "link": "scheda_soluzione.php?game=simoniv",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Simon the Sorcerer V: L'Invasione degli Extraterrestri",
+      "link": "scheda_soluzione.php?game=simon5",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Sinking Island",
+      "link": "scheda_soluzione.php?game=sinking",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Slip Space: The Burma - Shave Analogy",
+      "link": "scheda_soluzione.php?game=SlipSpace",
+      "autore": "Marina Bucciarelli"
+    },
+    {
+      "titolo": "So Blonde",
+      "link": "scheda_soluzione.php?game=SBlonde",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Stacking",
+      "link": "scheda_soluzione.php?game=Stack",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "Stasis",
+      "link": "scheda_soluzione.php?game=stasis",
+      "autore": "Stefano Rossitto"
+    },
+    {
+      "titolo": "Sterling's Gift",
+      "link": "scheda_soluzione.php?game=sterling",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Still Life",
+      "link": "scheda_soluzione.php?game=slife",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Still Life 2",
+      "link": "scheda_soluzione.php?game=sltwo",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Stupid Invaders",
+      "link": "scheda_soluzione.php?game=stupinv",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Subject 13",
+      "link": "scheda_soluzione.php?game=subject13",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "Supreme League of Patriots",
+      "link": "scheda_soluzione.php?game=supremeleague",
+      "autore": "Simone Iacovino"
+    },
+    {
+      "titolo": "Syberia",
+      "link": "scheda_soluzione.php?game=syberia",
+      "autore": " "
+    },
+    {
+      "titolo": "Syberia 2",
+      "link": "scheda_soluzione.php?game=syb2",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Tale of a Hero - Il Destino di un Eroe",
+      "link": "scheda_soluzione.php?game=tale",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Tales of Monkey Island ep. 1: Launch of the Screaming Narwhal",
+      "link": "scheda_soluzione.php?game=talesmonkey1",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Tales of Monkey Island ep. 2: The Siege of Spinner Cay",
+      "link": "scheda_soluzione.php?game=SpinnerCay",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Tales of Monkey Island ep. 3: Lair of the Leviathan",
+      "link": "scheda_soluzione.php?game=Tomi3ch",
+      "autore": "Marco Sgolmin"
+    },
+    {
+      "titolo": "Tales of Monkey Island ep. 4: The Trial and Execution of Guybrush Threepwood",
+      "link": "scheda_soluzione.php?game=TomiEpFour",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Tales of Monkey Island ep. 5: Rise of the Pirate God",
+      "link": "scheda_soluzione.php?game=TomiFive",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Technobabylon",
+      "link": "scheda_soluzione.php?game=technobabylon",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "Teenagent",
+      "link": "scheda_soluzione.php?game=teenagent",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "The 7th Guest",
+      "link": "scheda_soluzione.php?game=sevenguest",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "The Abbey",
+      "link": "scheda_soluzione.php?game=abbey",
+      "autore": "Marco Sgolmin"
+    },
+    {
+      "titolo": "The Apotheosis Project",
+      "link": "scheda_soluzione.php?game=apotheosis",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "The Blackwell Convergence Ep. 3",
+      "link": "scheda_soluzione.php?game=bwconvergence",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "The Blackwell Deception Ep. 4",
+      "link": "scheda_soluzione.php?game=BWDeception",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "The Blackwell Legacy Ep. 1",
+      "link": "scheda_soluzione.php?game=blackwell",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "The Blackwell Unbound Ep. 2",
+      "link": "scheda_soluzione.php?game=blackwellUN",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "The Book of Unwritten Tales",
+      "link": "scheda_soluzione.php?game=TheBookOUT",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "The Book of Unwritten Tales 2",
+      "link": "scheda_extra.php?game=TheBookOUTales2&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "The Book of Unwritten Tales: The Critter Chronicles",
+      "link": "scheda_soluzione.php?game=butCC",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "The Cat Lady",
+      "link": "scheda_soluzione.php?game=TheCat",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "The Curse of Life",
+      "link": "scheda_soluzione.php?game=TCoL",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Dame In Black Case",
+      "link": "scheda_soluzione.php?game=TheDame",
+      "autore": "Marinella Balbinutti"
+    },
+    {
+      "titolo": "The Dark Eye: Chains of Satinav",
+      "link": "scheda_soluzione.php?game=darkeye",
+      "autore": "Angelo Bruno"
+    },
+    {
+      "titolo": "The Dig",
+      "link": "scheda_soluzione.php?game=dig",
+      "autore": "Paolo Novarese"
+    },
+    {
+      "titolo": "The Dream Machine: Chapter 1",
+      "link": "scheda_soluzione.php?game=dreammachine",
+      "autore": "Andrea Canino"
+    },
+    {
+      "titolo": "The Dream Machine: Chapter 2",
+      "link": "scheda_soluzione.php?game=dreammachine2",
+      "autore": "Andrea Canino"
+    },
+    {
+      "titolo": "The Dream Machine: Chapter 3",
+      "link": "scheda_soluzione.php?game=dreammachine3",
+      "autore": "Andrea Canino"
+    },
+    {
+      "titolo": "The Exchange Student Ep.1 - First Day In Sweden",
+      "link": "scheda_soluzione.php?game=tes",
+      "autore": "Carlo De Rensis"
+    },
+    {
+      "titolo": "The Feeble Files",
+      "link": "scheda_soluzione.php?game=feeble",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "The Hardy Boys  - The Hidden Theft",
+      "link": "scheda_soluzione.php?game=THBoys",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "The Infinity String",
+      "link": "scheda_soluzione.php?game=infinitys",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Inner World",
+      "link": "scheda_soluzione.php?game=InnerWorld",
+      "autore": "Vittorio De Sanctis"
+    },
+    {
+      "titolo": "The Journey Down - Chapter One",
+      "link": "scheda_soluzione.php?game=journeydown",
+      "autore": "Angelo Bruno"
+    },
+    {
+      "titolo": "The Journey Down - Chapter Two",
+      "link": "scheda_soluzione.php?game=journeydown2",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "The Journeyman Project 2",
+      "link": "scheda_extra.php?game=journeyman2&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "The Journeyman Project 3 - Il Retaggio Del Tempo",
+      "link": "scheda_extra.php?game=journeyman3&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "The Last Express",
+      "link": "scheda_soluzione.php?game=lastexpress",
+      "autore": "Fabio Rella"
+    },
+    {
+      "titolo": "The Legend of Crystal Valley",
+      "link": "scheda_soluzione.php?game=locv",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Legend of Kyrandia - Book 1",
+      "link": "scheda_extra.php?game=kyrandia&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "The Legend of Kyrandia - Book 2: Hand of Fate",
+      "link": "scheda_soluzione.php?game=kyrandia2",
+      "autore": "Patrix "
+    },
+    {
+      "titolo": "The Legend of Kyrandia - Book 3: Malcolm's Revenge",
+      "link": "scheda_extra.php?game=kyrandia3&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "The Longest Journey",
+      "link": "scheda_soluzione.php?game=tlj",
+      "autore": "Pietro Lietti"
+    },
+    {
+      "titolo": "The Lost Crown: Un'avventura di Fantasmi",
+      "link": "scheda_soluzione.php?game=lostcrown",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "The Lost Files of Sherlock Holmes: The Case of Serrated Scalpel",
+      "link": "scheda_soluzione.php?game=Scapel",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "The Lost Mansion: The Secret of Naereaon - Ep. 0 - Preface",
+      "link": "scheda_soluzione.php?game=tlmtsn",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Lost Mansion: The Secret of Naereaon - Ep. 1 - Boathouse",
+      "link": "scheda_soluzione.php?game=mansboat",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Moment Of Silence",
+      "link": "scheda_soluzione.php?game=tmos",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Night of the Rabbit",
+      "link": "scheda_soluzione.php?game=RabbitAppr",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "The Raven: Legacy of a Master Thief",
+      "link": "scheda_soluzione.php?game=raven",
+      "autore": "Daniele Picone"
+    },
+    {
+      "titolo": "The Samaritan Paradox",
+      "link": "scheda_soluzione.php?game=samaritan",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "The Secret Of Atlantis - L'Eredit\u00e0 Sacra",
+      "link": "scheda_soluzione.php?game=atlantisv",
+      "autore": " "
+    },
+    {
+      "titolo": "The Secret of Middle City",
+      "link": "scheda_soluzione.php?game=secretcity",
+      "autore": "Simone Iacovino"
+    },
+    {
+      "titolo": "The Secret of Monkey Island: Special Edition",
+      "link": "scheda_soluzione.php?game=SOMI_SpecialEd",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "The Secrets of Da Vinci - Il Manoscritto Proibito",
+      "link": "scheda_soluzione.php?game=davinci",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Secrets Of Da Vinci - Versione DVG",
+      "link": "scheda_soluzione.php?game=davincidvg",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Shine of a Star",
+      "link": "scheda_soluzione.php?game=shine",
+      "autore": "Alberto Semprini"
+    },
+    {
+      "titolo": "The Shivah",
+      "link": "scheda_soluzione.php?game=shivah",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "The Silver Lining Episode 1: What is Decreed Must Be",
+      "link": "scheda_soluzione.php?game=kqix",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "The Sydney Mystery",
+      "link": "scheda_soluzione.php?game=sidney",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Tiny Bang Story",
+      "link": "scheda_soluzione.php?game=TinyBS",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "The Vacuum",
+      "link": "scheda_soluzione.php?game=tvacuum",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 1: A New Day",
+      "link": "scheda_soluzione.php?game=TWD_Newday",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 2: Starved for Help",
+      "link": "scheda_soluzione.php?game=TWD_Help",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 3: Long Road Ahead",
+      "link": "scheda_soluzione.php?game=TWD_Road",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 4: Around Every Corner",
+      "link": "scheda_soluzione.php?game=TWD_Corner",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "The Walking Dead - Ep. 5: No Time Left",
+      "link": "scheda_soluzione.php?game=TWD_Time",
+      "autore": "Mattia Seppolini"
+    },
+    {
+      "titolo": "The Watchmaker",
+      "link": "scheda_soluzione.php?game=watchmaker",
+      "autore": "Salvo Puccio"
+    },
+    {
+      "titolo": "The Westerner",
+      "link": "scheda_soluzione.php?game=westerner",
+      "autore": "Salvo Puccio"
+    },
+    {
+      "titolo": "The Whispered World",
+      "link": "scheda_soluzione.php?game=whisworld",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Thorgal - La Maledizione Di Odino",
+      "link": "scheda_soluzione.php?game=thorgal",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Time Gentlemen, Please!",
+      "link": "scheda_soluzione.php?game=timegentle",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Time Hollow (Nintendo DS)",
+      "link": "scheda_soluzione.php?game=TimeH",
+      "autore": "Alessandra Ippoliti"
+    },
+    {
+      "titolo": "Tony Tough 2: A Rake's Progress",
+      "link": "scheda_soluzione.php?game=tony2",
+      "autore": "Julien Clement"
+    },
+    {
+      "titolo": "Tony Tough and the Night of Roasted Moths",
+      "link": "scheda_soluzione.php?game=tonyt",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Torin's Passage",
+      "link": "scheda_extra.php?game=torin&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Tormentum - Dark Sorrow",
+      "link": "scheda_soluzione.php?game=tormentum",
+      "autore": "Simone Iacovino"
+    },
+    {
+      "titolo": "Touch\u00e9: The Adventures of the Fifth Musketeer",
+      "link": "scheda_extra.php?game=TOUCHE&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Trauma",
+      "link": "scheda_soluzione.php?game=trauma",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Trilby's Notes",
+      "link": "scheda_soluzione.php?game=trilby",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Tristan Et Le Myst\u00e8re Du Dragon",
+      "link": "scheda_soluzione.php?game=tristan",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Twisted Lands: La Citt\u00e0 delle Ombre - Collector's Edition",
+      "link": "scheda_soluzione.php?game=twistedlands",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Undercover - Operation Wintersun",
+      "link": "scheda_soluzione.php?game=undercover",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Urban Runner",
+      "link": "scheda_extra.php?game=urbanrunner&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Uru - Ages Beyond Myst",
+      "link": "scheda_soluzione.php?game=uru",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Uru - To D'ni",
+      "link": "scheda_soluzione.php?game=urutd",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Versailles II - Il Testamento Del Re (DVD-ROM Version)",
+      "link": "scheda_soluzione.php?game=versaillesdvg",
+      "autore": " "
+    },
+    {
+      "titolo": "Viaggio Al Centro Della Luna",
+      "link": "scheda_soluzione.php?game=vcdl",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Viaggio Al Centro Della Terra",
+      "link": "scheda_soluzione.php?game=vcdt",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Virtual Murder 1: Who Killed Sam Rupert",
+      "link": "scheda_soluzione.php?game=WKSR",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Vohaul Strikes Back",
+      "link": "scheda_soluzione.php?game=vohaul",
+      "autore": "Luca Massari"
+    },
+    {
+      "titolo": "Wallace & Gromit Episode 1: Fright of the Bumblebees",
+      "link": "scheda_soluzione.php?game=W_G_Ep1",
+      "autore": "Cristiano Caliendo"
+    },
+    {
+      "titolo": "Wallace & Gromit Episode 2: The Last Resort",
+      "link": "scheda_soluzione.php?game=WG_EpTwo_",
+      "autore": "Cristiano Caliendo"
+    },
+    {
+      "titolo": "Wallace & Gromit Episode 3: Muzzled!",
+      "link": "scheda_soluzione.php?game=WG_Ep_Muzzled",
+      "autore": "Cristiano Caliendo"
+    },
+    {
+      "titolo": "Wallace & Gromit Episode 4: The Bogey Man",
+      "link": "scheda_soluzione.php?game=BogeyMan",
+      "autore": "Cristiano Caliendo"
+    },
+    {
+      "titolo": "Ween: The Prophecy",
+      "link": "scheda_soluzione.php?game=WEEN",
+      "autore": "Adriano Bizzoco"
+    },
+    {
+      "titolo": "Woodruff and the Schnibble of Azimuth",
+      "link": "scheda_soluzione.php?game=woodruff3",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "WWF Panda Junior",
+      "link": "scheda_soluzione.php?game=wwfppc",
+      "autore": "Ivan Vailati"
+    },
+    {
+      "titolo": "Zak McKracken and the Alien Mindbenders",
+      "link": "scheda_soluzione.php?game=zak",
+      "autore": "Matteo Inzaghi"
+    },
+    {
+      "titolo": "Zork Nemesis",
+      "link": "scheda_extra.php?game=znemesis&cont=Video Soluzione",
+      "autore": " "
+    },
+    {
+      "titolo": "Zwerg Nase",
+      "link": "scheda_soluzione.php?game=zwerg",
+      "autore": "Ivan Vailati"
+    }
+  ]
+}

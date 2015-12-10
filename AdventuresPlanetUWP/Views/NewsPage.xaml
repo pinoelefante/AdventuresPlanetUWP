@@ -1,0 +1,121 @@
+﻿<Page
+    x:Class="AdventuresPlanetUWP.Views.NewsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdventuresPlanetUWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converter="using:AdventuresPlanetUWP.Converters"
+    xmlns:UserControl="using:AdventuresPlanetUWP.Views.UserControls"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:behaviors="using:Template10.Behaviors"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d"
+    xmlns:vm="using:AdventuresPlanetUWP.ViewModels">
+    <Page.DataContext>
+        <vm:NewsPageViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <Converter:BoolToVisibility x:Key="BoolVisibility"/>
+        <Converter:NotBoolean x:Key="NotBool"/>
+        <Converter:NotBoolToVisibility x:Key="NotBoolVisibility"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--  #region default visual states  -->
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO  -->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO  -->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO  -->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!--  #endregion  -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--  page header  -->
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="News" Frame="{x:Bind Frame}" IsEnabled="False"/>
+
+        <!--  page content  -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ListView Grid.Row="0" x:Name="listNews" ItemsSource="{Binding ListNews}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <UserControl:UCNews Tapped="openNews" Holding="openFlyout" RightTapped="openFlyout">
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="Anteprima" Click="showAnteprima"/>
+                                    <!--<MenuFlyoutItem Text="Condividi" Click="share"/>-->
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
+                        </UserControl:UCNews>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" IsEnabled="{Binding IsUpdatingNews, Converter={StaticResource NotBool}}" HorizontalAlignment="Stretch" Click="{x:Bind VM.loadNews}">
+                    <Grid Margin="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ProgressRing Grid.Column="0" IsActive="{Binding IsUpdatingNews}" Margin="0,0,4,0"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Aggiorno le news"  Visibility="{Binding IsUpdatingNews, Converter={StaticResource BoolVisibility}}"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Carica altre news" Visibility="{Binding IsUpdatingNews, Converter={StaticResource NotBoolVisibility}}"/>
+                    </Grid>
+                </Button>
+
+                <Button Grid.Column="1" Click="{x:Bind VM.AggiornaNews}" IsEnabled="{Binding IsUpdatingNews, Converter={StaticResource NotBool}}">
+                    <FontIcon Margin="16,8" FontFamily="Segoe MDL2 Assets" Glyph="&#xE72C;"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Page>

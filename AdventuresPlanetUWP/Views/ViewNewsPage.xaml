@@ -1,0 +1,124 @@
+﻿<Page
+    x:Class="AdventuresPlanetUWP.Views.ViewNewsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdventuresPlanetUWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converter="using:AdventuresPlanetUWP.Converters"
+    xmlns:UserControl="using:AdventuresPlanetUWP.Views.UserControls"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:Behaviors="using:Template10.Behaviors"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d"
+    xmlns:vm="using:AdventuresPlanetUWP.ViewModels">
+
+    <Page.DataContext>
+        <vm:ViewNewsViewModel/>
+    </Page.DataContext>
+    
+    <Page.Resources>
+        <Converter:BoolToVisibility x:Key="BoolVisibility"/>
+        <Converter:NotBoolean x:Key="NotBool"/>
+        <Converter:NotBoolToVisibility x:Key="NotBoolVisibility"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--  #region default visual states  -->
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="ImageContainer.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="ImageContainer.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="TitoloNewsCont.(RelativePanel.Below)" Value="ImageContainer"/>
+                        <Setter Target="TitoloNewsCont.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="ScrollNewsCont.(RelativePanel.Below)" Value="TitoloNewsCont"/>
+                        <Setter Target="ScrollNewsCont.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="ScrollNewsCont.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+                        <Setter Target="ImageContainer.(FrameworkElement.MaxWidth)" Value="160"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="ImageContainer.(FrameworkElement.MaxHeight)" Value="240"/>
+                        <Setter Target="TitoloNewsCont.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="TitoloNewsCont.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="ImageContainer.(RelativePanel.Below)" Value="TitoloNewsCont"/>
+                        <Setter Target="ImageContainer.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="ScrollNewsCont.(RelativePanel.Below)" Value="TitoloNewsCont"/>
+                        <Setter Target="ScrollNewsCont.(RelativePanel.RightOf)" Value="ImageContainer"/>
+                        <Setter Target="ScrollNewsCont.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!--  #endregion  -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  page header  -->
+
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="{Binding Item.Titolo}" Frame="{x:Bind Frame}" IsEnabled="False"/>
+
+        <!--  page content  -->
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <RelativePanel Grid.Row="0">
+                <Image x:Name="ImageContainer" MaxWidth="180" Margin="8" HorizontalAlignment="Center" Source="{Binding Item.Immagine}" Stretch="Uniform"/>
+                
+                <ScrollViewer x:Name="TitoloNewsCont" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Stretch" Margin="4">
+                    <StackPanel HorizontalAlignment="Stretch">
+                        <TextBlock x:Name="titoloNews" Text="{Binding Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Tapped="showTitle" Margin="4,0" FontWeight="Bold">
+                        <FlyoutBase.AttachedFlyout>
+                            <Flyout>
+                                <TextBlock Text="{Binding Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
+                            </Flyout>
+                        </FlyoutBase.AttachedFlyout>
+                        </TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <ScrollViewer x:Name="ScrollNewsCont" Margin="4,8" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+                    <ItemsControl Margin="16,4" ItemsSource="{Binding ListComponents}"/>
+                </ScrollViewer>
+            </RelativePanel>
+            
+            <TextBlock Grid.Row="1" x:Name="DataPubblicazione" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" FontWeight="Bold" Text="{Binding Item.DataPubblicazione}" TextWrapping="NoWrap"/>
+        </Grid>
+
+        <CommandBar Grid.Row="2">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="Condividi" Click="{x:Bind VM.Share}">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE72D;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Apri nel browser" Click="{x:Bind VM.OpenInBrowser}"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Grid>
+</Page>

@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="AdventuresPlanetUWP.Views.ImageViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdventuresPlanetUWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:Template10.Controls">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="phone">
+                    <VisualState.Setters>
+                        <Setter Target="containtButtons.(UIElement.Visibility)" Value="Collapsed"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="tablet">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="601"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Visualizzatore immagini" Frame="{x:Bind Frame}" IsEnabled="False"/>
+
+        <ScrollViewer Grid.Row="1" x:Name="scroller" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" HorizontalScrollMode="Auto" VerticalScrollMode="Auto" MinZoomFactor="0.5" MaxZoomFactor="3" ZoomMode="Enabled">
+            <Image x:Name="image" HorizontalAlignment="Center" VerticalAlignment="Center" DoubleTapped="DoubleTapImage"/>
+        </ScrollViewer>
+        <StackPanel x:Name="containtButtons" Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="ZoomIN" Margin="8,0" Click="zoomIn" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8A3;"/>
+            </Button>
+            <Button x:Name="ZoomOUT" Margin="8,0" Click="zoomOut" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71F;"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

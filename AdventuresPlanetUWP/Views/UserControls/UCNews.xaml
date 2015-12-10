@@ -1,0 +1,96 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdventuresPlanetUWP.Views.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Data="using:AdventuresPlanetUWP.Classes.Data"
+    x:Class="AdventuresPlanetUWP.Views.UserControls.UCNews"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <RelativePanel x:Name="newsPanel" Margin="0,4,4,8">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="phone">
+                    <VisualState.Setters>
+                        <Setter Target="imgNews.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="imgNews.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="TitleNews.(RelativePanel.RightOf)" Value="imgNews"/>
+                        <Setter Target="TitleNews.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="TitleNews.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>4,8</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="imgNews.(FrameworkElement.MaxWidth)" Value="160"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="tablet">
+                    <VisualState.Setters>
+                        <Setter Target="TitleNews.(TextBlock.FontWeight)">
+                            <Setter.Value>
+                                <FontWeight>Bold</FontWeight>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="TitleNews.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="TitleNews.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="imgNews.(RelativePanel.Below)" Value="TitleNews"/>
+                        <Setter Target="imgNews.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="imgNews.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="AnteprimaNews.(RelativePanel.Below)" Value="TitleNews"/>
+                        <Setter Target="AnteprimaNews.(RelativePanel.RightOf)" Value="imgNews"/>
+                        <Setter Target="AnteprimaNews.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="DataNews.(RelativePanel.Below)" Value="AnteprimaNews"/>
+                        <Setter Target="DataNews.(RelativePanel.AlignBottomWithPanel)" Value="True"/>
+                        <Setter Target="DataNews.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+                        <Setter Target="DataNews.(RelativePanel.RightOf)" Value="imgNews"/>
+                        <Setter Target="imgNews.(FrameworkElement.Height)" Value="160"/>
+                        <Setter Target="AnteprimaNews.(UIElement.Visibility)" Value="Visible"/>
+                        <Setter Target="DataNews.(UIElement.Visibility)" Value="Visible"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="601" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="pc1024">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="801" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitleNews.(TextBlock.FontWeight)">
+                            <Setter.Value>
+                                <FontWeight>Bold</FontWeight>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="TitleNews.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="TitleNews.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
+                        <Setter Target="imgNews.(RelativePanel.Below)" Value="TitleNews"/>
+                        <Setter Target="imgNews.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="imgNews.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="AnteprimaNews.(RelativePanel.Below)" Value="TitleNews"/>
+                        <Setter Target="AnteprimaNews.(RelativePanel.RightOf)" Value="imgNews"/>
+                        <Setter Target="AnteprimaNews.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
+                        <Setter Target="DataNews.(RelativePanel.Below)" Value="AnteprimaNews"/>
+                        <Setter Target="DataNews.(RelativePanel.AlignBottomWithPanel)" Value="True"/>
+                        <Setter Target="DataNews.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+                        <Setter Target="DataNews.(RelativePanel.RightOf)" Value="imgNews"/>
+                        <Setter Target="imgNews.(FrameworkElement.Height)" Value="180"/>
+                        <Setter Target="AnteprimaNews.(UIElement.Visibility)" Value="Visible"/>
+                        <Setter Target="DataNews.(UIElement.Visibility)" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Image x:Name="imgNews" Source="{Binding Immagine}" />
+        <TextBlock x:Name="TitleNews" Margin="4" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Text="{Binding Titolo}" FontSize="20" Visibility="Visible"/>
+        <TextBlock x:Name="AnteprimaNews" Margin="4" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Text="{Binding AnteprimaNews}" FontSize="16" Visibility="Collapsed"/>
+        <TextBlock x:Name="DataNews" HorizontalAlignment="Right"  Margin="4" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding DataPubblicazione}" FontStyle="Italic" FontSize="12" VerticalAlignment="Bottom" Visibility="Collapsed"/>
+
+    </RelativePanel>
+</UserControl>
