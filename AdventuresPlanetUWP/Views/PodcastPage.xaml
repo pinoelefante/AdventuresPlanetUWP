@@ -51,7 +51,7 @@
             </ListView>
             
             <StackPanel Grid.Row="1">
-                <ProgressBar IsIndeterminate="True" IsEnabled="{Binding IsUpdatingPodcast}" Visibility="{Binding IsUpdatingPodcast, Converter={StaticResource BoolVisibility}}"/>
+                <ProgressBar IsIndeterminate="{Binding IsUpdatingPodcast}" IsEnabled="{Binding IsUpdatingPodcast}" Visibility="{Binding IsUpdatingPodcast, Converter={StaticResource BoolVisibility}}"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

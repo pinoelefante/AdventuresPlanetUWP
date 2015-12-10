@@ -5,9 +5,11 @@ using AdventuresPlanetUWP.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.System.Profile;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
 
@@ -58,17 +60,25 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public async void Open(EntryAvventura avv)
         {
+            AnalyticsVersionInfo ai = AnalyticsInfo.VersionInfo;
+            string family = ai.DeviceFamily;
+
+            Debug.WriteLine("Family = " + family);
             if (avv.RecensionePresente && avv.SoluzionePresente)
             {
                 MessageDialog dlg = new MessageDialog("Vuoi aprire la recensione o la soluzione?", "Sono indeciso...");
                 UICommand recensione = new UICommand("Recensione", (c) => { OpenRecensione(avv); }, 0);
                 UICommand soluzione = new UICommand("Soluzione", (c) => { OpenSoluzione(avv); }, 1);
-                //UICommand annulla = new UICommand("Annulla") { Id = 2 };
                 dlg.Commands.Add(recensione);
                 dlg.Commands.Add(soluzione);
-                //dlg.Commands.Add(annulla);
                 dlg.DefaultCommandIndex = 0;
-                //dlg.CancelCommandIndex = 2;
+
+                if (family.Equals("Windows.Desktop"))
+                {
+                    UICommand annulla = new UICommand("Annulla") { Id = 2 };
+                    dlg.Commands.Add(annulla);
+                    dlg.CancelCommandIndex = 2;
+                }
                 await dlg.ShowAsync();
             }
             else if (avv.SoluzionePresente)

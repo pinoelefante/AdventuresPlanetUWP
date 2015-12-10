@@ -23,5 +23,11 @@ namespace AdventuresPlanetUWP.Views
         {
             Flyout.ShowAttachedFlyout(sender as FrameworkElement);
         }
+
+        private void GoToIndex(object sender, TappedRoutedEventArgs e)
+        {
+            IndiceItem indice = (sender as FrameworkElement).DataContext as IndiceItem;
+            VM.GoToIndex(this.scroller, indice);
+        }
     }
 }

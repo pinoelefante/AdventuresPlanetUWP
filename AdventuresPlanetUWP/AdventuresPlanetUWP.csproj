@@ -134,6 +134,7 @@
     <Compile Include="Classes\VideoPlayerManager.cs" />
     <Compile Include="Classes\YouTube.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
+    <Compile Include="Converters\IntToBool.cs" />
     <Compile Include="Converters\IntToHeight.cs" />
     <Compile Include="Converters\IntToVisibility.cs" />
     <Compile Include="Converters\NotBoolean.cs" />

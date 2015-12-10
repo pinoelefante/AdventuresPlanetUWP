@@ -169,7 +169,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<bool>(ref _hasSol, value);
             }
         }
-        private int _componentiVideo, _componentiTesto;
+        private int _componentiVideo, _componentiTesto, _componentiIndice;
         public int ComponentiVideo
         {
             get
@@ -190,6 +190,17 @@ namespace AdventuresPlanetUWP.ViewModels
             set
             {
                 Set<int>(ref _componentiTesto, value);
+            }
+        }
+        public int ComponentiIndice
+        {
+            get
+            {
+                return _componentiIndice;
+            }
+            set
+            {
+                Set<int>(ref _componentiIndice, value);
             }
         }
         private ObservableCollection<IndiceItem> _indice;
@@ -251,9 +262,11 @@ namespace AdventuresPlanetUWP.ViewModels
         private async void AssemblaComponenti()
         {
             ListaComponenti.Clear();
+            Indice?.Clear();
             VideoPlayerManager.Instance.ListVideo.Clear();
             ComponentiTesto = 0;
             ComponentiVideo = 0;
+            ComponentiIndice = 0;
             if (Item is RecensioneItem && (Item as RecensioneItem).IsRecensioneBreve)
             {
                 TextBlock tb = new TextBlock();
@@ -291,9 +304,6 @@ namespace AdventuresPlanetUWP.ViewModels
                         tb.TextWrapping = TextWrapping.Wrap;
                         tb.Text = titolo;
                         tb.Tag = index;
-                        /*TODO
-                        tb.Tapped += GoTop;
-                        */
                         ListaComponenti.Add(tb);
                     }
                     else if (s.StartsWith("@INDEX"))
@@ -301,6 +311,7 @@ namespace AdventuresPlanetUWP.ViewModels
                         string[] split = s.Split(new char[] { ';' });
                         string index = split[1].Substring(5);
                         string titolo = split[2].Substring(6);
+                        ComponentiIndice++;
                         Indice.Add(new IndiceItem(titolo, index));
                     }
                     else if (s.StartsWith("@IMG") && Settings.Instance.IsLoadImages && App.IsInternetConnected())
@@ -406,16 +417,16 @@ namespace AdventuresPlanetUWP.ViewModels
         public void CaricaPosizione(object sender, object e)
         {
             Debug.WriteLine("CaricaPosizione sender type = " + sender?.GetType());
-
+            double verticalOff = 0;
             if (IsRecensione && Settings.Instance.RicordaPosizioneRecensioni)
-                VerticalOffset = Settings.Instance.RecensionePosition(Item.Id);
+                verticalOff = Settings.Instance.RecensionePosition(Item.Id);
             else if (IsSoluzione && Settings.Instance.RicordaPosizioneSoluzioni)
-                VerticalOffset = Settings.Instance.SoluzionePosition(Item.Id);
+                verticalOff = Settings.Instance.SoluzionePosition(Item.Id);
 
             if (sender != null)
             {
                 ScrollViewer scroll = sender as ScrollViewer;
-                scroll.ChangeView(0, VerticalOffset, scroll.ZoomFactor);
+                scroll.ChangeView(0, verticalOff, scroll.ZoomFactor);
             }
         }
         public void ChangePreferiti(object s, object e)
@@ -447,16 +458,41 @@ namespace AdventuresPlanetUWP.ViewModels
                 Debug.WriteLine("Recensione breve? Ma è una soluzione!");
             }
         }
-        private double _verticalOff;
-        public double VerticalOffset
+        public void ChiudiIndice(object s, object e)
+        {
+            IsIndiceOpen = false;
+        }
+        public void ApriIndice(object s, object e)
+        {
+            IsIndiceOpen = true;
+        }
+        public void GoToIndex(ScrollViewer scroll, IndiceItem indice)
+        {
+            double offset = 0;
+            Boolean found = false;
+            foreach (FrameworkElement elem in ListaComponenti)
+            {
+                if (elem.Tag!=null &&elem.Tag.ToString().Equals(indice.Link))
+                {
+                    found = true;
+                    break;
+                }
+                offset += elem.RenderSize.Height;
+            }
+            if (found)
+                scroll.ChangeView(0, offset, scroll.ZoomFactor);
+            IsIndiceOpen = false;
+        }
+        private bool _indiceOpen;
+        public bool IsIndiceOpen
         {
             get
             {
-                return _verticalOff;
+                return _indiceOpen;
             }
             set
             {
-                Set<double>(ref _verticalOff, value);
+                Set<bool>(ref _indiceOpen, value);
             }
         }
     }

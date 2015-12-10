@@ -22,6 +22,7 @@
         <Converters:IntToVisibility x:Key="IntVisibility"/>
         <Converters:IntToGridHeight x:Key="IntGridHeight"/>
         <Converters:StringToBool x:Key="StringBool"/>
+        <Converters:IntToBool x:Key="IntToBool"/>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -37,8 +38,32 @@
                 </Flyout>
             </FlyoutBase.AttachedFlyout>
         </controls:PageHeader>
-
-        <Grid Grid.Row="1">
+        
+        <!-- indice -->
+        <Grid Grid.Row="1" Visibility="{Binding IsIndiceOpen, Converter={StaticResource BoolVisibility}}" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Opacity=".9" Canvas.ZIndex="1" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontWeight="SemiBold" Text="Indice"/>
+            <ListView Grid.Row="1" ItemsSource="{Binding Indice}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Titolo}" Tag="{Binding Link}" Tapped="GoToIndex"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="2" HorizontalAlignment="Center" Margin="8" Click="{x:Bind VM.ChiudiIndice}" Content="Chiudi"/>
+        </Grid>
+        
+        <!-- pagina -->
+        <Grid Grid.Row="1" Canvas.ZIndex="0">
             <Grid.RowDefinitions>
                 
                 <RowDefinition Height="{Binding ComponentiVideo, Converter={StaticResource IntGridHeight}}"/>
@@ -59,13 +84,12 @@
             </Grid>
 
             <!-- corpo testuale-->
-            <ScrollViewer Grid.Row="1" ZoomMode="Disabled" Visibility="{Binding ComponentiTesto, Converter={StaticResource IntVisibility}}" ViewChanged="{x:Bind VM.SalvaPosizione}" Loaded="{x:Bind VM.CaricaPosizione}" SizeChanged="{x:Bind VM.CaricaPosizione}">
+            <ScrollViewer x:Name="scroller" Grid.Row="1" ZoomMode="Disabled" Visibility="{Binding ComponentiTesto, Converter={StaticResource IntVisibility}}" ViewChanged="{x:Bind VM.SalvaPosizione}" Loaded="{x:Bind VM.CaricaPosizione}" SizeChanged="{x:Bind VM.CaricaPosizione}">
                 <ItemsControl ItemsSource="{Binding ListaComponenti}" Margin="8,0"/>
             </ScrollViewer>
 
             
             <!--info secondarie -->
-
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -93,11 +117,11 @@
                     </TextBlock>
                 </StackPanel>
             </Grid>
-
+            
             <!-- Command bar -->
             <CommandBar Grid.Row="4">
                 <CommandBar.PrimaryCommands>
-                    <AppBarButton Label="Indice" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
+                    <AppBarButton Label="Indice" Click="{x:Bind VM.ApriIndice}" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
                     <AppBarButton Label="Aggiungi a preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource NotBoolVisibility}}" Icon="Favorite"/>
                     <AppBarButton Label="Rimuovi da preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource BoolVisibility}}" Icon="UnFavorite"/>
                     <AppBarButton Label="Condividi" Click="{x:Bind VM.Share}">

@@ -74,7 +74,7 @@ namespace AdventuresPlanetUWP.ViewModels
             if (text.Equals(lastSearch))
                 return;
 
-            ListSearch.Clear();
+            ListSearch?.Clear();
             if (string.IsNullOrEmpty(text))
             {
                 ListSearch = EMPTY_LIST;

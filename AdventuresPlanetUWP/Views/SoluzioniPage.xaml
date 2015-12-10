@@ -77,7 +77,7 @@
         
 
         <StackPanel Grid.Row="2">
-            <ProgressBar IsIndeterminate="True" IsEnabled="{Binding IsUpdatingSoluzioni}" Visibility="{Binding IsUpdatingSoluzioni, Converter={StaticResource BoolVisibility}}" HorizontalAlignment="Stretch"/>
+            <ProgressBar IsIndeterminate="{Binding IsUpdatingSoluzioni}" IsEnabled="{Binding IsUpdatingSoluzioni}" Visibility="{Binding IsUpdatingSoluzioni, Converter={StaticResource BoolVisibility}}" HorizontalAlignment="Stretch"/>
             <CommandBar>
                 <CommandBar.PrimaryCommands>
                     <AppBarButton Label="Cerca" Icon="Find" Click="{x:Bind VM.GoToSearch}"/>
