@@ -74,6 +74,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 WindowWrapper.Current().Dispatcher.Dispatch(async () =>
                 {
                     Settings.Instance.FirstStart = false;
+                    AdventuresPlanetManager.Instance.Load();
                     await Task.Delay(1000);
                     Dispose();
                     Views.Shell.HamburgerMenu.IsEnabled = true;

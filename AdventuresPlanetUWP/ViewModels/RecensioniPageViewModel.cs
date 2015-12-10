@@ -33,6 +33,8 @@ namespace AdventuresPlanetUWP.ViewModels
             SelectedMode = ModalitaVisualizzazione.AlphaKey;
             List<RecensioneItem> list = AdventuresPlanetManager.Instance.ListaRecensioni;
             ListaRecensioni = MyGrouping<RecensioneItem>.AlphaKeyGroup(list.ToList(), (t => t.Titolo), true);
+            list.Clear();
+            list = null;
         }
         public async void AggiornaRecensioni(object s, object e)
         {
@@ -80,12 +82,10 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void AddToPreferiti(RecensioneItem rec)
         {
-            rec.IsPreferita = true;
             AdventuresPlanetManager.Instance.changeIsPreferita(rec.Id, true);
         }
         public void RemoveFromPreferiti(RecensioneItem rec)
         {
-            rec.IsPreferita = false;
             AdventuresPlanetManager.Instance.changeIsPreferita(rec.Id, false);
         }
         public void Open(RecensioneItem item)

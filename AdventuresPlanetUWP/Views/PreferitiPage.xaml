@@ -13,6 +13,7 @@
         <vm:PreferitiPageViewModel/>
     </Page.DataContext>
     <Page.Resources>
+        <CollectionViewSource IsSourceGrouped="True" x:Key="PreferitiList" ItemsPath="Value" Source="{Binding ListaPreferiti}"/>
         <Converters:NotIntVisibility x:Key="NotIntVisibility"/>
         <Converters:BoolToVisibility x:Key="BoolVisibility"/>
     </Page.Resources>
@@ -33,28 +34,52 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Margin="0,8" Text="Elenco vuoto" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsEmpty, Converter={StaticResource BoolVisibility}}"/>
+            <SemanticZoom Grid.Row="1">
+                <SemanticZoom.ZoomedInView>
+                    <ListView ItemsSource="{Binding Source={StaticResource PreferitiList}}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,4" Tapped="onTapPreferiti" HorizontalAlignment="Stretch" Holding="openFlyout" RightTapped="openFlyout">
+                                    <FlyoutBase.AttachedFlyout>
+                                        <MenuFlyout>
+                                            <MenuFlyoutItem Text="Recensione" IsEnabled="{Binding RecensionePresente}" Click="preferitiFlyoutRecensione"/>
+                                            <MenuFlyoutItem Text="Soluzione" IsEnabled="{Binding SoluzionePresente}" Click="preferitiFlyoutSoluzione"/>
+                                            <MenuFlyoutItem Text="Rimuovi da preferiti" Click="preferitiFlyoutRimuovi"/>
+                                        </MenuFlyout>
+                                    </FlyoutBase.AttachedFlyout>
+                                    <TextBlock Text="{Binding Titolo}" FontSize="18"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.GroupStyle>
+                            <GroupStyle HidesIfEmpty="True">
+                                <GroupStyle.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Key}" Foreground="{StaticResource SystemControlForegroundAccentBrush}" FontSize="18" FontWeight="Bold" Padding="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GroupStyle.HeaderTemplate>
+                            </GroupStyle>
+                        </ListView.GroupStyle>
+                    </ListView>
+                </SemanticZoom.ZoomedInView>
+                <SemanticZoom.ZoomedOutView>
+                    <GridView ItemsSource="{Binding Source={StaticResource PreferitiList}, Path=CollectionGroups}" HorizontalAlignment="Center">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="3" Width="64" MaxWidth="64" MinWidth="64">
+                                    <TextBlock Padding="8" Text="{Binding Group.Key}" FontSize="40" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource SystemControlForegroundAccentBrush}" />
+                                </Border>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </SemanticZoom.ZoomedOutView>
+            </SemanticZoom>
             
-            <ListView x:Name="listView" Grid.Row="1" ItemsSource="{Binding ListaPreferiti}">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Margin="0,0,0,4" Tapped="onTapPreferiti" HorizontalAlignment="Stretch" Holding="openFlyout" RightTapped="openFlyout">
-                            <FlyoutBase.AttachedFlyout>
-                                <MenuFlyout>
-                                    <MenuFlyoutItem Text="Recensione" IsEnabled="{Binding RecensionePresente}" Click="preferitiFlyoutRecensione"/>
-                                    <MenuFlyoutItem Text="Soluzione" IsEnabled="{Binding SoluzionePresente}" Click="preferitiFlyoutSoluzione"/>
-                                    <MenuFlyoutItem Text="Rimuovi da preferiti" Click="preferitiFlyoutRimuovi"/>
-                                </MenuFlyout>
-                            </FlyoutBase.AttachedFlyout>
-                            <TextBlock Text="{Binding Titolo}" FontSize="18"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
         </Grid>
     </Grid>
 </Page>

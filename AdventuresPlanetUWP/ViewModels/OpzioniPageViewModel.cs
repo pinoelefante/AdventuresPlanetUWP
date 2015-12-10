@@ -1,9 +1,12 @@
 ﻿using AdventuresPlanetUWP.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 namespace AdventuresPlanetUWP.ViewModels
@@ -17,139 +20,65 @@ namespace AdventuresPlanetUWP.ViewModels
                 return Settings.Instance;
             }
         }
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public async void cancella_dati(object sender, object e)
         {
-            initIndexUpdateNews();
-            initIndexQualitaYoutube();
-        }
-        public void cancella_dati(object sender, object e)
-        {
+            MessageDialog dlg = new MessageDialog("Sei sicuro di voler cancellare tutti i dati?\nI preferiti verranno conservati","Cancella dati");
+            UICommand del = new UICommand("Si") { Id = 0 };
+            del.Invoked = (x) => 
+            {
+                Settings.LastMesiNewsUpdate = 0;
+                DatabaseSystem.Instance.cleanTables();
+                Settings.LastNewsUpdate = 0;
+                Settings.LastPodcastUpdate = 0;
+                Settings.LastRecensioniUpdate = 0;
+                Settings.LastSoluzioniUpdate = 0;
+                AdventuresPlanetManager.Instance.Reset();
+            };
+            UICommand annulla = new UICommand("Annulla") { Id = 1 };
+            dlg.Commands.Add(del);
+            dlg.Commands.Add(annulla);
+            dlg.DefaultCommandIndex = 0;
+            dlg.CancelCommandIndex = 1;
 
+            await dlg.ShowAsync();
         }
-        private void settaValoreQualitaYoutube(object sender, object e)
+        public void VideoQualityLoaded(object sender, object e)
         {
-
-        }
-        private int _indexTimeUpdate, _indexQualitaYoutube;
-        public int IndexUpdateNews
-        {
-            get
+            int video = Settings.QualitaVideoMax;
+            ComboBox combo = sender as ComboBox;
+            foreach(ComboBoxItem item in combo.Items)
             {
-                return _indexTimeUpdate;
-            }
-            set
-            {
-                Set<int>(ref _indexTimeUpdate, value);
-                AggiornaIntervalloUpdateNews();
+                if (item.Tag.ToString().Equals(video.ToString()))
+                {
+                    combo.SelectedItem = item;
+                    break;
+                }
             }
         }
-        public int IndexQualitaYoutube
+        public void VideoQualityChanged(object s, object e)
         {
-            get
+            ComboBox combo = s as ComboBox;
+            int qual = Int32.Parse(((ComboBoxItem)combo.SelectedItem).Tag.ToString());
+            Settings.QualitaVideoMax = qual;
+        }
+        public void NewsTimeLoaded(object sender, object e)
+        {
+            long time = Settings.TimeUpdateNews;
+            ComboBox combo = sender as ComboBox;
+            foreach(ComboBoxItem item in combo.Items)
             {
-                return _indexQualitaYoutube;
-            }
-            set
-            {
-                Set<int>(ref _indexQualitaYoutube, value);
-                AggiornaQualitaYoutube();
+                if (item.Tag.ToString().Equals(time.ToString()))
+                {
+                    combo.SelectedItem = item;
+                    break;
+                }
             }
         }
-        private void initIndexUpdateNews()
+        public void NewsTimeUpdated(object sender, object e)
         {
-            switch (Settings.TimeUpdateNews)
-            {
-                case 3600: //1ora
-                    IndexUpdateNews = 0;
-                    break;
-                case 14400: //4ore
-                    IndexUpdateNews = 1;
-                    break;
-                case 28800: //8ore
-                    IndexUpdateNews = 2;
-                    break;
-                case 43200: //12ore
-                    IndexUpdateNews = 3;
-                    break;
-                case 86400: //1giorno
-                    IndexUpdateNews = 4;
-                    break;
-            }
-        }
-        private void AggiornaIntervalloUpdateNews()
-        {
-            switch (IndexUpdateNews)
-            {
-                case 0:
-                    Settings.TimeUpdateNews = 3600;
-                    break;
-                case 1:
-                    Settings.TimeUpdateNews = 14400;
-                    break;
-                case 2:
-                    Settings.TimeUpdateNews = 28800;
-                    break;
-                case 3:
-                    Settings.TimeUpdateNews = 43200;
-                    break;
-                case 4:
-                    Settings.TimeUpdateNews = 86400;
-                    break;
-            }
-        }
-        private void initIndexQualitaYoutube()
-        {
-            switch (Settings.QualitaVideoMax)
-            {
-                case 144:
-                    IndexQualitaYoutube = 0;
-                    break;
-                case 240:
-                    IndexQualitaYoutube = 1;
-                    break;
-                case 360:
-                    IndexQualitaYoutube = 2;
-                    break;
-                case 480:
-                    IndexQualitaYoutube = 3;
-                    break;
-                case 720:
-                    IndexQualitaYoutube = 4;
-                    break;
-                case 1080:
-                    IndexQualitaYoutube = 5;
-                    break;
-                case 2160:
-                    IndexQualitaYoutube = 6;
-                    break;
-            }
-        }
-        private void AggiornaQualitaYoutube()
-        {
-            switch (IndexQualitaYoutube)
-            {
-                case 0:
-                    Settings.QualitaVideoMax = 144;
-                    break;
-                case 1:
-                    Settings.QualitaVideoMax = 240;
-                    break;
-                case 2:
-                    Settings.QualitaVideoMax = 360;
-                    break;
-                case 3:
-                    Settings.QualitaVideoMax = 480;
-                    break;
-                case 4:
-                    Settings.QualitaVideoMax = 720;
-                    break;
-                case 5:
-                    Settings.QualitaVideoMax = 1080;
-                    break;
-                case 6:
-                    Settings.QualitaVideoMax = 2160;
-                    break;
-            }
+            ComboBox combo = sender as ComboBox;
+            long newTime = long.Parse((combo.SelectedItem as ComboBoxItem).Tag.ToString());
+            Settings.TimeUpdateNews = newTime;
         }
     }
 }

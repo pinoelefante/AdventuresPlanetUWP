@@ -31,6 +31,8 @@ namespace AdventuresPlanetUWP.ViewModels
             SelectedMode = ModalitaVisualizzazione.AlphaKey;
             List<SoluzioneItem> list = AdventuresPlanetManager.Instance.ListaSoluzioni;
             ListaSoluzioni = MyGrouping<SoluzioneItem>.AlphaKeyGroup(list, (x) => { return x.Titolo; }, true);
+            list.Clear();
+            list = null;
         }
         public async void AggiornaSoluzioni(object s, object e)
         {
@@ -78,12 +80,10 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void AddPreferiti(SoluzioneItem sol)
         {
-            sol.IsPreferita = true;
             AdventuresPlanetManager.Instance.changeIsPreferita(sol.Id, true);
         }
         public void DelPreferiti(SoluzioneItem sol)
         {
-            sol.IsPreferita = false;
             AdventuresPlanetManager.Instance.changeIsPreferita(sol.Id, false);
         }
         public void Open(SoluzioneItem sol)

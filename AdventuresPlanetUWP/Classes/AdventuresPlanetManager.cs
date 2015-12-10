@@ -50,7 +50,9 @@ namespace AdventuresPlanetUWP.Classes
                 jsonClient = new Windows.Web.Http.HttpClient(filter);
                 jsonClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
             }
-
+        }
+        public void Load()
+        {
             ListaPodcast = DatabaseSystem.Instance.selectAllPodcastOb();
             ListaRecensioni = DatabaseSystem.Instance.selectAllRecensioniLite();
             ListaSoluzioni = DatabaseSystem.Instance.selectAllSoluzioniLite();

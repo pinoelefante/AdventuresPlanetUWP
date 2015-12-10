@@ -787,7 +787,6 @@ namespace AdventuresPlanetUWP.Classes
                     RecensioneItem rec = selectRecensione(id);
                     SoluzioneItem sol = selectSoluzione(id);
                     EntryAvventura e = new EntryAvventura(rec, sol);
-                    //Debug.WriteLine("id = " + id + " Recensione = " + (rec != null) + " Soluzione = " + (sol != null)+"\nTitolo = "+e.Titolo);
                     list.Add(e);
                 }
             }

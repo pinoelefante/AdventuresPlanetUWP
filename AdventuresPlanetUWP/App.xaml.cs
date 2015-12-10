@@ -64,6 +64,7 @@ namespace AdventuresPlanetUWP
                 NavigationService.Navigate(typeof(Views.FirstStartPage));
             else
             {
+                AdventuresPlanetManager.Instance.Load();
                 NavigationService.Navigate(typeof(Views.NewsPage));
                 mostraVotaApplicazione();
             }

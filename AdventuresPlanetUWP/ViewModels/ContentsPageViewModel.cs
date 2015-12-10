@@ -67,6 +67,7 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
+            Shell.SetBusy(false);
             _transferManager.DataRequested -= OnDataRequest;
             return base.OnNavigatedFromAsync(state, suspending);
         }

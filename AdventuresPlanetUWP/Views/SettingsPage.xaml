@@ -32,9 +32,9 @@
                     <Slider x:Name="slider" Grid.Column="0" Header="Dimensione del font" Value="{Binding Settings.DimensioneFont, Mode=TwoWay}" Minimum="12" Maximum="24"/>
                     <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="8,0" Text="{Binding Value, ElementName=slider}" />
                 </Grid>
-
+<!--
                 <ToggleSwitch Header="Chiedi conferma alla chiusura dell'app" IsOn="{Binding Settings.AskToClose, Mode=TwoWay}" />
-
+-->
                 <ToggleSwitch Header="Aggiorna elenco recensioni manualmente" IsOn="{Binding Settings.UpdateRecensioniManualmente, Mode=TwoWay}" />
                 <ToggleSwitch Header="Aggiorna elenco soluzioni manualmente" IsOn="{Binding Settings.UpdateSoluzioniManualmente, Mode=TwoWay}" />
                 <ToggleSwitch Header="Carica le immagini di soluzioni/recensioni" IsOn="{Binding Settings.IsLoadImages, Mode=TwoWay}" />
@@ -42,7 +42,7 @@
                 <ToggleSwitch IsOn="{Binding Settings.RicordaPosizioneRecensioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle recensioni"/>
                 <StackPanel Orientation="Horizontal" Margin="0,8">
                     <TextBlock Text="Qualità massima video" VerticalAlignment="Center"/>
-                    <ComboBox SelectedIndex="{Binding IndexQualitaYoutube}" Margin="8,0,8,0">
+                    <ComboBox Margin="8,0,8,0" Loaded="{x:Bind VM.VideoQualityLoaded}" SelectionChanged="{x:Bind VM.VideoQualityChanged}">
                         <ComboBoxItem Content="144p" Tag="144"/>
                         <ComboBoxItem Content="240p" Tag="240"/>
                         <ComboBoxItem Content="360p" Tag="360"/>
@@ -54,7 +54,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8">
                     <TextBlock Text="Aggiorna news ogni" VerticalAlignment="Center"/>
-                    <ComboBox SelectedIndex="{Binding IndexUpdateNews}" Margin="8,0,8,0">
+                    <ComboBox Margin="8,0,8,0" Loaded="{x:Bind VM.NewsTimeLoaded}" SelectionChanged="{x:Bind VM.NewsTimeUpdated}">
                         <ComboBoxItem Content="1 ora" Tag="3600"/>
                         <ComboBoxItem Content="4 ore" Tag="14400"/>
                         <ComboBoxItem Content="8 ore" Tag="28800"/>

@@ -66,6 +66,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 state[nameof(Item)] = Item;
             ListComponents.Clear();
             _dataTransferManager.DataRequested -= OnDataRequested;
+            Shell.SetBusy(false);
             await Task.Yield();
         }
         public void Share(object s, object e)
