@@ -27,7 +27,20 @@ namespace AdventuresPlanetUWP.Views
         public RecensioniPage()
         {
             this.InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                if (ChristmasTime.IsChristmasTime())
+                    snowflakes = ChristmasTime.LetItSnow(LayoutRoot);
+            };
+            this.Unloaded += (s, e) =>
+            {
+                if (snowflakes != null)
+                {
+                    snowflakes.Stop();
+                }
+            };
         }
+        private DispatcherTimer snowflakes;
         public RecensioniPageViewModel VM => this.DataContext as RecensioniPageViewModel;
 
         private void openFlyout(object sender, object e)

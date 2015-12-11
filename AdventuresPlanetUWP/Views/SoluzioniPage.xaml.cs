@@ -27,7 +27,20 @@ namespace AdventuresPlanetUWP.Views
         public SoluzioniPage()
         {
             this.InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                if (ChristmasTime.IsChristmasTime())
+                    snowflakes = ChristmasTime.LetItSnow(LayoutRoot);
+            };
+            this.Unloaded += (s, e) =>
+            {
+                if (snowflakes != null)
+                {
+                    snowflakes.Stop();
+                }
+            };
         }
+        private DispatcherTimer snowflakes;
         public SoluzioniPageViewModel VM => this.DataContext as SoluzioniPageViewModel;
         private void AddPreferiti(object sender, RoutedEventArgs e)
         {

@@ -7,8 +7,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:AdventuresPlanetUWP.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:views="using:AdventuresPlanetUWP.Views" mc:Ignorable="d">
-
+      xmlns:views="using:AdventuresPlanetUWP.Views" mc:Ignorable="d"
+      xmlns:Converters="using:AdventuresPlanetUWP.Converters">
+    <Page.Resources>
+        <Converters:ChristmasVisibility x:Key="IsChristmas"/>
+    </Page.Resources>
     <Controls:ModalDialog IsModal="{x:Bind IsBusy, Mode=OneWay}">
         <Controls:ModalDialog.Content>
             <Controls:HamburgerMenu x:Name="MyHamburgerMenu" IsFullScreen="False">
@@ -41,14 +44,13 @@
                             <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Preferiti" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
-                    
+
                     <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PodcastPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Microphone" />
                             <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
-                    
                 </Controls:HamburgerMenu.PrimaryButtons>
 
                 <Controls:HamburgerMenu.SecondaryButtons>
@@ -65,6 +67,15 @@
                             <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Info" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
+
+                    <Controls:HamburgerButtonInfo Tapped="Auguri" Visibility="{Binding Converter={StaticResource IsChristmas}}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="ms-appx:///Assets/candle.png"/>
+                            <Image Source="ms-appx:///Assets/candle.png"/>
+                            <Image Source="ms-appx:///Assets/candle.png"/>
+                            <Image Source="ms-appx:///Assets/candle.png"/>
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
                 </Controls:HamburgerMenu.SecondaryButtons>
             </Controls:HamburgerMenu>
 
@@ -79,7 +90,6 @@
                     <TextBlock VerticalAlignment="Center" Foreground="White" Text="{x:Bind BusyText, Mode=OneWay}" />
                 </StackPanel>
             </Viewbox>
-
         </Controls:ModalDialog.ModalContent>
     </Controls:ModalDialog>
 

@@ -20,7 +20,7 @@
         <Converters:NotBoolToVisibility x:Key="NotBoolVisibility"/>
         <Converters:NotBoolean x:Key="NotBool"/>
     </Page.Resources>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />

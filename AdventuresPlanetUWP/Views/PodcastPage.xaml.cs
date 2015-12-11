@@ -26,7 +26,20 @@ namespace AdventuresPlanetUWP.Views
         public PodcastPage()
         {
             this.InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                if (ChristmasTime.IsChristmasTime())
+                    snowflakes = ChristmasTime.LetItSnow(LayoutRoot);
+            };
+            this.Unloaded += (s, e) =>
+            {
+                if (snowflakes != null)
+                {
+                    snowflakes.Stop();
+                }
+            };
         }
+        private DispatcherTimer snowflakes;
         public PodcastPageViewModel VM => this.DataContext as PodcastPageViewModel;
     }
 }

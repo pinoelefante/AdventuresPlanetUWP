@@ -1,9 +1,13 @@
+using AdventuresPlanetUWP.ViewModels;
 using System.ComponentModel;
+using System.Diagnostics;
 using Template10.Common;
 using Template10.Controls;
 using Template10.Services.NavigationService;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 namespace AdventuresPlanetUWP.Views
 {
@@ -39,6 +43,19 @@ namespace AdventuresPlanetUWP.Views
                 Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(IsBusy)));
                 Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(BusyText)));
             });
+        }
+        private void Auguri(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Debug.WriteLine("Tento di fare gli auguri 2");
+            string message = "Tanti auguri di buone feste";
+            if (ChristmasTime.IsChristmas())
+                message = "Tanti auguri di Buone Natale";
+            else if (ChristmasTime.IsCapodanno())
+                message = "Tanti auguri di felice Anno Nuovo";
+            else if (ChristmasTime.IsEpifania())
+                message = "L'Epifania tutte le feste porta via";
+
+            new MessageDialog(message, "Tanti auguri!").ShowAsync();
         }
     }
 }

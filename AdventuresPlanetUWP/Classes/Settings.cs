@@ -47,7 +47,21 @@ namespace AdventuresPlanetUWP.Classes
                 local_settings.Values["first_start"] = value;
             }
         }
-
+        public Boolean LetItSnow
+        {
+            get
+            {
+                if (local_settings.Values["letitsnow"] == null)
+                {
+                    return true;
+                }
+                return (Boolean)local_settings.Values["letitsnow"];
+            }
+            set
+            {
+                local_settings.Values["letitsnow"] = value;
+            }
+        }
         internal void reset()
         {
             local_settings.Values.Clear();

@@ -1,5 +1,8 @@
-﻿using AdventuresPlanetUWP.Classes.Data;
+﻿using AdventuresPlanetUWP.Classes;
+using AdventuresPlanetUWP.Classes.Data;
+using AdventuresPlanetUWP.Converters;
 using AdventuresPlanetUWP.ViewModels;
+using AdventuresPlanetUWP.Views.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,6 +19,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // Il modello di elemento Pagina vuota è documentato all'indirizzo http://go.microsoft.com/fwlink/?LinkId=234238
@@ -30,7 +34,20 @@ namespace AdventuresPlanetUWP.Views
         public NewsPage()
         {
             this.InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                if (ChristmasTime.IsChristmasTime())
+                    snowflakes = ChristmasTime.LetItSnow(LayoutRoot);
+            };
+            this.Unloaded += (s, e) =>
+            {
+                if (snowflakes != null)
+                {
+                    snowflakes.Stop();
+                }
+            };
         }
+        private DispatcherTimer snowflakes;
         public NewsPageViewModel VM => this.DataContext as NewsPageViewModel;
 
         private void showAnteprima(object sender, RoutedEventArgs e)

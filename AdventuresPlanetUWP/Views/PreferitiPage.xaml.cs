@@ -1,4 +1,5 @@
 ﻿using AdventuresPlanetUWP.Classes.Data;
+using AdventuresPlanetUWP.Converters;
 using AdventuresPlanetUWP.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,22 @@ namespace AdventuresPlanetUWP.Views
         public PreferitiPage()
         {
             this.InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                if (ChristmasTime.IsChristmasTime())
+                    snowflakes = ChristmasTime.LetItSnow(LayoutRoot);
+            };
+            this.Unloaded += (s, e) =>
+            {
+                if (snowflakes != null)
+                {
+                    snowflakes.Stop();
+                }
+            };
         }
+        private DispatcherTimer snowflakes;
         public PreferitiPageViewModel VM => this.DataContext as PreferitiPageViewModel;
+
         private void preferitiFlyoutRimuovi(object sender, RoutedEventArgs e)
         {
             EntryAvventura avv = (sender as FrameworkElement).DataContext as EntryAvventura;

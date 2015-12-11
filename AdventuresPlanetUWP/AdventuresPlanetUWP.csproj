@@ -93,6 +93,23 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="AdventuresPlanetUWP_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Assets\candle.scale-100.png" />
+    <Content Include="Assets\candle.scale-200.png" />
+    <Content Include="Assets\candle.scale-400.png" />
+    <Content Include="Assets\snowflake_full.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150.scale-200.png" />
+    <Content Include="Assets\Square310.scale-100.png" />
+    <Content Include="Assets\Square310.scale-200.png" />
+    <Content Include="Assets\Square44.scale-100.png" />
+    <Content Include="Assets\Square44.scale-200.png" />
+    <Content Include="Assets\Square44.scale-400.png" />
+    <Content Include="Assets\Square71.scale-200.png" />
+    <Content Include="Assets\Square71.scale-400.png" />
+    <Content Include="Assets\Store.scale-200.png" />
+    <Content Include="Assets\Store.scale-400.png" />
+    <Content Include="Assets\Wide-310-150.scale-100.png" />
+    <Content Include="Assets\Wide-310-150.scale-200.png" />
     <Content Include="stop.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -134,6 +151,7 @@
     <Compile Include="Classes\VideoPlayerManager.cs" />
     <Compile Include="Classes\YouTube.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
+    <Compile Include="Converters\ChristmasVisibility.cs" />
     <Compile Include="Converters\IntToBool.cs" />
     <Compile Include="Converters\IntToHeight.cs" />
     <Compile Include="Converters\IntToVisibility.cs" />
@@ -147,6 +165,7 @@
     <Compile Include="Services\SettingsServices\ISettingsService.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.Apply.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
+    <Compile Include="ViewModels\ChristmasTime.cs" />
     <Compile Include="ViewModels\ContentsPageViewModel.cs" />
     <Compile Include="ViewModels\FirstStartViewModel.cs" />
     <Compile Include="ViewModels\InfoPageViewModel.cs" />
@@ -198,6 +217,9 @@
     <Compile Include="Views\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Snowflake.xaml.cs">
+      <DependentUpon>Snowflake.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\UCMediaPlayer.xaml.cs">
       <DependentUpon>UCMediaPlayer.xaml</DependentUpon>
     </Compile>
@@ -224,13 +246,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -293,6 +308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Splash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Snowflake.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

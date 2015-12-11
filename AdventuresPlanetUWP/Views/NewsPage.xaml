@@ -22,7 +22,7 @@
         <Converter:NotBoolToVisibility x:Key="NotBoolVisibility"/>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <!--  #region default visual states  -->
 
         <VisualStateManager.VisualStateGroups>

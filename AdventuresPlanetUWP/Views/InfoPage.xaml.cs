@@ -1,4 +1,5 @@
 ﻿using AdventuresPlanetUWP.ViewModels;
+using AdventuresPlanetUWP.Views.UserControls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,7 +28,20 @@ namespace AdventuresPlanetUWP.Views
         public InfoPage()
         {
             this.InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                if (ChristmasTime.IsChristmasTime())
+                    snowflakes = ChristmasTime.LetItSnow(LayoutRoot);
+            };
+            this.Unloaded += (s, e) =>
+            {
+                if (snowflakes != null)
+                {
+                    snowflakes.Stop();
+                }
+            };
         }
-        public InfoPageViewModel VM => this.DataContext as InfoPageViewModel; 
+        private DispatcherTimer snowflakes;
+        public InfoPageViewModel VM => this.DataContext as InfoPageViewModel;
     }
 }
