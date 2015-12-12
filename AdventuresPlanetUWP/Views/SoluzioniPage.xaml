@@ -28,7 +28,7 @@
 
         <!--  page header  -->
 
-        <controls:PageHeader x:Uid="soluzioni_header" BackButtonVisibility="Collapsed" Content="Soluzioni" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader x:Uid="/Soluzioni/soluzioni_header" BackButtonVisibility="Collapsed" Content="Soluzioni" Frame="{x:Bind Frame}" IsEnabled="False"/>
 
         <SemanticZoom Grid.Row="1">
             <SemanticZoom.ZoomedInView>
@@ -43,9 +43,9 @@
                             <UserControls:UCSoluzione Tapped="openSoluzione" Holding="openFlyout" RightTapped="openFlyout">
                                 <FlyoutBase.AttachedFlyout>
                                     <MenuFlyout>
-                                        <MenuFlyoutItem x:Uid="soluzioni_flyout_addpreferiti" Text="Aggiungi a preferiti" Click="AddPreferiti" Visibility="{Binding IsPreferita, Converter={StaticResource NotBoolVisibility}}"/>
-                                        <MenuFlyoutItem x:Uid="soluzioni_flyout_rempreferiti" Text="Rimuovi da preferiti" Click="DelPreferiti" Visibility="{Binding IsPreferita, Converter={StaticResource BoolVisibility}}"/>
-                                        <!--<MenuFlyoutItem x:Uid="soluzioni_condividi" Text="Condividi"/>-->
+                                        <MenuFlyoutItem x:Uid="/Soluzioni/soluzioni_flyout_addpreferiti" Text="Aggiungi a preferiti" Click="AddPreferiti" Visibility="{Binding IsPreferita, Converter={StaticResource NotBoolVisibility}}"/>
+                                        <MenuFlyoutItem x:Uid="/Soluzioni/soluzioni_flyout_rempreferiti" Text="Rimuovi da preferiti" Click="DelPreferiti" Visibility="{Binding IsPreferita, Converter={StaticResource BoolVisibility}}"/>
+                                        <!--<MenuFlyoutItem x:Uid="/Soluzioni/soluzioni_condividi" Text="Condividi"/>-->
                                     </MenuFlyout>
                                 </FlyoutBase.AttachedFlyout>
                             </UserControls:UCSoluzione>
@@ -80,8 +80,8 @@
             <ProgressBar IsIndeterminate="{Binding IsUpdatingSoluzioni}" IsEnabled="{Binding IsUpdatingSoluzioni}" Visibility="{Binding IsUpdatingSoluzioni, Converter={StaticResource BoolVisibility}}" HorizontalAlignment="Stretch"/>
             <CommandBar>
                 <CommandBar.PrimaryCommands>
-                    <AppBarButton x:Uid="soluzioni_bar_cerca" Label="Cerca" Icon="Find" Click="{x:Bind VM.GoToSearch}"/>
-                    <AppBarButton x:Uid="soluzioni_bar_aggiorna" Label="Aggiorna" Icon="Refresh" Click="{x:Bind VM.AggiornaSoluzioni}" IsEnabled="{Binding IsUpdatingSoluzioni, Converter={StaticResource NotBool}}"/>
+                    <AppBarButton x:Uid="/Soluzioni/soluzioni_bar_cerca" Label="Cerca" Icon="Find" Click="{x:Bind VM.GoToSearch}"/>
+                    <AppBarButton x:Uid="/Soluzioni/soluzioni_bar_aggiorna" Label="Aggiorna" Icon="Refresh" Click="{x:Bind VM.AggiornaSoluzioni}" IsEnabled="{Binding IsUpdatingSoluzioni, Converter={StaticResource NotBool}}"/>
                 </CommandBar.PrimaryCommands>
             </CommandBar>
         </StackPanel>

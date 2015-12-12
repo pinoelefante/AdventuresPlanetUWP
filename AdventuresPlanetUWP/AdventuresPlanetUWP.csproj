@@ -92,8 +92,32 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="AdventuresPlanetUWP_StoreKey.pfx" />
-    <PRIResource Include="Strings\it\Resources.resw" />
-    <PRIResource Include="Strings\en\Resources.resw" />
+    <PRIResource Include="Strings\en\ViewNews.resw" />
+    <PRIResource Include="Strings\en\Soluzioni.resw" />
+    <PRIResource Include="Strings\en\Settings.resw" />
+    <PRIResource Include="Strings\en\Search.resw" />
+    <PRIResource Include="Strings\en\Recensioni.resw" />
+    <PRIResource Include="Strings\en\Preferiti.resw" />
+    <PRIResource Include="Strings\it\Preferiti.resw" />
+    <PRIResource Include="Strings\en\News.resw" />
+    <PRIResource Include="Strings\en\Info.resw" />
+    <PRIResource Include="Strings\en\FirstStart.resw" />
+    <PRIResource Include="Strings\en\Contents.resw" />
+    <PRIResource Include="Strings\en\Shell.resw" />
+    <PRIResource Include="Strings\it\ViewNews.resw" />
+    <PRIResource Include="Strings\it\Soluzioni.resw" />
+    <PRIResource Include="Strings\it\Shell.resw" />
+    <PRIResource Include="Strings\it\Settings.resw" />
+    <PRIResource Include="Strings\it\Search.resw" />
+    <PRIResource Include="Strings\it\Recensioni.resw" />
+    <PRIResource Include="Strings\it\Podcast.resw" />
+    <PRIResource Include="Strings\it\News.resw" />
+    <PRIResource Include="Strings\it\Info.resw" />
+    <PRIResource Include="Strings\it\ImageView.resw" />
+    <PRIResource Include="Strings\it\FirstStart.resw" />
+    <PRIResource Include="Strings\it\Contents.resw" />
+    <PRIResource Include="Strings\en\App.resw" />
+    <PRIResource Include="Strings\it\App.resw" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\candle.scale-100.png" />
     <Content Include="Assets\candle.scale-200.png" />

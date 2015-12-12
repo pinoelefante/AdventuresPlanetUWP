@@ -117,214 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="hamburger_impostazioni.Text" xml:space="preserve">
-    <value>Impostazioni</value>
-  </data>
-  <data name="hamburger_info.Text" xml:space="preserve">
-    <value>Info</value>
-  </data>
-  <data name="hamburger_news.Text" xml:space="preserve">
-    <value>Notizie</value>
-  </data>
-  <data name="hamburger_podcast.Text" xml:space="preserve">
-    <value>Podcast</value>
-  </data>
-  <data name="hamburger_preferiti.Text" xml:space="preserve">
-    <value>Preferiti</value>
-  </data>
-  <data name="hamburger_recensioni.Text" xml:space="preserve">
-    <value>Recensioni</value>
-  </data>
-  <data name="hamburger_soluzioni.Text" xml:space="preserve">
-    <value>Soluzioni</value>
-  </data>
-  <data name="contents_indice_titolo.Text" xml:space="preserve">
-    <value>Indice</value>
-  </data>
-  <data name="contents_acuradi.Text" xml:space="preserve">
-    <value>a cura di</value>
-  </data>
-  <data name="contents_votoredazione.Text" xml:space="preserve">
-    <value>Voto della redazione</value>
-  </data>
-  <data name="content_votoutenti.Text" xml:space="preserve">
-    <value>Voto degli utenti</value>
-  </data>
-  <data name="contents_menu_indice.Label" xml:space="preserve">
-    <value>Indice</value>
-  </data>
-  <data name="contents_menu_aggpreferiti.Label" xml:space="preserve">
-    <value>Aggiungi a preferiti</value>
-  </data>
-  <data name="contents_menu_rempreferiti.Label" xml:space="preserve">
-    <value>Rimuovi da preferiti</value>
-  </data>
-  <data name="contents_menu_condividi.Label" xml:space="preserve">
-    <value>Condividi</value>
-  </data>
-  <data name="contents_menu_recensionebreve.Label" xml:space="preserve">
-    <value>Recensione breve</value>
-  </data>
-  <data name="contents_menu_vedirecensione.Label" xml:space="preserve">
-    <value>Vedi recensione</value>
-  </data>
-  <data name="contents_menu_vedisoluzione.Label" xml:space="preserve">
-    <value>Vedi soluzione</value>
-  </data>
-  <data name="contents_menu_apribrowser.Label" xml:space="preserve">
-    <value>Apri nel browser</value>
-  </data>
-  <data name="contents_menu_compragioco.Label" xml:space="preserve">
-    <value>Compra il gioco</value>
-  </data>
-  <data name="firststart_benvenuto.Text" xml:space="preserve">
-    <value>Benvenuto!</value>
-  </data>
-  <data name="firststart_attendi.Text" xml:space="preserve">
-    <value>Attendi qualche istante mentre vengono precaricati alcuni dati.</value>
-  </data>
-  <data name="firststart_rece.Text" xml:space="preserve">
-    <value>Caricamento recensioni</value>
-  </data>
-  <data name="firststart_solu.Text" xml:space="preserve">
-    <value>Caricamento soluzioni</value>
-  </data>
-  <data name="firststart_pod.Text" xml:space="preserve">
-    <value>Caricamento podcast</value>
-  </data>
-  <data name="firststart_mesi.Text" xml:space="preserve">
-    <value>Caricamento mesi news</value>
-  </data>
-  <data name="info_vota.Text" xml:space="preserve">
-    <value>Vota l'applicazione</value>
-  </data>
-  <data name="info_contatta.Text" xml:space="preserve">
-    <value>Contatta lo sviluppatore</value>
-  </data>
-  <data name="info_copyright.Text" xml:space="preserve">
-    <value>Applicazione sviluppata da Giuseppe Elefante. Tutto il materiale presente è proprietà di Adventure's Planet s.r.l.</value>
-  </data>
-  <data name="info_versione.Text" xml:space="preserve">
-    <value>Versione</value>
-  </data>
-  <data name="news_header.Content" xml:space="preserve">
-    <value>Notizie</value>
-  </data>
-  <data name="news_flyout_anteprima.Text" xml:space="preserve">
-    <value>Anteprima</value>
-  </data>
-  <data name="news_updating.Text" xml:space="preserve">
-    <value>Aggiorno le notizie</value>
-  </data>
-  <data name="news_update.Text" xml:space="preserve">
-    <value>Carica altre notizie</value>
-  </data>
-  <data name="preferiti_header.Content" xml:space="preserve">
-    <value>I miei preferiti</value>
-  </data>
-  <data name="preferiti_lista_vuota.Text" xml:space="preserve">
-    <value>Elenco vuoto</value>
-  </data>
-  <data name="preferiti_flyout_rece.Text" xml:space="preserve">
-    <value>Recensione</value>
-  </data>
-  <data name="preferiti_flyout_solu.Text" xml:space="preserve">
-    <value>Soluzione</value>
-  </data>
-  <data name="preferiti_flyout_remove.Text" xml:space="preserve">
-    <value>Rimuovi da preferiti</value>
-  </data>
-  <data name="recensioni_header.Content" xml:space="preserve">
-    <value>Recensioni</value>
-  </data>
-  <data name="recensioni_flyout_addpreferiti.Text" xml:space="preserve">
-    <value>Aggiungi a preferiti</value>
-  </data>
-  <data name="recensioni_flyout_rempreferiti.Text" xml:space="preserve">
-    <value>Rimuovi da preferiti</value>
-  </data>
-  <data name="recensioni_flyout_condividi.Text" xml:space="preserve">
-    <value>Condividi</value>
-  </data>
-  <data name="recensioni_bar_cerca.Label" xml:space="preserve">
-    <value>Cerca</value>
-  </data>
-  <data name="recensioni_bar_aggiorna.Label" xml:space="preserve">
-    <value>Aggiorna</value>
-  </data>
-  <data name="search_placeholder.PlaceholderText" xml:space="preserve">
-    <value>Digita per cercare...</value>
-  </data>
   <data name="settings_header.Content" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Settings</value>
   </data>
   <data name="settings_fontSize.Header" xml:space="preserve">
-    <value>Dimensione dei caratteri</value>
+    <value>Font size</value>
   </data>
   <data name="settings_rece_manuale.Header" xml:space="preserve">
-    <value>Aggiorna elenco recensioni manualmente</value>
+    <value>Update reviews manually</value>
   </data>
   <data name="settings_solu_manuale.Header" xml:space="preserve">
-    <value>Aggiorna elenco soluzioni manualmente</value>
+    <value>Update walkthroughs manually</value>
   </data>
   <data name="settings_carica_immagini.Header" xml:space="preserve">
-    <value>Carica le immagini di soluzioni/recensioni</value>
+    <value>Load images from reviews/walkthroughs</value>
   </data>
   <data name="settings_posizione_solu.Header" xml:space="preserve">
-    <value>Ricorda ultima posizione delle soluzioni</value>
+    <value>Save last position of reviews</value>
   </data>
   <data name="settings_posizione_rece.Header" xml:space="preserve">
-    <value>Ricorda ultima posizione delle recensioni</value>
+    <value>Save last position of walkthrough</value>
   </data>
   <data name="settings_letitsnow.Header" xml:space="preserve">
     <value>Let it snow</value>
   </data>
   <data name="settings_video.Text" xml:space="preserve">
-    <value>Qualità massima video</value>
+    <value>Max video quality</value>
   </data>
   <data name="settings_tempo_news.Text" xml:space="preserve">
-    <value>Aggiorna news ogni</value>
+    <value>Update new every</value>
   </data>
   <data name="settings_news_1.Content" xml:space="preserve">
-    <value>1 ora</value>
+    <value>1 hour</value>
   </data>
   <data name="settings_news_2.Content" xml:space="preserve">
-    <value>4 ore</value>
+    <value>4 hours</value>
   </data>
   <data name="settings_news_3.Content" xml:space="preserve">
-    <value>8 ore</value>
+    <value>8 hours</value>
   </data>
   <data name="settings_news_4.Content" xml:space="preserve">
-    <value>12 ore</value>
+    <value>12 hours</value>
   </data>
   <data name="settings_news_5.Content" xml:space="preserve">
-    <value>1 giorno</value>
+    <value>1 day</value>
   </data>
   <data name="settings_cancella_tutto.Content" xml:space="preserve">
-    <value>Cancella tutti i dati</value>
-  </data>
-  <data name="soluzioni_header.Content" xml:space="preserve">
-    <value>Soluzioni</value>
-  </data>
-  <data name="soluzioni_flyout_addpreferiti.Text" xml:space="preserve">
-    <value>Aggiungi a preferiti</value>
-  </data>
-  <data name="soluzioni_flyout_rempreferiti.Text" xml:space="preserve">
-    <value>Rimuovi da preferiti</value>
-  </data>
-  <data name="soluzioni_condividi.Text" xml:space="preserve">
-    <value>Condividi</value>
-  </data>
-  <data name="soluzioni_bar_cerca.Label" xml:space="preserve">
-    <value>Cerca</value>
-  </data>
-  <data name="soluzioni_bar_aggiorna.Label" xml:space="preserve">
-    <value>Aggiorna</value>
-  </data>
-  <data name="vnews_bar_condividi.Label" xml:space="preserve">
-    <value>Condividi</value>
-  </data>
-  <data name="vnews_bar_apribrowser.Label" xml:space="preserve">
-    <value>Apri nel browser</value>
+    <value>Delete all data</value>
   </data>
 </root>

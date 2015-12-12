@@ -25,7 +25,7 @@
 
         <!--  page header  -->
 
-        <controls:PageHeader x:Uid="preferiti_header" BackButtonVisibility="Collapsed" Content="I miei preferiti" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader x:Uid="/Preferiti/preferiti_header" BackButtonVisibility="Collapsed" Content="I miei preferiti" Frame="{x:Bind Frame}" IsEnabled="False"/>
 
         <!--  page content  -->
         <Grid Grid.Row="1">
@@ -33,7 +33,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" x:Uid="preferiti_lista_vuota" Margin="0,8" Text="Elenco vuoto" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsEmpty, Converter={StaticResource BoolVisibility}}"/>
+            <TextBlock Grid.Row="0" x:Uid="/Preferiti/preferiti_lista_vuota" Margin="0,8" Text="Elenco vuoto" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsEmpty, Converter={StaticResource BoolVisibility}}"/>
             <SemanticZoom Grid.Row="1">
                 <SemanticZoom.ZoomedInView>
                     <ListView ItemsSource="{Binding Source={StaticResource PreferitiList}}">
@@ -47,9 +47,9 @@
                                 <Grid Margin="0,0,0,4" Tapped="onTapPreferiti" HorizontalAlignment="Stretch" Holding="openFlyout" RightTapped="openFlyout">
                                     <FlyoutBase.AttachedFlyout>
                                         <MenuFlyout>
-                                            <MenuFlyoutItem x:Uid="preferiti_flyout_rece" Text="Recensione" IsEnabled="{Binding RecensionePresente}" Click="preferitiFlyoutRecensione"/>
-                                            <MenuFlyoutItem x:Uid="preferiti_flyout_solu" Text="Soluzione" IsEnabled="{Binding SoluzionePresente}" Click="preferitiFlyoutSoluzione"/>
-                                            <MenuFlyoutItem x:Uid="preferiti_flyout_remove" Text="Rimuovi da preferiti" Click="preferitiFlyoutRimuovi"/>
+                                            <MenuFlyoutItem x:Uid="/Preferiti/preferiti_flyout_rece" Text="Recensione" IsEnabled="{Binding RecensionePresente}" Click="preferitiFlyoutRecensione"/>
+                                            <MenuFlyoutItem x:Uid="/Preferiti/preferiti_flyout_solu" Text="Soluzione" IsEnabled="{Binding SoluzionePresente}" Click="preferitiFlyoutSoluzione"/>
+                                            <MenuFlyoutItem x:Uid="/Preferiti/preferiti_flyout_remove" Text="Rimuovi da preferiti" Click="preferitiFlyoutRimuovi"/>
                                         </MenuFlyout>
                                     </FlyoutBase.AttachedFlyout>
                                     <TextBlock Text="{Binding Titolo}" FontSize="18"/>

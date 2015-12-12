@@ -30,8 +30,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Uid="firststart_benvenuto" Grid.Row="0" Text="Benvenuto!" Margin="4,8" Style="{StaticResource TitleTextBlockStyle}"/>
-            <TextBlock x:Uid="firststart_attendi" Grid.Row="1" Text="Attendi qualche istante mentre vengono precaricati alcuni dati." Margin="4,8" Style="{StaticResource SubtitleTextBlockStyle}"/>
+            <TextBlock x:Uid="/FirstStart/firststart_benvenuto" Grid.Row="0" Text="Benvenuto!" Margin="4,8" Style="{StaticResource TitleTextBlockStyle}"/>
+            <TextBlock x:Uid="/FirstStart/firststart_attendi" Grid.Row="1" Text="Attendi qualche istante mentre vengono precaricati alcuni dati." Margin="4,8" Style="{StaticResource SubtitleTextBlockStyle}"/>
 
             <Grid Grid.Row="2" Margin="8,16">
                 <Grid.RowDefinitions>
@@ -45,19 +45,19 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock x:Uid="firststart_rece" Grid.Row="0" Grid.Column="0" Text="Caricamento recensioni" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock x:Uid="/FirstStart/firststart_rece" Grid.Row="0" Grid.Column="0" Text="Caricamento recensioni" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <TextBlock Grid.Row="0" Grid.Column="1" Text="OK!" Foreground="Green" FontWeight="Bold"  Visibility="{Binding IsRecensioniLoaded, Converter={StaticResource BoolVisibility}}" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <ProgressRing Grid.Row="0" Grid.Column="1" IsActive="{Binding IsRecensioniLoaded, Converter={StaticResource NotBool}}" Margin="8,4" VerticalAlignment="Center"/>
 
-                <TextBlock x:Uid="firststart_solu" Grid.Row="1" Grid.Column="0" Text="Caricamento soluzioni" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock x:Uid="/FirstStart/firststart_solu" Grid.Row="1" Grid.Column="0" Text="Caricamento soluzioni" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" Text="OK!" Foreground="Green" FontWeight="Bold" Visibility="{Binding IsSoluzioniLoaded, Converter={StaticResource BoolVisibility}}" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <ProgressRing Grid.Row="1" Grid.Column="1" IsActive="{Binding IsSoluzioniLoaded, Converter={StaticResource NotBool}}" Margin="8,4" VerticalAlignment="Center"/>
 
-                <TextBlock x:Uid="firststart_pod" Grid.Row="2" Grid.Column="0" Text="Caricamento podcast" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock x:Uid="/FirstStart/firststart_pod" Grid.Row="2" Grid.Column="0" Text="Caricamento podcast" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <TextBlock Grid.Row="2" Grid.Column="1" Text="OK!" Foreground="Green" FontWeight="Bold"  Visibility="{Binding IsPodcastLoaded, Converter={StaticResource BoolVisibility}}" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <ProgressRing Grid.Row="2" Grid.Column="1" IsActive="{Binding IsPodcastLoaded, Converter={StaticResource NotBool}}" Margin="8,4" VerticalAlignment="Center"/>
 
-                <TextBlock x:Uid="firststart_mesi" Grid.Row="3" Grid.Column="0" Text="Caricamento news" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock x:Uid="/FirstStart/firststart_mesi" Grid.Row="3" Grid.Column="0" Text="Caricamento news" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <TextBlock Grid.Row="3" Grid.Column="1" Text="OK!" Foreground="Green" FontWeight="Bold"  Visibility="{Binding IsMesiNewsLoaded, Converter={StaticResource BoolVisibility}}" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <ProgressRing Grid.Row="3" Grid.Column="1" IsActive="{Binding IsMesiNewsLoaded, Converter={StaticResource NotBool}}" Margin="8,4" VerticalAlignment="Center"/>
             </Grid>

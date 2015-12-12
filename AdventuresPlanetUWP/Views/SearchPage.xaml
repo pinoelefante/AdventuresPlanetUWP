@@ -22,7 +22,7 @@
 
         <controls:PageHeader BackButtonVisibility="Collapsed" IsEnabled="False"/>
 
-        <TextBox x:Uid="search_placeholder" Grid.Row="1" Margin="16" PlaceholderText="Digita per cercare..." TextChanged="{x:Bind VM.DoSearch}"/>
+        <TextBox x:Uid="/Search/search_placeholder" Grid.Row="1" Margin="16" PlaceholderText="Digita per cercare..." TextChanged="{x:Bind VM.DoSearch}"/>
 
         <ListView Grid.Row="2" ItemsSource="{Binding ListSearch}">
             <ListView.ItemTemplate>
