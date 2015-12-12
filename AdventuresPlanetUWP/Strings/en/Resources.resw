@@ -315,10 +315,10 @@
   <data name="soluzioni_condividi.Text" xml:space="preserve">
     <value>Share</value>
   </data>
-  <data name="soluzioni_bar_cerca.Text" xml:space="preserve">
+  <data name="soluzioni_bar_cerca.Label" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="soluzioni_bar_aggiorna.Text" xml:space="preserve">
+  <data name="soluzioni_bar_aggiorna.Label" xml:space="preserve">
     <value>Update</value>
   </data>
   <data name="vnews_bar_condividi.Label" xml:space="preserve">

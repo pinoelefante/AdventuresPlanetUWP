@@ -45,7 +45,7 @@
                                     <MenuFlyout>
                                         <MenuFlyoutItem x:Uid="soluzioni_flyout_addpreferiti" Text="Aggiungi a preferiti" Click="AddPreferiti" Visibility="{Binding IsPreferita, Converter={StaticResource NotBoolVisibility}}"/>
                                         <MenuFlyoutItem x:Uid="soluzioni_flyout_rempreferiti" Text="Rimuovi da preferiti" Click="DelPreferiti" Visibility="{Binding IsPreferita, Converter={StaticResource BoolVisibility}}"/>
-                                        <MenuFlyoutItem x:Uid="soluzioni_condividi" Text="Condividi"/>
+                                        <!--<MenuFlyoutItem x:Uid="soluzioni_condividi" Text="Condividi"/>-->
                                     </MenuFlyout>
                                 </FlyoutBase.AttachedFlyout>
                             </UserControls:UCSoluzione>
