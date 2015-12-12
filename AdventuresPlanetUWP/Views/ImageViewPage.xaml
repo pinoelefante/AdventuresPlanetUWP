@@ -32,7 +32,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Visualizzatore immagini" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader BackButtonVisibility="Collapsed" Frame="{x:Bind Frame}" IsEnabled="False"/>
 
         <ScrollViewer Grid.Row="1" x:Name="scroller" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" HorizontalScrollMode="Auto" VerticalScrollMode="Auto" MinZoomFactor="0.5" MaxZoomFactor="3" ZoomMode="Enabled">
             <Image x:Name="image" HorizontalAlignment="Center" VerticalAlignment="Center" DoubleTapped="DoubleTapImage"/>

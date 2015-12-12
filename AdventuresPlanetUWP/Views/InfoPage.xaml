@@ -22,24 +22,24 @@
 
         <controls:PageHeader Content="Info" BackButtonVisibility="Collapsed" IsEnabled="False"/>
 
-        <Image Grid.Row="1" Stretch="Uniform" Tapped="{x:Bind VM.VaiAlSitoWeb}" Source="ms-appx:///Assets/SplashScreen.png"/>
+        <Image Grid.Row="1" Stretch="Uniform" Tapped="{x:Bind VM.VaiAlSitoWeb}" MaxWidth="900" Source="ms-appx:///Assets/SplashScreen.png"/>
 
         <StackPanel Grid.Row="2">
             <TextBlock Margin="4,4" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Stretch" TextWrapping="Wrap">
                 <Hyperlink Click="{x:Bind VM.Vota}">
-                    <Run Text="Vota l'applicazione"></Run>
+                    <Run x:Uid="info_vota" Text="Vota l'applicazione"></Run>
                 </Hyperlink>
             </TextBlock>
             <TextBlock Margin="4,4" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Stretch" TextWrapping="Wrap">
                 <Hyperlink Click="{x:Bind VM.ContattaSviluppatore}">
-                    <Run Text="Contatta lo sviluppatore"/>
+                    <Run x:Uid="info_contatta" Text="Contatta lo sviluppatore"/>
                 </Hyperlink>
             </TextBlock>
             
-            <TextBlock Margin="4,4" VerticalAlignment="Center" Text="Applicazione sviluppata da Giuseppe Elefante. Tutto il materiale presente è proprietà di Adventure's Planet s.r.l." FontSize="12" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+            <TextBlock x:Uid="info_copyright" Margin="4,4" VerticalAlignment="Center" Text="Applicazione sviluppata da Giuseppe Elefante. Tutto il materiale presente è proprietà di Adventure's Planet s.r.l." FontSize="12" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
             
             <TextBlock Margin="4,4" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16">
-                <Run Text="Versione "/>
+                <Run x:Uid="info_versione" Text="Versione "/>
                 <Run Text="{Binding Versione}"/>
             </TextBlock>
         </StackPanel>

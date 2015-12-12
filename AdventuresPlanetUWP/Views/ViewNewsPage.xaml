@@ -110,14 +110,14 @@
 
         <CommandBar Grid.Row="2">
             <CommandBar.PrimaryCommands>
-                <AppBarButton Label="Condividi" Click="{x:Bind VM.Share}">
+                <AppBarButton x:Uid="vnews_bar_condividi" Label="Condividi" Click="{x:Bind VM.Share}">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE72D;" FontFamily="Segoe MDL2 Assets"/>
                     </AppBarButton.Icon>
                 </AppBarButton>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton Label="Apri nel browser" Click="{x:Bind VM.OpenInBrowser}"/>
+                <AppBarButton x:Uid="vnews_bar_apribrowser" Label="Apri nel browser" Click="{x:Bind VM.OpenInBrowser}"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Grid>

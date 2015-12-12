@@ -23,7 +23,7 @@
 
         <!--  page header  -->
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Impostazioni" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader x:Uid="settings_header" BackButtonVisibility="Collapsed" Content="Impostazioni" Frame="{x:Bind Frame}" IsEnabled="False"/>
 
         <ScrollViewer Grid.Row="1">
             <StackPanel Margin="8">
@@ -32,20 +32,20 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Slider x:Name="slider" Grid.Column="0" Header="Dimensione del font" Value="{Binding Settings.DimensioneFont, Mode=TwoWay}" Minimum="12" Maximum="24"/>
+                    <Slider x:Name="slider" x:Uid="settings_fontSize" Grid.Column="0" Header="Dimensione del font" Value="{Binding Settings.DimensioneFont, Mode=TwoWay}" Minimum="12" Maximum="24"/>
                     <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="8,0" Text="{Binding Value, ElementName=slider}" />
                 </Grid>
 <!--
                 <ToggleSwitch Header="Chiedi conferma alla chiusura dell'app" IsOn="{Binding Settings.AskToClose, Mode=TwoWay}" />
 -->
-                <ToggleSwitch Header="Aggiorna elenco recensioni manualmente" IsOn="{Binding Settings.UpdateRecensioniManualmente, Mode=TwoWay}" />
-                <ToggleSwitch Header="Aggiorna elenco soluzioni manualmente" IsOn="{Binding Settings.UpdateSoluzioniManualmente, Mode=TwoWay}" />
-                <ToggleSwitch Header="Carica le immagini di soluzioni/recensioni" IsOn="{Binding Settings.IsLoadImages, Mode=TwoWay}" />
-                <ToggleSwitch IsOn="{Binding Settings.RicordaPosizioneSoluzioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle soluzioni"/>
-                <ToggleSwitch IsOn="{Binding Settings.RicordaPosizioneRecensioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle recensioni"/>
-                <ToggleSwitch IsOn="{Binding Settings.LetItSnow, Mode=TwoWay}" Header="Let it snow" Visibility="{Binding Converter={StaticResource ChristmasV}}"/>
+                <ToggleSwitch x:Uid="settings_rece_manuale" Header="Aggiorna elenco recensioni manualmente" IsOn="{Binding Settings.UpdateRecensioniManualmente, Mode=TwoWay}" />
+                <ToggleSwitch x:Uid="settings_solu_manuale" Header="Aggiorna elenco soluzioni manualmente" IsOn="{Binding Settings.UpdateSoluzioniManualmente, Mode=TwoWay}" />
+                <ToggleSwitch x:Uid="settings_carica_immagini" Header="Carica le immagini di soluzioni/recensioni" IsOn="{Binding Settings.IsLoadImages, Mode=TwoWay}" />
+                <ToggleSwitch x:Uid="settings_posizione_solu" IsOn="{Binding Settings.RicordaPosizioneSoluzioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle soluzioni"/>
+                <ToggleSwitch x:Uid="settings_posizione_rece" IsOn="{Binding Settings.RicordaPosizioneRecensioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle recensioni"/>
+                <ToggleSwitch x:Uid="settings_letitsnow" IsOn="{Binding Settings.LetItSnow, Mode=TwoWay}" Header="Let it snow" Visibility="{Binding Converter={StaticResource ChristmasV}}"/>
                 <StackPanel Orientation="Horizontal" Margin="0,8">
-                    <TextBlock Text="Qualità massima video" VerticalAlignment="Center"/>
+                    <TextBlock x:Uid="settings_video" Text="Qualità massima video" VerticalAlignment="Center"/>
                     <ComboBox Margin="8,0,8,0" Loaded="{x:Bind VM.VideoQualityLoaded}" SelectionChanged="{x:Bind VM.VideoQualityChanged}">
                         <ComboBoxItem Content="144p" Tag="144"/>
                         <ComboBoxItem Content="240p" Tag="240"/>
@@ -57,16 +57,16 @@
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8">
-                    <TextBlock Text="Aggiorna news ogni" VerticalAlignment="Center"/>
+                    <TextBlock x:Uid="settings_tempo_news" Text="Aggiorna news ogni" VerticalAlignment="Center"/>
                     <ComboBox Margin="8,0,8,0" Loaded="{x:Bind VM.NewsTimeLoaded}" SelectionChanged="{x:Bind VM.NewsTimeUpdated}">
-                        <ComboBoxItem Content="1 ora" Tag="3600"/>
-                        <ComboBoxItem Content="4 ore" Tag="14400"/>
-                        <ComboBoxItem Content="8 ore" Tag="28800"/>
-                        <ComboBoxItem Content="12 ora" Tag="43200"/>
-                        <ComboBoxItem Content="1 giorno" Tag="86400"/>
+                        <ComboBoxItem x:Uid="settings_news_1" Content="1 ora" Tag="3600"/>
+                        <ComboBoxItem x:Uid="settings_news_2" Content="4 ore" Tag="14400"/>
+                        <ComboBoxItem x:Uid="settings_news_3" Content="8 ore" Tag="28800"/>
+                        <ComboBoxItem x:Uid="settings_news_4" Content="12 ore" Tag="43200"/>
+                        <ComboBoxItem x:Uid="settings_news_5" Content="1 giorno" Tag="86400"/>
                     </ComboBox>
                 </StackPanel>
-                <Button Content="Cancella tutti i dati" Click="{x:Bind VM.cancella_dati}" Margin="8,15"/>
+                <Button x:Uid="settings_cancella_tutto" Content="Cancella tutti i dati" Click="{x:Bind VM.cancella_dati}" Margin="8,15"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

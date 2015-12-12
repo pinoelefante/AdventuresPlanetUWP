@@ -46,7 +46,7 @@
                 <RowDefinition />
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontWeight="SemiBold" Text="Indice"/>
+            <TextBlock x:Uid="contents_indice_titolo" Grid.Row="0" HorizontalAlignment="Center" FontWeight="SemiBold" Text="Indice"/>
             <ListView Grid.Row="1" ItemsSource="{Binding Indice}">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -98,20 +98,20 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8,0" Visibility="{Binding Item.AutoreText, Converter={StaticResource StringVisibility}}">
-                    <Run Text="a cura di"/>
+                    <Run x:Uid="contents_acuradi" Text="a cura di"/>
                     <Run Text="{Binding Item.AutoreText}"/>
                 </TextBlock>
 
                 <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}">
                     <TextBlock FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding Item.VotoText, Converter={StaticResource StringVisibility}}" Margin="8,0">
-                        <Run Text="Voto della redazione" />
+                        <Run x:Uid="contents_votoredazione" Text="Voto della redazione" />
                         <Run Text="{Binding Item.VotoText}" FontWeight="Bold"/>
                     </TextBlock>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}">
                     <TextBlock FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding Item.VotoUtentiText, Converter={StaticResource StringVisibility} }" Margin="8,0">
-                        <Run Text="Voto degli utenti"/>
+                        <Run x:Uid="content_votoutenti" Text="Voto degli utenti"/>
                         <Run Text="{Binding Item.VotoUtentiText}" FontWeight="Bold"/>
                         <Run Text="/100"/>
                     </TextBlock>
@@ -121,21 +121,21 @@
             <!-- Command bar -->
             <CommandBar Grid.Row="4">
                 <CommandBar.PrimaryCommands>
-                    <AppBarButton Label="Indice" Click="{x:Bind VM.ApriIndice}" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
-                    <AppBarButton Label="Aggiungi a preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource NotBoolVisibility}}" Icon="Favorite"/>
-                    <AppBarButton Label="Rimuovi da preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource BoolVisibility}}" Icon="UnFavorite"/>
-                    <AppBarButton Label="Condividi" Click="{x:Bind VM.Share}">
+                    <AppBarButton x:Uid="contents_menu_indice" Label="Indice" Click="{x:Bind VM.ApriIndice}" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
+                    <AppBarButton x:Uid="contents_menu_aggpreferiti" Label="Aggiungi a preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource NotBoolVisibility}}" Icon="Favorite"/>
+                    <AppBarButton x:Uid="contents_menu_rempreferiti" Label="Rimuovi da preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource BoolVisibility}}" Icon="UnFavorite"/>
+                    <AppBarButton x:Uid="contents_menu_condividi" Label="Condividi" Click="{x:Bind VM.Share}">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xE72D;" FontFamily="Segoe MDL2 Assets"/>
                         </AppBarButton.Icon>
                     </AppBarButton>
                 </CommandBar.PrimaryCommands>
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Label="Recensione breve" Click="{x:Bind VM.VediRecensioneBreve}" IsEnabled="{Binding Item.TestoBreve, Converter={StaticResource StringBool}}" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}"/>
-                    <AppBarButton Label="Vedi soluzione" Click="{x:Bind VM.OpenAlternative}" IsEnabled="{Binding HasSoluzione}" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}"/>
-                    <AppBarButton Label="Vedi recensione" Click="{x:Bind VM.OpenAlternative}" IsEnabled="{Binding HasRecensione}" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
-                    <AppBarButton Label="Apri nel browser" Click="{x:Bind VM.OpenInBrowser}"/>
-                    <AppBarButton Label="Compra gioco" Click="{x:Bind VM.OpenStore}" IsEnabled="{Binding Item.LinkStore, Converter={StaticResource StringBool}}"/>
+                    <AppBarButton x:Uid="contents_menu_recensionebreve" Label="Recensione breve" Click="{x:Bind VM.VediRecensioneBreve}" IsEnabled="{Binding Item.TestoBreve, Converter={StaticResource StringBool}}" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}"/>
+                    <AppBarButton x:Uid="contents_menu_vedisoluzione" Label="Vedi soluzione" Click="{x:Bind VM.OpenAlternative}" IsEnabled="{Binding HasSoluzione}" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}"/>
+                    <AppBarButton x:Uid="contents_menu_vedirecensione" Label="Vedi recensione" Click="{x:Bind VM.OpenAlternative}" IsEnabled="{Binding HasRecensione}" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
+                    <AppBarButton x:Uid="contents_menu_apribrowser" Label="Apri nel browser" Click="{x:Bind VM.OpenInBrowser}"/>
+                    <AppBarButton x:Uid="contents_menu_compragioco" Label="Compra gioco" Click="{x:Bind VM.OpenStore}" IsEnabled="{Binding Item.LinkStore, Converter={StaticResource StringBool}}"/>
                 </CommandBar.SecondaryCommands>
             </CommandBar>
         </Grid>

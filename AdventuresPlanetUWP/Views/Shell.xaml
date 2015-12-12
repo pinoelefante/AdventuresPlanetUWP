@@ -20,35 +20,35 @@
                     <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="PreviewLink" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="News" />
+                            <TextBlock x:Uid="hamburger_news" Margin="12,0,0,0" VerticalAlignment="Center" Text="News" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
                     <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:RecensioniPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Like" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Recensioni" />
+                            <TextBlock x:Uid="hamburger_recensioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Recensioni" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
                     <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:SoluzioniPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="AllApps" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Soluzioni" />
+                            <TextBlock x:Uid="hamburger_soluzioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Soluzioni" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
                     <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PreferitiPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="OutlineStar" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Preferiti" />
+                            <TextBlock x:Uid="hamburger_preferiti" Margin="12,0,0,0" VerticalAlignment="Center" Text="Preferiti" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
                     <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PodcastPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Microphone" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
+                            <TextBlock x:Name="hamburger_podcast" Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
                 </Controls:HamburgerMenu.PrimaryButtons>
@@ -57,14 +57,14 @@
                     <Controls:HamburgerButtonInfo PageType="views:SettingsPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Setting" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Impostazioni" />
+                            <TextBlock x:Uid="hamburger_impostazioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Impostazioni" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
                     <Controls:HamburgerButtonInfo PageType="views:InfoPage">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE897;" Width="48" Height="48"/>
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Info" />
+                            <TextBlock x:Uid="hamburger_info" Margin="12,0,0,0" VerticalAlignment="Center" Text="Info" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 

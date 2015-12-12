@@ -10,6 +10,7 @@ using System.Diagnostics;
 using Windows.UI.Popups;
 using Windows.ApplicationModel.Store;
 using Windows.System;
+using System.Globalization;
 
 namespace AdventuresPlanetUWP
 {
@@ -66,13 +67,23 @@ namespace AdventuresPlanetUWP
             {
                 AdventuresPlanetManager.Instance.Load();
                 NavigationService.Navigate(typeof(Views.NewsPage));
+                WarningNonItaliano();
                 mostraVotaApplicazione();
+            }
+        }
+        private async void WarningNonItaliano()
+        {
+            CultureInfo info = CultureInfo.CurrentUICulture;
+            Debug.WriteLine("Current lang = " + info.TwoLetterISOLanguageName);
+            if (info.TwoLetterISOLanguageName != "it")
+            {
+                await new MessageDialog("I contenuti dell'applicazione sono SOLO in Italiano", "WARNING").ShowAsync();
             }
         }
         private async void mostraVotaApplicazione()
         {
             Debug.WriteLine("Numero avvio = " + Settings.Instance.NumeroAvvii);
-            if (Settings.Instance.NumeroAvvii % 5 == 0 && !Settings.Instance.Votato)
+            if (Settings.Instance.NumeroAvvii % 3 == 0 && !Settings.Instance.Votato)
             {
                 MessageDialog msg = new MessageDialog("Dice: 'Chiedimi di votare.'\nNon mi va che la gente mi chieda sempre di votare", "Aiutaci!");
                 UICommand si = new UICommand("Vota") { Id = 0 };
