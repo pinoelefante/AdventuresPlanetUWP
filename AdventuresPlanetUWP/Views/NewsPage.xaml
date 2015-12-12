@@ -62,7 +62,7 @@
         </Grid.RowDefinitions>
 
         <!--  page header  -->
-        <controls:PageHeader x:Uid="news_header" BackButtonVisibility="Collapsed" Content="News" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader x:Uid="/News/news_header" BackButtonVisibility="Collapsed" Content="News" Frame="{x:Bind Frame}" IsEnabled="False"/>
 
         <!--  page content  -->
         <Grid Grid.Row="1">
@@ -83,7 +83,7 @@
                         <UserControl:UCNews Tapped="openNews" Holding="openFlyout" RightTapped="openFlyout">
                             <FlyoutBase.AttachedFlyout>
                                 <MenuFlyout>
-                                    <MenuFlyoutItem x:Uid="news_flyout_anteprima" Text="Anteprima" Click="showAnteprima"/>
+                                    <MenuFlyoutItem x:Uid="/News/news_flyout_anteprima" Text="Anteprima" Click="showAnteprima"/>
                                     <!--<MenuFlyoutItem Text="Condividi" Click="share"/>-->
                                 </MenuFlyout>
                             </FlyoutBase.AttachedFlyout>
@@ -106,8 +106,8 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <ProgressRing Grid.Column="0" IsActive="{Binding IsUpdatingNews}" Margin="0,0,4,0"/>
-                        <TextBlock Grid.Column="1" x:Uid="news_updating" VerticalAlignment="Center" Text="Aggiorno le news"  Visibility="{Binding IsUpdatingNews, Converter={StaticResource BoolVisibility}}"/>
-                        <TextBlock Grid.Column="1" x:Uid="news_update" VerticalAlignment="Center" Text="Carica altre news" Visibility="{Binding IsUpdatingNews, Converter={StaticResource NotBoolVisibility}}"/>
+                        <TextBlock Grid.Column="1" x:Uid="/News/news_updating" VerticalAlignment="Center" Text="Aggiorno le news"  Visibility="{Binding IsUpdatingNews, Converter={StaticResource BoolVisibility}}"/>
+                        <TextBlock Grid.Column="1" x:Uid="/News/news_update" VerticalAlignment="Center" Text="Carica altre news" Visibility="{Binding IsUpdatingNews, Converter={StaticResource NotBoolVisibility}}"/>
                     </Grid>
                 </Button>
 

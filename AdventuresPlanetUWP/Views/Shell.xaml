@@ -48,7 +48,7 @@
                     <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PodcastPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Microphone" />
-                            <TextBlock x:Name="/Shell/hamburger_podcast" Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
+                            <TextBlock x:Uid="/Shell/hamburger_podcast" Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
                 </Controls:HamburgerMenu.PrimaryButtons>
