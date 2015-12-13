@@ -57,4 +57,7 @@
   <data name="recensioni_header.Content" xml:space="preserve">
     <value>Recensioni</value>
   </data>
+  <data name="recensioni_acuradi.Text" xml:space="preserve">
+    <value>a cura di</value>
+  </data>
 </root>

@@ -61,7 +61,7 @@ namespace AdventuresPlanetUWP.ViewModels
         private List<Task> listTask;
         public async Task CheckComplete()
         {
-            Views.Shell.HamburgerMenu.IsEnabled = false;
+            //Views.Shell.HamburgerMenu.IsEnabled = false;
             DatabaseSystem.Instance.cleanTables();
             listTask = new List<Task>();
             await StartRecensioni();
@@ -77,8 +77,8 @@ namespace AdventuresPlanetUWP.ViewModels
                     AdventuresPlanetManager.Instance.Load();
                     await Task.Delay(1000);
                     Dispose();
-                    Views.Shell.HamburgerMenu.IsEnabled = true;
                     NavigationService.Navigate(typeof(Views.NewsPage));
+                    //Views.Shell.HamburgerMenu.IsEnabled = true;
                 });
             });
         }

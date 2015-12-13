@@ -57,4 +57,7 @@
   <data name="soluzioni_header.Content" xml:space="preserve">
     <value>Soluzioni</value>
   </data>
+  <data name="soluzioni_acuradi.Text" xml:space="preserve">
+    <value>a cura di</value>
+  </data>
 </root>

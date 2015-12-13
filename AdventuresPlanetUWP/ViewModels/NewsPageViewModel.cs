@@ -1,5 +1,6 @@
 ﻿using AdventuresPlanetUWP.Classes;
 using AdventuresPlanetUWP.Classes.Data;
+using AdventuresPlanetUWP.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

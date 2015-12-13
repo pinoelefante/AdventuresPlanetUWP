@@ -135,4 +135,7 @@
   <data name="soluzioni_bar_aggiorna.Label" xml:space="preserve">
     <value>Update</value>
   </data>
+  <data name="soluzioni_acuradi.Text" xml:space="preserve">
+    <value>written by</value>
+  </data>
 </root>

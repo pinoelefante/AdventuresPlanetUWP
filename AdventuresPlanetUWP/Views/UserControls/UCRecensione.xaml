@@ -42,7 +42,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" FontSize="16" Visibility="{Binding AutoreText, Converter={StaticResource StringVisibility}}">
-                    <Run Text="a cura di"/>
+                    <Run x:Uid="/Recensioni/recensioni_acuradi" Text="a cura di"/>
                     <Run Text="{Binding AutoreText}"/>
                 </TextBlock>
                 <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding VotoText}" Visibility="{Binding VotoText, Converter={StaticResource StringVisibility}}" FontSize="16"/>

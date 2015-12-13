@@ -29,7 +29,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="{Binding Titolo}" FontSize="20"/>
             <TextBlock Grid.Row="1" Visibility="{Binding AutoreText, Converter={StaticResource StringEmptyVisibility} }" FontSize="16">
-                <Run Text="a cura di"/>
+                <Run x:Uid="/Soluzioni/soluzioni_acuradi" Text="a cura di"/>
                 <Run Text="{Binding AutoreText}"/>
             </TextBlock>
         </Grid>
