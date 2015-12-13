@@ -117,16 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="vnews_bar_condividi.Label" xml:space="preserve">
-    <value>Share</value>
+  <data name="download_avvio" xml:space="preserve">
+    <value>Preparing download...</value>
   </data>
-  <data name="vnews_bar_apribrowser.Label" xml:space="preserve">
-    <value>Open in web browser</value>
+  <data name="download_incorso" xml:space="preserve">
+    <value>Downloading...</value>
   </data>
-  <data name="vnews_errore_download" xml:space="preserve">
-    <value>Error happens. Sorry</value>
+  <data name="download_pausa" xml:space="preserve">
+    <value>Download paused</value>
   </data>
-  <data name="vnews_busytext" xml:space="preserve">
-    <value>Please wait...</value>
+  <data name="download_nointernet" xml:space="preserve">
+    <value>Check your connection</value>
+  </data>
+  <data name="download_completato" xml:space="preserve">
+    <value>Download completed</value>
+  </data>
+  <data name="download_error" xml:space="preserve">
+    <value>Download error</value>
+  </data>
+  <data name="download_connessione_consumo" xml:space="preserve">
+    <value>Download paused. Use wifi connection</value>
   </data>
 </root>

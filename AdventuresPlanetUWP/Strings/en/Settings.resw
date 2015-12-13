@@ -165,4 +165,17 @@
   <data name="settings_cancella_tutto.Content" xml:space="preserve">
     <value>Delete all data</value>
   </data>
+  <data name="settings_cancellazione_messaggio" xml:space="preserve">
+    <value>Are you sure to delete all data?
+Favourites will not be deleted</value>
+  </data>
+  <data name="settings_cancellazione_titolo" xml:space="preserve">
+    <value>Delete data</value>
+  </data>
+  <data name="settings_cancellazione_conferma" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="settings_cancellazione_annulla" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>

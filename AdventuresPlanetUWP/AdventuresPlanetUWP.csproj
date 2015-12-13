@@ -92,6 +92,11 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="AdventuresPlanetUWP_StoreKey.pfx" />
+    <PRIResource Include="Strings\en\Download.resw" />
+    <PRIResource Include="Strings\it\Download.resw" />
+    <PRIResource Include="Strings\en\Podcast.resw" />
+    <PRIResource Include="Strings\en\Holidays.resw" />
+    <PRIResource Include="Strings\it\Holidays.resw" />
     <PRIResource Include="Strings\en\ViewNews.resw" />
     <PRIResource Include="Strings\en\Soluzioni.resw" />
     <PRIResource Include="Strings\en\Settings.resw" />
@@ -195,7 +200,6 @@
     <Compile Include="ViewModels\ContentsPageViewModel.cs" />
     <Compile Include="ViewModels\FirstStartViewModel.cs" />
     <Compile Include="ViewModels\InfoPageViewModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\NewsPageViewModel.cs" />
     <Compile Include="ViewModels\OpzioniPageViewModel.cs" />
     <Compile Include="ViewModels\PodcastPageViewModel.cs" />

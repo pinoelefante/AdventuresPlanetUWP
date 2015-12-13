@@ -11,6 +11,7 @@ using Windows.UI.Popups;
 using Windows.ApplicationModel.Store;
 using Windows.System;
 using System.Globalization;
+using Windows.ApplicationModel.Resources;
 
 namespace AdventuresPlanetUWP
 {
@@ -20,7 +21,6 @@ namespace AdventuresPlanetUWP
     sealed partial class App : Template10.Common.BootStrapper
     {
         ISettingsService _settings;
-
         public App()
         {
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
@@ -67,42 +67,9 @@ namespace AdventuresPlanetUWP
             {
                 AdventuresPlanetManager.Instance.Load();
                 NavigationService.Navigate(typeof(Views.NewsPage));
-                WarningNonItaliano();
-                mostraVotaApplicazione();
             }
         }
-        private async void WarningNonItaliano()
-        {
-            CultureInfo info = CultureInfo.CurrentUICulture;
-            Debug.WriteLine("Current lang = " + info.TwoLetterISOLanguageName);
-            if (info.TwoLetterISOLanguageName != "it")
-            {
-                await new MessageDialog("I contenuti dell'applicazione sono SOLO in Italiano", "WARNING").ShowAsync();
-            }
-        }
-        private async void mostraVotaApplicazione()
-        {
-            Debug.WriteLine("Numero avvio = " + Settings.Instance.NumeroAvvii);
-            if (Settings.Instance.NumeroAvvii % 3 == 0 && !Settings.Instance.Votato)
-            {
-                MessageDialog msg = new MessageDialog("Dice: 'Chiedimi di votare.'\nNon mi va che la gente mi chieda sempre di votare", "Aiutaci!");
-                UICommand si = new UICommand("Vota") { Id = 0 };
-                si.Invoked = async (x) =>
-                {
-                    var uri = new Uri(string.Format("ms-windows-store:reviewapp?appid={0}", CurrentApp.AppId));
-                    await Launcher.LaunchUriAsync(uri);
-                    Settings.Instance.Votato = true;
-                };
-                UICommand no = new UICommand("Chiudi") { Id = 1 };
-                no.Invoked = (x) => { };
-                msg.Commands.Add(si);
-                msg.Commands.Add(no);
-                msg.CancelCommandIndex = 1;
-                msg.DefaultCommandIndex = 0;
-
-                await msg.ShowAsync();
-            }
-        }
+        
         private static DisplayRequest KSARequest;
         private static int KSACount = 0;
         internal static void KeepScreenOn_Release()

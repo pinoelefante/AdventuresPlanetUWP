@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -20,10 +21,11 @@ namespace AdventuresPlanetUWP.ViewModels
                 return Settings.Instance;
             }
         }
+        private ResourceLoader res = ResourceLoader.GetForCurrentView("Settings");
         public async void cancella_dati(object sender, object e)
         {
-            MessageDialog dlg = new MessageDialog("Sei sicuro di voler cancellare tutti i dati?\nI preferiti verranno conservati","Cancella dati");
-            UICommand del = new UICommand("Si") { Id = 0 };
+            MessageDialog dlg = new MessageDialog(res.GetString("settings_cancellazione_messaggio"),res.GetString("settings_cancellazione_titolo"));
+            UICommand del = new UICommand(res.GetString("settings_cancellazione_conferma")) { Id = 0 };
             del.Invoked = (x) => 
             {
                 Settings.LastMesiNewsUpdate = 0;
@@ -34,7 +36,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 Settings.LastSoluzioniUpdate = 0;
                 AdventuresPlanetManager.Instance.Reset();
             };
-            UICommand annulla = new UICommand("Annulla") { Id = 1 };
+            UICommand annulla = new UICommand(res.GetString("settings_cancellazione_annulla")) { Id = 1 };
             dlg.Commands.Add(del);
             dlg.Commands.Add(annulla);
             dlg.DefaultCommandIndex = 0;

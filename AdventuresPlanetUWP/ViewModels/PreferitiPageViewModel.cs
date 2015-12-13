@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.System.Profile;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
@@ -58,6 +59,7 @@ namespace AdventuresPlanetUWP.ViewModels
             IsEmpty = l.Count == 0;
             l.Clear();
         }
+        private ResourceLoader res = ResourceLoader.GetForCurrentView("Preferiti");
         public async void Open(EntryAvventura avv)
         {
             AnalyticsVersionInfo ai = AnalyticsInfo.VersionInfo;
@@ -66,16 +68,16 @@ namespace AdventuresPlanetUWP.ViewModels
             Debug.WriteLine("Family = " + family);
             if (avv.RecensionePresente && avv.SoluzionePresente)
             {
-                MessageDialog dlg = new MessageDialog("Vuoi aprire la recensione o la soluzione?", "Sono indeciso...");
-                UICommand recensione = new UICommand("Recensione", (c) => { OpenRecensione(avv); }, 0);
-                UICommand soluzione = new UICommand("Soluzione", (c) => { OpenSoluzione(avv); }, 1);
+                MessageDialog dlg = new MessageDialog(res.GetString("preferiti_apertura_messaggio"), res.GetString("preferiti_apertura_titolo"));
+                UICommand recensione = new UICommand(res.GetString("preferiti_apertura_rece"), (c) => { OpenRecensione(avv); }, 0);
+                UICommand soluzione = new UICommand(res.GetString("preferiti_apertura_solu"), (c) => { OpenSoluzione(avv); }, 1);
                 dlg.Commands.Add(recensione);
                 dlg.Commands.Add(soluzione);
                 dlg.DefaultCommandIndex = 0;
 
                 if (family.Equals("Windows.Desktop"))
                 {
-                    UICommand annulla = new UICommand("Annulla") { Id = 2 };
+                    UICommand annulla = new UICommand(res.GetString("preferiti_apertura_annulla")) { Id = 2 };
                     dlg.Commands.Add(annulla);
                     dlg.CancelCommandIndex = 2;
                 }

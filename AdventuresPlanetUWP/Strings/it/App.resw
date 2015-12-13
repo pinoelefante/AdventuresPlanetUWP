@@ -40,9 +40,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="app_vota" xml:space="preserve">
-    <value>Dice: 'Chiedimi di votare.'\nNon mi va che la gente mi chieda sempre di votare"</value>
+    <value>Dice: 'Chiedimi di votare.'
+Non mi va che la gente mi chieda sempre di votare</value>
   </data>
   <data name="app_vota_titolo" xml:space="preserve">
     <value>Aiutaci!</value>
+  </data>
+  <data name="app_vota_comando_vota" xml:space="preserve">
+    <value>Vota</value>
+  </data>
+  <data name="app_vota_comando_annulla" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="avviso_soloitaliano" xml:space="preserve">
+    <value>Tutti i contenuti sono solo in italiano</value>
+  </data>
+  <data name="avviso_soloitaliano_titolo" xml:space="preserve">
+    <value>ATTENZIONE!</value>
   </data>
 </root>

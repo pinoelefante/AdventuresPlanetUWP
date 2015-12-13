@@ -78,4 +78,16 @@
   <data name="contents_indice_titolo.Text" xml:space="preserve">
     <value>Indice</value>
   </data>
+  <data name="contents_share_rece" xml:space="preserve">
+    <value>Leggi la recensione di </value>
+  </data>
+  <data name="contents_share_solu" xml:space="preserve">
+    <value>Leggi la soluzione di </value>
+  </data>
+  <data name="contents_busytext" xml:space="preserve">
+    <value>Attendi...</value>
+  </data>
+  <data name="contents_indice_chiudi.Content" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
 </root>

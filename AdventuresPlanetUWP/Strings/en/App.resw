@@ -120,4 +120,20 @@
   <data name="app_vota_titolo" xml:space="preserve">
     <value>Help us!</value>
   </data>
+  <data name="app_vota" xml:space="preserve">
+    <value>It says: 'Ask me about voting.'
+I don't want people always asking me about voting</value>
+  </data>
+  <data name="avviso_soloitaliano" xml:space="preserve">
+    <value>All contents are only in italian</value>
+  </data>
+  <data name="avviso_soloitaliano_titolo" xml:space="preserve">
+    <value>WARNING!</value>
+  </data>
+  <data name="app_vota_comando_vota" xml:space="preserve">
+    <value>Vote us</value>
+  </data>
+  <data name="app_vota_comando_annulla" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

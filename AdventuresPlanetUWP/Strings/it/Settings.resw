@@ -87,4 +87,17 @@
   <data name="settings_header.Content" xml:space="preserve">
     <value>Impostazioni</value>
   </data>
+  <data name="settings_cancellazione_messaggio" xml:space="preserve">
+    <value>Sei sicuro di voler cancellare tutti i dati?
+I preferiti verranno conservati</value>
+  </data>
+  <data name="settings_cancellazione_titolo" xml:space="preserve">
+    <value>Cancella dati</value>
+  </data>
+  <data name="settings_cancellazione_conferma" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="settings_cancellazione_annulla" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
 </root>

@@ -15,6 +15,7 @@ using Windows.UI;
 using Windows.UI.Popups;
 using AdventuresPlanetUWP.Views;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.Resources;
 
 namespace AdventuresPlanetUWP.ViewModels
 {
@@ -24,6 +25,7 @@ namespace AdventuresPlanetUWP.ViewModels
         {
             _componenti = new ObservableCollection<FrameworkElement>();
         }
+        private ResourceLoader res = ResourceLoader.GetForCurrentView("ViewNews");
         private DataTransferManager _dataTransferManager;
         public override async void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
@@ -57,7 +59,7 @@ namespace AdventuresPlanetUWP.ViewModels
 
         private async void componiErrore()
         {
-            await new MessageDialog("Si è verificato un errore").ShowAsync();
+            await new MessageDialog(res.GetString("vnews_errore_download")).ShowAsync();
         }
 
         public override async Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
@@ -77,7 +79,7 @@ namespace AdventuresPlanetUWP.ViewModels
 
         public void ShowBusy()
         {
-            Shell.SetBusy(true, "Attendi...");
+            Shell.SetBusy(true, res.GetString("vnews_busytext"));
         }
 
         public void HideBusy()

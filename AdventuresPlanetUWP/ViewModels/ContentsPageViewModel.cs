@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.Resources;
 using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Text;
@@ -32,6 +33,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 ComponentiVideo = 1;
             }
         }
+        private ResourceLoader res = ResourceLoader.GetForCurrentView("Contents");
         private DataTransferManager _transferManager;
         public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
@@ -53,12 +55,12 @@ namespace AdventuresPlanetUWP.ViewModels
             args.Request.Data.SetWebLink(new Uri(Item.Link));
             if(IsRecensione)
             {
-                args.Request.Data.Properties.Title = "Leggi la recensione di " + Item.Titolo;
+                args.Request.Data.Properties.Title = res.GetString("contents_share_rece") + Item.Titolo;
                 args.Request.Data.Properties.Description = (Item as RecensioneItem).TestoBreve;
             }
             else if (IsSoluzione)
             {
-                args.Request.Data.Properties.Title = "Leggi la soluzione di " + Item.Titolo;
+                args.Request.Data.Properties.Title = res.GetString("contents_share_rece") + Item.Titolo;
             }
         }
         public void Share(object sender, object e)
@@ -230,7 +232,7 @@ namespace AdventuresPlanetUWP.ViewModels
                     return false;
                 else
                 {
-                    Views.Shell.SetBusy(true, "Attendi...");
+                    Views.Shell.SetBusy(true, res.GetString("contents_busytext"));
                     bool isOk = IsRecensione
                         ? await AdventuresPlanetManager.Instance.loadRecensione(Item as RecensioneItem)
                         : await AdventuresPlanetManager.Instance.loadSoluzione(Item as SoluzioneItem);

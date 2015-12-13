@@ -39,16 +39,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="vnews_bar_apribrowser.Label" xml:space="preserve">
-    <value>Apri nel browser</value>
+  <data name="auguri_feste" xml:space="preserve">
+    <value>Tanti auguri di buone feste</value>
   </data>
-  <data name="vnews_bar_condividi.Label" xml:space="preserve">
-    <value>Condividi</value>
+  <data name="auguri_natale" xml:space="preserve">
+    <value>Tanti auguri di Buone Natale</value>
   </data>
-  <data name="vnews_errore_download" xml:space="preserve">
-    <value>Si è verificato un errore</value>
+  <data name="auguri_anno_nuovo" xml:space="preserve">
+    <value>Tanti auguri di felice Anno Nuovo</value>
   </data>
-  <data name="vnews_busytext" xml:space="preserve">
-    <value>Attendi...</value>
+  <data name="auguri_epifania" xml:space="preserve">
+    <value>L'Epifania tutte le feste porta via</value>
+  </data>
+  <data name="auguri_titolo" xml:space="preserve">
+    <value>Tanti auguri!</value>
   </data>
 </root>

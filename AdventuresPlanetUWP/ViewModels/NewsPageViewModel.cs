@@ -4,11 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.Resources;
+using Windows.ApplicationModel.Store;
 using Windows.Storage.Streams;
+using Windows.System;
 using Windows.UI.Input;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -19,12 +23,20 @@ namespace AdventuresPlanetUWP.ViewModels
 {
     public class NewsPageViewModel : Mvvm.ViewModelBase
     {
+        private static ResourceLoader resApp = ResourceLoader.GetForCurrentView("App");
+        private static bool started = false;
         public NewsPageViewModel()
         {
             
         }
         public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
+            if (!started)
+            {
+                WarningNonItaliano();
+                mostraVotaApplicazione();
+                started = true;
+            }
             if (!AdventuresPlanetManager.Instance.IsNewsFirstLoad)
             {
                 loadNews();
@@ -80,6 +92,42 @@ namespace AdventuresPlanetUWP.ViewModels
         public async void showAnteprima(News n)
         {
             await new MessageDialog(n.AnteprimaNews, n.Titolo).ShowAsync();
+        }
+        private async void WarningNonItaliano()
+        {
+            CultureInfo info = CultureInfo.CurrentUICulture;
+            Debug.WriteLine("Current lang = " + info.TwoLetterISOLanguageName);
+            if (info.TwoLetterISOLanguageName != "it")
+            {
+                string t = resApp.GetString("avviso_soloitaliano_titolo");
+                string m = resApp.GetString("avviso_soloitaliano");
+                await new MessageDialog(m, t).ShowAsync();
+            }
+        }
+        private async void mostraVotaApplicazione()
+        {
+            Debug.WriteLine("Numero avvio = " + Settings.Instance.NumeroAvvii);
+            if (Settings.Instance.NumeroAvvii % 3 == 0 && !Settings.Instance.Votato)
+            {
+                string titolo = resApp.GetString("app_vota_titolo");
+                string messaggio = resApp.GetString("app_vota");
+                MessageDialog msg = new MessageDialog(messaggio, titolo);
+                UICommand si = new UICommand(resApp.GetString("app_vota_comando_vota")) { Id = 0 };
+                si.Invoked = async (x) =>
+                {
+                    var uri = new Uri(string.Format("ms-windows-store:reviewapp?appid={0}", CurrentApp.AppId));
+                    await Launcher.LaunchUriAsync(uri);
+                    Settings.Instance.Votato = true;
+                };
+                UICommand no = new UICommand(resApp.GetString("app_vota_comando_annulla")) { Id = 1 };
+                no.Invoked = (x) => { };
+                msg.Commands.Add(si);
+                msg.Commands.Add(no);
+                msg.CancelCommandIndex = 1;
+                msg.DefaultCommandIndex = 0;
+
+                await msg.ShowAsync();
+            }
         }
     }
 }

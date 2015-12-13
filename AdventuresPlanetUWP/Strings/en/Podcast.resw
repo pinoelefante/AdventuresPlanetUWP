@@ -117,16 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="vnews_bar_condividi.Label" xml:space="preserve">
-    <value>Share</value>
+  <data name="podcast_ascolta.Text" xml:space="preserve">
+    <value>Listen</value>
   </data>
-  <data name="vnews_bar_apribrowser.Label" xml:space="preserve">
-    <value>Open in web browser</value>
+  <data name="podcast_descrizione.Text" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="vnews_errore_download" xml:space="preserve">
-    <value>Error happens. Sorry</value>
-  </data>
-  <data name="vnews_busytext" xml:space="preserve">
-    <value>Please wait...</value>
+  <data name="podcast_scarica.Text" xml:space="preserve">
+    <value>Download</value>
   </data>
 </root>

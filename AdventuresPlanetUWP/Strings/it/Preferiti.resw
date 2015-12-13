@@ -54,4 +54,19 @@
   <data name="preferiti_header.Content" xml:space="preserve">
     <value>I miei preferiti</value>
   </data>
+  <data name="preferiti_apertura_messaggio" xml:space="preserve">
+    <value>Vuoi aprire la recensione o la soluzione?</value>
+  </data>
+  <data name="preferiti_apertura_titolo" xml:space="preserve">
+    <value>Sono indeciso...</value>
+  </data>
+  <data name="preferiti_apertura_rece" xml:space="preserve">
+    <value>Recensione</value>
+  </data>
+  <data name="preferiti_apertura_solu" xml:space="preserve">
+    <value>Soluzione</value>
+  </data>
+  <data name="preferiti_apertura_annulla" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
 </root>

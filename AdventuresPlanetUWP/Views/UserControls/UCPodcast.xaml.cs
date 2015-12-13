@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Playback;
@@ -45,7 +46,7 @@ namespace AdventuresPlanetUWP.Views.UserControls
         {
             
         }
-
+        private ResourceLoader res = ResourceLoader.GetForCurrentView("Podcast");
         private void scaricaPodcast(object sender, TappedRoutedEventArgs e)
         {
             PodcastItem item = (sender as FrameworkElement).DataContext as PodcastItem;

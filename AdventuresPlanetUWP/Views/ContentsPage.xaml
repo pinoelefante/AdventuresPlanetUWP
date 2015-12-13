@@ -59,7 +59,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Grid.Row="2" HorizontalAlignment="Center" Margin="8" Click="{x:Bind VM.ChiudiIndice}" Content="Chiudi"/>
+            <Button x:Uid="/Contents/contents_indice_chiudi" Grid.Row="2" HorizontalAlignment="Center" Margin="8" Click="{x:Bind VM.ChiudiIndice}" Content="Chiudi"/>
         </Grid>
         
         <!-- pagina -->

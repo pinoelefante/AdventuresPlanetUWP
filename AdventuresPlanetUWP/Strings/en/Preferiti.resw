@@ -132,4 +132,19 @@
   <data name="preferiti_flyout_remove.Text" xml:space="preserve">
     <value>Remove from favourites</value>
   </data>
+  <data name="preferiti_apertura_messaggio" xml:space="preserve">
+    <value>Do you want view the review or the walkthrough?</value>
+  </data>
+  <data name="preferiti_apertura_titolo" xml:space="preserve">
+    <value>I don't know...</value>
+  </data>
+  <data name="preferiti_apertura_rece" xml:space="preserve">
+    <value>Review</value>
+  </data>
+  <data name="preferiti_apertura_solu" xml:space="preserve">
+    <value>Walkthrough</value>
+  </data>
+  <data name="preferiti_apertura_annulla" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>

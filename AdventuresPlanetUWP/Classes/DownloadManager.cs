@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Networking.BackgroundTransfer;
 using Windows.Storage;
@@ -68,6 +69,7 @@ namespace AdventuresPlanetUWP.Classes
                 await Task.WhenAll(tasks);
             }
         }
+        private ResourceLoader res = ResourceLoader.GetForCurrentView("Download");
         private void DownloadProgress(DownloadOperation download)
         {
             DownloadItem downItem = GetDownload(download.RequestedUri.AbsoluteUri);
@@ -77,33 +79,33 @@ namespace AdventuresPlanetUWP.Classes
             {
                 case BackgroundTransferStatus.Running:
                     {
-                        textProgress = "Download in corso...";
+                        textProgress = res.GetString("download_incorso");
                         break;
                     }
                 case BackgroundTransferStatus.PausedByApplication:
                     {
-                        textProgress = "Download in pausa";
+                        textProgress = res.GetString("download_pausa");
                         break;
                     }
                 case BackgroundTransferStatus.PausedCostedNetwork:
                     {
-                        textProgress = "Download messo in pausa per l'utilizzo di connessione a consumo";
+                        textProgress = res.GetString("download_connessione_consumo");
                         break;
                     }
                 case BackgroundTransferStatus.PausedNoNetwork:
                     {
-                        textProgress = "Controlla la connessione ad internet";
+                        textProgress = res.GetString("download_nointernet");
                         break;
                     }
                 case BackgroundTransferStatus.Error:
                     {
-                        textProgress = "Si è verificato un errore durante il download";
+                        textProgress = res.GetString("download_error");
                         break;
                     }
             }
             if (progress >= 100)
             {
-                textProgress = "Download completato";
+                textProgress = res.GetString("download_completato");
             }
             if (downItem?.TextProgress != null)
                 downItem.TextProgress.Text = $"{textProgress} - {progress}%";
@@ -147,6 +149,8 @@ namespace AdventuresPlanetUWP.Classes
             DownloadOperation download = downloader.CreateDownload(new Uri(url), destFile);
             Debug.WriteLine("Download avviato di " + url);
             download.Priority = BackgroundTransferPriority.Default;
+            if (tb != null)
+                tb.Text = res.GetString("download_avvio");
             await HandleDownloadAsync(download, tb);
         }
         public DownloadItem GetDownload(string url)

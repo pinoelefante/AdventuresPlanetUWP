@@ -15,9 +15,9 @@
     <RelativePanel Margin="0,4,4,8" Holding="OpenFlyout" RightTapped="OpenFlyout" Tapped="onTapPodcast">
         <FlyoutBase.AttachedFlyout>
             <MenuFlyout>
-                <MenuFlyoutItem Text="Ascolta" Tapped="onTapPodcast"/>
-                <MenuFlyoutItem Text="Descrizione" Tapped="podcastDescrizione" />
-                <MenuFlyoutItem Text="Scarica" Tapped="scaricaPodcast" IsEnabled="True" />
+                <MenuFlyoutItem x:Uid="/Podcast/podcast_ascolta" Text="Ascolta" Tapped="onTapPodcast"/>
+                <MenuFlyoutItem x:Uid="/Podcast/podcast_descrizione" Text="Descrizione" Tapped="podcastDescrizione" />
+                <MenuFlyoutItem x:Uid="/Podcast/podcast_scarica" Text="Scarica" Tapped="scaricaPodcast" IsEnabled="True" />
                 <!--
                 <MenuFlyoutItem Text="Condividi" Tapped="share" />
                 -->
@@ -28,7 +28,7 @@
         <Image Height="120" x:Name="image" Source="{Binding Immagine}"/>
         <TextBlock x:Name="Titolo" Text="{Binding Titolo}" Margin="4" FontSize="20"/>
         <TextBlock x:Name="Anteprima" Text="{Binding Descrizione}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Margin="4,8"/>
-        <TextBlock x:Name="progressDownload" Text="Avvio del download..." Margin="0,4" Visibility="Collapsed"/>
+        <TextBlock x:Name="progressDownload" Margin="0,4" Visibility="Collapsed"/>
         
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
