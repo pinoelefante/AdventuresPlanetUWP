@@ -28,8 +28,14 @@
 
         <!--  page header  -->
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Calavera Cafè" Frame="{x:Bind Frame}" IsEnabled="False"/>
-        
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Calavera Cafè" Frame="{x:Bind Frame}">
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Click="{x:Bind VM.AggiornaPodcast}" IsEnabled="{Binding IsUpdatingPodcast, Converter={StaticResource NotBool}}">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72C;"/>
+                </AppBarButton>
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
+
         <!-- Content -->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -57,14 +63,10 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <StackPanel Grid.Column="0">
-                        <!--Bottoni player qui-->    
+                        <!--Bottoni player qui-->
                     </StackPanel>
-                    
-                    <Button Grid.Column="1" Click="{x:Bind VM.AggiornaPodcast}" IsEnabled="{Binding IsUpdatingPodcast, Converter={StaticResource NotBool}}">
-                        <FontIcon Margin="16,8" FontFamily="Segoe MDL2 Assets" Glyph="&#xE72C;"/>
-                    </Button>
                 </Grid>
             </StackPanel>
 

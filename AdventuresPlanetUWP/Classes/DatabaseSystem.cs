@@ -27,7 +27,6 @@ namespace AdventuresPlanetUWP.Classes
         private void creaDB()
         {
             string news = "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT UNIQUE, titolo TEXT, anteprima TEXT, testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', data TEXT DEFAULT '', img TEXT, meselink TEXT NOT NULL)";
-            string mesi_news = "CREATE TABLE IF NOT EXISTS news_mesi (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT UNIQUE, nome TEXT)";
             string podcast = "CREATE TABLE IF NOT EXISTS podcast (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '') WITHOUT ROWID;";
             string recensioni = "CREATE TABLE IF NOT EXISTS recensioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', voto TEXT DEFAULT '', votoUtenti TEXT DEFAULT '', link TEXT NOT NULL, testoBreve TEXT DEFAULT '', testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;";
             string soluzioni = "CREATE TABLE IF NOT EXISTS soluzioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', link TEXT NOT NULL, soluzione TEXT DEFAULT '', soluzioneRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;";
@@ -40,8 +39,6 @@ namespace AdventuresPlanetUWP.Classes
             using (var st = conn.Prepare(soluzioni))
                 st.Step();
             using (var st = conn.Prepare(preferiti))
-                st.Step();
-            using (var st = conn.Prepare(mesi_news))
                 st.Step();
             using (var st = conn.Prepare(news))
                 st.Step();
@@ -69,18 +66,7 @@ namespace AdventuresPlanetUWP.Classes
                 return res == SQLiteResult.DONE;
             }
         }
-        /*
-        CREATE TABLE IF NOT EXISTS news(
-        id INTEGER PRIMARY KEY AUTOINCREMENT, 
-        link TEXT UNIQUE, 
-        titolo TEXT, 
-        anteprima TEXT, 
-        testo TEXT, 
-        testoRich TEXT, 
-        data TEXT, 
-        img TEXT, 
-        meselink TEXT NOT NULL)";
-        */
+
         public void updateDettagliNews(News n)
         {
             string query = "UPDATE news SET testo = ? , testoRich = ? WHERE id = ?";
@@ -90,39 +76,6 @@ namespace AdventuresPlanetUWP.Classes
                 st.Bind(2, Rich_ListToText(n.CorpoNewsRich));
                 st.Bind(3, n.Id);
                 SQLiteResult res = st.Step();
-            }
-        }
-        public List<KeyValuePair<string, string>> getCategorieNews()
-        {
-            string query = "SELECT * FROM news_mesi ORDER BY id DESC";
-            using (var st = conn.Prepare(query))
-            {
-                List<KeyValuePair<string, string>> links = new List<KeyValuePair<string, string>>();
-                while (st.Step() == SQLiteResult.ROW)
-                {
-                    string link = st.GetText("link");
-                    string nome = st.GetText("nome");
-                    KeyValuePair<string, string> val = new KeyValuePair<string, string>(link, nome);
-                    links.Add(val);
-                }
-                return links;
-            }
-        }
-        public void salvaCategorieNews(List<KeyValuePair<string, string>> mesi)
-        {
-            for (int i = mesi.Count - 1; i >= 0; i--)
-            {
-                KeyValuePair<string, string> m = mesi[i];
-                string query = $"INSERT INTO news_mesi (nome, link) VALUES (\"{m.Value}\",\"{m.Key}\")";
-                try
-                {
-                    using (var st = conn.Prepare(query))
-                        st.Step();
-                }
-                catch (Exception e)
-                {
-                    Debug.WriteLine(e.Message);
-                }
             }
         }
         public List<News> insertNews(List<News> news, bool fromEnd = true)
@@ -725,7 +678,6 @@ namespace AdventuresPlanetUWP.Classes
             dropTable("soluzioni");
             dropTable("podcast");
             dropTable("news");
-            dropTable("news_mesi");
             //dropTable("preferiti");
             creaDB();
         }
@@ -735,7 +687,6 @@ namespace AdventuresPlanetUWP.Classes
             cleanTable("soluzioni");
             cleanTable("podcast");
             cleanTable("news");
-            cleanTable("news_mesi");
             //cleanTable("preferiti");
         }
         private void cleanTable(string table)

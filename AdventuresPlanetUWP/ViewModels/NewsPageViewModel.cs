@@ -25,10 +25,11 @@ namespace AdventuresPlanetUWP.ViewModels
     public class NewsPageViewModel : Mvvm.ViewModelBase
     {
         private static ResourceLoader resApp = ResourceLoader.GetForCurrentView("App");
+        public static NewsPageViewModel Instance { get; set; }
         private static bool started = false;
         public NewsPageViewModel()
         {
-            
+            Instance = this;
         }
         public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
@@ -38,12 +39,8 @@ namespace AdventuresPlanetUWP.ViewModels
                 mostraVotaApplicazione();
                 started = true;
             }
-            if (!AdventuresPlanetManager.Instance.IsNewsFirstLoad)
-            {
-                loadNews();
-            }
         }
-        public ObservableCollection<News> ListNews { get; } = AdventuresPlanetManager.Instance.ListaNews;
+        public AdventuresPlanetManager.NewsCollection ListNews { get; } = AdventuresPlanetManager.Instance.ListaNews;
         public bool _updatingNews;
         public bool IsUpdatingNews
         {
@@ -76,13 +73,6 @@ namespace AdventuresPlanetUWP.ViewModels
             }
             else 
                 NavigationService.Navigate(typeof(Views.ViewNewsPage), n);
-        }
-        
-        public async void loadNews(object s = null, object e = null)
-        {
-            IsUpdatingNews = true;
-            await AdventuresPlanetManager.Instance.loadListNews();
-            IsUpdatingNews = false;
         }
         public async void AggiornaNews(object sender, object e)
         {

@@ -62,15 +62,21 @@
         </Grid.RowDefinitions>
 
         <!--  page header  -->
-        <controls:PageHeader x:Uid="/News/news_header" BackButtonVisibility="Collapsed" Content="News" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader x:Uid="/News/news_header" BackButtonVisibility="Collapsed" Content="News" Frame="{x:Bind Frame}">
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Click="{x:Bind VM.AggiornaNews}" IsEnabled="{Binding IsUpdatingNews, Converter={StaticResource NotBool}}">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72C;"/>
+                </AppBarButton>
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
 
         <!--  page content  -->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+
+            <ProgressRing Grid.Row="0" Width="100" Height="100" IsActive="{Binding IsUpdatingNews}" Visibility="{Binding IsUpdatingNews, Converter={StaticResource BoolVisibility}}" Canvas.ZIndex="999"/>
 
             <ListView Grid.Row="0" x:Name="listNews" ItemsSource="{Binding ListNews}">
                 <ListView.ItemContainerStyle>
@@ -90,31 +96,7 @@
                         </UserControl:UCNews>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-
             </ListView>
-
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Button Grid.Column="0" IsEnabled="{Binding IsUpdatingNews, Converter={StaticResource NotBool}}" HorizontalAlignment="Stretch" Click="{x:Bind VM.loadNews}">
-                    <Grid Margin="8">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <ProgressRing Grid.Column="0" IsActive="{Binding IsUpdatingNews}" Margin="0,0,4,0"/>
-                        <TextBlock Grid.Column="1" x:Uid="/News/news_updating" VerticalAlignment="Center" Text="Aggiorno le news"  Visibility="{Binding IsUpdatingNews, Converter={StaticResource BoolVisibility}}"/>
-                        <TextBlock Grid.Column="1" x:Uid="/News/news_update" VerticalAlignment="Center" Text="Carica altre news" Visibility="{Binding IsUpdatingNews, Converter={StaticResource NotBoolVisibility}}"/>
-                    </Grid>
-                </Button>
-
-                <Button Grid.Column="1" Click="{x:Bind VM.AggiornaNews}" IsEnabled="{Binding IsUpdatingNews, Converter={StaticResource NotBool}}">
-                    <FontIcon Margin="16,8" FontFamily="Segoe MDL2 Assets" Glyph="&#xE72C;"/>
-                </Button>
-            </Grid>
         </Grid>
     </Grid>
 

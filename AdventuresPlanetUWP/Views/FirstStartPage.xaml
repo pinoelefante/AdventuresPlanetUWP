@@ -56,10 +56,6 @@
                 <TextBlock x:Uid="/FirstStart/firststart_pod" Grid.Row="2" Grid.Column="0" Text="Caricamento podcast" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <TextBlock Grid.Row="2" Grid.Column="1" Text="OK!" Foreground="Green" FontWeight="Bold"  Visibility="{Binding IsPodcastLoaded, Converter={StaticResource BoolVisibility}}" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
                 <ProgressRing Grid.Row="2" Grid.Column="1" IsActive="{Binding IsPodcastLoaded, Converter={StaticResource NotBool}}" Margin="8,4" VerticalAlignment="Center"/>
-
-                <TextBlock x:Uid="/FirstStart/firststart_mesi" Grid.Row="3" Grid.Column="0" Text="Caricamento news" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
-                <TextBlock Grid.Row="3" Grid.Column="1" Text="OK!" Foreground="Green" FontWeight="Bold"  Visibility="{Binding IsMesiNewsLoaded, Converter={StaticResource BoolVisibility}}" Margin="8,4" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
-                <ProgressRing Grid.Row="3" Grid.Column="1" IsActive="{Binding IsMesiNewsLoaded, Converter={StaticResource NotBool}}" Margin="8,4" VerticalAlignment="Center"/>
             </Grid>
         </Grid>
     </Grid>

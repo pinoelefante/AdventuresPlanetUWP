@@ -89,7 +89,7 @@
 
         <Image x:Name="imgNews" Source="{Binding Immagine}" />
         <TextBlock x:Name="TitleNews" Margin="4" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Text="{Binding Titolo}" FontSize="20" Visibility="Visible"/>
-        <TextBlock x:Name="AnteprimaNews" Margin="4" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Text="{Binding AnteprimaNews}" FontSize="16" Visibility="Collapsed"/>
+        <TextBlock x:Name="AnteprimaNews" Margin="4" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Text="{Binding AnteprimaNews}" FontSize="16" Visibility="Collapsed" x:DeferLoadStrategy="Lazy"/>
         <TextBlock x:Name="DataNews" HorizontalAlignment="Right"  Margin="4" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding DataPubblicazione}" FontStyle="Italic" FontSize="12" VerticalAlignment="Bottom" Visibility="Collapsed"/>
 
     </RelativePanel>

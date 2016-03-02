@@ -294,13 +294,19 @@ namespace AdventuresPlanetUWP.Classes
                 return false;
             return (bool)local_settings.Values[link];
         }
-        public void setNewsMesePersistent(string link)
+        public void setNewsMesePersistent(string link, bool stato)
         {
-            local_settings.Values[link] = true;
+            local_settings.Values[link] = stato;
         }
         public static long getUnixTimeStamp()
         {
             long unixTimestamp = (long)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            return unixTimestamp;
+        }
+        public static long getUnixTimeStamp(int anno, int mese)
+        {
+            DateTime periodo = new DateTime(anno, mese, 1);
+            long unixTimestamp = (long)(periodo.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             return unixTimestamp;
         }
         public void SaveRecensionePosition(string id, double verticalOffset)

@@ -74,6 +74,7 @@ namespace AdventuresPlanetUWP
         private static int KSACount = 0;
         internal static void KeepScreenOn_Release()
         {
+            
             if (KSACount > 0)
                 KSACount--;
             if (KSACount == 0 && KSARequest != null)
@@ -89,6 +90,7 @@ namespace AdventuresPlanetUWP
 
         internal static void KeepScreenOn()
         {
+            /*
             try
             {
                 if (KSARequest == null)
@@ -113,6 +115,7 @@ namespace AdventuresPlanetUWP
                     Debug.WriteLine("Error: " + ex.Message);
                 }
             }
+            */
         }
 
         internal static bool IsInternetConnected()

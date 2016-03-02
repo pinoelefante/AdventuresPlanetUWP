@@ -13,7 +13,7 @@ namespace AdventuresPlanetUWP.ViewModels
         public FirstStartViewModel()
         {
         }
-        private bool _rec,_sol,_pod,_mesi;
+        private bool _rec,_sol,_pod;
         public bool IsRecensioniLoaded
         {
             get
@@ -47,17 +47,6 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<bool>(ref _pod, value);
             }
         }
-        public bool IsMesiNewsLoaded
-        {
-            get
-            {
-                return _mesi;
-            }
-            set
-            {
-                Set<bool>(ref _mesi, value);
-            }
-        }
         private List<Task> listTask;
         public async Task CheckComplete()
         {
@@ -67,7 +56,6 @@ namespace AdventuresPlanetUWP.ViewModels
             await StartRecensioni();
             await StartSoluzioni();
             await StartPodcast();
-            await StartMesiNews();
             await Task.WhenAll(listTask).ContinueWith((t) =>
             {
 
@@ -121,23 +109,9 @@ namespace AdventuresPlanetUWP.ViewModels
             });
             listTask.Add(t1);
         }
-        public async Task StartMesiNews()
-        {
-            Task t = AdventuresPlanetManager.Instance.initMesiNewsFromJsonFile();
-            listTask.Add(t);
-            Task t1 = t.ContinueWith((res) =>
-            {
-                WindowWrapper.Current().Dispatcher.Dispatch(() =>
-                {
-                    IsMesiNewsLoaded = true;
-                });
-            });
-            listTask.Add(t1);
-        }
         public void Dispose()
         {
             listTask?.Clear();
-            IsMesiNewsLoaded = false;
             IsPodcastLoaded = false;
             IsRecensioniLoaded = false;
             IsSoluzioniLoaded = false;

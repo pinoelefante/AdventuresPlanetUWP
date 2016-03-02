@@ -13,12 +13,16 @@ using Windows.Data.Json;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
 using Windows.Web.Http.Filters;
 using static System.Diagnostics.Debug;
+using Windows.Foundation;
+using AdventuresPlanetUWP.ViewModels;
+using Template10.Common;
 
 namespace AdventuresPlanetUWP.Classes
 {
-    class AdventuresPlanetManager
+    public class AdventuresPlanetManager
     {
         private static AdventuresPlanetManager singleton;
         private HttpClient http;
@@ -28,14 +32,11 @@ namespace AdventuresPlanetUWP.Classes
         //public static string URL_RECENSIONI = "http://www.adventuresplanet.it/recensioni.php";
         //public static string URL_SOLUZIONI = "http://www.adventuresplanet.it/soluzioni.php";
         //public static string URL_NEWS_MESI = "http://www.adventuresplanet.it/index.php?old=si";
-        
-        private static List<KeyValuePair<string, string>> mesi_news = new List<KeyValuePair<string, string>>();
-        private static int current_mese = 0;
 
         public List<RecensioneItem> ListaRecensioni { get; set; }
         public List<SoluzioneItem> ListaSoluzioni { get; set; }
         public ObservableCollection<PodcastItem> ListaPodcast { get; set; }
-        public ObservableCollection<News> ListaNews { get; set; } = new ObservableCollection<News>();
+        public NewsCollection ListaNews { get; } = new NewsCollection();
         public bool IsNewsFirstLoad { get; set; }
         public bool IsPodcastFirstLoad { get; set; }
         private AdventuresPlanetManager()
@@ -68,24 +69,22 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void Reset()
         {
-            mesi_news?.Clear();
-            current_mese = 0;
-            ListaNews?.Clear();
+            ListaNews?.Reset();
             ListaRecensioni?.Clear();
             ListaSoluzioni?.Clear();
             ListaPodcast?.Clear();
         }
         private async Task<List<PodcastItem>> getAggiornamentiPodcast(string response = null)
         {
-            
+
             long last_update = Settings.Instance.LastPodcastUpdate;
             if (response == null)
-                response = await jsonClient.GetStringAsync(new Uri("http://pinoelefante.altervista.org/avp_it/avp_podcast.php?from="+last_update));
+                response = await jsonClient.GetStringAsync(new Uri("http://pinoelefante.altervista.org/avp_it/avp_podcast.php?from=" + last_update));
             JsonObject resp_json = JsonObject.Parse(response);
             long time = (long)resp_json["time"].GetNumber();
             JsonArray list_pj = resp_json["podcast"].GetArray();
             List<PodcastItem> list_podcast = new List<PodcastItem>(list_pj.Count);
-            for(int i = 0; i < list_pj.Count; i++)
+            for (int i = 0; i < list_pj.Count; i++)
             {
                 JsonObject pod = list_pj[i].GetObject();
                 string titolo = pod["titolo"].GetString();
@@ -104,7 +103,7 @@ namespace AdventuresPlanetUWP.Classes
             App.KeepScreenOn();
             List<PodcastItem> list = await getAggiornamentiPodcast();
             int count = list.Count;
-            if(count > 0)
+            if (count > 0)
             {
                 DatabaseSystem.Instance.insertPodcast(list);
             }
@@ -116,7 +115,7 @@ namespace AdventuresPlanetUWP.Classes
         {
             WriteLine("inizio = " + DateTime.Now.ToLocalTime());
             long last_update = Settings.Instance.LastRecensioniUpdate;
-            if(response == null)
+            if (response == null)
                 response = await jsonClient.GetStringAsync(new Uri("http://pinoelefante.altervista.org/avp_it/avp_rece.php?from=" + last_update));
             JsonObject resp_json = JsonObject.Parse(response);
             long time = (long)resp_json["time"].GetNumber(); ;
@@ -141,7 +140,7 @@ namespace AdventuresPlanetUWP.Classes
         {
             WriteLine("inizio = " + DateTime.Now.ToLocalTime());
             long last_update = Settings.Instance.LastSoluzioniUpdate;
-            if(response == null)
+            if (response == null)
                 response = await jsonClient.GetStringAsync(new Uri("http://pinoelefante.altervista.org/avp_it/avp_solu.php?from=" + last_update));
             JsonObject resp_json = JsonObject.Parse(response);
             long time = (long)resp_json["time"].GetNumber(); ;
@@ -160,20 +159,6 @@ namespace AdventuresPlanetUWP.Classes
             Settings.Instance.LastSoluzioniUpdate = time;
             WriteLine("fine = " + DateTime.Now.ToLocalTime());
             return list_soluzioni;
-        }
-        public async Task initMesiNewsFromJsonFile()
-        {
-            App.KeepScreenOn();
-            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///mesi_news.json"));
-            string fileContent;
-            using (StreamReader sRead = new StreamReader(await file.OpenStreamForReadAsync()))
-            {
-                fileContent = await sRead.ReadToEndAsync();
-            }
-            List<KeyValuePair<string, string>> list = await getAggiornamentiMesiNews(fileContent);
-            if (list.Count > 0)
-                DatabaseSystem.Instance.salvaCategorieNews(list);
-            App.KeepScreenOn_Release();
         }
         public async Task initPodcastFromJsonFile()
         {
@@ -235,7 +220,7 @@ namespace AdventuresPlanetUWP.Classes
         {
             App.KeepScreenOn();
             List<PodcastItem> newList = await getAggiornamentiPodcast();
-            for(int i=newList.Count - 1; i >= 0; i--)
+            for (int i = newList.Count - 1; i >= 0; i--)
             {
                 PodcastItem pod = newList[i];
                 DatabaseSystem.Instance.insertPodcast(pod);
@@ -243,117 +228,88 @@ namespace AdventuresPlanetUWP.Classes
             }
             App.KeepScreenOn_Release();
         }
-        
+
         private readonly static List<News> EMPTY_LIST = new List<News>();
-        public async Task loadListNews()
+        public async Task<List<News>> loadListNews(int anno, int mese)
         {
-            App.KeepScreenOn();
-            Debug.WriteLine("NewsLastUpdate = {0}\nIsNewsUpdated = {1}", Settings.Instance.LastNewsUpdate, Settings.Instance.IsNewsUpdated);
+            Debug.WriteLine($"loadListNews {anno}{mese}");
+            //Debug.WriteLine("NewsLastUpdate = {0}\nIsNewsUpdated = {1}", Settings.Instance.LastNewsUpdate, Settings.Instance.IsNewsUpdated);
             List<News> list_news = EMPTY_LIST;
-            
-            if (mesi_news?.Count == 0)
+
+            string meselink = GetPeriodoString(anno, mese);
+            try
             {
-                if (App.IsInternetConnected() && !Settings.Instance.IsNewsUpdated)
-                    await loadMesiNewsOnline();
-                else
-                    loadMesiFromDatabase();
-            }
-            
-            if ((current_mese < mesi_news.Count) && (mesi_news.Count > 0))
-            {
-                if (Settings.Instance.isNewsMesePersistent(mesi_news[current_mese].Key))
+                if (Settings.Instance.isNewsMesePersistent(meselink))
                 {
-                    list_news = DatabaseSystem.Instance.selectNewsByMeseLink(mesi_news[current_mese].Key);
-                    if (list_news?.Count > 0)
-                        current_mese++;
-                    else //il mese è markato come persistente ma non sono presenti news
+                    list_news = DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
+                    if (list_news?.Count == 0)
                     {
                         if (App.IsInternetConnected())
                         {
-                            Debug.WriteLine("parsing online persistenti");
-                            list_news = await parsePageNews(mesi_news[current_mese].Key);
-                            if (list_news?.Count > 0)
-                            {
-                                DatabaseSystem.Instance.deleteNewsByMeseLink(mesi_news[current_mese].Key);
-                                list_news = DatabaseSystem.Instance.insertNews(list_news);
-                                current_mese++;
-                            }
-                        }
-                    }
-                }
-                else //news non persistenti
-                {
-                    Debug.WriteLine("");
-                    if (Settings.Instance.IsNewsUpdated)
-                    {
-                        list_news = DatabaseSystem.Instance.selectNewsByMeseLink(mesi_news[current_mese].Key);
-                    }
-
-                    if (list_news?.Count == 0)
-                    {
-                        if (current_mese == 0)
-                        {
-                            if (App.IsInternetConnected())
-                            {
-                                Debug.WriteLine("parsing online current = 0");
-                                list_news = await parsePageNews(mesi_news[current_mese].Key);
-                                if (list_news?.Count > 0)
-                                {
-                                    DatabaseSystem.Instance.deleteNewsByMeseLink(mesi_news[current_mese].Key);
-                                    list_news = DatabaseSystem.Instance.insertNews(list_news);
-                                    Settings.Instance.LastNewsUpdate = Settings.getUnixTimeStamp();
-                                    current_mese++;
-                                }
-                            }
-                            else
-                            {
-                                list_news = DatabaseSystem.Instance.selectNewsByMeseLink(mesi_news[current_mese].Key);
-                                current_mese++;
-                            }
+                            list_news = await parsePageNews(anno,mese);
+                            DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
+                            DatabaseSystem.Instance.insertNews(list_news);
+                            return DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
                         }
                         else
                         {
-                            if (App.IsInternetConnected())
+                            Settings.Instance.setNewsMesePersistent(meselink, false);
+                            return null;
+                        }
+                    }
+                    else
+                    {
+                        return list_news;
+                    }
+                }
+                else //mese non persistente
+                {
+                    string meselinkCurrPer = GetMeseCorrenteString();
+                    if (App.IsInternetConnected())
+                    {
+                        list_news = await parsePageNews(anno,mese);
+                        if(list_news?.Count == 0)
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            if(meselink.CompareTo(meselinkCurrPer) == 0) //mese corrente da non rendere persistente
                             {
-                                Debug.WriteLine("parsing online");
-                                list_news = await parsePageNews(mesi_news[current_mese].Key);
-                                if (list_news?.Count > 0)
-                                {
-                                    DatabaseSystem.Instance.deleteNewsByMeseLink(mesi_news[current_mese].Key);
-                                    list_news = DatabaseSystem.Instance.insertNews(list_news);
-                                    Settings.Instance.setNewsMesePersistent(mesi_news[current_mese].Key);
-                                    current_mese++;
-                                }
+                                DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
+                                DatabaseSystem.Instance.insertNews(list_news);
+                                return DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
                             }
                             else
                             {
-                                list_news = DatabaseSystem.Instance.selectNewsByMeseLink(mesi_news[current_mese].Key);
-                                if (list_news?.Count > 0)
-                                    current_mese++;
+                                DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
+                                DatabaseSystem.Instance.insertNews(list_news);
+                                Settings.Instance.setNewsMesePersistent(meselink, true);
+                                return DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
                             }
                         }
                     }
                     else
                     {
-                        current_mese++;
+                        list_news = DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
+                        if (list_news == null || list_news.Count == 0)
+                            return null;
+                        else
+                            return list_news;
                     }
                 }
             }
-            if (list_news.Count == 0 && App.IsInternetConnected() && current_mese < mesi_news.Count)
+            catch(Exception e)
             {
-                await loadListNews();
+                Debug.WriteLine("Eccezione loadListNews " + e.Message);
+                return null;
             }
-            else
-            {
-                foreach (News n in list_news)
-                    ListaNews?.Add(n);
-            }
-            IsNewsFirstLoad = true;
-            App.KeepScreenOn_Release();
-            //return list_news;
         }
-        private async Task<List<News>> parsePageNews(string page)
+        private async Task<List<News>> parsePageNews(int anno, int mese)
         {
+            string meselink = GetPeriodoString(anno, mese);
+            string meseTimestamp = Settings.getUnixTimeStamp(anno, mese).ToString();
+            string page = $"{URL_BASE}/index.php?old=si&data={meseTimestamp}";
             string response = await http.GetStringAsync(new Uri(page));
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(response);
@@ -387,7 +343,7 @@ namespace AdventuresPlanetUWP.Classes
                 news_item.Immagine = img;
                 news_item.Link = link;
                 news_item.Titolo = titolo;
-                news_item.MeseLink = page;
+                news_item.MeseLink = meselink;
 
                 list.Add(news_item);
             }
@@ -395,86 +351,37 @@ namespace AdventuresPlanetUWP.Classes
         }
         public async Task aggiornaNews()
         {
+            /*
             App.KeepScreenOn();
             List<News> news = new List<News>();
             if (App.IsInternetConnected())
             {
                 int oldMesiSize = mesi_news.Count;
-                if(await loadMesiNewsOnline() && mesi_news?.Count > 0)
+                if (await loadMesiNewsOnline() && mesi_news?.Count > 0)
                 {
                     int newMesiSize = mesi_news.Count;
                     int mesiInseriti = newMesiSize - oldMesiSize;
                     current_mese = current_mese + mesiInseriti;
-                    for(int i = 0;i<current_mese; i++) //scarica news dei nuovi mesi inseriti
+                    for (int i = 0; i < current_mese; i++) //scarica news dei nuovi mesi inseriti
                     {
                         if (Settings.Instance.isNewsMesePersistent(mesi_news[i].Key))
                             break;
                         List<News> news_nuove = await parsePageNews(mesi_news[i].Key);
                         news_nuove = DatabaseSystem.Instance.insertNews(news_nuove);
                         news.AddRange(news_nuove);
-                        
+
                         if (i > 0)
-                            Settings.Instance.setNewsMesePersistent(mesi_news[i].Key);
+                            Settings.Instance.setNewsMesePersistent(mesi_news[i].Key, true);
                     }
                     Settings.Instance.LastNewsUpdate = Settings.getUnixTimeStamp();
                 }
             }
-            for(int i = news.Count - 1; i >= 0; i--)
+            for (int i = news.Count - 1; i >= 0; i--)
             {
                 ListaNews.Insert(0, news[i]);
             }
             App.KeepScreenOn_Release();
-        }
-        private bool loadMesiFromDatabase()
-        {
-            mesi_news = DatabaseSystem.Instance.getCategorieNews();
-            return mesi_news.Count > 0;
-        }
-        public string getCurrentMeseNews()
-        {
-            if (mesi_news.Count > 0)
-                return mesi_news[current_mese].Key;
-            return null;
-        }
-        private async Task<List<KeyValuePair<string,string>>> getAggiornamentiMesiNews(string resp = null)
-        {
-            long last_mesi_update = Settings.Instance.LastMesiNewsUpdate;
-            if (resp == null)
-                resp = await jsonClient.GetStringAsync(new Uri("http://pinoelefante.altervista.org/avp_it/avp_mesi_news.php?from="+last_mesi_update));
-            
-            JsonObject resp_json = JsonObject.Parse(resp);
-            long time = (long)resp_json["time"].GetNumber();
-            JsonArray list_pj = resp_json["mesi"].GetArray();
-            List<KeyValuePair<string, string>> list_mesi = new List<KeyValuePair<string, string>>(list_pj.Count);
-            for (int i = 0; i < list_pj.Count; i++)
-            {
-                JsonObject pod = list_pj[i].GetObject();
-                string link = URL_BASE + pod["link"].GetString();
-                string nome = pod["nome"].GetString();
-                KeyValuePair<string, string> val = new KeyValuePair<string, string>(link, nome);
-                Debug.WriteLine(link);
-                list_mesi.Add(val);
-            }
-            Settings.Instance.LastMesiNewsUpdate = time;
-            return list_mesi;
-        }
-        private async Task<bool> loadMesiNewsOnline()
-        {
-            try
-            {
-                List<KeyValuePair<string, string>> mesi = await getAggiornamentiMesiNews();
-                if(mesi.Count > 0)
-                {
-                    DatabaseSystem.Instance.salvaCategorieNews(mesi);
-                }
-                loadMesiFromDatabase();
-                return true;
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine(e.Message);
-            }
-            return false;
+            */
         }
 
         public async Task<Boolean> loadNews(News n)
@@ -795,6 +702,81 @@ namespace AdventuresPlanetUWP.Classes
             if (rec == null)
                 rec = DatabaseSystem.Instance.selectRecensione(id);
             return rec;
+        }
+        public string GetMeseCorrenteString()
+        {
+            DateTime now = DateTime.Now;
+            return GetPeriodoString(now.Year, now.Month);
+        }
+        public string GetPeriodoString(int anno, int mese)
+        {
+            return $"{anno.ToString("D4")}{mese.ToString("D2")}";
+        }
+        public class NewsCollection : ObservableCollection<News>, ISupportIncrementalLoading
+        {
+            private int currAnno, currMese;
+            public NewsCollection()
+            {
+                Reset();
+            }
+            public bool HasMoreItems
+            {
+                get
+                {
+                    if(currAnno<=2004 && currMese < 2)
+                        return false;
+                    return true;
+                }
+            }
+
+            public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
+            {
+                return Task.Run<LoadMoreItemsResult>(async () =>
+                {
+                    WindowWrapper.Current().Dispatcher.Dispatch(()=>
+                    {
+                        NewsPageViewModel.Instance.IsUpdatingNews = true;
+                    });
+                    
+                    //1 - download o caricamento da database
+                    List<News> list_news = await Instance.loadListNews(currAnno, currMese);
+                    //2 - aggiunta alla collezione
+                    if(list_news != null && list_news.Count > 0)
+                    {
+                        WindowWrapper.Current().Dispatcher.Dispatch(() =>
+                        {
+                            foreach (News n in list_news)
+                            {
+                                Add(n);
+                            }
+                        });
+
+                        if (currMese == 1)
+                        {
+                            currMese = 12;
+                            currAnno--;
+                        }
+                        else
+                        {
+                            currMese--;
+                        }
+                    }
+                    WindowWrapper.Current().Dispatcher.Dispatch(() =>
+                    {
+                        NewsPageViewModel.Instance.IsUpdatingNews = false;
+                    });
+                    return new LoadMoreItemsResult() { Count = count };
+
+                }).AsAsyncOperation<LoadMoreItemsResult>();
+            }
+
+            public void Reset()
+            {
+                Clear();
+                DateTime now = DateTime.Now;
+                currAnno = now.Year;
+                currMese = now.Month;
+            }
         }
     }
 }
