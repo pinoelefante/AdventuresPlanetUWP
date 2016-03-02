@@ -36,6 +36,8 @@
             </controls:PageHeader.PrimaryCommands>
         </controls:PageHeader>
 
+        <ProgressRing Grid.Row="1" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" IsActive="{Binding IsUpdatingPodcast}" Visibility="{Binding IsUpdatingPodcast, Converter={StaticResource BoolVisibility}}"/>
+
         <!-- Content -->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -55,13 +57,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+
             <StackPanel Grid.Row="1">
-                <ProgressBar IsIndeterminate="{Binding IsUpdatingPodcast}" IsEnabled="{Binding IsUpdatingPodcast}" Visibility="{Binding IsUpdatingPodcast, Converter={StaticResource BoolVisibility}}"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0">

@@ -27,7 +27,7 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         private ResourceLoader res = ResourceLoader.GetForCurrentView("ViewNews");
         private DataTransferManager _dataTransferManager;
-        public override async void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             if (state.ContainsKey(nameof(Item)))
             {

@@ -17,11 +17,12 @@ namespace AdventuresPlanetUWP.ViewModels
     public class RecensioniPageViewModel : Mvvm.ViewModelBase
     {
 
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             Debug.WriteLine("Recensioni on navigatedTo");
             if(ListaRecensioni==null || ListaRecensioni.Count == 0)
                 GroupByLetter();
+            return Task.CompletedTask;
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {

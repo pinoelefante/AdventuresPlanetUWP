@@ -31,7 +31,7 @@ namespace AdventuresPlanetUWP.ViewModels
         {
             Instance = this;
         }
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             if (!started)
             {
@@ -39,6 +39,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 mostraVotaApplicazione();
                 started = true;
             }
+            return Task.CompletedTask;
         }
         public AdventuresPlanetManager.NewsCollection ListNews { get; } = AdventuresPlanetManager.Instance.ListaNews;
         public bool _updatingNews;

@@ -17,10 +17,6 @@ namespace AdventuresPlanetUWP.ViewModels
         {
             
         }
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
-        {
-            Debug.WriteLine("podcast = " + ListPodcast.Count);
-        }
         public async void AggiornaPodcast(object s, object e)
         {
             IsUpdatingPodcast = true;

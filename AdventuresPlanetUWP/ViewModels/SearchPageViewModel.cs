@@ -14,7 +14,7 @@ namespace AdventuresPlanetUWP.ViewModels
 {
     public class SearchPageViewModel :Mvvm.ViewModelBase
     {
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             string kind = parameter.ToString();
             if (kind.Equals("Recensioni"))
@@ -27,7 +27,9 @@ namespace AdventuresPlanetUWP.ViewModels
                 IsRecensioni = false;
                 IsSoluzioni = true;
             }
+            return Task.CompletedTask;
         }
+        
         private List<PaginaContenuti> listContenuti;
         public List<PaginaContenuti> ListSearch
         {

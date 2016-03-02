@@ -44,7 +44,16 @@ namespace AdventuresPlanetUWP
             // Settings.Instance.reset();
             DatabaseSystem.Instance.Connect();
             PodcastManager.Instance.Init();
+            this.UnhandledException += OnUnhandledException;
             #endregion
+        }
+
+        private void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Debug.WriteLine(e.GetType());
+            Debug.WriteLine(e.Message +" \nSource = "+ e.Exception.Source);
+            e.Handled = true;
+            
         }
 
         // runs even if restored from state

@@ -30,9 +30,10 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<Dictionary<string, List<EntryAvventura>>>(ref _pref, value);
             }
         } 
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             LoadPreferiti();
+            return Task.CompletedTask;
         }
         private bool _isEmpty;
         public bool IsEmpty

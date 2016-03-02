@@ -14,10 +14,11 @@ namespace AdventuresPlanetUWP.ViewModels
 {
     public class SoluzioniPageViewModel : Mvvm.ViewModelBase
     {
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             if(ListaSoluzioni==null ||ListaSoluzioni.Count == 0)
                 GroupByAlpha();
+            return Task.CompletedTask;
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {

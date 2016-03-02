@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Template10.Common;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Resources;
@@ -35,7 +36,7 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         private ResourceLoader res = ResourceLoader.GetForCurrentView("Contents");
         private DataTransferManager _transferManager;
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             VideoPlayerManager.Instance.Clear();
             if (state.ContainsKey(nameof(Item)))
@@ -48,6 +49,8 @@ namespace AdventuresPlanetUWP.ViewModels
             }
             _transferManager = DataTransferManager.GetForCurrentView();
             _transferManager.DataRequested += OnDataRequest;
+
+           return Task.CompletedTask;
         }
 
         private void OnDataRequest(DataTransferManager sender, DataRequestedEventArgs args)
@@ -374,7 +377,9 @@ namespace AdventuresPlanetUWP.ViewModels
         private void Immagine_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             Image immagine = sender as Image;
-            NavigationService.Navigate(typeof(ImageViewPage), immagine);
+            string url = (immagine.Source as BitmapImage).UriSource.AbsoluteUri.ToString();
+            NavigationService.Navigate(typeof(ImageViewPage), url.ToString());
+            
         }
         private void LoadAlternative()
         {
