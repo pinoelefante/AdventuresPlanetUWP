@@ -12,6 +12,7 @@ using Windows.ApplicationModel.Store;
 using Windows.System;
 using System.Globalization;
 using Windows.ApplicationModel.Resources;
+using Template10.Common;
 
 namespace AdventuresPlanetUWP
 {
@@ -74,48 +75,53 @@ namespace AdventuresPlanetUWP
         private static int KSACount = 0;
         internal static void KeepScreenOn_Release()
         {
+            WindowWrapper.Current().Dispatcher.Dispatch(() =>
+            {
+                if (KSACount > 0)
+                    KSACount--;
+                if (KSACount == 0 && KSARequest != null)
+                    try
+                    {
+                        KSARequest.RequestRelease();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.Message);
+                    }
+            });
             
-            if (KSACount > 0)
-                KSACount--;
-            if (KSACount == 0 && KSARequest != null)
-                try
-                {
-                    KSARequest.RequestRelease();
-                }
-                catch (Exception e)
-                {
-                    Debug.WriteLine(e.Message);
-                }
         }
 
         internal static void KeepScreenOn()
         {
-            /*
-            try
-            {
-                if (KSARequest == null)
-                {
-                    KSARequest = new DisplayRequest();
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Error: " + ex.Message);
-            }
-
-            if (KSARequest != null)
+            WindowWrapper.Current().Dispatcher.Dispatch(() =>
             {
                 try
                 {
-                    KSARequest.RequestActive();
-                    KSACount++;
+                    if (KSARequest == null)
+                    {
+                        KSARequest = new DisplayRequest();
+                    }
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine("Error: " + ex.Message);
                 }
-            }
-            */
+
+                if (KSARequest != null)
+                {
+                    try
+                    {
+                        KSARequest.RequestActive();
+                        KSACount++;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("Error: " + ex.Message);
+                    }
+                }
+            });
+            
         }
 
         internal static bool IsInternetConnected()
