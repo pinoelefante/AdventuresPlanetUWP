@@ -172,6 +172,7 @@ namespace AdventuresPlanetUWP.Classes
             news.Immagine = img;
             news.Link = link;
             news.Titolo = titolo;
+            news.MeseLink = mese;
             news.DataPubblicazione = data;
 
             if (complete)

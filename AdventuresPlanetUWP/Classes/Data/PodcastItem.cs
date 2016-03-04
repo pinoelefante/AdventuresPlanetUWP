@@ -35,14 +35,7 @@ namespace AdventuresPlanetUWP.Classes.Data
         }
         public string Data { get; set; } = string.Empty;
         public string Link { get; set; } = string.Empty;
-        public string Immagine
-        {
-            get
-            {
-                string b = $"http://www.adventuresplanet.it/immagini/imgpodcast/podcast{getSxEp()}.jpg";
-                return b;
-            }
-        }
+        public string Immagine { get; set; }
         private string getSxEp()
         {
             return Stagione + "x" + (Episodio < 10 ? "0" + Episodio.ToString() : Episodio.ToString());

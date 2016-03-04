@@ -75,7 +75,7 @@
 
         <!--  page header  -->
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" Content="{Binding Item.Titolo}" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="{x:Bind VM.Item.Titolo}" Frame="{x:Bind Frame}" IsEnabled="False"/>
 
         <!--  page content  -->
 
@@ -86,14 +86,14 @@
             </Grid.RowDefinitions>
             
             <RelativePanel Grid.Row="0">
-                <Image x:Name="ImageContainer" MaxWidth="180" Margin="8" HorizontalAlignment="Center" Source="{Binding Item.Immagine}" Stretch="Uniform"/>
+                <Image x:Name="ImageContainer" MaxWidth="180" Margin="8" HorizontalAlignment="Center" Source="{x:Bind VM.Item.Immagine}" Stretch="Uniform"/>
                 
                 <ScrollViewer x:Name="TitoloNewsCont" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Stretch" Margin="4">
                     <StackPanel HorizontalAlignment="Stretch">
-                        <TextBlock x:Name="titoloNews" Text="{Binding Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Tapped="showTitle" Margin="4,0" FontWeight="Bold">
+                        <TextBlock x:Name="titoloNews" Text="{x:Bind VM.Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Tapped="showTitle" Margin="4,0" FontWeight="Bold">
                         <FlyoutBase.AttachedFlyout>
                             <Flyout>
-                                <TextBlock Text="{Binding Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
+                                <TextBlock Text="{x:Bind VM.Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
                             </Flyout>
                         </FlyoutBase.AttachedFlyout>
                         </TextBlock>
@@ -101,11 +101,11 @@
                 </ScrollViewer>
 
                 <ScrollViewer x:Name="ScrollNewsCont" Margin="4,8" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
-                    <ItemsControl Margin="16,4" ItemsSource="{Binding ListComponents}"/>
+                    <ItemsControl Margin="16,4" ItemsSource="{x:Bind VM.ListComponents}"/>
                 </ScrollViewer>
             </RelativePanel>
-            
-            <TextBlock Grid.Row="1" x:Name="DataPubblicazione" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" FontWeight="Bold" Text="{Binding Item.DataPubblicazione}" TextWrapping="NoWrap"/>
+
+            <TextBlock Grid.Row="1" x:Name="DataPubblicazione" Margin="8" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" FontWeight="Bold" Text="{x:Bind VM.Item.DataPubblicazione}" TextWrapping="NoWrap"/>
         </Grid>
 
         <CommandBar Grid.Row="2">

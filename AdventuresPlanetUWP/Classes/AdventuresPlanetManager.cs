@@ -91,8 +91,8 @@ namespace AdventuresPlanetUWP.Classes
                 string descr = pod["descrizione"].GetString();
                 string link = pod["link"].GetString();
                 string pubD = pod["pubData"].GetString();
-                PodcastItem item = new PodcastItem(titolo, pubD, link);
-                item.Descrizione = descr;
+                string immagine = pod["immagine"].GetString();
+                PodcastItem item = new PodcastItem(titolo, pubD, link) { Immagine = immagine, Descrizione = descr };
                 list_podcast.Add(item);
             }
             Settings.Instance.LastPodcastUpdate = time;
@@ -232,8 +232,7 @@ namespace AdventuresPlanetUWP.Classes
         private readonly static List<News> EMPTY_LIST = new List<News>();
         public async Task<List<News>> loadListNews(int anno, int mese)
         {
-            Debug.WriteLine($"loadListNews {anno}{mese}");
-            //Debug.WriteLine("NewsLastUpdate = {0}\nIsNewsUpdated = {1}", Settings.Instance.LastNewsUpdate, Settings.Instance.IsNewsUpdated);
+            Debug.WriteLine($"loadListNews {anno}{mese.ToString("D2")}");
             List<News> list_news = EMPTY_LIST;
 
             string meselink = GetPeriodoString(anno, mese);
@@ -265,6 +264,14 @@ namespace AdventuresPlanetUWP.Classes
                 else //mese non persistente
                 {
                     string meselinkCurrPer = GetMeseCorrenteString();
+                    //Aggiorna il mese corrente solo se è passato il tempo necessario dall'ultimo aggiornamento delle news
+                    if (meselinkCurrPer.Equals(meselink) && 
+                        (Settings.Instance.LastNewsUpdate + Settings.Instance.TimeUpdateNews < Settings.getUnixTimeStamp()))
+                    {
+                        list_news = DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
+                        if(list_news?.Count > 0)
+                            return list_news;
+                    }
                     if (App.IsInternetConnected())
                     {
                         list_news = await parsePageNews(anno,mese);
@@ -274,19 +281,17 @@ namespace AdventuresPlanetUWP.Classes
                         }
                         else
                         {
-                            if(meselink.CompareTo(meselinkCurrPer) == 0) //mese corrente da non rendere persistente
+                            DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
+                            DatabaseSystem.Instance.insertNews(list_news);
+                            if (meselink.CompareTo(meselinkCurrPer) == 0) //mese corrente da non rendere persistente
                             {
-                                DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
-                                DatabaseSystem.Instance.insertNews(list_news);
-                                return DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
+                                Settings.Instance.LastNewsUpdate = Settings.getUnixTimeStamp();
                             }
                             else
                             {
-                                DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
-                                DatabaseSystem.Instance.insertNews(list_news);
                                 Settings.Instance.setNewsMesePersistent(meselink, true);
-                                return DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
                             }
+                            return DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
                         }
                     }
                     else
@@ -351,6 +356,25 @@ namespace AdventuresPlanetUWP.Classes
         }
         public async Task aggiornaNews()
         {
+            App.KeepScreenOn();
+            if (App.IsInternetConnected())
+            {
+                DateTime now = DateTime.Now;
+                int anno = now.Year;
+                int mese = now.Month;
+                List<News> list_news = await parsePageNews(anno, mese);
+                list_news = DatabaseSystem.Instance.insertNews(list_news);
+                for(int i = list_news.Count -1; i >= 0; i--)
+                {
+                    News toIns = list_news[i];
+                    IEnumerable<News> found = ListaNews.Where(x => x.Id == toIns.Id);
+                    if (found==null || found.Count() == 0)
+                    {
+                        ListaNews.Insert(0, toIns);
+                    }
+                }
+                Settings.Instance.LastNewsUpdate = Settings.getUnixTimeStamp();
+            }
             /*
             App.KeepScreenOn();
             List<News> news = new List<News>();
@@ -382,6 +406,7 @@ namespace AdventuresPlanetUWP.Classes
             }
             App.KeepScreenOn_Release();
             */
+            App.KeepScreenOn_Release();
         }
 
         public async Task<Boolean> loadNews(News n)
