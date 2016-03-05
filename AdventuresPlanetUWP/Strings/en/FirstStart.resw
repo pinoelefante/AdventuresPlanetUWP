@@ -132,7 +132,4 @@
   <data name="firststart_pod.Text" xml:space="preserve">
     <value>Loading podcasts</value>
   </data>
-  <data name="firststart_mesi.Text" xml:space="preserve">
-    <value>Loading news</value>
-  </data>
 </root>

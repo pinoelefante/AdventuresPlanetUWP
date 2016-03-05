@@ -17,7 +17,15 @@ namespace AdventuresPlanetUWP.ViewModels
         {
             
         }
-        public async void AggiornaPodcast(object s, object e)
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        {
+            if (!Settings.Instance.IsPodcastUpdated)
+            {
+                AggiornaPodcast();
+            }
+            return Task.CompletedTask;
+        }
+        public async void AggiornaPodcast(object s = null, object e = null)
         {
             IsUpdatingPodcast = true;
             await AdventuresPlanetManager.Instance.aggiornaPodcast();

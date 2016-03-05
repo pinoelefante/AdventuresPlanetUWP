@@ -352,21 +352,6 @@ namespace AdventuresPlanetUWP.Classes
                 local_settings.Values["youtube_qualita_max"] = value;
             }
         }
-
-        public long LastMesiNewsUpdate
-        {
-            get
-            {
-                if (local_settings.Values["lastNewsMesiUpdate"] == null)
-                    return 0;
-                return (long)local_settings.Values["lastNewsMesiUpdate"];
-            }
-            set
-            {
-                local_settings.Values["lastNewsMesiUpdate"] = value;
-            }
-        }
-
         public YouTubeQuality YouTubeQualityMax()
         {
             switch (QualitaVideoMax)

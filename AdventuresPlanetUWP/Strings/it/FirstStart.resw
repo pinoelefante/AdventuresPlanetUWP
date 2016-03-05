@@ -51,9 +51,6 @@
   <data name="firststart_pod.Text" xml:space="preserve">
     <value>Caricamento podcast</value>
   </data>
-  <data name="firststart_mesi.Text" xml:space="preserve">
-    <value>Caricamento mesi news</value>
-  </data>
   <data name="firststart_benvenuto.Text" xml:space="preserve">
     <value>Benvenuto!</value>
   </data>

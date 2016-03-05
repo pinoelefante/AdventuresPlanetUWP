@@ -357,55 +357,37 @@ namespace AdventuresPlanetUWP.Classes
         public async Task aggiornaNews()
         {
             App.KeepScreenOn();
+            WindowWrapper.Current().Dispatcher.Dispatch(() =>
+            {
+                NewsPageViewModel.Instance.IsUpdatingNews = true;
+            });
             if (App.IsInternetConnected())
             {
                 DateTime now = DateTime.Now;
                 int anno = now.Year;
                 int mese = now.Month;
+                
                 List<News> list_news = await parsePageNews(anno, mese);
                 list_news = DatabaseSystem.Instance.insertNews(list_news);
-                for(int i = list_news.Count -1; i >= 0; i--)
+                WindowWrapper.Current().Dispatcher.Dispatch(() =>
                 {
-                    News toIns = list_news[i];
-                    IEnumerable<News> found = ListaNews.Where(x => x.Id == toIns.Id);
-                    if (found==null || found.Count() == 0)
+                    for (int i = list_news.Count - 1; i >= 0; i--)
                     {
-                        ListaNews.Insert(0, toIns);
+                        News toIns = list_news[i];
+                        IEnumerable<News> found = ListaNews.Where(x => x.Id == toIns.Id);
+                        if (found == null || found.Count() == 0)
+                        {
+                            ListaNews.Insert(0, toIns);
+                        }
                     }
-                }
+                });
+                    
                 Settings.Instance.LastNewsUpdate = Settings.getUnixTimeStamp();
             }
-            /*
-            App.KeepScreenOn();
-            List<News> news = new List<News>();
-            if (App.IsInternetConnected())
+            WindowWrapper.Current().Dispatcher.Dispatch(() =>
             {
-                int oldMesiSize = mesi_news.Count;
-                if (await loadMesiNewsOnline() && mesi_news?.Count > 0)
-                {
-                    int newMesiSize = mesi_news.Count;
-                    int mesiInseriti = newMesiSize - oldMesiSize;
-                    current_mese = current_mese + mesiInseriti;
-                    for (int i = 0; i < current_mese; i++) //scarica news dei nuovi mesi inseriti
-                    {
-                        if (Settings.Instance.isNewsMesePersistent(mesi_news[i].Key))
-                            break;
-                        List<News> news_nuove = await parsePageNews(mesi_news[i].Key);
-                        news_nuove = DatabaseSystem.Instance.insertNews(news_nuove);
-                        news.AddRange(news_nuove);
-
-                        if (i > 0)
-                            Settings.Instance.setNewsMesePersistent(mesi_news[i].Key, true);
-                    }
-                    Settings.Instance.LastNewsUpdate = Settings.getUnixTimeStamp();
-                }
-            }
-            for (int i = news.Count - 1; i >= 0; i--)
-            {
-                ListaNews.Insert(0, news[i]);
-            }
-            App.KeepScreenOn_Release();
-            */
+                NewsPageViewModel.Instance.IsUpdatingNews = false;
+            });
             App.KeepScreenOn_Release();
         }
 

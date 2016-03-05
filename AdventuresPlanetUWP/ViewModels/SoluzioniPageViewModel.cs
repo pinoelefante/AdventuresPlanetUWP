@@ -16,7 +16,11 @@ namespace AdventuresPlanetUWP.ViewModels
     {
         public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            if(ListaSoluzioni==null ||ListaSoluzioni.Count == 0)
+            if (!Settings.Instance.IsSoluzioniUpdated && !Settings.Instance.UpdateSoluzioniManualmente)
+            {
+                AggiornaSoluzioni();
+            }
+            if (ListaSoluzioni == null || ListaSoluzioni.Count == 0)
                 GroupByAlpha();
             return Task.CompletedTask;
         }
@@ -35,7 +39,7 @@ namespace AdventuresPlanetUWP.ViewModels
                                                                     (x) => { return x.Titolo; }, 
                                                                     true);
         }
-        public async void AggiornaSoluzioni(object s, object e)
+        public async void AggiornaSoluzioni(object s = null, object e = null)
         {
             IsUpdatingSoluzioni = true;
             bool res = await AdventuresPlanetManager.Instance.aggiornaSoluzioni();

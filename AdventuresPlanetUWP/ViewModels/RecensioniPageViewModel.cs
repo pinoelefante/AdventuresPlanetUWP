@@ -20,6 +20,10 @@ namespace AdventuresPlanetUWP.ViewModels
         public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             Debug.WriteLine("Recensioni on navigatedTo");
+            if (!Settings.Instance.IsRecensioniUpdated && !Settings.Instance.UpdateRecensioniManualmente)
+            {
+                AggiornaRecensioni();
+            }
             if(ListaRecensioni==null || ListaRecensioni.Count == 0)
                 GroupByLetter();
             return Task.CompletedTask;
@@ -39,7 +43,7 @@ namespace AdventuresPlanetUWP.ViewModels
                                                                         (t => t.Titolo), 
                                                                         true);
         }
-        public async void AggiornaRecensioni(object s, object e)
+        public async void AggiornaRecensioni(object s = null, object e = null)
         {
             IsUpdatingRecensioni = true;
             bool res = await AdventuresPlanetManager.Instance.aggiornaRecensioni();

@@ -24,6 +24,7 @@ namespace AdventuresPlanetUWP.ViewModels
 {
     public class NewsPageViewModel : Mvvm.ViewModelBase
     {
+        private static readonly int AVVII_VOTA = 5;
         private static ResourceLoader resApp = ResourceLoader.GetForCurrentView("App");
         public static NewsPageViewModel Instance { get; set; }
         private static bool started = false;
@@ -38,6 +39,12 @@ namespace AdventuresPlanetUWP.ViewModels
                 WarningNonItaliano();
                 mostraVotaApplicazione();
                 started = true;
+            }
+            //la lista deve essere piena perché l'aggiornamento viene effettuato automaticamente quando la lista è vuota
+            //vedi NewsCollection
+            if (!Settings.Instance.IsNewsUpdated && AdventuresPlanetManager.Instance.ListaNews.Count > 0)
+            {
+                AggiornaNews();
             }
             return Task.CompletedTask;
         }
@@ -75,11 +82,10 @@ namespace AdventuresPlanetUWP.ViewModels
             else 
                 NavigationService.Navigate(typeof(Views.ViewNewsPage), n);
         }
-        public async void AggiornaNews(object sender, object e)
+        public void AggiornaNews(object sender = null, object e = null)
         {
-            IsUpdatingNews = true;
-            await AdventuresPlanetManager.Instance.aggiornaNews();
-            IsUpdatingNews = false;
+            Debug.WriteLine("Aggiorno le news");
+            AdventuresPlanetManager.Instance.aggiornaNews();
         }
         public async void showAnteprima(News n)
         {
@@ -99,7 +105,7 @@ namespace AdventuresPlanetUWP.ViewModels
         private async void mostraVotaApplicazione()
         {
             Debug.WriteLine("Numero avvio = " + Settings.Instance.NumeroAvvii);
-            if (Settings.Instance.NumeroAvvii % 3 == 0 && !Settings.Instance.Votato)
+            if (Settings.Instance.NumeroAvvii % AVVII_VOTA == 0 && !Settings.Instance.Votato)
             {
                 string titolo = resApp.GetString("app_vota_titolo");
                 string messaggio = resApp.GetString("app_vota");

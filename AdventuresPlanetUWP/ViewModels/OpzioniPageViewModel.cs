@@ -28,7 +28,6 @@ namespace AdventuresPlanetUWP.ViewModels
             UICommand del = new UICommand(res.GetString("settings_cancellazione_conferma")) { Id = 0 };
             del.Invoked = (x) => 
             {
-                Settings.LastMesiNewsUpdate = 0;
                 DatabaseSystem.Instance.cleanTables();
                 Settings.LastNewsUpdate = 0;
                 Settings.LastPodcastUpdate = 0;
