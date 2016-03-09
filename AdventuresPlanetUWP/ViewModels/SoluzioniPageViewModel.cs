@@ -26,25 +26,49 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
-            ListaSoluzioni?.Clear();
-            ListaSoluzioni = null;
             Debug.WriteLine("Soluzioni on navigatedFromAsync");
             return base.OnNavigatedFromAsync(state, suspending);
         }
-        public void GroupByAlpha()
+        public void GroupByAlpha(object s = null, object e = null)
         {
+            if (SelectedMode == ModalitaVisualizzazione.AlphaKey)
+                return;
             ListaSoluzioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.AlphaKey;
             ListaSoluzioni = MyGrouping<SoluzioneItem>.AlphaKeyGroup(AdventuresPlanetManager.Instance.ListaSoluzioni, 
                                                                     (x) => { return x.Titolo; }, 
                                                                     true);
         }
+        public void GroupByAuthor(object s = null, object e = null)
+        {
+            if (SelectedMode == ModalitaVisualizzazione.Autore)
+                return;
+            ListaSoluzioni?.Clear();
+            SelectedMode = ModalitaVisualizzazione.Autore;
+            ListaSoluzioni = MyGrouping<SoluzioneItem>.StringKeyGroup(AdventuresPlanetManager.Instance.ListaSoluzioni,
+                                                                        (t => t.AutoreText),
+                                                                        true,
+                                                                        "N.D.");
+        }
         public async void AggiornaSoluzioni(object s = null, object e = null)
         {
             IsUpdatingSoluzioni = true;
             bool res = await AdventuresPlanetManager.Instance.aggiornaSoluzioni();
             if (res)
-                GroupByAlpha();
+            {
+                switch (SelectedMode)
+                {
+                    case ModalitaVisualizzazione.AlphaKey:
+                        GroupByAlpha();
+                        break;
+                    case ModalitaVisualizzazione.Autore:
+                        GroupByAuthor();
+                        break;
+                    default:
+                        GroupByAlpha();
+                        break;
+                }
+            }
             IsUpdatingSoluzioni = false;
         }
         private Dictionary<string, List<SoluzioneItem>> _list;
@@ -59,7 +83,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<Dictionary<string, List<SoluzioneItem>>>(ref _list, value);
             }
         }
-        private ModalitaVisualizzazione _selectedMode;
+        private ModalitaVisualizzazione _selectedMode = ModalitaVisualizzazione.Nessuno;
         public ModalitaVisualizzazione SelectedMode
         {
             get

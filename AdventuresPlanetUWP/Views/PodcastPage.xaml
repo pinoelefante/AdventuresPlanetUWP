@@ -18,6 +18,7 @@
     <Page.Resources>
         <Converters:NotBoolean x:Key="NotBool"/>
         <Converters:BoolToVisibility x:Key="BoolVisibility"/>
+        <Converters:NotBoolToVisibility x:Key="NotBoolVisibility"/>
     </Page.Resources>
     
     <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -58,18 +59,42 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <StackPanel Grid.Row="1">
-                <Grid>
+            <Grid Grid.Row="1" BorderThickness="1" BorderBrush="Gray" Visibility="{Binding IsPlayerLoaded, Converter={StaticResource BoolVisibility}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Margin="8" Text="{Binding TitoloPodcast}"/>
+
+                <Grid Grid.Row="1" HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
+                    
+                    <ProgressRing Grid.Column="0" IsActive="{Binding IsBuffering}" Visibility="{Binding IsBuffering, Converter={StaticResource BoolVisibility}}"/>
+                    
+                    <Button Grid.Column="1" Background="Transparent" IsEnabled="{Binding IsPlaying, Converter={StaticResource NotBool}}" Visibility="{Binding IsPlaying, Converter={StaticResource NotBoolVisibility}}" Click="{x:Bind VM.Play}">
+                        <SymbolIcon Symbol="Play"/>
+                    </Button>
+                    <Button Grid.Column="1" Background="Transparent" IsEnabled="{Binding IsPlaying}" Visibility="{Binding IsPlaying, Converter={StaticResource BoolVisibility}}" Click="{x:Bind VM.Pause}">
+                        <SymbolIcon Symbol="Pause"/>
+                    </Button>
+                    
+                    <Button Grid.Column="2" Background="Transparent" Click="{x:Bind VM.Stop}">
+                        <SymbolIcon Symbol="Stop"/>
+                    </Button>
 
-                    <StackPanel Grid.Column="0">
-                        <!--Bottoni player qui-->
-                    </StackPanel>
+                    <TextBlock Margin="8,0" VerticalAlignment="Center" Text="{Binding CurrentPositionText}" Grid.Column="3"/>
+                    <Slider Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" IsEnabled="False" Minimum="0" Maximum="{Binding Durata}" Value="{Binding CurrentPosition}" />
+                    <TextBlock Margin="8,0" VerticalAlignment="Center" Text="{Binding DurataText}" Grid.Column="5"/>
                 </Grid>
-            </StackPanel>
-
+            </Grid>
         </Grid>
     </Grid>
 </Page>

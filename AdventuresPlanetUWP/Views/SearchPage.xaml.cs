@@ -27,6 +27,7 @@ namespace AdventuresPlanetUWP.Views
         public SearchPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
         }
         public SearchPageViewModel VM => this.DataContext as SearchPageViewModel;
         private void choseItem(object sender, TappedRoutedEventArgs e)

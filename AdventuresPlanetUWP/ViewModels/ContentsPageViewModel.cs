@@ -285,78 +285,98 @@ namespace AdventuresPlanetUWP.ViewModels
             {
                 List<string> componenti = Item.TestoRich;
                 Indice.Clear();
-                foreach (string s in componenti)
+                if (componenti == null || componenti.Count == 0)
                 {
-                    if (s.StartsWith("@TEXT") || s.StartsWith("@DIVIDER"))
+                    if (!string.IsNullOrEmpty(Item.Testo?.Trim()))
                     {
-                        string testo = s.Replace("@TEXT", "").Replace("@DIVIDER", "");
                         TextBlock tb = new TextBlock();
                         tb.TextWrapping = TextWrapping.Wrap;
                         tb.FontSize = Settings.Instance.DimensioneFont;
-                        tb.Text = testo;
+                        tb.Text = Item.Testo;
                         ListaComponenti.Add(tb);
                         ComponentiTesto++;
+                        return;
                     }
-                    else if (s.StartsWith("@POSINDEX"))
+                    else
                     {
-                        string[] split = s.Split(new char[] { ';' });
-                        string index = split[1].Substring(5);
-                        string titolo = "\n" + split[2].Substring(6);
-                        TextBlock tb = new TextBlock();
-                        tb.FontSize = Settings.Instance.DimensioneFont + 2;
-                        tb.FontWeight = FontWeights.Bold;
-                        tb.HorizontalAlignment = HorizontalAlignment.Center;
-                        tb.TextWrapping = TextWrapping.Wrap;
-                        tb.Text = titolo;
-                        tb.Tag = index;
-                        ListaComponenti.Add(tb);
+                        OpenInBrowser();
                     }
-                    else if (s.StartsWith("@INDEX"))
+                }
+                else
+                {
+                    foreach (string s in componenti)
                     {
-                        string[] split = s.Split(new char[] { ';' });
-                        string index = split[1].Substring(5);
-                        string titolo = split[2].Substring(6);
-                        ComponentiIndice++;
-                        Indice.Add(new IndiceItem(titolo, index));
-                    }
-                    else if (s.StartsWith("@IMG") && Settings.Instance.IsLoadImages && App.IsInternetConnected())
-                    {
-                        string url = s.Replace("@IMG", "");
-                        BitmapImage img_source = new BitmapImage(new Uri(url));
-                        Image immagine = new Image();
-                        immagine.Source = img_source;
-                        immagine.MaxWidth = 640;
-                        immagine.MaxHeight = 480;
-                        immagine.DoubleTapped += Immagine_DoubleTapped;
-                        ListaComponenti.Add(immagine);
-                        ComponentiTesto++;
-                    }
-                    else if (s.StartsWith("@VIDEO;"))
-                    {
-                        string video = s.Replace("@VIDEO;", "");
-                        string[] values = video.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                        string videosrc = values[0];
-
-                        var videoId = getYouTubeId(videosrc);
-                        if (videoId != null)
+                        if (s.StartsWith("@TEXT") || s.StartsWith("@DIVIDER"))
                         {
-                            ComponentiVideo++;
-                            try
+                            string testo = s.Replace("@TEXT", "").Replace("@DIVIDER", "");
+                            TextBlock tb = new TextBlock();
+                            tb.TextWrapping = TextWrapping.Wrap;
+                            tb.FontSize = Settings.Instance.DimensioneFont;
+                            tb.Text = testo;
+                            ListaComponenti.Add(tb);
+                            ComponentiTesto++;
+                        }
+                        else if (s.StartsWith("@POSINDEX"))
+                        {
+                            string[] split = s.Split(new char[] { ';' });
+                            string index = split[1].Substring(5);
+                            string titolo = "\n" + split[2].Substring(6);
+                            TextBlock tb = new TextBlock();
+                            tb.FontSize = Settings.Instance.DimensioneFont + 2;
+                            tb.FontWeight = FontWeights.Bold;
+                            tb.HorizontalAlignment = HorizontalAlignment.Center;
+                            tb.TextWrapping = TextWrapping.Wrap;
+                            tb.Text = titolo;
+                            tb.Tag = index;
+                            ListaComponenti.Add(tb);
+                        }
+                        else if (s.StartsWith("@INDEX"))
+                        {
+                            string[] split = s.Split(new char[] { ';' });
+                            string index = split[1].Substring(5);
+                            string titolo = split[2].Substring(6);
+                            ComponentiIndice++;
+                            Indice.Add(new IndiceItem(titolo, index));
+                        }
+                        else if (s.StartsWith("@IMG") && Settings.Instance.IsLoadImages && App.IsInternetConnected())
+                        {
+                            string url = s.Replace("@IMG", "");
+                            BitmapImage img_source = new BitmapImage(new Uri(url));
+                            Image immagine = new Image();
+                            immagine.Source = img_source;
+                            immagine.MaxWidth = 640;
+                            immagine.MaxHeight = 480;
+                            immagine.DoubleTapped += Immagine_DoubleTapped;
+                            ListaComponenti.Add(immagine);
+                            ComponentiTesto++;
+                        }
+                        else if (s.StartsWith("@VIDEO;"))
+                        {
+                            string video = s.Replace("@VIDEO;", "");
+                            string[] values = video.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                            string videosrc = values[0];
+
+                            var videoId = getYouTubeId(videosrc);
+                            if (videoId != null)
                             {
-                                var uri = await YouTube.GetVideoUriAsync(videoId, Settings.Instance.YouTubeQualityMax());
-                                if (uri != null)
+                                ComponentiVideo++;
+                                try
                                 {
-                                    Debug.WriteLine("Aggiungo video");
-                                    VideoPlayerManager.Instance.ListVideo.Add(uri);
+                                    var uri = await YouTube.GetVideoUriAsync(videoId, Settings.Instance.YouTubeQualityMax());
+                                    if (uri != null)
+                                    {
+                                        Debug.WriteLine("Aggiungo video");
+                                        VideoPlayerManager.Instance.ListVideo.Add(uri);
+                                    }
+                                    else
+                                    {
+                                        Debug.WriteLine("Video = url non trovata");
+                                    }
                                 }
-                                else
+                                catch (Exception exception)
                                 {
-                                    Debug.WriteLine("Video = url non trovata");
+                                    Debug.WriteLine(exception.Message);
                                 }
-                            }
-                            catch (Exception exception)
-                            {
-                                Debug.WriteLine(exception.Message);
                             }
                         }
                     }
@@ -449,7 +469,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 await Launcher.LaunchUriAsync(new Uri(Item.LinkStore));
             }
         }
-        public async void OpenInBrowser(object s, object e)
+        public async void OpenInBrowser(object s = null, object e = null)
         {
             await Launcher.LaunchUriAsync(new Uri(Item.Link));
         }

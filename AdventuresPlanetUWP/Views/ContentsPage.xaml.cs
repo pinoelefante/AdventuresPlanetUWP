@@ -29,5 +29,10 @@ namespace AdventuresPlanetUWP.Views
             IndiceItem indice = (sender as FrameworkElement).DataContext as IndiceItem;
             VM.GoToIndex(this.scroller, indice);
         }
+
+        private void apriIndice(object sender, RoutedEventArgs e)
+        {
+            //semZoom.IsZoomedInViewActive = false;
+        }
     }
 }

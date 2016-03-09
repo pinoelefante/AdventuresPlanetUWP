@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AdventuresPlanetUWP.Classes
 {
-    class VideoPlayerManager : INotifyPropertyChanged
+    class VideoPlayerManager
     {
         public static VideoPlayerManager Instance { get; } = new VideoPlayerManager();
         private VideoPlayerManager()
@@ -18,7 +18,7 @@ namespace AdventuresPlanetUWP.Classes
         public List<YouTubeUri> ListVideo { get; } = new List<YouTubeUri>();
         public int CurrentIndex { get; set; } = 0;
 
-        public event PropertyChangedEventHandler PropertyChanged, OnItemLoaded;
+        public event PropertyChangedEventHandler OnItemLoaded;
 
         public bool HasNext()
         {

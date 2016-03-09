@@ -16,7 +16,6 @@ namespace AdventuresPlanetUWP.ViewModels
 {
     public class RecensioniPageViewModel : Mvvm.ViewModelBase
     {
-
         public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             Debug.WriteLine("Recensioni on navigatedTo");
@@ -30,25 +29,63 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
-            ListaRecensioni.Clear();
-            ListaRecensioni = null;
             Debug.WriteLine("Recensioni on navigatedFromAsync");
             return base.OnNavigatedFromAsync(state, suspending);
         }
-        public void GroupByLetter()
+        public void GroupByLetter(object s=null, object e=null)
         {
+            if (SelectedMode == ModalitaVisualizzazione.AlphaKey)
+                return;
             ListaRecensioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.AlphaKey;
             ListaRecensioni = MyGrouping<RecensioneItem>.AlphaKeyGroup(AdventuresPlanetManager.Instance.ListaRecensioni, 
                                                                         (t => t.Titolo), 
                                                                         true);
         }
+        public void GroupByVoto(object s = null, object e = null)
+        {
+            if (SelectedMode == ModalitaVisualizzazione.Voto)
+                return;
+            ListaRecensioni?.Clear();
+            SelectedMode = ModalitaVisualizzazione.Voto;
+            ListaRecensioni = MyGrouping<RecensioneItem>.NumericKeyGroup(AdventuresPlanetManager.Instance.ListaRecensioni,
+                                                                        (t => t.VotoInt),
+                                                                        (t => t.Titolo),
+                                                                        true);
+        }
+        public void GroupByAuthor(object s = null, object e = null)
+        {
+            if (SelectedMode == ModalitaVisualizzazione.Autore)
+                return;
+            ListaRecensioni?.Clear();
+            SelectedMode = ModalitaVisualizzazione.Autore;
+            ListaRecensioni = MyGrouping<RecensioneItem>.StringKeyGroup(AdventuresPlanetManager.Instance.ListaRecensioni,
+                                                                        (t => t.AutoreText),
+                                                                        true,
+                                                                        "N.D.");
+        }
         public async void AggiornaRecensioni(object s = null, object e = null)
         {
             IsUpdatingRecensioni = true;
             bool res = await AdventuresPlanetManager.Instance.aggiornaRecensioni();
             if (res)
-                GroupByLetter();
+            {
+                switch (SelectedMode)
+                {
+                    case ModalitaVisualizzazione.AlphaKey:
+                        GroupByLetter();
+                        break;
+                    case ModalitaVisualizzazione.Voto:
+                        GroupByVoto();
+                        break;
+                    case ModalitaVisualizzazione.Autore:
+                        GroupByAuthor();
+                        break;
+                    default:
+                        GroupByLetter();
+                        break;
+                }
+            }
             IsUpdatingRecensioni = false;
         }
         private bool _isUpdating;
@@ -87,7 +124,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<Dictionary<string, List<RecensioneItem>>>(ref _list, value);
             }
         }
-        private ModalitaVisualizzazione _selectedMode;
+        private ModalitaVisualizzazione _selectedMode = ModalitaVisualizzazione.Nessuno;
         public ModalitaVisualizzazione SelectedMode
         {
             get
@@ -118,7 +155,9 @@ namespace AdventuresPlanetUWP.ViewModels
     }
     public enum ModalitaVisualizzazione
     {
+        Nessuno,
         AlphaKey,
-        Voto
+        Voto,
+        Autore
     }
 }

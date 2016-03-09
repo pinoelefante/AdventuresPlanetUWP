@@ -265,8 +265,7 @@ namespace AdventuresPlanetUWP.Classes
                 {
                     string meselinkCurrPer = GetMeseCorrenteString();
                     //Aggiorna il mese corrente solo se è passato il tempo necessario dall'ultimo aggiornamento delle news
-                    if (meselinkCurrPer.Equals(meselink) && 
-                        (Settings.Instance.LastNewsUpdate + Settings.Instance.TimeUpdateNews < Settings.getUnixTimeStamp()))
+                    if (meselinkCurrPer.Equals(meselink) && Settings.Instance.IsNewsUpdated)
                     {
                         list_news = DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
                         if(list_news?.Count > 0)

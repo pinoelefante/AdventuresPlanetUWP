@@ -9,7 +9,10 @@
     xmlns:vm="using:AdventuresPlanetUWP.ViewModels"
     xmlns:UserControls="using:AdventuresPlanetUWP.Views.UserControls"
     xmlns:Converters="using:AdventuresPlanetUWP.Converters"
-    xmlns:controls="using:Template10.Controls">
+    xmlns:controls="using:Template10.Controls"
+    xmlns:Behaviors="using:Template10.Behaviors"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity">
 
     <Page.DataContext>
         <vm:RecensioniPageViewModel/>
@@ -31,6 +34,21 @@
         <controls:PageHeader x:Uid="/Recensioni/recensioni_header" BackButtonVisibility="Collapsed" Content="Recensioni" Frame="{x:Bind Frame}">
             <controls:PageHeader.PrimaryCommands>
                 <AppBarButton x:Uid="/Recensioni/recensioni_bar_cerca" Label="Cerca" Icon="Find" Click="{x:Bind VM.GoToSearch}"/>
+                
+                <AppBarButton Label="Sort" Icon="Sort">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Tapped">
+                            <Behaviors:OpenFlyoutAction />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                    <FlyoutBase.AttachedFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text="Alfabeticamente" Click="{x:Bind VM.GroupByLetter}"/>
+                            <MenuFlyoutItem Text="Voto" Click="{x:Bind VM.GroupByVoto}"/>
+                            <MenuFlyoutItem Text="Autore" Click="{x:Bind VM.GroupByAuthor}"/>
+                        </MenuFlyout>
+                    </FlyoutBase.AttachedFlyout>
+                </AppBarButton>
                 <AppBarButton x:Uid="/Recensioni/recensioni_bar_aggiorna" Label="Aggiorna" Icon="Refresh" Click="{x:Bind VM.AggiornaRecensioni}" IsEnabled="{Binding IsUpdatingRecensioni, Converter={StaticResource NotBool}}"/>
             </controls:PageHeader.PrimaryCommands>
         </controls:PageHeader>
@@ -74,11 +92,11 @@
                 </ListView>
             </SemanticZoom.ZoomedInView>
             <SemanticZoom.ZoomedOutView>
-                <GridView ItemsSource="{Binding Source={StaticResource RecensioniList}, Path=CollectionGroups}" HorizontalAlignment="Center">
+                <GridView ItemsSource="{Binding Source={StaticResource RecensioniList}, Path=CollectionGroups}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                     <GridView.ItemTemplate>
                         <DataTemplate>
-                            <Border BorderThickness="3" Width="64" MaxWidth="64" MinWidth="64">
-                                <TextBlock Padding="8" Text="{Binding Group.Key}" FontSize="40" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource SystemControlForegroundAccentBrush}" />
+                            <Border BorderThickness="3" MinWidth="52" MinHeight="52" MaxHeight="52" Padding="8" Margin="8" HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding Group.Key}" FontSize="32" FontWeight="Light" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Foreground="{StaticResource SystemControlForegroundAccentBrush}" />
                             </Border>
                         </DataTemplate>
                     </GridView.ItemTemplate>

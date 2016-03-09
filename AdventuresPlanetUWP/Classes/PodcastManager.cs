@@ -24,7 +24,11 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void Init()
         {
-            Stop();
+            ValueSet set = new ValueSet()
+            {
+                {"Command", "Init" }
+            };
+            BackgroundMediaPlayer.SendMessageToBackground(set);
         }
         public async Task<bool> isDownloaded(string url)
         {
@@ -87,6 +91,24 @@ namespace AdventuresPlanetUWP.Classes
             };
             BackgroundMediaPlayer.SendMessageToBackground(set);
         }
+
+        public void GetTrackInfo()
+        {
+            ValueSet set = new ValueSet()
+            {
+                {"Command","TrackInfo"}
+            };
+            BackgroundMediaPlayer.SendMessageToBackground(set);
+        }
+        public void IsStopped()
+        {
+            ValueSet set = new ValueSet()
+            {
+                {"Command","IsStopped"}
+            };
+            BackgroundMediaPlayer.SendMessageToBackground(set);
+        }
+
         public void Stop()
         {
             ValueSet set = new ValueSet()
@@ -122,6 +144,30 @@ namespace AdventuresPlanetUWP.Classes
             ValueSet set = new ValueSet()
             {
                 {"Command","Play" }
+            };
+            BackgroundMediaPlayer.SendMessageToBackground(set);
+        }
+        public void IsPlaying()
+        {
+            ValueSet set = new ValueSet()
+            {
+                {"Command","IsPlaying" }
+            };
+            BackgroundMediaPlayer.SendMessageToBackground(set);
+        }
+        public void IsPlayerLoaded()
+        {
+            ValueSet set = new ValueSet()
+            {
+                {"Command","IsTrackLoaded" }
+            };
+            BackgroundMediaPlayer.SendMessageToBackground(set);
+        }
+        public void GetPosition()
+        {
+            ValueSet set = new ValueSet()
+            {
+                {"Command","GetPosition" }
             };
             BackgroundMediaPlayer.SendMessageToBackground(set);
         }

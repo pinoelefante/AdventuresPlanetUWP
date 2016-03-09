@@ -34,6 +34,7 @@ namespace AdventuresPlanetUWP.Views
         public NewsPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
             this.Loaded += (s, e) =>
             {
                 if (ChristmasTime.IsChristmasTime())

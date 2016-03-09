@@ -26,6 +26,7 @@ namespace AdventuresPlanetUWP.Views
         public PodcastPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
             this.Loaded += (s, e) =>
             {
                 if (ChristmasTime.IsChristmasTime())

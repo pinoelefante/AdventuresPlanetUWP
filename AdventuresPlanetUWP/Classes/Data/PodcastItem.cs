@@ -35,7 +35,7 @@ namespace AdventuresPlanetUWP.Classes.Data
         }
         public string Data { get; set; } = string.Empty;
         public string Link { get; set; } = string.Empty;
-        public string Immagine { get; set; }
+        public string Immagine { get; set; } = string.Empty;
         private string getSxEp()
         {
             return Stagione + "x" + (Episodio < 10 ? "0" + Episodio.ToString() : Episodio.ToString());

@@ -27,7 +27,7 @@ namespace AdventuresPlanetUWP.Classes
         private void creaDB()
         {
             string news = "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT UNIQUE, titolo TEXT, anteprima TEXT, testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', data TEXT DEFAULT '', img TEXT, meselink TEXT NOT NULL)";
-            string podcast = "CREATE TABLE IF NOT EXISTS podcast (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '') WITHOUT ROWID;";
+            string podcast = "CREATE TABLE IF NOT EXISTS podcast (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '', immagine TEXT) WITHOUT ROWID;";
             string recensioni = "CREATE TABLE IF NOT EXISTS recensioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', voto TEXT DEFAULT '', votoUtenti TEXT DEFAULT '', link TEXT NOT NULL, testoBreve TEXT DEFAULT '', testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;";
             string soluzioni = "CREATE TABLE IF NOT EXISTS soluzioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', link TEXT NOT NULL, soluzione TEXT DEFAULT '', soluzioneRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;";
             string preferiti = "CREATE TABLE IF NOT EXISTS preferiti (id TEXT PRIMARY KEY) WITHOUT ROWID";
@@ -446,7 +446,8 @@ namespace AdventuresPlanetUWP.Classes
                     var descr = st.GetText("descrizione");
                     var stag = st.GetInteger("stagione");
                     var epis = st.GetInteger("episodio");
-                    PodcastItem p = new PodcastItem(titolo, data, link, (int)stag, (int)epis);
+                    var img = st.GetText("immagine");
+                    PodcastItem p = new PodcastItem(titolo, data, link, (int)stag, (int)epis) { Immagine = img};
                     p.Descrizione = descr;
                     podcast.Add(p);
                 }
@@ -467,7 +468,8 @@ namespace AdventuresPlanetUWP.Classes
                     var descr = st.GetText("descrizione");
                     var stag = st.GetInteger("stagione");
                     var epis = st.GetInteger("episodio");
-                    PodcastItem p = new PodcastItem(titolo, data, link, (int)stag, (int)epis);
+                    var img = st.GetText("immagine");
+                    PodcastItem p = new PodcastItem(titolo, data, link, (int)stag, (int)epis) { Immagine = img};
                     p.Descrizione = descr;
                     podcast.Add(p);
                 }
@@ -476,7 +478,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void insertPodcast(PodcastItem pod)
         {
-            string query = "INSERT INTO podcast (link,titolo,data,stagione,episodio,descrizione) VALUES (?,?,?,?,?,?)";
+            string query = "INSERT INTO podcast (link,titolo,data,stagione,episodio,descrizione,immagine) VALUES (?,?,?,?,?,?,?)";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, pod.Link);
@@ -485,6 +487,7 @@ namespace AdventuresPlanetUWP.Classes
                 st.Bind(4, pod.Stagione);
                 st.Bind(5, pod.Episodio);
                 st.Bind(6, pod.Descrizione);
+                st.Bind(7, pod.Immagine);
                 st.Step();
             }
         }

@@ -28,6 +28,7 @@ namespace AdventuresPlanetUWP.Views
         public PreferitiPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
             this.Loaded += (s, e) =>
             {
                 if (ChristmasTime.IsChristmasTime())

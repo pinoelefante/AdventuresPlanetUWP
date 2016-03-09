@@ -27,6 +27,8 @@ namespace AdventuresPlanetUWP.Views
         public SoluzioniPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+
             this.Loaded += (s, e) =>
             {
                 if (ChristmasTime.IsChristmasTime())

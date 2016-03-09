@@ -24,28 +24,28 @@
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:RecensioniPage">
+                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:RecensioniPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Like" />
                             <TextBlock x:Uid="/Shell/hamburger_recensioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Recensioni" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:SoluzioniPage">
+                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:SoluzioniPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="AllApps" />
                             <TextBlock x:Uid="/Shell/hamburger_soluzioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Soluzioni" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PreferitiPage">
+                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PreferitiPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="OutlineStar" />
                             <TextBlock x:Uid="/Shell/hamburger_preferiti" Margin="12,0,0,0" VerticalAlignment="Center" Text="Preferiti" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
 
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PodcastPage">
+                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PodcastPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Microphone" />
                             <TextBlock x:Uid="/Shell/hamburger_podcast" Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
