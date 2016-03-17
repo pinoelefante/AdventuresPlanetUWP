@@ -91,8 +91,7 @@ namespace AdventuresPlanetUWP.ViewModels
                         break;
                     case "IsTrackLoaded":
                         IsPlayerLoaded = (bool)e.Data["Status"];
-                        if(IsPlayerLoaded)
-                            PodcastManager.Instance.IsPlaying();
+                        PodcastManager.Instance.IsPlaying();
                         break;
                     case "IsStopped":
                         IsPlayerLoaded = !(bool)e.Data["Status"];

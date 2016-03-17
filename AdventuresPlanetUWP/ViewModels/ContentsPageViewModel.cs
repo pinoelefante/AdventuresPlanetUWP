@@ -122,7 +122,7 @@ namespace AdventuresPlanetUWP.ViewModels
             if (await ScaricaContenuti())
             {
                 AssemblaComponenti();
-                CaricaPosizione(null, null);
+                CaricaPosizione(listView, null);
                 LoadAlternative();
             }
             else
@@ -446,17 +446,20 @@ namespace AdventuresPlanetUWP.ViewModels
                 Settings.Instance.SaveRecensionePosition(Item.Id, index);
         }
         public bool IsLoaded { get; private set; }
+        private ListView listView = null;
         public void CaricaPosizione(object sender, object e)
         {
-            if (!Item.isVideo)
+            if (!Item.isVideo && !Item.isTemporary)
             {
                 int indexPos = IsRecensione ? Settings.Instance.RecensionePosition(Item.Id) : Settings.Instance.SoluzionePosition(Item.Id);
                 if(sender!=null && sender is ListView)
                 {
-                    ListView listView = sender as ListView;
-                    if(indexPos < listView.Items.Count)
+                    listView = sender as ListView;
+                    if (indexPos < listView?.Items?.Count)
+                    {
                         listView.ScrollIntoView(listView.Items.ElementAt(indexPos), ScrollIntoViewAlignment.Leading);
-                    IsLoaded = true;
+                        IsLoaded = true;
+                    }
                 }
             }
         }

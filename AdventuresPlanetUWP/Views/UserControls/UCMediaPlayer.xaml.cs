@@ -54,9 +54,12 @@ namespace AdventuresPlanetUWP.Views.UserControls
                     }
                     else if (VideoPlayerManager.Instance.ItemLoaded)
                     {
-                        //Mostrare errore di caricamento video
-                        MessageDialog msg = new MessageDialog("Errore durante il caricamento del video");
-                        //msg.ShowAsync();
+                        if (ToLoad)
+                        {
+                            //Mostrare errore di caricamento video
+                            MessageDialog msg = new MessageDialog("Errore durante il caricamento del video");
+                            msg.ShowAsync();
+                        }
                         mediaLoadedDt.Stop();
                     }
                     ticks_mediaLoaded++;
@@ -80,7 +83,7 @@ namespace AdventuresPlanetUWP.Views.UserControls
             else
             {
                 MessageDialog msg = new MessageDialog("Non ci sono video da riprodurre");
-                //msg.ShowAsync();
+                msg.ShowAsync();
             }
         } 
         private YouTubeUri _current;
@@ -238,5 +241,8 @@ namespace AdventuresPlanetUWP.Views.UserControls
                 PropertyChanged(this, new PropertyChangedEventArgs(p));
             }
         }
+
+        public static readonly DependencyProperty ToLoadProperty = DependencyProperty.Register("ToLoad", typeof(Boolean), typeof(UCMediaPlayer), null);
+        public bool ToLoad { get { return (bool)GetValue(ToLoadProperty); } set { SetValue(ToLoadProperty, (bool)value); } }
     }
 }

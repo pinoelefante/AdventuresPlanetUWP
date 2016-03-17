@@ -59,7 +59,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" x:Name="ContainerMediaPlayer" Visibility="{Binding ComponentiVideo, Converter={StaticResource IntVisibility}}">
-                <UserControls:UCMediaPlayer />
+                <UserControls:UCMediaPlayer ToLoad="{x:Bind VM.ComponentiVideo, Converter={StaticResource IntToBool}}"/>
             </Grid>
 
             <!-- corpo testuale-->
@@ -104,19 +104,19 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8,0" Visibility="{Binding Item.AutoreText, Converter={StaticResource StringVisibility}}">
+                <TextBlock Grid.Row="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8,0" Visibility="{x:Bind VM.Item.AutoreText, Converter={StaticResource StringVisibility}}">
                     <Run x:Uid="/Contents/contents_acuradi" Text="a cura di"/>
-                    <Run Text="{Binding Item.AutoreText}"/>
+                    <Run Text="{x:Bind VM.Item.AutoreText}"/>
                 </TextBlock>
 
-                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}">
+                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Visibility="{x:Bind VM.IsRecensione, Converter={StaticResource BoolVisibility}}">
                     <TextBlock FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding Item.VotoText, Converter={StaticResource StringVisibility}}" Margin="8,0">
                         <Run x:Uid="/Contents/contents_votoredazione" Text="Voto della redazione" />
                         <Run Text="{Binding Item.VotoText}" FontWeight="Bold"/>
                     </TextBlock>
                 </StackPanel>
 
-                <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}">
+                <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" Visibility="{x:Bind VM.IsRecensione, Converter={StaticResource BoolVisibility}}">
                     <TextBlock FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding Item.VotoUtentiText, Converter={StaticResource StringVisibility} }" Margin="8,0">
                         <Run x:Uid="/Contents/content_votoutenti" Text="Voto degli utenti"/>
                         <Run Text="{Binding Item.VotoUtentiText}" FontWeight="Bold"/>
