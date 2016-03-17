@@ -65,7 +65,7 @@
             <!-- corpo testuale-->
             <SemanticZoom x:Name="semZoom" Grid.Row="1"  Visibility="{Binding ComponentiTesto, Converter={StaticResource IntVisibility}}">
                 <SemanticZoom.ZoomedInView>
-                    <ListView x:Name="containerData" ItemsSource="{Binding ListaComponenti}" Margin="8,0" >
+                    <ListView x:Name="containerData" ItemsSource="{Binding ListaComponenti}" Margin="8,0" Loaded="{x:Bind VM.CaricaPosizione}" LayoutUpdated="lay" ItemClick="OnItemClick" IsItemClickEnabled="True">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

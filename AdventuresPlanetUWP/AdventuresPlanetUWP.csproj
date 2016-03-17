@@ -181,6 +181,7 @@
     <Compile Include="Classes\PodcastManager.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\VideoPlayerManager.cs" />
+    <Compile Include="Classes\VisualTreeHelperExtensions.cs" />
     <Compile Include="Classes\YouTube.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
     <Compile Include="Converters\ChristmasVisibility.cs" />

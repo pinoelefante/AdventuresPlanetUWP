@@ -18,6 +18,7 @@ using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -338,16 +339,25 @@ namespace AdventuresPlanetUWP.ViewModels
                             ComponentiIndice++;
                             Indice.Add(new IndiceItem(titolo, index));
                         }
-                        else if (s.StartsWith("@IMG") && Settings.Instance.IsLoadImages && App.IsInternetConnected())
+                        else if (s.StartsWith("@IMG"))
                         {
-                            string url = s.Replace("@IMG", "");
-                            BitmapImage img_source = new BitmapImage(new Uri(url));
-                            Image immagine = new Image();
-                            immagine.Source = img_source;
-                            immagine.MaxWidth = 640;
-                            immagine.MaxHeight = 480;
-                            immagine.DoubleTapped += Immagine_DoubleTapped;
-                            ListaComponenti.Add(immagine);
+                            if(Settings.Instance.IsLoadImages && App.IsInternetConnected())
+                            {
+                                string url = s.Replace("@IMG", "");
+                                BitmapImage img_source = new BitmapImage(new Uri(url));
+                                Image immagine = new Image();
+                                immagine.Source = img_source;
+                                immagine.MaxWidth = 640;
+                                immagine.MaxHeight = 480;
+                                immagine.DoubleTapped += Immagine_DoubleTapped;
+                                ListaComponenti.Add(immagine);
+                                
+                            }
+                            else //per il calcolo della posizione
+                            {
+                                TextBlock tb = new TextBlock();
+                                ListaComponenti.Add(tb);
+                            }
                             ComponentiTesto++;
                         }
                         else if (s.StartsWith("@VIDEO;"))
@@ -416,6 +426,7 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void OpenAlternative(object s, object e)
         {
+            IsLoaded = false;
             PaginaContenuti next = null;
             if (IsRecensione)
                 next = DatabaseSystem.Instance.selectSoluzione(Item.Id);
@@ -424,36 +435,29 @@ namespace AdventuresPlanetUWP.ViewModels
             if(next != null)
                 SetStato(next);
         }
-        public void SalvaPosizione(object sender, object ev)
+        public void SalvaPosizione(int index)
         {
-            //Debug.WriteLine("SalvaPosizione sender = "+sender.GetType());
-            ScrollViewer scroll = sender as ScrollViewer;
-            double position = scroll.VerticalOffset;
-            Debug.WriteLine("Offset = " + position);
-            if (IsRecensione && Settings.Instance.RicordaPosizioneRecensioni)
-            {
-                Settings.Instance.SaveRecensionePosition(Item.Id, position);
-                Debug.WriteLine("Salvo posizione");
-            }
-            else if (IsSoluzione && Settings.Instance.RicordaPosizioneSoluzioni)
-            {
-                Settings.Instance.SaveSoluzionePosition(Item.Id, position);
-                Debug.WriteLine("Salvo posizione");
-            }
+            if (Item.isVideo || Item.isTemporary)
+                return;
+
+            if (IsSoluzione && Settings.Instance.RicordaPosizioneSoluzioni)
+                Settings.Instance.SaveSoluzionePosition(Item.Id, index);
+            else if (IsRecensione && Settings.Instance.RicordaPosizioneRecensioni)
+                Settings.Instance.SaveRecensionePosition(Item.Id, index);
         }
+        public bool IsLoaded { get; private set; }
         public void CaricaPosizione(object sender, object e)
         {
-            Debug.WriteLine("CaricaPosizione sender type = " + sender?.GetType());
-            double verticalOff = 0;
-            if (IsRecensione && Settings.Instance.RicordaPosizioneRecensioni)
-                verticalOff = Settings.Instance.RecensionePosition(Item.Id);
-            else if (IsSoluzione && Settings.Instance.RicordaPosizioneSoluzioni)
-                verticalOff = Settings.Instance.SoluzionePosition(Item.Id);
-
-            if (sender != null)
+            if (!Item.isVideo)
             {
-                ScrollViewer scroll = sender as ScrollViewer;
-                scroll.ChangeView(0, verticalOff, scroll.ZoomFactor);
+                int indexPos = IsRecensione ? Settings.Instance.RecensionePosition(Item.Id) : Settings.Instance.SoluzionePosition(Item.Id);
+                if(sender!=null && sender is ListView)
+                {
+                    ListView listView = sender as ListView;
+                    if(indexPos < listView.Items.Count)
+                        listView.ScrollIntoView(listView.Items.ElementAt(indexPos), ScrollIntoViewAlignment.Leading);
+                    IsLoaded = true;
+                }
             }
         }
         public void ChangePreferiti(object s, object e)

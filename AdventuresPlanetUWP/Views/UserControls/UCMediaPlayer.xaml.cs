@@ -56,7 +56,7 @@ namespace AdventuresPlanetUWP.Views.UserControls
                     {
                         //Mostrare errore di caricamento video
                         MessageDialog msg = new MessageDialog("Errore durante il caricamento del video");
-                        msg.ShowAsync();
+                        //msg.ShowAsync();
                         mediaLoadedDt.Stop();
                     }
                     ticks_mediaLoaded++;
@@ -80,7 +80,7 @@ namespace AdventuresPlanetUWP.Views.UserControls
             else
             {
                 MessageDialog msg = new MessageDialog("Non ci sono video da riprodurre");
-                msg.ShowAsync();
+                //msg.ShowAsync();
             }
         } 
         private YouTubeUri _current;

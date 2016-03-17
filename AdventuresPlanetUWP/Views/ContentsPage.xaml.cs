@@ -1,4 +1,5 @@
-﻿using AdventuresPlanetUWP.ViewModels;
+﻿using AdventuresPlanetUWP.Classes;
+using AdventuresPlanetUWP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -36,20 +37,35 @@ namespace AdventuresPlanetUWP.Views
         {
             semZoom.IsZoomedInViewActive = false;
         }
-
-        private void ListView_LayoutUpdated(object sender, object e)
+        private long lastSave = 0;
+        private void lay(object sender, object e)
         {
-            Debug.WriteLine("Layout Updated");
+            ScrollViewer scroll = VisualTreeHelperExtensions.GetFirstDescendantOfType<ScrollViewer>(containerData);
+            long currTime = Settings.getUnixTimeStamp();
+            if ((currTime - lastSave) < 2)
+                return;
+            bool save = (VM.IsSoluzione && Settings.Instance.RicordaPosizioneSoluzioni) || (VM.IsRecensione && Settings.Instance.RicordaPosizioneRecensioni);
+            if(scroll != null && VM.IsLoaded && save && !VM.Item.isTemporary && !VM.Item.isVideo)
+            {
+                //Debug.WriteLine("Salvo la posizione");
+                double vOffset = scroll.VerticalOffset;
+                int index = 0;
+                for(double cOff = 0; index<containerData.Items.Count; index++)
+                {
+                    FrameworkElement elem = containerData.Items[index] as FrameworkElement;
+                    cOff += elem.ActualHeight;
+                    if (cOff >= vOffset)
+                        break;
+                }
+                VM.SalvaPosizione(index);
+                lastSave = currTime;
+            }
         }
-
-        private void ListView_ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        private void OnItemClick(object sender, ItemClickEventArgs e)
         {
-            Debug.WriteLine("Container content changing");
-        }
-
-        private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            Debug.WriteLine("Size Changed");
+            var item = e.ClickedItem as FrameworkElement;
+            var index = containerData.Items.IndexOf(item);
+            VM.SalvaPosizione(index);
         }
     }
 }

@@ -67,31 +67,31 @@ namespace AdventuresPlanetUWP.Classes
             local_settings.Values.Clear();
         }
 
-        public double SoluzionePosition(string id)
+        public int SoluzionePosition(string id)
         {
-            if (local_settings.Values["sol_"+id] == null)
+            if (local_settings.Values[$"sol_{id}"] == null)
             {
-                Debug.WriteLine("sol_"+id+" = null");
+                //Debug.WriteLine("sol_"+id+" = null");
                 return 0;
             }
-            double pos = (double)local_settings.Values["sol_" + id];
-            Debug.WriteLine("sol_" + id + "=" + pos);
+            int pos = (int)local_settings.Values[$"sol_{id}"];
+            //Debug.WriteLine("sol_" + id + "=" + pos);
             return pos;
         }
-        public double RecensionePosition(string id)
+        public int RecensionePosition(string id)
         {
-            if (local_settings.Values["rec_" + id] == null)
+            if (local_settings.Values[$"rec_{id}"] == null)
             {
-                Debug.WriteLine("rec_" + id + " = null");
+                //Debug.WriteLine("rec_" + id + " = null");
                 return 0;
             }
-            double pos = (double)local_settings.Values["rec_" + id];
-            Debug.WriteLine("rec_" + id + "=" + pos);
+            int pos = (int)local_settings.Values[$"rec_{id}"];
+            //Debug.WriteLine("rec_" + id + "=" + pos);
             return pos;
         }
-        public void SaveSoluzionePosition(string id, double pos)
+        public void SaveSoluzionePosition(string id, int pos)
         {
-            local_settings.Values["sol_" + id] = pos;
+            local_settings.Values[$"sol_{id}"] = pos;
         }
         public Int32 DatabaseVersion
         {
@@ -309,9 +309,9 @@ namespace AdventuresPlanetUWP.Classes
             long unixTimestamp = (long)(periodo.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             return unixTimestamp;
         }
-        public void SaveRecensionePosition(string id, double verticalOffset)
+        public void SaveRecensionePosition(string id, int itemIndex)
         {
-            local_settings.Values["rec_" + id] = verticalOffset;
+            local_settings.Values[$"rec_{id}"] = itemIndex;
         }
         public bool RicordaPosizioneSoluzioni
         {
