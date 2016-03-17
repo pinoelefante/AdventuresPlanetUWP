@@ -25,6 +25,7 @@ namespace AdventuresPlanetUWP.ViewModels
             BackgroundMediaPlayer.MessageReceivedFromBackground += MessageReceived;
             BackgroundMediaPlayer.Current.CurrentStateChanged += PlayerStateChanged;
             PodcastManager.Instance.IsPlayerLoaded();
+            PlayerStateChanged(BackgroundMediaPlayer.Current, null);
             return Task.CompletedTask;
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
