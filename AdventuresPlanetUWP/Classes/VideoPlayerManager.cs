@@ -11,14 +11,9 @@ namespace AdventuresPlanetUWP.Classes
     class VideoPlayerManager
     {
         public static VideoPlayerManager Instance { get; } = new VideoPlayerManager();
-        private VideoPlayerManager()
-        {
-
-        }
+        private VideoPlayerManager() { }
         public List<YouTubeUri> ListVideo { get; } = new List<YouTubeUri>();
         public int CurrentIndex { get; set; } = 0;
-
-        public event PropertyChangedEventHandler OnItemLoaded;
 
         public bool HasNext()
         {
@@ -59,7 +54,6 @@ namespace AdventuresPlanetUWP.Classes
         public void Clear()
         {
             ListVideo.Clear();
-            OnItemLoaded = null;
             _itemLoaded = false;
         }
         private bool _itemLoaded;
@@ -72,14 +66,6 @@ namespace AdventuresPlanetUWP.Classes
             set
             {
                 _itemLoaded = value;
-                NotifyItemLoaded();
-            }
-        }
-        private void NotifyItemLoaded([CallerMemberName] string p = null)
-        {
-            if (OnItemLoaded != null)
-            {
-                OnItemLoaded(this, new PropertyChangedEventArgs(p));
             }
         }
     }

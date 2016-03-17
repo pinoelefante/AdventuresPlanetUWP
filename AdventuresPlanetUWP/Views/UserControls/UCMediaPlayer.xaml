@@ -20,35 +20,35 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <MediaElement Grid.Row="0" x:Name="player" CurrentStateChanged="MediaPlayerStateChanged"/>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
-            <ProgressRing x:Name="bufferingIndicator" Visibility="{Binding IsBuffering, Converter={StaticResource BoolVisibility}}" IsActive="{Binding IsBuffering}"/>
-
-            <Button x:Name="PlayButton" Click="PlayVideo" Visibility="{Binding IsPlaying, Converter={StaticResource NotBoolVisibility}}" IsEnabled="{Binding IsPlaying, Converter={StaticResource NotBool}}" Margin="4" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ProgressRing x:Name="bufferingIndicator" Grid.Row="0" Width="100" Height="100" Visibility="{Binding IsBuffering, Converter={StaticResource BoolVisibility}}" IsActive="{Binding IsBuffering}" Canvas.ZIndex="1"/>
+        <MediaElement Grid.Row="0" x:Name="player" CurrentStateChanged="MediaPlayerStateChanged" Tapped="showButtons"/>
+        <StackPanel x:Name="playerButtons" Background="LightGray" Height="50" Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Stretch" Opacity=".5" Canvas.ZIndex="1">
+            <Button x:Name="PlayButton" Click="PlayVideo" Visibility="{Binding IsPlaying, Converter={StaticResource NotBoolVisibility}}" IsEnabled="{Binding IsPlaying, Converter={StaticResource NotBool}}" Margin="4" Background="Transparent">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE768;" />
             </Button>
 
-            <Button x:Name="PauseButton" Click="PauseVideo" Visibility="{Binding IsPlaying, Converter={StaticResource BoolVisibility}}" IsEnabled="{Binding IsPlaying}" Margin="4" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Button x:Name="PauseButton" Click="PauseVideo" Visibility="{Binding IsPlaying, Converter={StaticResource BoolVisibility}}" IsEnabled="{Binding IsPlaying}" Margin="4" Background="Transparent">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE769;" />
             </Button>
 
-            <Button x:Name="StopButton" Click="StopVideo" Visibility="{Binding IsPlaying, Converter={StaticResource BoolVisibility}}" IsEnabled="{Binding IsPlaying}" Margin="4" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Button x:Name="StopButton" Click="StopVideo" Visibility="{Binding IsPlaying, Converter={StaticResource BoolVisibility}}" IsEnabled="{Binding IsPlaying}" Margin="4" Background="Transparent">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71A;" />
             </Button>
 
-            <Button x:Name="PrevButton" Click="PrevVideo" Visibility="{Binding HasPrev, Converter={StaticResource BoolVisibility}}" IsEnabled="{Binding HasPrev}" Margin="4" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Button x:Name="PrevButton" Click="PrevVideo" Visibility="{Binding HasPrev, Converter={StaticResource BoolVisibility}}" IsEnabled="{Binding HasPrev}" Margin="4" Background="Transparent">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE892;" />
             </Button>
 
-            <Button x:Name="NextButton" Click="NextVideo" Visibility="{Binding HasNext, Converter={StaticResource BoolVisibility}}" IsEnabled="{Binding HasNext}" Margin="4" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Button x:Name="NextButton" Click="NextVideo" Visibility="{Binding HasNext, Converter={StaticResource BoolVisibility}}" IsEnabled="{Binding HasNext}" Margin="4" Background="Transparent">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE893;" />
             </Button>
 
+            <!--
             <Button x:Name="FullscreenButton" Click="FullscreenVideo" Margin="4" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE740;"/>
             </Button>
-
-            <Button x:Name="DownloadButton" Click="ScaricaVideo" Margin="4" IsEnabled="False" Visibility="Collapsed" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            -->
+            <Button x:Name="DownloadButton" Click="ScaricaVideo" Margin="4" IsEnabled="False" Visibility="Collapsed" Background="Transparent">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE896;"/>
             </Button>
         </StackPanel>

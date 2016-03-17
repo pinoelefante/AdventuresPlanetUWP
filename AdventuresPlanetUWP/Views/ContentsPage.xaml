@@ -23,6 +23,7 @@
         <Converters:IntToGridHeight x:Key="IntGridHeight"/>
         <Converters:StringToBool x:Key="StringBool"/>
         <Converters:IntToBool x:Key="IntToBool"/>
+        <Converters:NotBoolean x:Key="NotBool"/>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -39,33 +40,9 @@
             </FlyoutBase.AttachedFlyout>
         </controls:PageHeader>
         
-        <!-- indice -->
-        <Grid Grid.Row="1" Background="Black" Visibility="{Binding IsIndiceOpen, Converter={StaticResource BoolVisibility}}" Opacity=".95" Canvas.ZIndex="1" HorizontalAlignment="Stretch">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition />
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock x:Uid="/Contents/contents_indice_titolo" Grid.Row="0" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" Text="Indice"/>
-            
-            <ListView Grid.Row="1" ItemsSource="{Binding Indice}">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Titolo}" Foreground="White" FontWeight="SemiBold" Tag="{Binding Link}" Tapped="GoToIndex"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            
-            <Button x:Uid="/Contents/contents_indice_chiudi" Grid.Row="2" Background="White" Foreground="Black" HorizontalAlignment="Center" Margin="8" Click="{x:Bind VM.ChiudiIndice}" Content="Chiudi"/>
-        </Grid>
         
         <!-- pagina -->
-        <Grid Grid.Row="1" Canvas.ZIndex="0">
+        <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 
                 <RowDefinition Height="{Binding ComponentiVideo, Converter={StaticResource IntGridHeight}}"/>
@@ -81,13 +58,27 @@
                 <!-- per command bar -->
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Visibility="{Binding ComponentiVideo, Converter={StaticResource IntVisibility}}">
+            <Grid Grid.Row="0" x:Name="ContainerMediaPlayer" Visibility="{Binding ComponentiVideo, Converter={StaticResource IntVisibility}}">
                 <UserControls:UCMediaPlayer />
             </Grid>
-<!--
-            <SemanticZoom x:Name="semZoom" Grid.Row="1">
+
+            <!-- corpo testuale-->
+            <SemanticZoom x:Name="semZoom" Grid.Row="1"  Visibility="{Binding ComponentiTesto, Converter={StaticResource IntVisibility}}">
                 <SemanticZoom.ZoomedInView>
-                    <ListView ItemsSource="{Binding ListaComponenti}" Margin="8,0"/>
+                    <ListView x:Name="containerData" ItemsSource="{Binding ListaComponenti}" Margin="8,0" >
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <ContentPresenter/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
                 </SemanticZoom.ZoomedInView>
                 <SemanticZoom.ZoomedOutView>
                     <ListView ItemsSource="{Binding Indice}">
@@ -104,13 +95,7 @@
                     </ListView>
                 </SemanticZoom.ZoomedOutView>
             </SemanticZoom>
--->            
-            <!-- corpo testuale-->
-            
-            <ScrollViewer x:Name="scroller" Grid.Row="1" ZoomMode="Disabled" Visibility="{Binding ComponentiTesto, Converter={StaticResource IntVisibility}}" ViewChanged="{x:Bind VM.SalvaPosizione}" Loaded="{x:Bind VM.CaricaPosizione}" SizeChanged="{x:Bind VM.CaricaPosizione}">
-                <ItemsControl ItemsSource="{Binding ListaComponenti}" Margin="8,0"/>
-            </ScrollViewer>
-            
+
             <!--info secondarie -->
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -143,10 +128,11 @@
             <!-- Command bar -->
             <CommandBar Grid.Row="4">
                 <CommandBar.PrimaryCommands>
-                    <AppBarButton x:Uid="/Contents/contents_menu_indice" Label="Indice" Click="{x:Bind VM.ApriIndice}" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
                     <!--
-                    <AppBarButton x:Uid="/Contents/contents_menu_indice" Label="Indice" Click="apriIndice" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
+                    <AppBarButton x:Uid="/Contents/contents_menu_indice" Label="Indice" Click="{x:Bind VM.ApriIndice}" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
                     -->
+                    <AppBarButton x:Uid="/Contents/contents_menu_indice" Label="Indice" Click="apriIndice" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
+                    
                     <AppBarButton x:Uid="/Contents/contents_menu_aggpreferiti" Label="Aggiungi a preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource NotBoolVisibility}}" Icon="Favorite"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_rempreferiti" Label="Rimuovi da preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource BoolVisibility}}" Icon="UnFavorite"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_condividi" Label="Condividi" Click="{x:Bind VM.Share}">

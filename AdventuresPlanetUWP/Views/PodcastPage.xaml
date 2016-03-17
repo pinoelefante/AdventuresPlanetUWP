@@ -37,7 +37,7 @@
             </controls:PageHeader.PrimaryCommands>
         </controls:PageHeader>
 
-        <ProgressRing Grid.Row="1" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" IsActive="{Binding IsUpdatingPodcast}" Visibility="{Binding IsUpdatingPodcast, Converter={StaticResource BoolVisibility}}"/>
+        <ProgressRing Grid.Row="1" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" IsActive="{Binding IsUpdatingPodcast}" Visibility="{Binding IsUpdatingPodcast, Converter={StaticResource BoolVisibility}}" Canvas.ZIndex="999"/>
 
         <!-- Content -->
         <Grid Grid.Row="1">

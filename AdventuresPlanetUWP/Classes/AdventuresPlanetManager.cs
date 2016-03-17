@@ -33,9 +33,12 @@ namespace AdventuresPlanetUWP.Classes
         //public static string URL_SOLUZIONI = "http://www.adventuresplanet.it/soluzioni.php";
         //public static string URL_NEWS_MESI = "http://www.adventuresplanet.it/index.php?old=si";
 
-        public List<RecensioneItem> ListaRecensioni { get; set; }
-        public List<SoluzioneItem> ListaSoluzioni { get; set; }
-        public ObservableCollection<PodcastItem> ListaPodcast { get; set; }
+        private List<RecensioneItem> _recensioni;
+        public List<RecensioneItem> ListaRecensioni { get { if(_recensioni == null || _recensioni.Count == 0) _recensioni = DatabaseSystem.Instance.selectAllRecensioniLite(); return _recensioni; } set { _recensioni = value; } }
+        private List<SoluzioneItem> _soluzioni;
+        public List<SoluzioneItem> ListaSoluzioni { get { if (_soluzioni == null || _soluzioni.Count == 0) _soluzioni = DatabaseSystem.Instance.selectAllSoluzioniLite(); return _soluzioni; } set { _soluzioni = value; } }
+        private ObservableCollection<PodcastItem> _podcast;
+        public ObservableCollection<PodcastItem> ListaPodcast { get { if (_podcast == null || _podcast.Count == 0) _podcast = DatabaseSystem.Instance.selectAllPodcastOb(); return _podcast; } set { _podcast = value; } }
         public NewsCollection ListaNews { get; } = new NewsCollection();
         public bool IsNewsFirstLoad { get; set; }
         public bool IsPodcastFirstLoad { get; set; }
@@ -51,12 +54,6 @@ namespace AdventuresPlanetUWP.Classes
                 jsonClient = new Windows.Web.Http.HttpClient(filter);
                 jsonClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
             }
-        }
-        public void Load()
-        {
-            ListaPodcast = DatabaseSystem.Instance.selectAllPodcastOb();
-            ListaRecensioni = DatabaseSystem.Instance.selectAllRecensioniLite();
-            ListaSoluzioni = DatabaseSystem.Instance.selectAllSoluzioniLite();
         }
         public static AdventuresPlanetManager Instance
         {
@@ -230,10 +227,11 @@ namespace AdventuresPlanetUWP.Classes
         }
 
         private readonly static List<News> EMPTY_LIST = new List<News>();
-        public async Task<List<News>> loadListNews(int anno, int mese)
+        public async Task<List<News>> loadListNews(int anno, int mese, bool? _online = null)
         {
             Debug.WriteLine($"loadListNews {anno}{mese.ToString("D2")}");
             List<News> list_news = EMPTY_LIST;
+            bool online = _online.GetValueOrDefault(App.IsInternetConnected());
 
             string meselink = GetPeriodoString(anno, mese);
             try
@@ -243,7 +241,7 @@ namespace AdventuresPlanetUWP.Classes
                     list_news = DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
                     if (list_news?.Count == 0)
                     {
-                        if (App.IsInternetConnected())
+                        if (online)
                         {
                             list_news = await parsePageNews(anno,mese);
                             DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
@@ -271,7 +269,7 @@ namespace AdventuresPlanetUWP.Classes
                         if(list_news?.Count > 0)
                             return list_news;
                     }
-                    if (App.IsInternetConnected())
+                    if (online)
                     {
                         list_news = await parsePageNews(anno,mese);
                         if(list_news?.Count == 0)

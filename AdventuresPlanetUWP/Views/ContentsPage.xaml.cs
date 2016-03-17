@@ -24,15 +24,32 @@ namespace AdventuresPlanetUWP.Views
             Flyout.ShowAttachedFlyout(sender as FrameworkElement);
         }
 
-        private void GoToIndex(object sender, TappedRoutedEventArgs e)
+        private void GoToIndex(object sender, object e)
         {
+            //Debug.WriteLine(sender.GetType());
             IndiceItem indice = (sender as FrameworkElement).DataContext as IndiceItem;
-            VM.GoToIndex(this.scroller, indice);
+            VM.GoToIndex(containerData, indice);
+            //semZoom.IsZoomedInViewActive = true;
         }
 
         private void apriIndice(object sender, RoutedEventArgs e)
         {
-            //semZoom.IsZoomedInViewActive = false;
+            semZoom.IsZoomedInViewActive = false;
+        }
+
+        private void ListView_LayoutUpdated(object sender, object e)
+        {
+            Debug.WriteLine("Layout Updated");
+        }
+
+        private void ListView_ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+            Debug.WriteLine("Container content changing");
+        }
+
+        private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Debug.WriteLine("Size Changed");
         }
     }
 }

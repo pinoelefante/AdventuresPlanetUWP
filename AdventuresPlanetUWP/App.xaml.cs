@@ -74,10 +74,7 @@ namespace AdventuresPlanetUWP
             if (Settings.Instance.FirstStart)
                 NavigationService.Navigate(typeof(Views.FirstStartPage));
             else
-            {
-                AdventuresPlanetManager.Instance.Load();
                 NavigationService.Navigate(typeof(Views.NewsPage));
-            }
         }
         
         private static DisplayRequest KSARequest;

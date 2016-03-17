@@ -485,41 +485,15 @@ namespace AdventuresPlanetUWP.ViewModels
                 Debug.WriteLine("Recensione breve? Ma è una soluzione!");
             }
         }
-        public void ChiudiIndice(object s, object e)
+        public void GoToIndex(ListView list, IndiceItem indice)
         {
-            IsIndiceOpen = false;
-        }
-        public void ApriIndice(object s, object e)
-        {
-            IsIndiceOpen = true;
-        }
-        public void GoToIndex(ScrollViewer scroll, IndiceItem indice)
-        {
-            double offset = 0;
-            Boolean found = false;
-            foreach (FrameworkElement elem in ListaComponenti)
+            foreach(FrameworkElement elem in list.Items)
             {
-                if (elem.Tag!=null &&elem.Tag.ToString().Equals(indice.Link))
+                if (elem.Tag?.ToString().Equals(indice.Link) == true)
                 {
-                    found = true;
-                    break;
+                    list.ScrollIntoView(elem, ScrollIntoViewAlignment.Leading);
+                    return;
                 }
-                offset += elem.RenderSize.Height;
-            }
-            if (found)
-                scroll.ChangeView(0, offset, scroll.ZoomFactor);
-            IsIndiceOpen = false;
-        }
-        private bool _indiceOpen;
-        public bool IsIndiceOpen
-        {
-            get
-            {
-                return _indiceOpen;
-            }
-            set
-            {
-                Set<bool>(ref _indiceOpen, value);
             }
         }
     }

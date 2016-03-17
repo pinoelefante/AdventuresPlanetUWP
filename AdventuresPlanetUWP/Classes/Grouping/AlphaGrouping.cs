@@ -84,6 +84,7 @@ namespace AdventuresPlanetUWP.Classes.Grouping
                 else
                     result[num.ToString()].Add(item);
             }
+            //return result;
             return result.OrderByDescending(x => x.Key).ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Value);
         }
         public static Dictionary<string, List<T>> StringKeyGroup(List<T> items, Func<T, string> keySelector, bool sort = false, string emptyKey = "")

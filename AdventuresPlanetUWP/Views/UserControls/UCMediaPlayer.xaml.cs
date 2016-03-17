@@ -27,29 +27,61 @@ namespace AdventuresPlanetUWP.Views.UserControls
     /// </summary>
     public sealed partial class UCMediaPlayer : UserControl, INotifyPropertyChanged
     {
+        private bool _loaded = false; 
         public UCMediaPlayer()
         {
+            ticks_mediaLoaded = 0;
             this.InitializeComponent();
             this.Loaded += (s, e) =>
             {
-                VideoPlayerManager.Instance.OnItemLoaded += (s1, e1) =>
-                {
-                    Debug.WriteLine("VideoPlayerManager = " + VideoPlayerManager.Instance.ListVideo.Count);
-                    Debug.WriteLine("ItemLoaded = " + VideoPlayerManager.Instance.ItemLoaded);
-                    if (VideoPlayerManager.Instance.IsPlayable())
-                    {
-                        Debug.WriteLine("UCMediaPlayer - Loaded");
-                        LoadFirst();
-                    }
-                };
+                Debug.WriteLine("VideoPlayerManager = " + VideoPlayerManager.Instance.ListVideo.Count);
+                checkVideoManager();
             };
+        }
+        private DispatcherTimer mediaLoadedDt;
+        private int ticks_mediaLoaded = 0;
+        private void checkVideoManager()
+        {
+            if (mediaLoadedDt == null)
+            {
+                mediaLoadedDt = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(500) };
+                mediaLoadedDt.Tick += (s, e1) =>
+                {
+                    if (VideoPlayerManager.Instance.ItemLoaded && VideoPlayerManager.Instance.IsPlayable())
+                    {
+                        LoadFirst();
+                        mediaLoadedDt.Stop();
+                    }
+                    else if (VideoPlayerManager.Instance.ItemLoaded)
+                    {
+                        //Mostrare errore di caricamento video
+                        MessageDialog msg = new MessageDialog("Errore durante il caricamento del video");
+                        msg.ShowAsync();
+                        mediaLoadedDt.Stop();
+                    }
+                    ticks_mediaLoaded++;
+                    if (ticks_mediaLoaded > 10)
+                        mediaLoadedDt.Stop();
+                };
+            }
+            if(!mediaLoadedDt.IsEnabled)
+                mediaLoadedDt.Start();
         }
         private void LoadFirst()
         {
-            CurrentItem = VideoPlayerManager.Instance.CurrentItem();
-            Debug.WriteLine($"CurrentItem = Uri={CurrentItem.Uri}, Itag={CurrentItem.Itag}, VideoQuality={CurrentItem.VideoQuality}");
-            player.Source = CurrentItem.Uri;
-            player.Play();
+            if (VideoPlayerManager.Instance.IsPlayable())
+            {
+                CurrentItem = VideoPlayerManager.Instance.CurrentItem();
+                Debug.WriteLine($"CurrentItem = Uri={CurrentItem.Uri}, Itag={CurrentItem.Itag}, VideoQuality={CurrentItem.VideoQuality}");
+                player.Source = CurrentItem.Uri;
+                player.Play();
+                _loaded = true;
+            }
+            else
+            {
+                MessageDialog msg = new MessageDialog("Non ci sono video da riprodurre");
+                msg.ShowAsync();
+            }
         } 
         private YouTubeUri _current;
         public YouTubeUri CurrentItem
@@ -66,7 +98,10 @@ namespace AdventuresPlanetUWP.Views.UserControls
         }
         private void PlayVideo(object sender, RoutedEventArgs e)
         {
-            player.Play();
+            if(!_loaded)
+                LoadFirst();
+            else
+                player.Play();
         }
 
         private void PauseVideo(object sender, RoutedEventArgs e)
@@ -77,7 +112,9 @@ namespace AdventuresPlanetUWP.Views.UserControls
         private void StopVideo(object sender, RoutedEventArgs e)
         {
             player.Stop();
-            player.Source = new Uri("ms-appx:///stop.mp3");
+            player.Position = player.NaturalDuration.TimeSpan;
+            player.Source = null;
+            _loaded = false;
         }
 
         private void PrevVideo(object sender, RoutedEventArgs e)
@@ -113,17 +150,24 @@ namespace AdventuresPlanetUWP.Views.UserControls
                 case MediaElementState.Buffering:
                     IsBuffering = true;
                     IsPlaying = false;
+                    playerButtons.Visibility = Visibility.Visible;
                     break;
                 case MediaElementState.Playing:
                     IsBuffering = false;
                     IsPlaying = true;
+                    playerButtons.Visibility = Visibility.Collapsed;
                     break;
+                case MediaElementState.Closed:
                 case MediaElementState.Stopped:
                 case MediaElementState.Paused:
                     IsBuffering = false;
                     IsPlaying = false;
+                    playerButtons.Visibility = Visibility.Visible;
                     break;
                 default:
+                    IsBuffering = false;
+                    IsPlaying = false;
+                    playerButtons.Visibility = Visibility.Visible;
                     Debug.WriteLine("Player state = yolo");
                     break;
             }
@@ -165,6 +209,14 @@ namespace AdventuresPlanetUWP.Views.UserControls
                 NotifyProperty();
             }
         }
+        private void showButtons(object sender, TappedRoutedEventArgs e)
+        {
+            if (playerButtons.Visibility == Visibility.Collapsed)
+                playerButtons.Visibility = Visibility.Visible;
+            else
+                playerButtons.Visibility = Visibility.Collapsed;
+        }
+
         public bool HasPrev
         {
             get
