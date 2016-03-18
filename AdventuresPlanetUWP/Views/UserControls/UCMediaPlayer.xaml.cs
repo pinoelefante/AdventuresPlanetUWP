@@ -36,6 +36,12 @@ namespace AdventuresPlanetUWP.Views.UserControls
             {
                 Debug.WriteLine("VideoPlayerManager = " + VideoPlayerManager.Instance.ListVideo.Count);
                 checkVideoManager();
+                MediaTransportControls ptc = new MediaTransportControls();
+                player.TransportControls.IsStopButtonVisible = true;
+                player.TransportControls.IsStopEnabled = true;
+                player.TransportControls.IsZoomButtonVisible = false;
+                player.TransportControls.IsZoomEnabled = false;
+                player.TransportControls.IsCompact = true;
             };
         }
         private DispatcherTimer mediaLoadedDt;
@@ -63,7 +69,7 @@ namespace AdventuresPlanetUWP.Views.UserControls
                         mediaLoadedDt.Stop();
                     }
                     ticks_mediaLoaded++;
-                    if (ticks_mediaLoaded > 10)
+                    if (ticks_mediaLoaded > 20) // 20 * 0.5 secondi
                         mediaLoadedDt.Stop();
                 };
             }
@@ -99,19 +105,6 @@ namespace AdventuresPlanetUWP.Views.UserControls
                 NotifyProperty();
             }
         }
-        private void PlayVideo(object sender, RoutedEventArgs e)
-        {
-            if(!_loaded)
-                LoadFirst();
-            else
-                player.Play();
-        }
-
-        private void PauseVideo(object sender, RoutedEventArgs e)
-        {
-            player.Pause();
-        }
-
         private void StopVideo(object sender, RoutedEventArgs e)
         {
             player.Stop();
@@ -133,17 +126,6 @@ namespace AdventuresPlanetUWP.Views.UserControls
             CurrentItem = VideoPlayerManager.Instance.Next();
             player.Play();
         }
-
-        private void FullscreenVideo(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ScaricaVideo(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void MediaPlayerStateChanged(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Player State = " + player.CurrentState.ToString());
@@ -152,30 +134,19 @@ namespace AdventuresPlanetUWP.Views.UserControls
                 case MediaElementState.Opening:
                 case MediaElementState.Buffering:
                     IsBuffering = true;
-                    IsPlaying = false;
-                    playerButtons.Visibility = Visibility.Visible;
                     break;
                 case MediaElementState.Playing:
-                    IsBuffering = false;
-                    IsPlaying = true;
-                    playerButtons.Visibility = Visibility.Collapsed;
-                    break;
                 case MediaElementState.Closed:
                 case MediaElementState.Stopped:
                 case MediaElementState.Paused:
                     IsBuffering = false;
-                    IsPlaying = false;
-                    playerButtons.Visibility = Visibility.Visible;
                     break;
                 default:
                     IsBuffering = false;
-                    IsPlaying = false;
-                    playerButtons.Visibility = Visibility.Visible;
-                    Debug.WriteLine("Player state = yolo");
                     break;
             }
         }
-        private bool _isBuffering, _isPlaying, _hasNext, _hasPrev;
+        private bool _isBuffering;
         public bool IsBuffering
         {
             get
@@ -188,51 +159,6 @@ namespace AdventuresPlanetUWP.Views.UserControls
                 NotifyProperty();
             }
         }
-        public bool IsPlaying
-        {
-            get
-            {
-                return _isPlaying;
-            }
-            set
-            {
-                _isPlaying = value;
-                NotifyProperty();
-            }
-        }
-        public bool HasNext
-        {
-            get
-            {
-                return _hasNext;
-            }
-            set
-            {
-                _hasNext = value;
-                NotifyProperty();
-            }
-        }
-        private void showButtons(object sender, TappedRoutedEventArgs e)
-        {
-            if (playerButtons.Visibility == Visibility.Collapsed)
-                playerButtons.Visibility = Visibility.Visible;
-            else
-                playerButtons.Visibility = Visibility.Collapsed;
-        }
-
-        public bool HasPrev
-        {
-            get
-            {
-                return _hasPrev;
-            }
-            set
-            {
-                _hasPrev = value;
-                NotifyProperty();
-            }
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyProperty([CallerMemberName]string p = null)
         {
