@@ -331,7 +331,8 @@ namespace AdventuresPlanetUWP.Classes
 
                 if (link.CompareTo(URL_BASE + "index.php") == 0 || news_ante_cont.ChildNodes.Count == 1)
                 {
-                    HtmlNode anchor = news_ante_cont.Descendants("a").Count() == 1 ? news_ante_cont.FirstChild : null;
+                    var anchor_desc = news_ante_cont.Descendants("a");
+                    HtmlNode anchor = anchor_desc.Count() == 1 ? anchor_desc.ElementAt(0) : null;
                     if (anchor != null)
                     {
                         string tlink = URL_BASE + anchor.Attributes["href"].Value;
