@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Template10.Common;
 using Windows.Media.Playback;
+using Windows.System;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 
@@ -26,6 +28,7 @@ namespace AdventuresPlanetUWP.ViewModels
             BackgroundMediaPlayer.Current.CurrentStateChanged += PlayerStateChanged;
             PodcastManager.Instance.IsPlayerLoaded();
             PlayerStateChanged(BackgroundMediaPlayer.Current, null);
+            VerificaIsSalvabile();
             return Task.CompletedTask;
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
@@ -37,10 +40,39 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         private void PlayerStateChanged(MediaPlayer sender, object args)
         {
-            WindowWrapper.Current().Dispatcher.Dispatch(() =>
+            WindowWrapper.Current().Dispatcher.Dispatch(async () =>
             {
                 switch (sender.CurrentState)
                 {
+                    case MediaPlayerState.Opening:
+                        {
+                            IsBuffering = true;
+                            IsPlaying = false;
+                            IsPlayerLoaded = true;
+                            PodcastItem podcast = PodcastManager.Instance.CurrentItem;
+                            if (podcast != null)
+                            {
+                                long position = Settings.Instance.PodcastPosition(podcast.Filename);
+                                if (Settings.Instance.RicordaPosizionePodcast && position > 100)
+                                {
+                                    PodcastManager.Instance.Pause();
+                                    MessageDialog msg = new MessageDialog("Vuoi riprendere dalla posizione salvata?");
+                                    UICommand yes = new UICommand("Si", (s) =>
+                                    {
+                                        PodcastManager.Instance.SetPosition(position);
+                                        PodcastManager.Instance.Play();
+                                    },
+                                    0);
+                                    UICommand no = new UICommand("No", (s) => { PodcastManager.Instance.Play(); }, 1);
+                                    msg.Commands.Add(yes);
+                                    msg.Commands.Add(no);
+                                    msg.CancelCommandIndex = 1;
+                                    msg.DefaultCommandIndex = 0;
+                                    await msg.ShowAsync();
+                                }
+                            }
+                        }
+                        break;
                     case MediaPlayerState.Buffering:
                         IsBuffering = true;
                         IsPlaying = false;
@@ -65,6 +97,7 @@ namespace AdventuresPlanetUWP.ViewModels
                         IsPlayerLoaded = false;
                         break;
                 }
+                VerificaIsSalvabile();
                 PodcastManager.Instance.IsStopped();
                 PodcastManager.Instance.GetTrackInfo();
             });
@@ -141,7 +174,7 @@ namespace AdventuresPlanetUWP.ViewModels
             IsPlayerLoaded = false;
         }
         public ObservableCollection<PodcastItem> ListPodcast { get; } = AdventuresPlanetManager.Instance.ListaPodcast;
-        private bool _isUpdating, _isPlaying, _isBuffering, _isPlayerLoaded;
+        private bool _isUpdating, _isPlaying, _isBuffering, _isPlayerLoaded, _isSaveable;
         private string _title = string.Empty, _durataT = string.Empty, _curPosT = string.Empty;
         private long _durata = 1, _currPos = 0;
         public bool IsUpdatingPodcast
@@ -188,6 +221,17 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set(ref _isPlayerLoaded, value);
             }
         }
+        public bool IsSaveable
+        {
+            get
+            {
+                return _isSaveable;
+            }
+            set
+            {
+                Set(ref _isSaveable, value);
+            }
+        }
         public string TitoloPodcast
         {
             get
@@ -223,7 +267,47 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set(ref _currPos, value);
                 TimeSpan dur = TimeSpan.FromTicks(_currPos);
                 CurrentPositionText = $"{dur.Hours}:{dur.Minutes.ToString("D2")}:{dur.Seconds.ToString("D2")}";
+                
             }
+        }
+        public void SalvaPosizionePodcast(object s = null, object e = null)
+        {
+            if(PodcastManager.Instance.CurrentItem != null)
+            {
+                long position = BackgroundMediaPlayer.Current.Position.Ticks;
+                Settings.Instance.SavePodcastPosition(PodcastManager.Instance.CurrentItem.Filename, position);
+            }
+        }
+        public async void GoToFacebook(object s, object e)
+        {
+            await Launcher.LaunchUriAsync(new Uri("https://www.facebook.com/calaveracafepodcast/"));
+        }
+        public async void GoToTelegram(object s, object e)
+        {
+            await Launcher.LaunchUriAsync(new Uri("https://telegram.me/calaveracafe"));
+        }
+        public async void InviaMail(object s, object e)
+        {
+            await Launcher.LaunchUriAsync(new Uri("mailto:calaveracafe@adventuresplanet.it"));
+        }
+        private void VerificaIsSalvabile()
+        {
+            if (Settings.Instance.RicordaPosizionePodcast && PodcastManager.Instance.CurrentItem!=null)
+            {
+                switch (BackgroundMediaPlayer.Current.CurrentState)
+                {
+                    case MediaPlayerState.Closed:
+                    case MediaPlayerState.Opening:
+                    case MediaPlayerState.Stopped:
+                        IsSaveable = false;
+                        break;
+                    default:
+                        IsSaveable = true;
+                        break;
+                }
+            }
+            if (!IsPlayerLoaded)
+                IsSaveable = false;
         }
         public string DurataText
         {

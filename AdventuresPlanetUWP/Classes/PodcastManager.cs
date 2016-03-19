@@ -70,6 +70,7 @@ namespace AdventuresPlanetUWP.Classes
         {
             return url.Substring(url.LastIndexOf("/") + 1);
         }
+        public PodcastItem CurrentItem { get; set; }
         public async void Play(PodcastItem pod)
         {
             if (await isDownloaded(pod.Link))
@@ -79,7 +80,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void PlayOnline(PodcastItem pod)
         {
-            //TODO send toast se offline
+            CurrentItem = pod;
             Debug.WriteLine("Play online");
             ValueSet set = new ValueSet()
             {
@@ -116,10 +117,12 @@ namespace AdventuresPlanetUWP.Classes
                 {"Command","Stop"}
             };
             BackgroundMediaPlayer.SendMessageToBackground(set);
+            CurrentItem = null;
         }
         public async void PlayOffline(PodcastItem pod)
         {
             Debug.WriteLine("Play offline");
+            CurrentItem = pod;
             StorageFile file = await getLocalFile(pod.Link);
             ValueSet set = new ValueSet()
             {
@@ -168,6 +171,15 @@ namespace AdventuresPlanetUWP.Classes
             ValueSet set = new ValueSet()
             {
                 {"Command","GetPosition" }
+            };
+            BackgroundMediaPlayer.SendMessageToBackground(set);
+        }
+        public void SetPosition(long ticks)
+        {
+            ValueSet set = new ValueSet()
+            {
+                {"Command","SetPosition" },
+                {"NewPosition", ticks }
             };
             BackgroundMediaPlayer.SendMessageToBackground(set);
         }

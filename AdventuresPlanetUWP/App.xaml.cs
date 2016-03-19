@@ -95,7 +95,22 @@ namespace AdventuresPlanetUWP
                         Debug.WriteLine(e.Message);
                     }
             });
-            
+        }
+        internal static void KeepScreenOn_ForceRelease()
+        {
+            WindowWrapper.Current().Dispatcher.Dispatch(() =>
+            {
+                KSACount = 0;
+                if (KSARequest != null)
+                    try
+                    {
+                        KSARequest.RequestRelease();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.Message);
+                    }
+            });
         }
 
         internal static void KeepScreenOn()

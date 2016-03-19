@@ -41,8 +41,9 @@
                 <ToggleSwitch x:Uid="/Settings/settings_rece_manuale" Header="Aggiorna elenco recensioni manualmente" IsOn="{Binding Settings.UpdateRecensioniManualmente, Mode=TwoWay}" />
                 <ToggleSwitch x:Uid="/Settings/settings_solu_manuale" Header="Aggiorna elenco soluzioni manualmente" IsOn="{Binding Settings.UpdateSoluzioniManualmente, Mode=TwoWay}" />
                 <ToggleSwitch x:Uid="/Settings/settings_carica_immagini" Header="Carica le immagini di soluzioni/recensioni" IsOn="{Binding Settings.IsLoadImages, Mode=TwoWay}" />
-                <ToggleSwitch x:Uid="/Settings/settings_posizione_solu" IsOn="{Binding Settings.RicordaPosizioneSoluzioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle soluzioni"/>
                 <ToggleSwitch x:Uid="/Settings/settings_posizione_rece" IsOn="{Binding Settings.RicordaPosizioneRecensioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle recensioni"/>
+                <ToggleSwitch x:Uid="/Settings/settings_posizione_solu" IsOn="{Binding Settings.RicordaPosizioneSoluzioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle soluzioni"/>
+                <ToggleSwitch IsOn="{Binding Settings.RicordaPosizionePodcast, Mode=TwoWay}" Header="Abilita salvataggio della posizione dei podcast"/>
                 <ToggleSwitch x:Uid="/Settings/settings_letitsnow" IsOn="{Binding Settings.LetItSnow, Mode=TwoWay}" Header="Let it snow" Visibility="{Binding Converter={StaticResource ChristmasV}}"/>
                 <StackPanel Orientation="Horizontal" Margin="0,8">
                     <TextBlock x:Uid="/Settings/settings_video" Text="Qualità massima video" VerticalAlignment="Center"/>

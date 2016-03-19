@@ -10,11 +10,13 @@
     d:DesignHeight="300"
     d:DesignWidth="400" 
     DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+    
     <UserControl.Resources>
         <Converters:BoolToVisibility x:Key="BoolVisibility"/>
         <Converters:NotBoolean x:Key="NotBool"/>
         <Converters:NotBoolToVisibility x:Key="NotBoolVisibility"/>
     </UserControl.Resources>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

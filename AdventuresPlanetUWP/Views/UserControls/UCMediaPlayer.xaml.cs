@@ -27,7 +27,6 @@ namespace AdventuresPlanetUWP.Views.UserControls
     /// </summary>
     public sealed partial class UCMediaPlayer : UserControl, INotifyPropertyChanged
     {
-        private bool _loaded = false; 
         public UCMediaPlayer()
         {
             ticks_mediaLoaded = 0;
@@ -63,14 +62,21 @@ namespace AdventuresPlanetUWP.Views.UserControls
                         if (ToLoad)
                         {
                             //Mostrare errore di caricamento video
-                            MessageDialog msg = new MessageDialog("Errore durante il caricamento del video");
+                            MessageDialog msg = new MessageDialog("Errore durante il caricamento del video.\nProva ad aprire il contenuto nel browser.");
                             msg.ShowAsync();
                         }
                         mediaLoadedDt.Stop();
                     }
                     ticks_mediaLoaded++;
                     if (ticks_mediaLoaded > 20) // 20 * 0.5 secondi
+                    { 
                         mediaLoadedDt.Stop();
+                        if (ToLoad)
+                        {
+                            MessageDialog msg = new MessageDialog("Errore durante il caricamento del video.\nProva ad aprire il contenuto nel browser.");
+                            msg.ShowAsync();
+                        }
+                    }
                 };
             }
             if(!mediaLoadedDt.IsEnabled)
@@ -84,7 +90,6 @@ namespace AdventuresPlanetUWP.Views.UserControls
                 Debug.WriteLine($"CurrentItem = Uri={CurrentItem.Uri}, Itag={CurrentItem.Itag}, VideoQuality={CurrentItem.VideoQuality}");
                 player.Source = CurrentItem.Uri;
                 player.Play();
-                _loaded = true;
             }
             else
             {
@@ -110,7 +115,6 @@ namespace AdventuresPlanetUWP.Views.UserControls
             player.Stop();
             player.Position = player.NaturalDuration.TimeSpan;
             player.Source = null;
-            _loaded = false;
         }
 
         private void PrevVideo(object sender, RoutedEventArgs e)
@@ -133,16 +137,22 @@ namespace AdventuresPlanetUWP.Views.UserControls
             {
                 case MediaElementState.Opening:
                 case MediaElementState.Buffering:
+                    App.KeepScreenOn();
                     IsBuffering = true;
                     break;
                 case MediaElementState.Playing:
+                    IsBuffering = false;
+                    App.KeepScreenOn();
+                    break;
                 case MediaElementState.Closed:
                 case MediaElementState.Stopped:
                 case MediaElementState.Paused:
                     IsBuffering = false;
+                    App.KeepScreenOn_ForceRelease();
                     break;
                 default:
                     IsBuffering = false;
+                    App.KeepScreenOn_ForceRelease();
                     break;
             }
         }

@@ -19,6 +19,7 @@
         <Converters:NotBoolean x:Key="NotBool"/>
         <Converters:BoolToVisibility x:Key="BoolVisibility"/>
         <Converters:NotBoolToVisibility x:Key="NotBoolVisibility"/>
+        <Converters:StringEmptyVisibility x:Key="StringVisibility"/>
     </Page.Resources>
     
     <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -31,10 +32,18 @@
 
         <controls:PageHeader BackButtonVisibility="Collapsed" Content="Calavera Cafè" Frame="{x:Bind Frame}">
             <controls:PageHeader.PrimaryCommands>
-                <AppBarButton Click="{x:Bind VM.AggiornaPodcast}" IsEnabled="{Binding IsUpdatingPodcast, Converter={StaticResource NotBool}}">
+                <AppBarButton Click="{x:Bind VM.AggiornaPodcast}" Label="Aggiorna" IsEnabled="{Binding IsUpdatingPodcast, Converter={StaticResource NotBool}}">
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72C;"/>
                 </AppBarButton>
+                <AppBarButton Click="{x:Bind VM.SalvaPosizionePodcast}" Label="Salva posizione" IsEnabled="{Binding IsSaveable}" Visibility="{Binding IsSaveable, Converter={StaticResource BoolVisibility}}">
+                    <SymbolIcon Symbol="Save"/>
+                </AppBarButton>
             </controls:PageHeader.PrimaryCommands>
+            <controls:PageHeader.SecondaryCommands>
+                <AppBarButton Label="Pagina facebook" Click="{x:Bind VM.GoToFacebook}"/>
+                <AppBarButton Label="Canale telegram" Click="{x:Bind VM.GoToTelegram}"/>
+                <AppBarButton Label="Invia email" Click="{x:Bind VM.InviaMail}" />
+            </controls:PageHeader.SecondaryCommands>
         </controls:PageHeader>
 
         <ProgressRing Grid.Row="1" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" IsActive="{Binding IsUpdatingPodcast}" Visibility="{Binding IsUpdatingPodcast, Converter={StaticResource BoolVisibility}}" Canvas.ZIndex="999"/>
@@ -89,10 +98,16 @@
                     <Button Grid.Column="2" Background="Transparent" Click="{x:Bind VM.Stop}">
                         <SymbolIcon Symbol="Stop"/>
                     </Button>
-
+                    <TextBlock Grid.Column="5" Margin="8,0" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding CurrentPositionText, Converter={StaticResource StringVisibility}}">
+                        <Run Text="{Binding CurrentPositionText}"/>
+                        <Run Text="/"/>
+                        <Run Text="{Binding DurataText}"/>
+                    </TextBlock>
+                    <!--
                     <TextBlock Margin="8,0" VerticalAlignment="Center" Text="{Binding CurrentPositionText}" Grid.Column="3"/>
                     <Slider Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" IsEnabled="False" Minimum="0" Maximum="{Binding Durata}" Value="{Binding CurrentPosition}" />
                     <TextBlock Margin="8,0" VerticalAlignment="Center" Text="{Binding DurataText}" Grid.Column="5"/>
+                    -->
                 </Grid>
             </Grid>
         </Grid>

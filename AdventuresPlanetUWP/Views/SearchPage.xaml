@@ -7,7 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:vm="using:AdventuresPlanetUWP.ViewModels"
-    xmlns:controls="using:Template10.Controls">
+    xmlns:controls="using:Template10.Controls"
+    xmlns:Behaviors="using:Template10.Behaviors"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity">
 
     <Page.DataContext>
         <vm:SearchPageViewModel/>
@@ -22,7 +25,13 @@
 
         <controls:PageHeader BackButtonVisibility="Collapsed" IsEnabled="False"/>
 
-        <TextBox x:Uid="/Search/search_placeholder" Grid.Row="1" Margin="16" PlaceholderText="Digita per cercare..." TextChanged="{x:Bind VM.DoSearch}"/>
+        <TextBox x:Uid="/Search/search_placeholder" Grid.Row="1" Margin="16" PlaceholderText="Digita per cercare..." TextChanged="{x:Bind VM.DoSearch}">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior>
+                    <Behaviors:FocusAction/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </TextBox>
 
         <ListView Grid.Row="2" ItemsSource="{Binding ListSearch}">
             <ListView.ItemTemplate>

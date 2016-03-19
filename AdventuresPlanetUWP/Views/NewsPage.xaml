@@ -31,7 +31,7 @@
         <!--  page header  -->
         <controls:PageHeader x:Uid="/News/news_header" BackButtonVisibility="Collapsed" Content="News" Frame="{x:Bind Frame}">
             <controls:PageHeader.PrimaryCommands>
-                <AppBarButton Click="{x:Bind VM.AggiornaNews}" IsEnabled="{Binding IsUpdatingNews, Converter={StaticResource NotBool}}">
+                <AppBarButton Click="{x:Bind VM.AggiornaNews}" Label="Aggiorna" IsEnabled="{Binding IsUpdatingNews, Converter={StaticResource NotBool}}">
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72C;"/>
                 </AppBarButton>
             </controls:PageHeader.PrimaryCommands>

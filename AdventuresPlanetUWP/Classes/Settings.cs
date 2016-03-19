@@ -81,17 +81,24 @@ namespace AdventuresPlanetUWP.Classes
         public int RecensionePosition(string id)
         {
             if (local_settings.Values[$"rec_{id}"] == null)
-            {
-                //Debug.WriteLine("rec_" + id + " = null");
                 return 0;
-            }
             int pos = (int)local_settings.Values[$"rec_{id}"];
-            //Debug.WriteLine("rec_" + id + "=" + pos);
             return pos;
         }
         public void SaveSoluzionePosition(string id, int pos)
         {
             local_settings.Values[$"sol_{id}"] = pos;
+        }
+        public void SavePodcastPosition(string filename, long position)
+        {
+            local_settings.Values[$"pod_{filename}"] = position;
+        }
+        public long PodcastPosition(string filename)
+        {
+            if (local_settings.Values[$"pod_{filename}"] == null)
+                return 0;
+            long pos = (long)local_settings.Values[$"pod_{filename}"];
+            return pos;
         }
         public Int32 DatabaseVersion
         {
@@ -324,6 +331,19 @@ namespace AdventuresPlanetUWP.Classes
             set
             {
                 local_settings.Values["ricorda_posizione_soluzioni"] = value;
+            }
+        }
+        public bool RicordaPosizionePodcast
+        {
+            get
+            {
+                if (local_settings.Values["ricorda_posizione_podcast"] == null)
+                    return false;
+                return (Boolean)local_settings.Values["ricorda_posizione_podcast"];
+            }
+            set
+            {
+                local_settings.Values["ricorda_posizione_podcast"] = value;
             }
         }
         public bool RicordaPosizioneRecensioni

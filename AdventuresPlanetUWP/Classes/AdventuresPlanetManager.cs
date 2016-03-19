@@ -312,6 +312,7 @@ namespace AdventuresPlanetUWP.Classes
             string meselink = GetPeriodoString(anno, mese);
             string meseTimestamp = Settings.getUnixTimeStamp(anno, mese).ToString();
             string page = $"{URL_BASE}/index.php?old=si&data={meseTimestamp}";
+            Debug.WriteLine(page);
             string response = await http.GetStringAsync(new Uri(page));
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(response);
