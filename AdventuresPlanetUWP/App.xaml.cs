@@ -13,6 +13,8 @@ using Windows.System;
 using System.Globalization;
 using Windows.ApplicationModel.Resources;
 using Template10.Common;
+using Windows.Storage;
+using Windows.ApplicationModel;
 
 namespace AdventuresPlanetUWP
 {
@@ -62,6 +64,12 @@ namespace AdventuresPlanetUWP
             // setup hamburger shell
             var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include);
             Window.Current.Content = new Views.Shell(nav);
+#if DEBUG
+            //FOR IAP DEVELOPMENT
+            StorageFolder folder = await Package.Current.InstalledLocation.GetFolderAsync("Assets");
+            StorageFile file = await folder.GetFileAsync("IAPTest.xml");
+            await CurrentAppSimulator.ReloadSimulatorAsync(file);
+#endif
             await Task.Yield();
         }
 

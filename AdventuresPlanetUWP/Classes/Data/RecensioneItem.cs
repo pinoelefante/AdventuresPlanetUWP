@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 
 namespace AdventuresPlanetUWP.Classes.Data
@@ -14,8 +15,9 @@ namespace AdventuresPlanetUWP.Classes.Data
             Link = link;
             Id = getUrlParameter("game");
         }
-        public string VotoText { get; set; } = string.Empty;
-        public string VotoUtentiText { get; set; } = string.Empty;
+        private string _vt = string.Empty, _vut = string.Empty;
+        public string VotoText { get { return _vt; } set { _vt = value; propertyChanged(); } }
+        public string VotoUtentiText { get { return _vut; } set { _vut = value; propertyChanged(); } }
         public string TestoBreve { get; set; } = string.Empty;
         public bool IsRecensioneBreve
         {

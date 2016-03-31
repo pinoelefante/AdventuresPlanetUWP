@@ -28,9 +28,5 @@ namespace AdventuresPlanetUWP.Views
             this.InitializeComponent();
         }
         public ViewNewsViewModel VM => this.DataContext as ViewNewsViewModel;
-        private void showTitle(object sender, TappedRoutedEventArgs e)
-        {
-            Flyout.ShowAttachedFlyout(sender as FrameworkElement);
-        }
     }
 }

@@ -70,7 +70,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 RecensioneItem rec = AdventuresPlanetManager.Instance.GetRecensione(id);
                 if (rec == null)
                     rec = new RecensioneItem(n.Titolo, "", "", n.Link) { isTemporary = true };
-                NavigationService.Navigate(typeof(Views.ContentsPage), rec);
+                NavigationService.Navigate(typeof(Views.ViewRecensione), rec);
             }
             else if (AdventuresPlanetManager.isSoluzione(n.Link))
             {
@@ -78,10 +78,10 @@ namespace AdventuresPlanetUWP.ViewModels
                 SoluzioneItem sol = AdventuresPlanetManager.Instance.GetSoluzione(id);
                 if (sol == null)
                     sol = new SoluzioneItem(n.Titolo, "", n.Link) { isTemporary = true };
-                NavigationService.Navigate(typeof(Views.ContentsPage), sol);
+                NavigationService.Navigate(typeof(Views.ViewSoluzione), sol);
             }
             else 
-                NavigationService.Navigate(typeof(Views.ViewNewsPage), n);
+                NavigationService.Navigate(typeof(ViewNewsPage), n);
         }
         public void AggiornaNews(object sender = null, object e = null)
         {

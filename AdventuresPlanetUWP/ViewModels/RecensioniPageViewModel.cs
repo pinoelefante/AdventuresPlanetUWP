@@ -16,16 +16,16 @@ namespace AdventuresPlanetUWP.ViewModels
 {
     public class RecensioniPageViewModel : Mvvm.ViewModelBase
     {
-        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             Debug.WriteLine("Recensioni on navigatedTo");
-            if (!Settings.Instance.IsRecensioniUpdated && !Settings.Instance.UpdateRecensioniManualmente)
+            if (!await Settings.Instance.IsRecensioniUpdated() && !Settings.Instance.UpdateRecensioniManualmente)
             {
                 AggiornaRecensioni();
             }
             if(ListaRecensioni==null || ListaRecensioni.Count == 0)
                 GroupByLetter();
-            return Task.CompletedTask;
+            //return Task.CompletedTask;
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
@@ -146,7 +146,7 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void Open(RecensioneItem item)
         {
-            NavigationService.Navigate(typeof(ContentsPage), item);
+            NavigationService.Navigate(typeof(ViewRecensione), item);
         }
         public void GoToSearch(object s, object e)
         {

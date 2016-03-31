@@ -44,7 +44,7 @@ namespace AdventuresPlanetUWP.Classes.Data
         }
         public virtual bool IsSaveable()
         {
-            if (isTemporary)
+            if (isTemporary || isVideo)
                 return false;
             return true;
         }

@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Net.Http;
+using System.Runtime.Serialization.Json;
+using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace AdventuresPlanetUWP.Classes
@@ -21,6 +25,7 @@ namespace AdventuresPlanetUWP.Classes
         {
             local_settings = ApplicationData.Current.LocalSettings;
             avvioApp();
+            OnlineConfig = ReadOnlineConfig();
         }
         public int DimensioneFont 
         {
@@ -142,14 +147,21 @@ namespace AdventuresPlanetUWP.Classes
                 local_settings.Values["recensioni_last_update"] = value;
             }
         }
-        public Boolean IsRecensioniUpdated
+        public async Task<bool> IsRecensioniUpdated()
         {
-            get
+            if (!_isOnlineConfigRead)
+                await OnlineConfig;
+            if (_OnlineSettings != null)
+            {
+                if (getUnixTimeStamp() - LastRecensioniUpdate > _OnlineSettings.RecensioniUpdateTime)
+                    return false;
+            }
+            else
             {
                 if (getUnixTimeStamp() - LastRecensioniUpdate > 86400)
                     return false;
-                return true;
             }
+            return true;
         }
         public long LastSoluzioniUpdate
         {
@@ -164,14 +176,21 @@ namespace AdventuresPlanetUWP.Classes
                 local_settings.Values["soluzioni_last_update"] = value;
             }
         }
-        public Boolean IsSoluzioniUpdated
+        public async Task<bool> IsSoluzioniUpdated()
         {
-            get
+            if (!_isOnlineConfigRead)
+                await OnlineConfig;
+            if (_OnlineSettings != null)
+            {
+                if (getUnixTimeStamp() - LastSoluzioniUpdate > _OnlineSettings.SoluzioniUpdateTime)
+                    return false;
+            }
+            else
             {
                 if (getUnixTimeStamp() - LastSoluzioniUpdate > 86400)
                     return false;
-                return true;
             }
+            return true;
         }
         public Boolean UpdateRecensioniManualmente
         {
@@ -225,14 +244,21 @@ namespace AdventuresPlanetUWP.Classes
                 local_settings.Values["load_images"] = value;
             }
         }
-        public Boolean IsPodcastUpdated
+        public async Task<bool> IsPodcastUpdated()
         {
-            get
+            if (!_isOnlineConfigRead)
+                await OnlineConfig;
+            if (_OnlineSettings != null)
+            {
+                if (getUnixTimeStamp() - LastPodcastUpdate > _OnlineSettings.PodcastUpdateTime)
+                    return false;
+            }
+            else
             {
                 if (getUnixTimeStamp() - LastPodcastUpdate > 86400)
                     return false;
-                return true;
             }
+            return true;
         }
         public long LastNewsUpdate
         {
@@ -392,6 +418,44 @@ namespace AdventuresPlanetUWP.Classes
                     return YouTubeQuality.Quality2160P;
             }
             return YouTubeQuality.Quality480P;
+        }
+        private Task OnlineConfig;
+        private bool _isOnlineConfigRead = false;
+        private OnlineSettings _OnlineSettings = new OnlineSettings();
+        private async Task ReadOnlineConfig()
+        {
+            try
+            {
+                HttpClient http = new HttpClient();
+                Stream configStream = await http.GetStreamAsync(new Uri("http://pinoelefante.altervista.org/avp_it/config.json"));
+                DataContractJsonSerializer ds = new DataContractJsonSerializer(typeof(OnlineSettings));
+                _OnlineSettings = (OnlineSettings)ds.ReadObject(configStream);
+            }
+            catch
+            {
+                
+            }
+            finally
+            {
+                _isOnlineConfigRead = true;
+            }
+            
+        }
+        public async Task<bool> IsAdsActive()
+        {
+            if (!_isOnlineConfigRead)
+                await OnlineConfig;
+            if (_OnlineSettings != null)
+                return _OnlineSettings.AdsActive;
+            else
+                return true;
+        }
+        public class OnlineSettings
+        {
+            public bool AdsActive { get; set; } = true;
+            public long RecensioniUpdateTime { get; set; } = 86400;
+            public long SoluzioniUpdateTime { get; set; } = 86400;
+            public long PodcastUpdateTime { get; set; } = 86400;
         }
     }
 }

@@ -14,15 +14,15 @@ namespace AdventuresPlanetUWP.ViewModels
 {
     public class SoluzioniPageViewModel : Mvvm.ViewModelBase
     {
-        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            if (!Settings.Instance.IsSoluzioniUpdated && !Settings.Instance.UpdateSoluzioniManualmente)
+            if (!await Settings.Instance.IsSoluzioniUpdated() && !Settings.Instance.UpdateSoluzioniManualmente)
             {
                 AggiornaSoluzioni();
             }
             if (ListaSoluzioni == null || ListaSoluzioni.Count == 0)
                 GroupByAlpha();
-            return Task.CompletedTask;
+            //return Task.CompletedTask;
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
@@ -117,7 +117,7 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void Open(SoluzioneItem sol)
         {
-            NavigationService.Navigate(typeof(ContentsPage), sol);
+            NavigationService.Navigate(typeof(ViewSoluzione), sol);
         }
         public void GoToSearch(object s, object e)
         {

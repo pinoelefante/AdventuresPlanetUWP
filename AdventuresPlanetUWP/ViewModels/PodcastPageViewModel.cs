@@ -18,9 +18,9 @@ namespace AdventuresPlanetUWP.ViewModels
 {
     public class PodcastPageViewModel : Mvvm.ViewModelBase
     {
-        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            if (!Settings.Instance.IsPodcastUpdated)
+            if (!await Settings.Instance.IsPodcastUpdated())
             {
                 AggiornaPodcast();
             }
@@ -29,7 +29,7 @@ namespace AdventuresPlanetUWP.ViewModels
             PodcastManager.Instance.IsPlayerLoaded();
             PlayerStateChanged(BackgroundMediaPlayer.Current, null);
             VerificaIsSalvabile();
-            return Task.CompletedTask;
+            //return Task.CompletedTask;
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {

@@ -9,6 +9,10 @@ using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using System;
+using Windows.UI.Xaml;
+using AdventuresPlanetUWP.Classes;
+using AdventuresPlanetUWP.Views.ContentDialogs;
 
 namespace AdventuresPlanetUWP.Views
 {
@@ -23,6 +27,7 @@ namespace AdventuresPlanetUWP.Views
             Instance = this;
             InitializeComponent();
             MyHamburgerMenu.NavigationService = navigationService;
+            EnableAds();
         }
 
         public bool IsBusy { get; set; } = false;
@@ -46,7 +51,7 @@ namespace AdventuresPlanetUWP.Views
             });
         }
         private ResourceLoader resHoliday = ResourceLoader.GetForCurrentView("Holidays");
-        private void Auguri(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void Auguri(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Debug.WriteLine("Tento di fare gli auguri");
             string message = resHoliday.GetString("auguri_feste");
@@ -57,7 +62,40 @@ namespace AdventuresPlanetUWP.Views
             else if (ChristmasTime.IsEpifania())
                 message = resHoliday.GetString("auguri_epifania");
 
-            new MessageDialog(message, resHoliday.GetString("auguri_titolo")).ShowAsync();
+            await new MessageDialog(message, resHoliday.GetString("auguri_titolo")).ShowAsync();
+        }
+        private async void EnableAds()
+        {
+            if (await Settings.Instance.IsAdsActive())
+            {
+                if (!IAPManager.Instance.IsProductActive(IAPCodes.REMOVE_ADS))
+                {
+                    FrameworkElement adsCont = FindName("AdsContainer") as FrameworkElement;
+                    adsCont.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        private async void RemoveAds(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            BuyRemoveAdsContentDialog dlg = new BuyRemoveAdsContentDialog();
+            dlg.AtFinish = () =>
+            {
+                Debug.WriteLine("Running AtFinish");
+                bool AdsRemoved = IAPManager.Instance.IsProductActive(IAPCodes.REMOVE_ADS);
+                if (AdsRemoved)
+                    CloseAds();
+                Debug.WriteLine("AdsRemoved value = " + AdsRemoved);
+            };
+            await dlg.ShowAsync();
+        }
+        private void CloseAds()
+        {
+            if (AdsContainer != null)
+            {
+                AdsContainer.Children.Clear();
+                AdsContainer.Visibility = Visibility.Collapsed;
+                AdsContainer = null;
+            }
         }
     }
 }

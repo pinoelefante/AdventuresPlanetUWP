@@ -1,4 +1,4 @@
-<Page x:Class="AdventuresPlanetUWP.Views.Shell"
+<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:Controls="using:Template10.Controls"
@@ -7,51 +7,32 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:AdventuresPlanetUWP.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:views="using:AdventuresPlanetUWP.Views" mc:Ignorable="d"
-      xmlns:Converters="using:AdventuresPlanetUWP.Converters">
+      xmlns:views="using:AdventuresPlanetUWP.Views"
+      xmlns:Converters="using:AdventuresPlanetUWP.Converters" xmlns:Universal="using:Microsoft.AdMediator.Universal" x:Class="AdventuresPlanetUWP.Views.Shell"
+      mc:Ignorable="d"
+      >
     <Page.Resources>
         <Converters:ChristmasVisibility x:Key="IsChristmas"/>
     </Page.Resources>
-    <Controls:ModalDialog IsModal="{x:Bind IsBusy, Mode=OneWay}">
-        <Controls:ModalDialog.Content>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Controls:ModalDialog IsModal="{x:Bind IsBusy, Mode=OneWay}" Grid.Row="0">
+            <Controls:ModalDialog.ModalContent>
+
+                <Viewbox Height="32">
+                    <StackPanel Orientation="Horizontal">
+                        <ProgressRing Width="16" Height="16"
+							Margin="12,0" Foreground="White"
+							IsActive="{x:Bind IsBusy, Mode=OneWay}" />
+                        <TextBlock VerticalAlignment="Center" Foreground="White" Text="{x:Bind BusyText, Mode=OneWay}" />
+                    </StackPanel>
+                </Viewbox>
+            </Controls:ModalDialog.ModalContent>
             <Controls:HamburgerMenu x:Name="MyHamburgerMenu" IsFullScreen="False">
-
-                <Controls:HamburgerMenu.PrimaryButtons>
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsPage">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="PreviewLink" />
-                            <TextBlock x:Uid="/Shell/hamburger_news" Margin="12,0,0,0" VerticalAlignment="Center" Text="News" />
-                        </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-
-                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:RecensioniPage">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="Like" />
-                            <TextBlock x:Uid="/Shell/hamburger_recensioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Recensioni" />
-                        </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-
-                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:SoluzioniPage">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="AllApps" />
-                            <TextBlock x:Uid="/Shell/hamburger_soluzioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Soluzioni" />
-                        </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-
-                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PreferitiPage">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="OutlineStar" />
-                            <TextBlock x:Uid="/Shell/hamburger_preferiti" Margin="12,0,0,0" VerticalAlignment="Center" Text="Preferiti" />
-                        </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-
-                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PodcastPage">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="Microphone" />
-                            <TextBlock x:Uid="/Shell/hamburger_podcast" Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
-                        </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-                </Controls:HamburgerMenu.PrimaryButtons>
 
                 <Controls:HamburgerMenu.SecondaryButtons>
                     <Controls:HamburgerButtonInfo PageType="views:SettingsPage">
@@ -77,21 +58,47 @@
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
                 </Controls:HamburgerMenu.SecondaryButtons>
+                <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsPage">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Width="48" Height="48" Symbol="PreviewLink" />
+                        <TextBlock x:Uid="/Shell/hamburger_news" Margin="12,0,0,0" VerticalAlignment="Center" Text="News" />
+                    </StackPanel>
+                </Controls:HamburgerButtonInfo>
+
+                <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:RecensioniPage">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Width="48" Height="48" Symbol="Like" />
+                        <TextBlock x:Uid="/Shell/hamburger_recensioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Recensioni" />
+                    </StackPanel>
+                </Controls:HamburgerButtonInfo>
+
+                <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:SoluzioniPage">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Width="48" Height="48" Symbol="AllApps" />
+                        <TextBlock x:Uid="/Shell/hamburger_soluzioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Soluzioni" />
+                    </StackPanel>
+                </Controls:HamburgerButtonInfo>
+
+                <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PreferitiPage">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Width="48" Height="48" Symbol="OutlineStar" />
+                        <TextBlock x:Uid="/Shell/hamburger_preferiti" Margin="12,0,0,0" VerticalAlignment="Center" Text="Preferiti" />
+                    </StackPanel>
+                </Controls:HamburgerButtonInfo>
+
+                <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PodcastPage">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Width="48" Height="48" Symbol="Microphone" />
+                        <TextBlock x:Uid="/Shell/hamburger_podcast" Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
+                    </StackPanel>
+                </Controls:HamburgerButtonInfo>
             </Controls:HamburgerMenu>
+        </Controls:ModalDialog>
 
-        </Controls:ModalDialog.Content>
-        <Controls:ModalDialog.ModalContent>
-
-            <Viewbox Height="32">
-                <StackPanel Orientation="Horizontal">
-                    <ProgressRing Width="16" Height="16"
-                                  Margin="12,0" Foreground="White"
-                                  IsActive="{x:Bind IsBusy, Mode=OneWay}" />
-                    <TextBlock VerticalAlignment="Center" Foreground="White" Text="{x:Bind BusyText, Mode=OneWay}" />
-                </StackPanel>
-            </Viewbox>
-        </Controls:ModalDialog.ModalContent>
-    </Controls:ModalDialog>
-
+        <Grid x:Name="AdsContainer" Grid.Row="1" Visibility="Collapsed" x:DeferLoadStrategy="Lazy">
+            <Universal:AdMediatorControl x:Name="AdMediator_D58149" Id="AdMediator-Id-39AD79B3-C64B-463B-B0D1-B8F0E2249B77" Height="80" Width="480"/>
+            <Button Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Gray" Opacity=".5" Canvas.ZIndex="1" Click="RemoveAds"/>
+        </Grid>
+    </Grid>
 </Page>
 

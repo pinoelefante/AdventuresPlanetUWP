@@ -95,6 +95,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="AdMediator.config" />
     <None Include="AdventuresPlanetUWP_StoreKey.pfx" />
     <PRIResource Include="Strings\en\Download.resw" />
     <PRIResource Include="Strings\it\Download.resw" />
@@ -131,6 +132,7 @@
     <Content Include="Assets\candle.scale-100.png" />
     <Content Include="Assets\candle.scale-200.png" />
     <Content Include="Assets\candle.scale-400.png" />
+    <Content Include="Assets\IAPTest.xml" />
     <Content Include="Assets\snowflake_full.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150.scale-200.png" />
@@ -177,6 +179,7 @@
     <Compile Include="Classes\Data\SoluzioneItem.cs" />
     <Compile Include="Classes\DownloadManager.cs" />
     <Compile Include="Classes\Grouping\AlphaGrouping.cs" />
+    <Compile Include="Classes\IAPManager.cs" />
     <Compile Include="Classes\Interface\Cleanable.cs" />
     <Compile Include="Classes\PodcastManager.cs" />
     <Compile Include="Classes\Settings.cs" />
@@ -211,8 +214,8 @@
     <Compile Include="ViewModels\SearchPageViewModel.cs" />
     <Compile Include="ViewModels\SoluzioniPageViewModel.cs" />
     <Compile Include="ViewModels\ViewNewsViewModel.cs" />
-    <Compile Include="Views\ContentsPage.xaml.cs">
-      <DependentUpon>ContentsPage.xaml</DependentUpon>
+    <Compile Include="Views\ContentDialogs\BuyRemoveAdsContentDialog.xaml.cs">
+      <DependentUpon>BuyRemoveAdsContentDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FirstStartPage.xaml.cs">
       <DependentUpon>FirstStartPage.xaml</DependentUpon>
@@ -271,6 +274,12 @@
     <Compile Include="Views\ViewNewsPage.xaml.cs">
       <DependentUpon>ViewNewsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewRecensione.xaml.cs">
+      <DependentUpon>ViewRecensione.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewSoluzione.xaml.cs">
+      <DependentUpon>ViewSoluzione.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -292,7 +301,7 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="Views\ContentsPage.xaml">
+    <Page Include="Views\ContentDialogs\BuyRemoveAdsContentDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -372,11 +381,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ViewRecensione.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewSoluzione.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <SDKReference Include="Microsoft.AdMediator.Universal, Version=1.0">
+      <Name>Microsoft.AdMediator.Universal</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.Advertising.Xaml, Version=10.0">
+      <Name>Microsoft Advertising SDK for XAML</Name>
+    </SDKReference>
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>

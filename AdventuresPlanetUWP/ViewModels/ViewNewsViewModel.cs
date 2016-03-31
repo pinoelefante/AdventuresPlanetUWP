@@ -168,13 +168,13 @@ namespace AdventuresPlanetUWP.ViewModels
                                 SoluzioneItem sol = DatabaseSystem.Instance.selectSoluzione(id);
                                 if (sol != null)
                                 {
-                                    NavigationService.Navigate(typeof(ContentsPage), sol);
+                                    NavigationService.Navigate(typeof(ViewSoluzione), sol);
                                 }
                                 else
                                 {
                                     //Debug.WriteLine("sol not found - " + link);
                                     sol = new SoluzioneItem(text, "", link) {isTemporary = true };
-                                    NavigationService.Navigate(typeof(ContentsPage), sol);
+                                    NavigationService.Navigate(typeof(ViewSoluzione), sol);
                                 }
                             }
                             else if (AdventuresPlanetManager.isRecensione(link))
@@ -183,13 +183,13 @@ namespace AdventuresPlanetUWP.ViewModels
                                 RecensioneItem rec = DatabaseSystem.Instance.selectRecensione(id);
                                 if (rec != null)
                                 {
-                                    NavigationService.Navigate(typeof(ContentsPage), rec);
+                                    NavigationService.Navigate(typeof(ViewRecensione), rec);
                                 }
                                 else
                                 {
                                     rec = new RecensioneItem(text, "", "", link) { isTemporary = true };
                                     //Debug.WriteLine("rec not found - " + link);
-                                    NavigationService.Navigate(typeof(ContentsPage), rec);
+                                    NavigationService.Navigate(typeof(ViewRecensione), rec);
                                 }
 
                             }

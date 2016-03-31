@@ -92,7 +92,10 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void Open(PaginaContenuti pc)
         {
-            NavigationService.Navigate(typeof(ContentsPage), pc);
+            if(IsRecensioni)
+                NavigationService.Navigate(typeof(ViewRecensione), pc);
+            else if(IsSoluzioni)
+                NavigationService.Navigate(typeof(ViewSoluzione), pc);
         }
     }
 }

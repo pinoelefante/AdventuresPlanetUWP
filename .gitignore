@@ -211,3 +211,16 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/AdventuresPlanetUWP/_scale-400.appx
+/AdventuresPlanetUWP/_scale-100.appx
+/AdventuresPlanetUWP/_pkginfo.txt
+/AdventuresPlanetUWP/_language-en.appx
+/AdventuresPlanetUWP/BundleArtifacts/x86.txt
+/AdventuresPlanetUWP/BundleArtifacts/x64.txt
+/AdventuresPlanetUWP/BundleArtifacts/Upload/x86.txt
+/AdventuresPlanetUWP/BundleArtifacts/Upload/x64.txt
+/AdventuresPlanetUWP/BundleArtifacts/Upload/arm.txt
+/AdventuresPlanetUWP/BundleArtifacts/Upload
+/AdventuresPlanetUWP/BundleArtifacts/arm.txt
+/AdventuresPlanetUWP/BundleArtifacts
+/AdventuresPlanetUWP/Assets/IAPTest.xml

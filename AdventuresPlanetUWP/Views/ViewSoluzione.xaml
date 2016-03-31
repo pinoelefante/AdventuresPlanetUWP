@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="AdventuresPlanetUWP.Views.ContentsPage"
+    x:Class="AdventuresPlanetUWP.Views.ViewSoluzione"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:AdventuresPlanetUWP.Views"
@@ -9,7 +9,10 @@
     xmlns:vm="using:AdventuresPlanetUWP.ViewModels"
     xmlns:Converters="using:AdventuresPlanetUWP.Converters"
     xmlns:UserControls="using:AdventuresPlanetUWP.Views.UserControls"
-    xmlns:controls="using:Template10.Controls">
+    xmlns:controls="using:Template10.Controls"
+    xmlns:Behaviors="using:Template10.Behaviors"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity">
 
     <Page.DataContext>
         <vm:ContentsPageViewModel/>
@@ -32,19 +35,24 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" Content="{Binding Item.Titolo}" Frame="{x:Bind Frame}" Tapped="ShowTitle">
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="{Binding Item.Titolo}" Frame="{x:Bind Frame}">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Tapped">
+                    <Behaviors:OpenFlyoutAction />
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
             <FlyoutBase.AttachedFlyout>
                 <Flyout>
                     <TextBlock Text="{Binding Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
                 </Flyout>
             </FlyoutBase.AttachedFlyout>
         </controls:PageHeader>
-        
-        
+
+
         <!-- pagina -->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                
+
                 <RowDefinition Height="{Binding ComponentiVideo, Converter={StaticResource IntGridHeight}}"/>
                 <!--video player-->
 
@@ -65,7 +73,7 @@
             <!-- corpo testuale-->
             <SemanticZoom x:Name="semZoom" Grid.Row="1"  Visibility="{Binding ComponentiTesto, Converter={StaticResource IntVisibility}}">
                 <SemanticZoom.ZoomedInView>
-                    <ListView x:Name="containerData" ItemsSource="{Binding ListaComponenti}" Margin="8,0" Loaded="{x:Bind VM.CaricaPosizione}" LayoutUpdated="lay" ItemClick="OnItemClick" IsItemClickEnabled="True">
+                    <ListView x:Name="containerData" ItemsSource="{Binding ListaComponenti}" Padding="16,8" Loaded="OnScrollLoaded" ItemClick="OnItemClick" IsItemClickEnabled="True">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -100,39 +108,19 @@
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8,0" Visibility="{x:Bind VM.Item.AutoreText, Converter={StaticResource StringVisibility}}">
                     <Run x:Uid="/Contents/contents_acuradi" Text="a cura di"/>
                     <Run Text="{x:Bind VM.Item.AutoreText}"/>
                 </TextBlock>
-
-                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Visibility="{x:Bind VM.IsRecensione, Converter={StaticResource BoolVisibility}}">
-                    <TextBlock FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding Item.VotoText, Converter={StaticResource StringVisibility}}" Margin="8,0">
-                        <Run x:Uid="/Contents/contents_votoredazione" Text="Voto della redazione" />
-                        <Run Text="{Binding Item.VotoText}" FontWeight="Bold"/>
-                    </TextBlock>
-                </StackPanel>
-
-                <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" Visibility="{x:Bind VM.IsRecensione, Converter={StaticResource BoolVisibility}}">
-                    <TextBlock FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding Item.VotoUtentiText, Converter={StaticResource StringVisibility} }" Margin="8,0">
-                        <Run x:Uid="/Contents/content_votoutenti" Text="Voto degli utenti"/>
-                        <Run Text="{Binding Item.VotoUtentiText}" FontWeight="Bold"/>
-                        <Run Text="/100"/>
-                    </TextBlock>
-                </StackPanel>
             </Grid>
-            
+
             <!-- Command bar -->
             <CommandBar Grid.Row="4">
                 <CommandBar.PrimaryCommands>
-                    <!--
-                    <AppBarButton x:Uid="/Contents/contents_menu_indice" Label="Indice" Click="{x:Bind VM.ApriIndice}" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
-                    -->
                     <AppBarButton x:Uid="/Contents/contents_menu_indice" Label="Indice" Click="apriIndice" IsEnabled="{Binding ComponentiIndice, Converter={StaticResource IntToBool}}" Icon="AllApps" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
-                    
+
                     <AppBarButton x:Uid="/Contents/contents_menu_aggpreferiti" Label="Aggiungi a preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource NotBoolVisibility}}" Icon="Favorite"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_rempreferiti" Label="Rimuovi da preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource BoolVisibility}}" Icon="UnFavorite"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_condividi" Label="Condividi" Click="{x:Bind VM.Share}">
@@ -142,8 +130,6 @@
                     </AppBarButton>
                 </CommandBar.PrimaryCommands>
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton x:Uid="/Contents/contents_menu_recensionebreve" Label="Recensione breve" Click="{x:Bind VM.VediRecensioneBreve}" IsEnabled="{Binding Item.TestoBreve, Converter={StaticResource StringBool}}" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}"/>
-                    <AppBarButton x:Uid="/Contents/contents_menu_vedisoluzione" Label="Vedi soluzione" Click="{x:Bind VM.OpenAlternative}" IsEnabled="{Binding HasSoluzione}" Visibility="{Binding IsRecensione, Converter={StaticResource BoolVisibility}}"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_vedirecensione" Label="Vedi recensione" Click="{x:Bind VM.OpenAlternative}" IsEnabled="{Binding HasRecensione}" Visibility="{Binding IsSoluzione, Converter={StaticResource BoolVisibility}}"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_apribrowser" Label="Apri nel browser" Click="{x:Bind VM.OpenInBrowser}"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_compragioco" Label="Compra gioco" Click="{x:Bind VM.OpenStore}" IsEnabled="{Binding Item.LinkStore, Converter={StaticResource StringBool}}"/>

@@ -89,6 +89,20 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<PaginaContenuti>(ref _item, value);
             }
         }
+        public RecensioneItem ItemRecensione
+        {
+            get
+            {
+                return Item as RecensioneItem;
+            }
+        }
+        public SoluzioneItem ItemSoluzione
+        {
+            get
+            {
+                return Item as SoluzioneItem;
+            }
+        }
         private bool _rec, _sol;
         public bool IsRecensione
         {
@@ -112,17 +126,16 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<bool>(ref _sol, value);
             }
         }
+        public bool ItemLoaded { get; set; }
         private async void SetStato(PaginaContenuti cont)
         {
             Item = cont;
             IsRecensione = cont is RecensioneItem;
             IsSoluzione = cont is SoluzioneItem;
             IsVideo = Item.isVideo;
-
-            if (await ScaricaContenuti())
+            if (ItemLoaded = await ScaricaContenuti())
             {
                 AssemblaComponenti();
-                CaricaPosizione(listView, null);
                 LoadAlternative();
             }
             else
@@ -426,14 +439,22 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void OpenAlternative(object s, object e)
         {
-            IsLoaded = false;
             PaginaContenuti next = null;
+            Type pageTo = null;
             if (IsRecensione)
+            {
                 next = DatabaseSystem.Instance.selectSoluzione(Item.Id);
+                pageTo = typeof(ViewSoluzione);
+            }
             else if (IsSoluzione)
+            {
                 next = DatabaseSystem.Instance.selectRecensione(Item.Id);
-            if(next != null)
-                SetStato(next);
+                pageTo = typeof(ViewRecensione);
+            }
+            if(next != null && pageTo != null)
+            {
+                NavigationService.Navigate(pageTo, next);
+            }
         }
         public void SalvaPosizione(int index)
         {
@@ -444,24 +465,6 @@ namespace AdventuresPlanetUWP.ViewModels
                 Settings.Instance.SaveSoluzionePosition(Item.Id, index);
             else if (IsRecensione && Settings.Instance.RicordaPosizioneRecensioni)
                 Settings.Instance.SaveRecensionePosition(Item.Id, index);
-        }
-        public bool IsLoaded { get; private set; }
-        private ListView listView = null;
-        public void CaricaPosizione(object sender, object e)
-        {
-            if (!Item.isVideo && !Item.isTemporary)
-            {
-                int indexPos = IsRecensione ? Settings.Instance.RecensionePosition(Item.Id) : Settings.Instance.SoluzionePosition(Item.Id);
-                if(sender!=null && sender is ListView)
-                {
-                    listView = sender as ListView;
-                    if (indexPos < listView?.Items?.Count)
-                    {
-                        listView.ScrollIntoView(listView.Items.ElementAt(indexPos), ScrollIntoViewAlignment.Leading);
-                        IsLoaded = true;
-                    }
-                }
-            }
         }
         public void ChangePreferiti(object s, object e)
         {

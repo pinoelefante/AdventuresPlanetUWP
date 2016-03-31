@@ -91,11 +91,11 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void OpenRecensione(EntryAvventura avv)
         {
-            NavigationService.Navigate(typeof(ContentsPage), avv.Recensione);
+            NavigationService.Navigate(typeof(ViewRecensione), avv.Recensione);
         }
         public void OpenSoluzione(EntryAvventura avv)
         {
-            NavigationService.Navigate(typeof(ContentsPage), avv.Soluzione);
+            NavigationService.Navigate(typeof(ViewSoluzione), avv.Soluzione);
         }
     }
 }

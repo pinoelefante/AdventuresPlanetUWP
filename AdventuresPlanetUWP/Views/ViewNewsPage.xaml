@@ -10,6 +10,7 @@
     xmlns:controls="using:Template10.Controls"
     xmlns:Behaviors="using:Template10.Behaviors"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     xmlns:vm="using:AdventuresPlanetUWP.ViewModels">
 
@@ -75,7 +76,7 @@
 
         <!--  page header  -->
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" Content="{x:Bind VM.Item.Titolo}" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="{x:Bind VM.Item.Titolo}" Frame="{x:Bind Frame}"/>
 
         <!--  page content  -->
 
@@ -90,18 +91,23 @@
                 
                 <ScrollViewer x:Name="TitoloNewsCont" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Stretch" Margin="4">
                     <StackPanel HorizontalAlignment="Stretch">
-                        <TextBlock x:Name="titoloNews" Text="{x:Bind VM.Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Tapped="showTitle" Margin="4,0" FontWeight="Bold">
-                        <FlyoutBase.AttachedFlyout>
-                            <Flyout>
-                                <TextBlock Text="{x:Bind VM.Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
-                            </Flyout>
+                        <TextBlock x:Name="titoloNews" Text="{x:Bind VM.Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="4,0" FontWeight="Bold">
+                            <Interactivity:Interaction.Behaviors>
+                                <Core:EventTriggerBehavior EventName="Tapped">
+                                    <Behaviors:OpenFlyoutAction />
+                                </Core:EventTriggerBehavior>
+                            </Interactivity:Interaction.Behaviors>
+                            <FlyoutBase.AttachedFlyout>
+                                <Flyout>
+                                    <TextBlock Text="{x:Bind VM.Item.Titolo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
+                                </Flyout>
                         </FlyoutBase.AttachedFlyout>
                         </TextBlock>
                     </StackPanel>
                 </ScrollViewer>
 
-                <ScrollViewer x:Name="ScrollNewsCont" Margin="4,8" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
-                    <ItemsControl Margin="16,4" ItemsSource="{x:Bind VM.ListComponents}"/>
+                <ScrollViewer x:Name="ScrollNewsCont" Padding="16,8" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+                    <ItemsControl ItemsSource="{x:Bind VM.ListComponents}"/>
                 </ScrollViewer>
             </RelativePanel>
 
