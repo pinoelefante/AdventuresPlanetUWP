@@ -24,7 +24,7 @@ namespace AdventuresPlanetUWP.Classes
             }
         }
 
-        private void creaDB()
+        public void creaDB()
         {
             string news = "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT UNIQUE, titolo TEXT, anteprima TEXT, testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', data TEXT DEFAULT '', img TEXT, meselink TEXT NOT NULL)";
             string podcast = "CREATE TABLE IF NOT EXISTS podcast (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '', immagine TEXT) WITHOUT ROWID;";
@@ -679,6 +679,7 @@ namespace AdventuresPlanetUWP.Classes
             dropTable("soluzioni");
             dropTable("podcast");
             dropTable("news");
+            DatabaseSystem.Instance.vacuum();
             creaDB();
         }
         public void cleanTables()
@@ -687,11 +688,43 @@ namespace AdventuresPlanetUWP.Classes
             cleanTable("soluzioni");
             cleanTable("podcast");
             cleanTable("news");
+            vacuum();
         }
         private void cleanTable(string table)
         {
             string cleanT = "DELETE FROM " + table;
             using (var st = conn.Prepare(cleanT))
+            {
+                st.Step();
+            }
+        }
+        public void cleanNews()
+        {
+            dropTable("news");
+            using (var st = conn.Prepare("CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT UNIQUE, titolo TEXT, anteprima TEXT, testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', data TEXT DEFAULT '', img TEXT, meselink TEXT NOT NULL)"))
+                st.Step();
+        }
+        public void cleanRecensioni()
+        {
+            dropTable("recensioni");
+            using (var st = conn.Prepare("CREATE TABLE IF NOT EXISTS recensioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', voto TEXT DEFAULT '', votoUtenti TEXT DEFAULT '', link TEXT NOT NULL, testoBreve TEXT DEFAULT '', testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;"))
+                st.Step();
+        }
+        public void cleanSoluzioni()
+        {
+            dropTable("soluzioni");
+            using (var st = conn.Prepare("CREATE TABLE IF NOT EXISTS soluzioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', link TEXT NOT NULL, soluzione TEXT DEFAULT '', soluzioneRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;"))
+                st.Step();
+        }
+        public void cleanPodcast()
+        {
+            dropTable("podcast");
+            using (var st = conn.Prepare("CREATE TABLE IF NOT EXISTS podcast (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '', immagine TEXT) WITHOUT ROWID;"))
+                st.Step();
+        }
+        public void vacuum()
+        {
+            using (var st = conn.Prepare("VACUUM"))
             {
                 st.Step();
             }

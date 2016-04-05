@@ -43,6 +43,50 @@ namespace AdventuresPlanetUWP.ViewModels
 
             await dlg.ShowAsync();
         }
+        public async void cancella_dati_sel(bool news, bool rece, bool solu, bool podc)
+        {
+            MessageDialog dlg = new MessageDialog("Vuoi cancellare i dati selezionati?", "Conferma cancellazione");
+            UICommand del = new UICommand("Si") { Id = 0 };
+            del.Invoked = (x) =>
+            {
+                if (news)
+                {
+                    DatabaseSystem.Instance.cleanNews();
+                    AdventuresPlanetManager.Instance.ListaNews?.Reset();
+                    Settings.LastNewsUpdate = 0;
+                }
+                if (rece)
+                {
+                    DatabaseSystem.Instance.cleanRecensioni();
+                    Settings.LastRecensioniUpdate = 0;
+                    AdventuresPlanetManager.Instance.ListaRecensioni?.Clear();
+                    AdventuresPlanetManager.Instance.ListaRecensioni = null;
+                }
+                if (solu)
+                {
+                    DatabaseSystem.Instance.cleanSoluzioni();
+                    Settings.LastSoluzioniUpdate = 0;
+                    AdventuresPlanetManager.Instance.ListaSoluzioni?.Clear();
+                    AdventuresPlanetManager.Instance.ListaSoluzioni = null;
+                    
+                }
+                if (podc)
+                {
+                    DatabaseSystem.Instance.cleanPodcast();
+                    Settings.LastPodcastUpdate = 0;
+                    AdventuresPlanetManager.Instance.ListaPodcast?.Clear();
+                    AdventuresPlanetManager.Instance.ListaPodcast = null;
+                }
+                DatabaseSystem.Instance.vacuum();
+            };
+            UICommand annulla = new UICommand("Annulla") { Id = 1 };
+            dlg.Commands.Add(del);
+            dlg.Commands.Add(annulla);
+            dlg.DefaultCommandIndex = 0;
+            dlg.CancelCommandIndex = 1;
+
+            await dlg.ShowAsync();
+        }
         public void VideoQualityLoaded(object sender, object e)
         {
             int video = Settings.QualitaVideoMax;

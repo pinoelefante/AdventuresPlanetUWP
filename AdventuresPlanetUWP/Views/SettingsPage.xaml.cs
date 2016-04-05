@@ -30,6 +30,14 @@ namespace AdventuresPlanetUWP.Views
 
         public OpzioniPageViewModel VM => this.DataContext as OpzioniPageViewModel;
 
-        
+        private void cancella_selezionati(object sender, RoutedEventArgs e)
+        {
+            bool news = (bool)del_news.IsChecked;
+            bool rece = (bool)del_rece.IsChecked;
+            bool solu = (bool)del_solu.IsChecked;
+            bool podc = (bool)del_podcast.IsChecked;
+            if(news || rece || solu || podc)
+                VM.cancella_dati_sel(news, rece, solu, podc);
+        }
     }
 }

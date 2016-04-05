@@ -25,50 +25,67 @@
 
         <controls:PageHeader x:Uid="/Settings/settings_header" BackButtonVisibility="Collapsed" Content="Impostazioni" Frame="{x:Bind Frame}" IsEnabled="False"/>
 
-        <ScrollViewer Grid.Row="1">
-            <StackPanel Margin="8">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Slider x:Name="slider" x:Uid="/Settings/settings_fontSize" Grid.Column="0" Header="Dimensione del font" Value="{Binding Settings.DimensioneFont, Mode=TwoWay}" Minimum="12" Maximum="24"/>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="8,0" Text="{Binding Value, ElementName=slider}" />
-                </Grid>
-<!--
-                <ToggleSwitch Header="Chiedi conferma alla chiusura dell'app" IsOn="{Binding Settings.AskToClose, Mode=TwoWay}" />
+        <Pivot Grid.Row="1">
+            <PivotItem Header="Impostazioni">
+                <ScrollViewer HorizontalAlignment="Stretch">
+                    <StackPanel Margin="8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Slider x:Name="slider" x:Uid="/Settings/settings_fontSize" Grid.Column="0" Header="Dimensione del font" Value="{Binding Settings.DimensioneFont, Mode=TwoWay}" Minimum="12" Maximum="24"/>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="8,0" Text="{Binding Value, ElementName=slider}" />
+                        </Grid>
+                        <!--
+                        <ToggleSwitch Header="Chiedi conferma alla chiusura dell'app" IsOn="{Binding Settings.AskToClose, Mode=TwoWay}" />
 -->
-                <ToggleSwitch x:Uid="/Settings/settings_rece_manuale" Header="Aggiorna elenco recensioni manualmente" IsOn="{Binding Settings.UpdateRecensioniManualmente, Mode=TwoWay}" />
-                <ToggleSwitch x:Uid="/Settings/settings_solu_manuale" Header="Aggiorna elenco soluzioni manualmente" IsOn="{Binding Settings.UpdateSoluzioniManualmente, Mode=TwoWay}" />
-                <ToggleSwitch x:Uid="/Settings/settings_carica_immagini" Header="Carica le immagini di soluzioni/recensioni" IsOn="{Binding Settings.IsLoadImages, Mode=TwoWay}" />
-                <ToggleSwitch x:Uid="/Settings/settings_posizione_rece" IsOn="{Binding Settings.RicordaPosizioneRecensioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle recensioni"/>
-                <ToggleSwitch x:Uid="/Settings/settings_posizione_solu" IsOn="{Binding Settings.RicordaPosizioneSoluzioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle soluzioni"/>
-                <ToggleSwitch IsOn="{Binding Settings.RicordaPosizionePodcast, Mode=TwoWay}" Header="Abilita salvataggio della posizione dei podcast"/>
-                <ToggleSwitch x:Uid="/Settings/settings_letitsnow" IsOn="{Binding Settings.LetItSnow, Mode=TwoWay}" Header="Let it snow" Visibility="{Binding Converter={StaticResource ChristmasV}}"/>
-                <StackPanel Orientation="Horizontal" Margin="0,8">
-                    <TextBlock x:Uid="/Settings/settings_video" Text="Qualità massima video" VerticalAlignment="Center"/>
-                    <ComboBox Margin="8,0,8,0" Loaded="{x:Bind VM.VideoQualityLoaded}" SelectionChanged="{x:Bind VM.VideoQualityChanged}">
-                        <ComboBoxItem Content="144p" Tag="144"/>
-                        <ComboBoxItem Content="240p" Tag="240"/>
-                        <ComboBoxItem Content="360p" Tag="360"/>
-                        <ComboBoxItem Content="480p" Tag="480"/>
-                        <ComboBoxItem Content="720p" Tag="720"/>
-                        <ComboBoxItem Content="1080p" Tag="1080"/>
-                        <ComboBoxItem Content="2160p" Tag="2160"/>
-                    </ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8">
-                    <TextBlock x:Uid="/Settings/settings_tempo_news" Text="Aggiorna news ogni" VerticalAlignment="Center"/>
-                    <ComboBox Margin="8,0,8,0" Loaded="{x:Bind VM.NewsTimeLoaded}" SelectionChanged="{x:Bind VM.NewsTimeUpdated}">
-                        <ComboBoxItem x:Uid="/Settings/settings_news_1" Content="1 ora" Tag="3600"/>
-                        <ComboBoxItem x:Uid="/Settings/settings_news_2" Content="4 ore" Tag="14400"/>
-                        <ComboBoxItem x:Uid="/Settings/settings_news_3" Content="8 ore" Tag="28800"/>
-                        <ComboBoxItem x:Uid="/Settings/settings_news_4" Content="12 ore" Tag="43200"/>
-                        <ComboBoxItem x:Uid="/Settings/settings_news_5" Content="1 giorno" Tag="86400"/>
-                    </ComboBox>
-                </StackPanel>
-                <Button x:Uid="/Settings/settings_cancella_tutto" Content="Cancella tutti i dati" Click="{x:Bind VM.cancella_dati}" Margin="8,15"/>
-            </StackPanel>
-        </ScrollViewer>
+                        <ToggleSwitch x:Uid="/Settings/settings_rece_manuale" Header="Aggiorna elenco recensioni manualmente" IsOn="{Binding Settings.UpdateRecensioniManualmente, Mode=TwoWay}" />
+                        <ToggleSwitch x:Uid="/Settings/settings_solu_manuale" Header="Aggiorna elenco soluzioni manualmente" IsOn="{Binding Settings.UpdateSoluzioniManualmente, Mode=TwoWay}" />
+                        <ToggleSwitch x:Uid="/Settings/settings_carica_immagini" Header="Carica le immagini di soluzioni/recensioni" IsOn="{Binding Settings.IsLoadImages, Mode=TwoWay}" />
+                        <ToggleSwitch x:Uid="/Settings/settings_posizione_rece" IsOn="{Binding Settings.RicordaPosizioneRecensioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle recensioni"/>
+                        <ToggleSwitch x:Uid="/Settings/settings_posizione_solu" IsOn="{Binding Settings.RicordaPosizioneSoluzioni, Mode=TwoWay}" Header="Ricorda ultima posizione delle soluzioni"/>
+                        <ToggleSwitch IsOn="{Binding Settings.RicordaPosizionePodcast, Mode=TwoWay}" Header="Abilita salvataggio della posizione dei podcast"/>
+                        <ToggleSwitch x:Uid="/Settings/settings_letitsnow" IsOn="{Binding Settings.LetItSnow, Mode=TwoWay}" Header="Let it snow" Visibility="{Binding Converter={StaticResource ChristmasV}}"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,8">
+                            <TextBlock x:Uid="/Settings/settings_video" Text="Qualità massima video" VerticalAlignment="Center"/>
+                            <ComboBox Margin="8,0,8,0" Loaded="{x:Bind VM.VideoQualityLoaded}" SelectionChanged="{x:Bind VM.VideoQualityChanged}">
+                                <ComboBoxItem Content="144p" Tag="144"/>
+                                <ComboBoxItem Content="240p" Tag="240"/>
+                                <ComboBoxItem Content="360p" Tag="360"/>
+                                <ComboBoxItem Content="480p" Tag="480"/>
+                                <ComboBoxItem Content="720p" Tag="720"/>
+                                <ComboBoxItem Content="1080p" Tag="1080"/>
+                                <ComboBoxItem Content="2160p" Tag="2160"/>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,8">
+                            <TextBlock x:Uid="/Settings/settings_tempo_news" Text="Aggiorna news ogni" VerticalAlignment="Center"/>
+                            <ComboBox Margin="8,0,8,0" Loaded="{x:Bind VM.NewsTimeLoaded}" SelectionChanged="{x:Bind VM.NewsTimeUpdated}">
+                                <ComboBoxItem x:Uid="/Settings/settings_news_1" Content="1 ora" Tag="3600"/>
+                                <ComboBoxItem x:Uid="/Settings/settings_news_2" Content="4 ore" Tag="14400"/>
+                                <ComboBoxItem x:Uid="/Settings/settings_news_3" Content="8 ore" Tag="28800"/>
+                                <ComboBoxItem x:Uid="/Settings/settings_news_4" Content="12 ore" Tag="43200"/>
+                                <ComboBoxItem x:Uid="/Settings/settings_news_5" Content="1 giorno" Tag="86400"/>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="Cancella dati">
+                <ScrollViewer>
+                    <StackPanel Margin="8">
+                        <CheckBox Content="News" IsChecked="False" x:Name="del_news"/>
+                        <CheckBox Content="Recensioni" IsChecked="False" x:Name="del_rece"/>
+                        <CheckBox Content="Soluzioni" IsChecked="False" x:Name="del_solu"/>
+                        <CheckBox Content="Podcast" IsChecked="False" x:Name="del_podcast"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Cancella selezionati" Click="cancella_selezionati" Margin="8"/>
+                            <Button x:Uid="/Settings/settings_cancella_tutto" Content="Cancella tutti i dati" Click="{x:Bind VM.cancella_dati}" Margin="8"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
