@@ -29,11 +29,17 @@ namespace AdventuresPlanetUWP.ViewModels
             {
                 Set<Dictionary<string, List<EntryAvventura>>>(ref _pref, value);
             }
-        } 
+        }
         public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             LoadPreferiti();
             return Task.CompletedTask;
+        }
+        public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
+        {
+            ListaPreferiti?.Clear();
+            ListaPreferiti = null;
+            return base.OnNavigatedFromAsync(state, suspending);
         }
         private bool _isEmpty;
         public bool IsEmpty
@@ -55,10 +61,19 @@ namespace AdventuresPlanetUWP.ViewModels
         private void LoadPreferiti()
         {
             ListaPreferiti?.Clear();
-            List<EntryAvventura> l = DatabaseSystem.Instance.selectAllPreferiti();
-            ListaPreferiti = MyGrouping<EntryAvventura>.AlphaKeyGroup(l, x => { return x.Titolo; });
-            IsEmpty = l.Count == 0;
-            l.Clear();
+            var preferiti = PreferitiManager.Instance.GetPreferiti();
+            var listEntry = new List<EntryAvventura>();
+            foreach(var idPref in preferiti)
+            {
+                RecensioneItem rec = DatabaseSystem.Instance.selectRecensione(idPref);
+                SoluzioneItem sol = DatabaseSystem.Instance.selectSoluzione(idPref);
+                EntryAvventura avv = new EntryAvventura(rec, sol);
+                listEntry.Add(avv);
+            }
+            ListaPreferiti = MyGrouping<EntryAvventura>.AlphaKeyGroup(listEntry, x => x.Titolo, true);
+            IsEmpty = listEntry.Count == 0;
+            listEntry.Clear();
+            listEntry = null;
         }
         private ResourceLoader res = ResourceLoader.GetForCurrentView("Preferiti");
         public async void Open(EntryAvventura avv)
@@ -96,6 +111,38 @@ namespace AdventuresPlanetUWP.ViewModels
         public void OpenSoluzione(EntryAvventura avv)
         {
             NavigationService.Navigate(typeof(ViewSoluzione), avv.Soluzione);
+        }
+        public void BackupPreferiti(object s = null, object e = null)
+        {
+            PreferitiManager.Instance.BackupPreferiti();
+        }
+        public async void RecoverBackup(object s = null, object e = null)
+        {
+            bool res = await PreferitiManager.Instance.RecoverPreferitiFromBackup();
+            if(res)
+                LoadPreferiti();
+        }
+        public async void RemoveAll(object s = null, object e = null)
+        {
+            MessageDialog dlg = new MessageDialog("Vuoi eliminare tutti i preferiti?", "Conferma");
+            UICommand yes = new UICommand()
+            {
+                Id = 0,
+                Label = "Si",
+                Invoked =
+                (x) =>
+                {
+                    PreferitiManager.Instance.RemoveAllPreferiti();
+                    ListaPreferiti.Clear();
+                    ListaPreferiti = null;
+                }
+            };
+            UICommand no = new UICommand() { Id = 1, Label = "No" };
+            dlg.Commands.Add(yes);
+            dlg.Commands.Add(no);
+            dlg.CancelCommandIndex = 1;
+            dlg.DefaultCommandIndex = 0;
+            await dlg.ShowAsync();
         }
     }
 }

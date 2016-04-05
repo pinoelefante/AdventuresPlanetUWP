@@ -30,15 +30,12 @@ namespace AdventuresPlanetUWP.Classes
             string podcast = "CREATE TABLE IF NOT EXISTS podcast (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '', immagine TEXT) WITHOUT ROWID;";
             string recensioni = "CREATE TABLE IF NOT EXISTS recensioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', voto TEXT DEFAULT '', votoUtenti TEXT DEFAULT '', link TEXT NOT NULL, testoBreve TEXT DEFAULT '', testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;";
             string soluzioni = "CREATE TABLE IF NOT EXISTS soluzioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', link TEXT NOT NULL, soluzione TEXT DEFAULT '', soluzioneRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;";
-            string preferiti = "CREATE TABLE IF NOT EXISTS preferiti (id TEXT PRIMARY KEY) WITHOUT ROWID";
 
             using (var st = conn.Prepare(podcast))
                 st.Step();
             using (var st = conn.Prepare(recensioni))
                 st.Step();
             using (var st = conn.Prepare(soluzioni))
-                st.Step();
-            using (var st = conn.Prepare(preferiti))
                 st.Step();
             using (var st = conn.Prepare(news))
                 st.Step();
@@ -682,7 +679,6 @@ namespace AdventuresPlanetUWP.Classes
             dropTable("soluzioni");
             dropTable("podcast");
             dropTable("news");
-            //dropTable("preferiti");
             creaDB();
         }
         public void cleanTables()
@@ -691,7 +687,6 @@ namespace AdventuresPlanetUWP.Classes
             cleanTable("soluzioni");
             cleanTable("podcast");
             cleanTable("news");
-            //cleanTable("preferiti");
         }
         private void cleanTable(string table)
         {
@@ -700,52 +695,6 @@ namespace AdventuresPlanetUWP.Classes
             {
                 st.Step();
             }
-        }
-        public void aggiungiPreferiti(string id)
-        {
-            string query = "INSERT INTO preferiti (id) VALUES (?)";
-            using (var st = conn.Prepare(query))
-            {
-                st.Bind(1, id);
-                st.Step();
-            }
-        }
-        public void rimuoviPreferiti(string id)
-        {
-            string query = "DELETE FROM preferiti WHERE id = ?";
-            using (var st = conn.Prepare(query))
-            {
-                st.Bind(1, id);
-                st.Step();
-            }
-        }
-        public Boolean isPreferiti(string id)
-        {
-            string query = "SELECT id FROM preferiti WHERE id = ?";
-            using (var st = conn.Prepare(query))
-            {
-                st.Bind(1, id);
-                if (st.Step() == SQLiteResult.ROW)
-                    return true;
-            }
-            return false;
-        }
-        public List<EntryAvventura> selectAllPreferiti()
-        {
-            List<EntryAvventura> list = new List<EntryAvventura>();
-            string query = "SELECT * FROM preferiti";
-            using (var st = conn.Prepare(query))
-            {
-                while (st.Step() == SQLiteResult.ROW)
-                {
-                    var id = st.GetText("id");
-                    RecensioneItem rec = selectRecensione(id);
-                    SoluzioneItem sol = selectSoluzione(id);
-                    EntryAvventura e = new EntryAvventura(rec, sol);
-                    list.Add(e);
-                }
-            }
-            return list.OrderBy(x => x.Titolo).ToList();
         }
     }
 }

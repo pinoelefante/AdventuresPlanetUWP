@@ -65,15 +65,18 @@ namespace AdventuresPlanetUWP.Classes.Data
         {
             get
             {
-                bool r = DatabaseSystem.Instance.isPreferiti(Id);
+                //bool r = DatabaseSystem.Instance.isPreferiti(Id);
+                bool r = PreferitiManager.Instance.IsPreferita(Id);
                 return r;
             }
             set
             {
                 if (value)
-                    DatabaseSystem.Instance.aggiungiPreferiti(Id);
+                    //DatabaseSystem.Instance.aggiungiPreferiti(Id);
+                    PreferitiManager.Instance.AddPreferiti(Id);
                 else
-                    DatabaseSystem.Instance.rimuoviPreferiti(Id);
+                    //DatabaseSystem.Instance.rimuoviPreferiti(Id);
+                    PreferitiManager.Instance.RemovePreferiti(Id);
                 propertyChanged();
             }
         }

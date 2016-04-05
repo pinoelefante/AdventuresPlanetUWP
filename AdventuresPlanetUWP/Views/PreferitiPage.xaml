@@ -25,7 +25,15 @@
 
         <!--  page header  -->
 
-        <controls:PageHeader x:Uid="/Preferiti/preferiti_header" BackButtonVisibility="Collapsed" Content="I miei preferiti" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader x:Uid="/Preferiti/preferiti_header" BackButtonVisibility="Collapsed" Content="I miei preferiti" Frame="{x:Bind Frame}">
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Label="Svuota elenco" Icon="Delete" Click="{x:Bind VM.RemoveAll}"/>
+            </controls:PageHeader.PrimaryCommands>
+            <controls:PageHeader.SecondaryCommands>
+                <AppBarButton Label="Esporta su file" Click="{x:Bind VM.BackupPreferiti}" />
+                <AppBarButton Label="Ripristina da file" Click="{x:Bind VM.RecoverBackup}"/>
+            </controls:PageHeader.SecondaryCommands>
+        </controls:PageHeader>
 
         <!--  page content  -->
         <Grid Grid.Row="1">

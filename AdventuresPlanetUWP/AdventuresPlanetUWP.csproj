@@ -182,6 +182,7 @@
     <Compile Include="Classes\IAPManager.cs" />
     <Compile Include="Classes\Interface\Cleanable.cs" />
     <Compile Include="Classes\PodcastManager.cs" />
+    <Compile Include="Classes\PreferitiManager.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\VideoPlayerManager.cs" />
     <Compile Include="Classes\VisualTreeHelperExtensions.cs" />
