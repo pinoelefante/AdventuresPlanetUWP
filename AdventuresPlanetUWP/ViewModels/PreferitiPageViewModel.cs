@@ -135,6 +135,7 @@ namespace AdventuresPlanetUWP.ViewModels
                     PreferitiManager.Instance.RemoveAllPreferiti();
                     ListaPreferiti.Clear();
                     ListaPreferiti = null;
+                    IsEmpty = true;
                 }
             };
             UICommand no = new UICommand() { Id = 1, Label = "No" };

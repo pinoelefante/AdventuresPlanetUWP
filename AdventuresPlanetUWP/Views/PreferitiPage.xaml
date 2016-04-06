@@ -16,6 +16,7 @@
         <CollectionViewSource IsSourceGrouped="True" x:Key="PreferitiList" ItemsPath="Value" Source="{Binding ListaPreferiti}"/>
         <Converters:NotIntVisibility x:Key="NotIntVisibility"/>
         <Converters:BoolToVisibility x:Key="BoolVisibility"/>
+        <Converters:NotBoolean x:Key="NotBoolean"/>
     </Page.Resources>
     <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -27,10 +28,10 @@
 
         <controls:PageHeader x:Uid="/Preferiti/preferiti_header" BackButtonVisibility="Collapsed" Content="I miei preferiti" Frame="{x:Bind Frame}">
             <controls:PageHeader.PrimaryCommands>
-                <AppBarButton Label="Svuota elenco" Icon="Delete" Click="{x:Bind VM.RemoveAll}"/>
+                <AppBarButton Label="Svuota elenco" Icon="Delete" Click="{x:Bind VM.RemoveAll}" IsEnabled="{Binding IsEmpty, Converter={StaticResource NotBoolean}}"/>
             </controls:PageHeader.PrimaryCommands>
             <controls:PageHeader.SecondaryCommands>
-                <AppBarButton Label="Esporta su file" Click="{x:Bind VM.BackupPreferiti}" />
+                <AppBarButton Label="Esporta su file" Click="{x:Bind VM.BackupPreferiti}" IsEnabled="{Binding IsEmpty, Converter={StaticResource NotBoolean}}"/>
                 <AppBarButton Label="Ripristina da file" Click="{x:Bind VM.RecoverBackup}"/>
             </controls:PageHeader.SecondaryCommands>
         </controls:PageHeader>
