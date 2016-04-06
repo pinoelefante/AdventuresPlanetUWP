@@ -191,7 +191,17 @@ namespace AdventuresPlanetUWP.ViewModels
                                     //Debug.WriteLine("rec not found - " + link);
                                     NavigationService.Navigate(typeof(ViewRecensione), rec);
                                 }
-
+                            }
+                            else if (AdventuresPlanetManager.isPodcast(link))
+                            {
+                                string filename = AdventuresPlanetManager.getUrlParameter(new Uri(link), "podcast");
+                                if (!string.IsNullOrEmpty(filename))
+                                {
+                                    Dictionary<string, object> parameters = new Dictionary<string, object>();
+                                    parameters.Add("command", "play");
+                                    parameters.Add("filename", filename);
+                                    NavigationService.Navigate(typeof(PodcastPage), parameters);
+                                }
                             }
                             else
                                 await Launcher.LaunchUriAsync(new Uri(link));
@@ -199,7 +209,7 @@ namespace AdventuresPlanetUWP.ViewModels
                         Run link_text = new Run();
                         link_text.Text = text;
                         link_text.FontWeight = FontWeights.Bold;
-                        if (AdventuresPlanetManager.isSoluzione(link) || AdventuresPlanetManager.isRecensione(link))
+                        if (AdventuresPlanetManager.isSoluzione(link) || AdventuresPlanetManager.isRecensione(link) || AdventuresPlanetManager.isPodcast(link))
                         {
                             link_text.FontSize = Settings.Instance.DimensioneFont + 2;
                             link_text.Foreground = new SolidColorBrush(Colors.Orange);

@@ -21,7 +21,12 @@ namespace AdventuresPlanetUWP.ViewModels
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             if (!await Settings.Instance.IsPodcastUpdated())
-                AggiornaPodcast();
+                await AggiornaPodcast();
+            if(parameter != null)
+            {
+                Dictionary<string, object> parameters = parameter as Dictionary<string, object>;
+                ElaborateParameters(parameters);
+            }
             ListPodcast = AdventuresPlanetManager.Instance.ListaPodcast;
             BackgroundMediaPlayer.MessageReceivedFromBackground += MessageReceived;
             BackgroundMediaPlayer.Current.CurrentStateChanged += PlayerStateChanged;
@@ -36,6 +41,32 @@ namespace AdventuresPlanetUWP.ViewModels
             BackgroundMediaPlayer.Current.CurrentStateChanged -= PlayerStateChanged;
             StopGetPositionRequests();
             return Task.CompletedTask;
+        }
+        private void ElaborateParameters(Dictionary<string, object> parameters)
+        {
+            string command = string.Empty;
+            if(parameters.ContainsKey("command"))
+                command = parameters["command"].ToString();
+            string filename = string.Empty;
+            if (parameters.ContainsKey("filename"))
+                filename = parameters["filename"].ToString();
+
+            switch (command)
+            {
+                case "play":
+                    if (!string.IsNullOrEmpty(filename))
+                    {
+                        IEnumerable<PodcastItem> found = ListPodcast.Where(x => x.Link.EndsWith(filename));
+                        if(found!=null && found.Count() == 1)
+                            PodcastManager.Instance.Play(found.ElementAt(0));
+                        else
+                        {
+                            PodcastItem pi = new PodcastItem(filename, string.Empty, $"http://www.adventuresplanet.it/contenuti/podcast/media/{filename}");
+                            PodcastManager.Instance.Play(pi);
+                        }
+                    }
+                    break;
+            }
         }
         private void PlayerStateChanged(MediaPlayer sender, object args)
         {
@@ -153,7 +184,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 dt.Stop();
             }
         }
-        public async void AggiornaPodcast(object s = null, object e = null)
+        public async Task AggiornaPodcast(object s = null, object e = null)
         {
             IsUpdatingPodcast = true;
             await AdventuresPlanetManager.Instance.aggiornaPodcast();
