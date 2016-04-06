@@ -11,7 +11,7 @@ namespace AdventuresPlanetUWP.Classes.Grouping
     class MyGrouping<T>
     {
         private const string LabelNum = "#";
-        public static Dictionary<string, List<T>> AlphaKeyGroup(List<T> items, Func<T, string> keySelector, bool sort = false, string emptyKey = "")
+        public static Dictionary<string, List<T>> AlphaKeyGroup(List<T> items, Func<T, string> keySelector, bool sort = false, string emptyKey = "", bool eliminaDuplicati = false)
         {
             Dictionary<string, List<T>> result = new Dictionary<string, List<T>>();
             foreach(T i in items)
@@ -28,9 +28,19 @@ namespace AdventuresPlanetUWP.Classes.Grouping
                     result.Add(numeric ? LabelNum : label, new List<T>());
 
                 if (sort)
-                    insertInOrderAlpha(result[numeric ? LabelNum : label], i, keySelector);
+                    insertInOrderAlpha(result[numeric ? LabelNum : label], i, keySelector, eliminaDuplicati);
                 else
-                    result[numeric ? LabelNum : label].Add(i);
+                {
+                    if (eliminaDuplicati)
+                    {
+                        if (result[numeric ? LabelNum : label].Where(x => keySelector(x).Equals(keySelector(i)))?.Count() > 0)
+                            continue;
+                        else
+                            result[numeric ? LabelNum : label].Add(i);
+                    }
+                    else
+                        result[numeric ? LabelNum : label].Add(i);
+                }
             }
             return result;
         }
@@ -52,13 +62,16 @@ namespace AdventuresPlanetUWP.Classes.Grouping
                 default: return false;
             }
         }
-        private static void insertInOrderAlpha(List<T> list, T item, Func<T, string> keySelector)
+        private static void insertInOrderAlpha(List<T> list, T item, Func<T, string> keySelector, bool eliminaDuplicati = false)
         {
             bool insert = false;
             for(int i = 0; i < list.Count && !insert; i++)
             {
                 T inList = list[i];
-                if (keySelector(item).CompareTo(keySelector(inList))<0)
+                int compare = keySelector(item).CompareTo(keySelector(inList));
+                if (compare == 0 && eliminaDuplicati)
+                    insert = true;
+                else if (compare < 0)
                 {
                     list.Insert(i, item);
                     insert = true;
@@ -67,7 +80,7 @@ namespace AdventuresPlanetUWP.Classes.Grouping
             if (!insert)
                 list.Add(item);
         }
-        public static Dictionary<string, List<T>> NumericKeyGroup(List<T> items, Func<T, int> keySelector, Func<T, string> keySelString, bool sort = false)
+        public static Dictionary<string, List<T>> NumericKeyGroup(List<T> items, Func<T, int> keySelector, Func<T, string> keySelString, bool sort = false, bool eliminaDuplicati = false)
         {
             Dictionary<string, List<T>> result = new Dictionary<string, List<T>>();
 
@@ -80,14 +93,25 @@ namespace AdventuresPlanetUWP.Classes.Grouping
                     result.Add(num.ToString(), new List<T>());
                 }
                 if (sort)
-                    insertInOrderAlpha(result[num.ToString()], item, keySelString);
+                    insertInOrderAlpha(result[num.ToString()], item, keySelString, eliminaDuplicati);
                 else
-                    result[num.ToString()].Add(item);
+                {
+                    if (eliminaDuplicati)
+                    {
+                        if (result[num.ToString()].Where(x => keySelector(x).Equals(keySelector(item))).Count() > 0)
+                            continue;
+                        else
+                            result[num.ToString()].Add(item);
+                    }
+                    else
+                        result[num.ToString()].Add(item);
+                }
+                    
             }
             //return result;
             return result.OrderByDescending(x => x.Key).ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Value);
         }
-        public static Dictionary<string, List<T>> StringKeyGroup(List<T> items, Func<T, string> keySelector, bool sort = false, string emptyKey = "")
+        public static Dictionary<string, List<T>> StringKeyGroup(List<T> items, Func<T, string> keySelector, bool sort = false, string emptyKey = "", bool eliminaDuplicati = false)
         {
             Dictionary<string, List<T>> result = new Dictionary<string, List<T>>();
             foreach (T i in items)
@@ -103,9 +127,19 @@ namespace AdventuresPlanetUWP.Classes.Grouping
                     result.Add(label, new List<T>());
 
                 if (sort)
-                    insertInOrderAlpha(result[label], i, keySelector);
+                    insertInOrderAlpha(result[label], i, keySelector, eliminaDuplicati);
                 else
-                    result[label].Add(i);
+                {
+                    if (eliminaDuplicati)
+                    {
+                        if (result[label].Where(x => keySelector(x).Equals(keySelector(i)))?.Count() > 0)
+                            continue;
+                        else
+                            result[label].Add(i);
+                    }
+                    else
+                        result[label].Add(i);
+                }
             }
             return result.OrderBy(x => x.Key).ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Value);
         }

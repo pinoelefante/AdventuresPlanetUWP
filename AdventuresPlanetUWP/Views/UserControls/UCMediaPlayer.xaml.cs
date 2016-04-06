@@ -50,7 +50,7 @@ namespace AdventuresPlanetUWP.Views.UserControls
             if (mediaLoadedDt == null)
             {
                 mediaLoadedDt = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(500) };
-                mediaLoadedDt.Tick += (s, e1) =>
+                mediaLoadedDt.Tick += async (s, e1) =>
                 {
                     if (VideoPlayerManager.Instance.ItemLoaded && VideoPlayerManager.Instance.IsPlayable())
                     {
@@ -63,18 +63,18 @@ namespace AdventuresPlanetUWP.Views.UserControls
                         {
                             //Mostrare errore di caricamento video
                             MessageDialog msg = new MessageDialog("Errore durante il caricamento del video.\nProva ad aprire il contenuto nel browser.");
-                            msg.ShowAsync();
+                            await msg.ShowAsync();
                         }
                         mediaLoadedDt.Stop();
                     }
                     ticks_mediaLoaded++;
                     if (ticks_mediaLoaded > 20) // 20 * 0.5 secondi
-                    { 
+                    {
                         mediaLoadedDt.Stop();
                         if (ToLoad)
                         {
                             MessageDialog msg = new MessageDialog("Errore durante il caricamento del video.\nProva ad aprire il contenuto nel browser.");
-                            msg.ShowAsync();
+                            await msg.ShowAsync();
                         }
                     }
                 };
@@ -82,7 +82,7 @@ namespace AdventuresPlanetUWP.Views.UserControls
             if(!mediaLoadedDt.IsEnabled)
                 mediaLoadedDt.Start();
         }
-        private void LoadFirst()
+        private async void LoadFirst()
         {
             if (VideoPlayerManager.Instance.IsPlayable())
             {
@@ -94,9 +94,9 @@ namespace AdventuresPlanetUWP.Views.UserControls
             else
             {
                 MessageDialog msg = new MessageDialog("Non ci sono video da riprodurre");
-                msg.ShowAsync();
+                await msg.ShowAsync();
             }
-        } 
+        }
         private YouTubeUri _current;
         public YouTubeUri CurrentItem
         {

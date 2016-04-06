@@ -20,12 +20,9 @@ namespace AdventuresPlanetUWP.ViewModels
         {
             Debug.WriteLine("Recensioni on navigatedTo");
             if (!await Settings.Instance.IsRecensioniUpdated() && !Settings.Instance.UpdateRecensioniManualmente)
-            {
                 AggiornaRecensioni();
-            }
             if(ListaRecensioni==null || ListaRecensioni.Count == 0)
                 GroupByLetter();
-            //return Task.CompletedTask;
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
@@ -34,35 +31,39 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void GroupByLetter(object s=null, object e=null)
         {
-            if (SelectedMode == ModalitaVisualizzazione.AlphaKey)
+            if (SelectedMode == ModalitaVisualizzazione.AlphaKey && ListaRecensioni!=null && ListaRecensioni.Count > 0)
                 return;
             ListaRecensioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.AlphaKey;
             ListaRecensioni = MyGrouping<RecensioneItem>.AlphaKeyGroup(AdventuresPlanetManager.Instance.ListaRecensioni, 
                                                                         (t => t.Titolo), 
+                                                                        true, 
+                                                                        "", 
                                                                         true);
         }
         public void GroupByVoto(object s = null, object e = null)
         {
-            if (SelectedMode == ModalitaVisualizzazione.Voto)
+            if (SelectedMode == ModalitaVisualizzazione.Voto && ListaRecensioni != null && ListaRecensioni.Count > 0)
                 return;
             ListaRecensioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.Voto;
             ListaRecensioni = MyGrouping<RecensioneItem>.NumericKeyGroup(AdventuresPlanetManager.Instance.ListaRecensioni,
                                                                         (t => t.VotoInt),
                                                                         (t => t.Titolo),
+                                                                        true,
                                                                         true);
         }
         public void GroupByAuthor(object s = null, object e = null)
         {
-            if (SelectedMode == ModalitaVisualizzazione.Autore)
+            if (SelectedMode == ModalitaVisualizzazione.Autore && ListaRecensioni != null && ListaRecensioni.Count > 0)
                 return;
             ListaRecensioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.Autore;
             ListaRecensioni = MyGrouping<RecensioneItem>.StringKeyGroup(AdventuresPlanetManager.Instance.ListaRecensioni,
                                                                         (t => t.AutoreText),
                                                                         true,
-                                                                        "N.D.");
+                                                                        "N.D.", 
+                                                                        true);
         }
         public async void AggiornaRecensioni(object s = null, object e = null)
         {

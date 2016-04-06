@@ -27,21 +27,20 @@ namespace AdventuresPlanetUWP.Classes
         private static AdventuresPlanetManager singleton;
         private HttpClient http;
         private Windows.Web.Http.HttpClient jsonClient;
-        //public static string URL_PODCAST = "http://www.adventuresplanet.it/podcast.php";
+        
         public static string URL_BASE = "http://www.adventuresplanet.it/";
         //public static string URL_RECENSIONI = "http://www.adventuresplanet.it/recensioni.php";
         //public static string URL_SOLUZIONI = "http://www.adventuresplanet.it/soluzioni.php";
         //public static string URL_NEWS_MESI = "http://www.adventuresplanet.it/index.php?old=si";
+        //public static string URL_PODCAST = "http://www.adventuresplanet.it/podcast.php";
 
         private List<RecensioneItem> _recensioni;
-        public List<RecensioneItem> ListaRecensioni { get { if(_recensioni == null || _recensioni.Count == 0) _recensioni = DatabaseSystem.Instance.selectAllRecensioniLite(); return _recensioni; } set { _recensioni = value; } }
+        public List<RecensioneItem> ListaRecensioni { get { if(!_reset && (_recensioni == null || _recensioni.Count == 0)) _recensioni = DatabaseSystem.Instance.selectAllRecensioniLite(); return _recensioni; } set { _recensioni = value; } }
         private List<SoluzioneItem> _soluzioni;
-        public List<SoluzioneItem> ListaSoluzioni { get { if (_soluzioni == null || _soluzioni.Count == 0) _soluzioni = DatabaseSystem.Instance.selectAllSoluzioniLite(); return _soluzioni; } set { _soluzioni = value; } }
+        public List<SoluzioneItem> ListaSoluzioni { get { if (!_reset && (_soluzioni == null || _soluzioni.Count == 0)) _soluzioni = DatabaseSystem.Instance.selectAllSoluzioniLite(); return _soluzioni; } set { _soluzioni = value; } }
         private ObservableCollection<PodcastItem> _podcast;
-        public ObservableCollection<PodcastItem> ListaPodcast { get { if (_podcast == null || _podcast.Count == 0) _podcast = DatabaseSystem.Instance.selectAllPodcastOb(); return _podcast; } set { _podcast = value; } }
+        public ObservableCollection<PodcastItem> ListaPodcast { get { if (!_reset && (_podcast == null || _podcast.Count == 0)) _podcast = DatabaseSystem.Instance.selectAllPodcastOb(); return _podcast; } set { _podcast = value; } }
         public NewsCollection ListaNews { get; } = new NewsCollection();
-        public bool IsNewsFirstLoad { get; set; }
-        public bool IsPodcastFirstLoad { get; set; }
         private AdventuresPlanetManager()
         {
             if (http == null)
@@ -64,12 +63,33 @@ namespace AdventuresPlanetUWP.Classes
                 return singleton;
             }
         }
-        public void Reset()
+        private bool _reset = false;
+        public void Reset(bool news, bool rece, bool solu, bool podc)
         {
-            ListaNews?.Reset();
-            ListaRecensioni?.Clear();
-            ListaSoluzioni?.Clear();
-            ListaPodcast?.Clear();
+            _reset = true;
+            if (news)
+            {
+                ListaNews?.Reset();
+            }
+            if (rece)
+            {
+                if(_recensioni!=null && _recensioni.Count > 0)
+                    _recensioni.Clear();
+                //ListaRecensioni = null;
+            }
+            if (solu)
+            {
+                if (_soluzioni != null && _soluzioni.Count > 0)
+                    _soluzioni.Clear();
+                //ListaSoluzioni = null;
+            }
+            if (podc)
+            {
+                if (_podcast != null && _podcast.Count > 0)
+                    _podcast.Clear();
+                //ListaPodcast = null;
+            }
+            _reset = false;
         }
         private async Task<List<PodcastItem>> getAggiornamentiPodcast(string response = null)
         {
@@ -94,19 +114,6 @@ namespace AdventuresPlanetUWP.Classes
             }
             Settings.Instance.LastPodcastUpdate = time;
             return list_podcast;
-        }
-        public async Task<bool> loadPodcast()
-        {
-            App.KeepScreenOn();
-            List<PodcastItem> list = await getAggiornamentiPodcast();
-            int count = list.Count;
-            if (count > 0)
-            {
-                DatabaseSystem.Instance.insertPodcast(list);
-            }
-            list.Clear();
-            App.KeepScreenOn_Release();
-            return count > 0;
         }
         private async Task<List<RecensioneItem>> getAggiornamentiRecensioni(string response = null)
         {
@@ -668,6 +675,12 @@ namespace AdventuresPlanetUWP.Classes
                 return true;
             return false;
         }
+        public static bool isPodcast(String uri)
+        {
+            if (uri.StartsWith($"{URL_BASE}podcast.php"))
+                return true;
+            return false;
+        }
         public static bool isExtra(string uri)
         {
             if (uri.StartsWith(URL_BASE + "scheda_extra.php"))
@@ -709,12 +722,12 @@ namespace AdventuresPlanetUWP.Classes
                 rec = DatabaseSystem.Instance.selectRecensione(id);
             return rec;
         }
-        public string GetMeseCorrenteString()
+        private string GetMeseCorrenteString()
         {
             DateTime now = DateTime.Now;
             return GetPeriodoString(now.Year, now.Month);
         }
-        public string GetPeriodoString(int anno, int mese)
+        private string GetPeriodoString(int anno, int mese)
         {
             return $"{anno.ToString("D4")}{mese.ToString("D2")}";
         }

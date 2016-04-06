@@ -21,9 +21,8 @@ namespace AdventuresPlanetUWP.ViewModels
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             if (!await Settings.Instance.IsPodcastUpdated())
-            {
                 AggiornaPodcast();
-            }
+            ListPodcast = AdventuresPlanetManager.Instance.ListaPodcast;
             BackgroundMediaPlayer.MessageReceivedFromBackground += MessageReceived;
             BackgroundMediaPlayer.Current.CurrentStateChanged += PlayerStateChanged;
             PodcastManager.Instance.IsPlayerLoaded();
@@ -158,6 +157,8 @@ namespace AdventuresPlanetUWP.ViewModels
         {
             IsUpdatingPodcast = true;
             await AdventuresPlanetManager.Instance.aggiornaPodcast();
+            ListPodcast = AdventuresPlanetManager.Instance.ListaPodcast;
+            RaisePropertyChanged(nameof(ListPodcast));
             IsUpdatingPodcast = false;
         }
         public void Play(object s, object e)
@@ -173,7 +174,7 @@ namespace AdventuresPlanetUWP.ViewModels
             PodcastManager.Instance.Stop();
             IsPlayerLoaded = false;
         }
-        public ObservableCollection<PodcastItem> ListPodcast { get; } = AdventuresPlanetManager.Instance.ListaPodcast;
+        public ObservableCollection<PodcastItem> ListPodcast { get; set; } = AdventuresPlanetManager.Instance.ListaPodcast;
         private bool _isUpdating, _isPlaying, _isBuffering, _isPlayerLoaded, _isSaveable;
         private string _title = string.Empty, _durataT = string.Empty, _curPosT = string.Empty;
         private long _durata = 1, _currPos = 0;

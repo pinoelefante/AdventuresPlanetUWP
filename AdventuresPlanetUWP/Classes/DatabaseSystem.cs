@@ -679,7 +679,7 @@ namespace AdventuresPlanetUWP.Classes
             dropTable("soluzioni");
             dropTable("podcast");
             dropTable("news");
-            DatabaseSystem.Instance.vacuum();
+            vacuum();
             creaDB();
         }
         public void cleanTables()

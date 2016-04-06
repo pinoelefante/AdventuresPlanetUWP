@@ -28,12 +28,12 @@ namespace AdventuresPlanetUWP.ViewModels
             UICommand del = new UICommand(res.GetString("settings_cancellazione_conferma")) { Id = 0 };
             del.Invoked = (x) => 
             {
-                DatabaseSystem.Instance.cleanTables();
+                DatabaseSystem.Instance.dropDB();
                 Settings.LastNewsUpdate = 0;
                 Settings.LastPodcastUpdate = 0;
                 Settings.LastRecensioniUpdate = 0;
                 Settings.LastSoluzioniUpdate = 0;
-                AdventuresPlanetManager.Instance.Reset();
+                AdventuresPlanetManager.Instance.Reset(true, true, true, true);
             };
             UICommand annulla = new UICommand(res.GetString("settings_cancellazione_annulla")) { Id = 1 };
             dlg.Commands.Add(del);
@@ -59,24 +59,19 @@ namespace AdventuresPlanetUWP.ViewModels
                 {
                     DatabaseSystem.Instance.cleanRecensioni();
                     Settings.LastRecensioniUpdate = 0;
-                    AdventuresPlanetManager.Instance.ListaRecensioni?.Clear();
-                    AdventuresPlanetManager.Instance.ListaRecensioni = null;
                 }
                 if (solu)
                 {
                     DatabaseSystem.Instance.cleanSoluzioni();
                     Settings.LastSoluzioniUpdate = 0;
-                    AdventuresPlanetManager.Instance.ListaSoluzioni?.Clear();
-                    AdventuresPlanetManager.Instance.ListaSoluzioni = null;
                     
                 }
                 if (podc)
                 {
                     DatabaseSystem.Instance.cleanPodcast();
                     Settings.LastPodcastUpdate = 0;
-                    AdventuresPlanetManager.Instance.ListaPodcast?.Clear();
-                    AdventuresPlanetManager.Instance.ListaPodcast = null;
                 }
+                AdventuresPlanetManager.Instance.Reset(news, rece, solu, podc);
                 DatabaseSystem.Instance.vacuum();
             };
             UICommand annulla = new UICommand("Annulla") { Id = 1 };

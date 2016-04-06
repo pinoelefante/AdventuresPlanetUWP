@@ -31,24 +31,27 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public void GroupByAlpha(object s = null, object e = null)
         {
-            if (SelectedMode == ModalitaVisualizzazione.AlphaKey)
+            if (SelectedMode == ModalitaVisualizzazione.AlphaKey && ListaSoluzioni != null && ListaSoluzioni.Count > 0)
                 return;
             ListaSoluzioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.AlphaKey;
             ListaSoluzioni = MyGrouping<SoluzioneItem>.AlphaKeyGroup(AdventuresPlanetManager.Instance.ListaSoluzioni, 
                                                                     (x) => { return x.Titolo; }, 
+                                                                    true, 
+                                                                    "", 
                                                                     true);
         }
         public void GroupByAuthor(object s = null, object e = null)
         {
-            if (SelectedMode == ModalitaVisualizzazione.Autore)
+            if (SelectedMode == ModalitaVisualizzazione.Autore && ListaSoluzioni != null && ListaSoluzioni.Count > 0)
                 return;
             ListaSoluzioni?.Clear();
             SelectedMode = ModalitaVisualizzazione.Autore;
             ListaSoluzioni = MyGrouping<SoluzioneItem>.StringKeyGroup(AdventuresPlanetManager.Instance.ListaSoluzioni,
                                                                         (t => t.AutoreText),
                                                                         true,
-                                                                        "N.D.");
+                                                                        "N.D.",
+                                                                        true);
         }
         public async void AggiornaSoluzioni(object s = null, object e = null)
         {
