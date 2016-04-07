@@ -29,10 +29,6 @@ namespace AdventuresPlanetUWP.Classes
         private Windows.Web.Http.HttpClient jsonClient;
         
         public static string URL_BASE = "http://www.adventuresplanet.it/";
-        //public static string URL_RECENSIONI = "http://www.adventuresplanet.it/recensioni.php";
-        //public static string URL_SOLUZIONI = "http://www.adventuresplanet.it/soluzioni.php";
-        //public static string URL_NEWS_MESI = "http://www.adventuresplanet.it/index.php?old=si";
-        //public static string URL_PODCAST = "http://www.adventuresplanet.it/podcast.php";
 
         private List<RecensioneItem> _recensioni;
         public List<RecensioneItem> ListaRecensioni { get { if(!_reset && (_recensioni == null || _recensioni.Count == 0)) _recensioni = DatabaseSystem.Instance.selectAllRecensioniLite(); return _recensioni; } set { _recensioni = value; } }
@@ -75,19 +71,16 @@ namespace AdventuresPlanetUWP.Classes
             {
                 if(_recensioni!=null && _recensioni.Count > 0)
                     _recensioni.Clear();
-                //ListaRecensioni = null;
             }
             if (solu)
             {
                 if (_soluzioni != null && _soluzioni.Count > 0)
                     _soluzioni.Clear();
-                //ListaSoluzioni = null;
             }
             if (podc)
             {
                 if (_podcast != null && _podcast.Count > 0)
                     _podcast.Clear();
-                //ListaPodcast = null;
             }
             _reset = false;
         }
@@ -251,7 +244,7 @@ namespace AdventuresPlanetUWP.Classes
                         if (online)
                         {
                             list_news = await parsePageNews(anno,mese);
-                            DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
+                            //DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
                             DatabaseSystem.Instance.insertNews(list_news);
                             return DatabaseSystem.Instance.selectNewsByMeseLink(meselink);
                         }
@@ -285,7 +278,7 @@ namespace AdventuresPlanetUWP.Classes
                         }
                         else
                         {
-                            DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
+                            //DatabaseSystem.Instance.deleteNewsByMeseLink(meselink);
                             DatabaseSystem.Instance.insertNews(list_news);
                             if (meselink.CompareTo(meselinkCurrPer) == 0) //mese corrente da non rendere persistente
                             {
@@ -473,6 +466,66 @@ namespace AdventuresPlanetUWP.Classes
             {
                 App.KeepScreenOn_Release();
             }
+        }
+        private List<string> parseHtml(HtmlNode node)
+        {
+            List<string> rich = new List<string>();
+
+            foreach (var item in node.ChildNodes)
+            {
+                if(item.GetType() == typeof(HtmlTextNode))
+                    rich.Add("@TEXT" + WebUtility.HtmlDecode(item.InnerText.Trim()));
+                else
+                {
+                    switch (item.OriginalName)
+                    {
+                        case "a":
+                            {
+                                string link = WebUtility.HtmlDecode(item.Attributes["href"].Value);
+                                string text = WebUtility.HtmlDecode(item.InnerText.Trim());
+                                rich.Add("@ANCHOR;link=" + link + ";text=" + text);
+                            }
+                            break;
+                        case "b":
+                        case "strong":
+                            {
+                                if (item.FirstChild.GetType() == typeof(HtmlTextNode))
+                                {
+                                    var text = WebUtility.HtmlDecode(item.FirstChild.InnerText);
+                                    rich.Add("@BOLD" + text);
+                                }
+                                else
+                                    rich.AddRange(parseHtml(item));
+                            }
+                            break;
+                        case "i":
+                        case "italic":
+                            break;
+                        case "br":
+                            rich.Add("@DIVIDER");
+                            break;
+                        case "table":
+                            break;
+                        case "iframe":
+                            {
+                                var href = item.Attributes["href"].Value;
+                                if (href.Contains("youtube.com"))
+                                    rich.Add($"@VIDEO;{href};640;480;");
+                            }
+                            break;
+                        case "img":
+                            {
+                                var src = item.Attributes["src"].Value;
+                                if (!src.StartsWith("http"))
+                                    src = $"{URL_BASE}{src}";
+                                rich.Add($"@IMG;{src}");
+                            }
+                            break;
+                    }
+                }
+            }
+
+            return rich;
         }
         private List<String> parseNewsRich(HtmlNode node)
         {
