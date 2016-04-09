@@ -27,6 +27,7 @@ namespace AdventuresPlanetUWP.Views
         public ViewRecensione()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
         }
         public ContentsPageViewModel VM => this.DataContext as ContentsPageViewModel;
         private void OnItemClick(object sender, ItemClickEventArgs e)

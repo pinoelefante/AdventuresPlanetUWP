@@ -14,6 +14,17 @@ namespace AdventuresPlanetUWP.Classes
         private static string DBFile = "AdventuresPlanet.sqlite";
         private static DatabaseSystem singleton;
         private SQLiteConnection conn;
+        private static readonly string TABLE_NEWS = "news",
+            TABLE_RECENSIONI = "recensioni",
+            TABLE_SOLUZIONI = "soluzioni",
+            TABLE_PODCAST = "podcast",
+            TABLE_GALLERIE = "gallerie";
+        private static readonly string QUERY_NEWS = $"CREATE TABLE IF NOT EXISTS {TABLE_NEWS} (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT UNIQUE, titolo TEXT, anteprima TEXT, testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', data TEXT DEFAULT '', img TEXT, meselink TEXT NOT NULL)", 
+            QUERY_PODCAST = $"CREATE TABLE IF NOT EXISTS {TABLE_PODCAST} (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '', immagine TEXT) WITHOUT ROWID;",
+            QUERY_RECENSIONI = $"CREATE TABLE IF NOT EXISTS {TABLE_RECENSIONI} (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', voto TEXT DEFAULT '', votoUtenti TEXT DEFAULT '', link TEXT NOT NULL, testoBreve TEXT DEFAULT '', testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;",
+            QUERY_SOLUZIONI = $"CREATE TABLE IF NOT EXISTS {TABLE_SOLUZIONI} (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', link TEXT NOT NULL, soluzione TEXT DEFAULT '', soluzioneRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;",
+            QUERY_GALLERIE = $"CREATE TABLE IF NOT EXISTS {TABLE_GALLERIE} (id TEXT PRIMARY KEY, nome TEXT NOT NULL)";
+        
         public static DatabaseSystem Instance
         {
             get
@@ -26,24 +37,22 @@ namespace AdventuresPlanetUWP.Classes
 
         public void creaDB()
         {
-            string news = "CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT UNIQUE, titolo TEXT, anteprima TEXT, testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', data TEXT DEFAULT '', img TEXT, meselink TEXT NOT NULL)";
-            string podcast = "CREATE TABLE IF NOT EXISTS podcast (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '', immagine TEXT) WITHOUT ROWID;";
-            string recensioni = "CREATE TABLE IF NOT EXISTS recensioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', voto TEXT DEFAULT '', votoUtenti TEXT DEFAULT '', link TEXT NOT NULL, testoBreve TEXT DEFAULT '', testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;";
-            string soluzioni = "CREATE TABLE IF NOT EXISTS soluzioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', link TEXT NOT NULL, soluzione TEXT DEFAULT '', soluzioneRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;";
+            using (var st = conn.Prepare(QUERY_NEWS))
+                st.Step();
+            using (var st = conn.Prepare(QUERY_RECENSIONI))
+                st.Step();
+            using (var st = conn.Prepare(QUERY_SOLUZIONI))
+                st.Step();
+            using (var st = conn.Prepare(QUERY_PODCAST))
+                st.Step();
+            using (var st = conn.Prepare(QUERY_GALLERIE))
+                st.Step();
 
-            using (var st = conn.Prepare(podcast))
-                st.Step();
-            using (var st = conn.Prepare(recensioni))
-                st.Step();
-            using (var st = conn.Prepare(soluzioni))
-                st.Step();
-            using (var st = conn.Prepare(news))
-                st.Step();
             aggiornaDB();
         }
         public bool insertNews(News n)
         {
-            string query = "INSERT INTO news (link,titolo,anteprima,testo,testoRich,data,img,meselink) VALUES (?,?,?,?,?,?,?,?)";
+            string query = $"INSERT INTO {TABLE_NEWS} (link,titolo,anteprima,testo,testoRich,data,img,meselink) VALUES (?,?,?,?,?,?,?,?)";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, n.Link);
@@ -66,7 +75,7 @@ namespace AdventuresPlanetUWP.Classes
 
         public void updateDettagliNews(News n)
         {
-            string query = "UPDATE news SET testo = ? , testoRich = ? WHERE id = ?";
+            string query = $"UPDATE {TABLE_NEWS} SET testo = ? , testoRich = ? WHERE id = ?";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, n.CorpoNews);
@@ -94,7 +103,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void deleteNewsByMeseLink(string link)
         {
-            string query = "DELETE FROM news WHERE meselink = ?";
+            string query = $"DELETE FROM {TABLE_NEWS} WHERE meselink = ?";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, link);
@@ -103,7 +112,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void deleteNewsByLink(string link)
         {
-            string query = "DELETE FROM news WHERE link = ?";
+            string query = $"DELETE FROM {TABLE_NEWS} WHERE link = ?";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, link);
@@ -112,7 +121,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public List<News> selectNewsByMeseLink(string meseLink)
         {
-            string query = "SELECT * FROM news WHERE meselink = '" + meseLink + "' ORDER BY id DESC";
+            string query = $"SELECT * FROM {TABLE_NEWS} WHERE meselink = '{meseLink}' ORDER BY id DESC";
             List<News> list = new List<News>();
             using (var st = conn.Prepare(query))
             {
@@ -125,24 +134,9 @@ namespace AdventuresPlanetUWP.Classes
             }
             return list;
         }
-        public List<News> selectNews(int limit = 10, int from = 0)
-        {
-            string query = "SELECT * FROM news ORDER BY id DESC LIMIT " + limit + (from > 0 ? " WHERE id<" + from : "");
-            List<News> list = new List<News>(limit > 0 ? limit : 10);
-            using (var st = conn.Prepare(query))
-            {
-                while (st.Step() == SQLiteResult.ROW)
-                {
-                    News news = parseNews(st);
-                    Debug.WriteLine(news.Titolo + " id = " + news.Id);
-                    list.Insert(0, news);
-                }
-            }
-            return list;
-        }
         public News selectNews(News news, bool complete = false)
         {
-            string query = "SELECT * FROM news WHERE id = " + news.Id;
+            string query = $"SELECT * FROM {TABLE_NEWS} WHERE id = {news.Id}";
             using (var st = conn.Prepare(query))
             {
                 if (st.Step() == SQLiteResult.ROW)
@@ -203,43 +197,9 @@ namespace AdventuresPlanetUWP.Classes
             conn.Dispose();
             conn = null;
         }
-        public void deleteDatabase()
-        {
-
-        }
-        public List<RecensioneItem> selectAllRecensioni()
-        {
-            string query = "SELECT * FROM recensioni ORDER BY nome ASC";
-            List<RecensioneItem> list = new List<RecensioneItem>();
-            using (var stmt = conn.Prepare(query))
-            {
-                while (stmt.Step() == SQLiteResult.ROW)
-                {
-                    var id = stmt.GetText("id");
-                    var nome = stmt.GetText("nome");
-                    var autore = stmt.GetText("autore");
-                    var voto = stmt.GetText("voto");
-                    var votoU = stmt.GetText("votoUtenti");
-                    var link = stmt.GetText("link");
-                    var testoB = stmt.GetText("testoBreve");
-                    var testo = stmt.GetText("testo");
-                    var testoRich = stmt.GetText("testoRich");
-                    var store = stmt.GetText("store");
-                    RecensioneItem item = new RecensioneItem(nome, autore, voto, link);
-                    item.Id = id;
-                    item.VotoUtentiText = votoU;
-                    item.TestoBreve = testoB;
-                    item.Testo = testo;
-                    item.TestoRich = Rich_TextToList(testoRich);
-                    item.LinkStore = store;
-                    list.Add(item);
-                }
-            }
-            return list;
-        }
         public bool loadDettagliRecensione(RecensioneItem item)
         {
-            string query = "SELECT votoUtenti,testoBreve,testo,testoRich,store FROM recensioni WHERE id = ?";
+            string query = $"SELECT votoUtenti,testoBreve,testo,testoRich,store FROM {TABLE_RECENSIONI} WHERE id = ?";
             using (var stmt = conn.Prepare(query))
             {
                 stmt.Bind(1, item.Id);
@@ -263,7 +223,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public List<RecensioneItem> selectAllRecensioniLite()
         {
-            string query = "SELECT nome,autore,voto,link FROM recensioni ORDER BY nome ASC";
+            string query = $"SELECT nome,autore,voto,link FROM {TABLE_RECENSIONI} ORDER BY nome ASC";
             List<RecensioneItem> list = new List<RecensioneItem>();
             using (var stmt = conn.Prepare(query))
             {
@@ -282,7 +242,7 @@ namespace AdventuresPlanetUWP.Classes
 
         public RecensioneItem selectRecensione(string id)
         {
-            string query = "SELECT * FROM recensioni WHERE id = ?";
+            string query = $"SELECT * FROM {TABLE_RECENSIONI} WHERE id = ?";
             using (var stmt = conn.Prepare(query))
             {
                 stmt.Bind(1, id);
@@ -312,7 +272,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public Boolean insertRecensione(RecensioneItem rec)
         {
-            string query = "INSERT INTO recensioni (id,nome,autore,voto,votoUtenti,link,testoBreve,testo,testoRich,store) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            string query = $"INSERT INTO {TABLE_RECENSIONI} (id,nome,autore,voto,votoUtenti,link,testoBreve,testo,testoRich,store) VALUES (?,?,?,?,?,?,?,?,?,?)";
             try
             {
                 using (var stmt = conn.Prepare(query))
@@ -350,7 +310,7 @@ namespace AdventuresPlanetUWP.Classes
 
             il tutto calcolato sulla lunghezza della lista +5 elementi vuoti per non correre il rischio di dover allocare altro spazio
             */
-            StringBuilder builder = new StringBuilder("INSERT INTO recensioni (id,nome,autore,voto,link) VALUES ", 60 + (list.Count + 5) * 160);
+            StringBuilder builder = new StringBuilder($"INSERT INTO {TABLE_RECENSIONI} (id,nome,autore,voto,link) VALUES ", 60 + (list.Count + 5) * 160);
 
             for (int i = 0; i < list.Count - 1; i++)
             {
@@ -397,7 +357,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void updateRecensione(RecensioneItem rec)
         {
-            string query = "UPDATE recensioni SET id=? , nome = ? , autore = ? , voto = ?, votoUtenti = ? , link = ? , testoBreve = ? , testo = ? , testoRich = ? , store = ? WHERE id = ?";
+            string query = $"UPDATE {TABLE_RECENSIONI} SET id=? , nome = ? , autore = ? , voto = ?, votoUtenti = ? , link = ? , testoBreve = ? , testo = ? , testoRich = ? , store = ? WHERE id = ?";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, rec.Id);
@@ -431,7 +391,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public List<PodcastItem> selectAllPodcast()
         {
-            string query = "SELECT * FROM podcast ORDER BY stagione DESC, episodio DESC";
+            string query = $"SELECT * FROM {TABLE_PODCAST} ORDER BY stagione DESC, episodio DESC";
             List<PodcastItem> podcast = new List<PodcastItem>();
             using (var st = conn.Prepare(query))
             {
@@ -453,7 +413,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public ObservableCollection<PodcastItem> selectAllPodcastOb()
         {
-            string query = "SELECT * FROM podcast ORDER BY stagione DESC, episodio DESC";
+            string query = $"SELECT * FROM {TABLE_PODCAST} ORDER BY stagione DESC, episodio DESC";
             ObservableCollection<PodcastItem> podcast = new ObservableCollection<PodcastItem>();
             using (var st = conn.Prepare(query))
             {
@@ -475,7 +435,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void insertPodcast(PodcastItem pod)
         {
-            string query = "INSERT INTO podcast (link,titolo,data,stagione,episodio,descrizione,immagine) VALUES (?,?,?,?,?,?,?)";
+            string query = $"INSERT INTO {TABLE_PODCAST} (link,titolo,data,stagione,episodio,descrizione,immagine) VALUES (?,?,?,?,?,?,?)";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, pod.Link);
@@ -497,7 +457,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void insertSoluzione(SoluzioneItem sol)
         {
-            string query = "INSERT INTO soluzioni (id,nome,autore,link,soluzione,soluzioneRich,store) VALUES (?,?,?,?,?,?,?)";
+            string query = $"INSERT INTO {TABLE_SOLUZIONI} (id,nome,autore,link,soluzione,soluzioneRich,store) VALUES (?,?,?,?,?,?,?)";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, sol.Id);
@@ -515,7 +475,7 @@ namespace AdventuresPlanetUWP.Classes
             if (list.Count == 0)
                 return true;
 
-            StringBuilder builder = new StringBuilder("INSERT INTO soluzioni (id,nome,autore,link) VALUES ", 55 + (list.Count + 5) * 150);
+            StringBuilder builder = new StringBuilder($"INSERT INTO {TABLE_SOLUZIONI} (id,nome,autore,link) VALUES ", 55 + (list.Count + 5) * 150);
             for (int i = 0; i < list.Count - 1; i++)
             {
                 SoluzioneItem sol = list[i];
@@ -552,7 +512,7 @@ namespace AdventuresPlanetUWP.Classes
 
         public List<SoluzioneItem> selectAllSoluzioni()
         {
-            string query = "SELECT * FROM soluzioni ORDER BY nome ASC";
+            string query = $"SELECT * FROM {TABLE_SOLUZIONI} ORDER BY nome ASC";
             List<SoluzioneItem> l = new List<SoluzioneItem>();
             using (var st = conn.Prepare(query))
             {
@@ -577,7 +537,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public bool loadDettagliSoluzione(SoluzioneItem item)
         {
-            string query = "SELECT soluzione,soluzioneRich,store FROM soluzioni WHERE id = ?";
+            string query = $"SELECT soluzione,soluzioneRich,store FROM {TABLE_SOLUZIONI} WHERE id = ?";
             List<SoluzioneItem> l = new List<SoluzioneItem>();
             using (var st = conn.Prepare(query))
             {
@@ -598,7 +558,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public List<SoluzioneItem> selectAllSoluzioniLite()
         {
-            string query = "SELECT nome,autore,link FROM soluzioni ORDER BY nome ASC";
+            string query = $"SELECT nome,autore,link FROM {TABLE_SOLUZIONI} ORDER BY nome ASC";
             List<SoluzioneItem> l = new List<SoluzioneItem>();
             using (var st = conn.Prepare(query))
             {
@@ -615,7 +575,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public SoluzioneItem selectSoluzione(string id)
         {
-            string query = "SELECT * FROM soluzioni WHERE id = ?";
+            string query = $"SELECT * FROM {TABLE_SOLUZIONI} WHERE id = ?";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, id);
@@ -640,7 +600,7 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void updateSoluzione(SoluzioneItem sol)
         {
-            string query = "UPDATE soluzioni SET id = ? , nome = ? , autore = ? , link = ? , soluzione = ? , soluzioneRich = ? , store = ? WHERE id = ?";
+            string query = $"UPDATE {TABLE_SOLUZIONI} SET id = ? , nome = ? , autore = ? , link = ? , soluzione = ? , soluzioneRich = ? , store = ? WHERE id = ?";
             using (var st = conn.Prepare(query))
             {
                 st.Bind(1, sol.Id);
@@ -654,20 +614,62 @@ namespace AdventuresPlanetUWP.Classes
                 st.Step();
             }
         }
-        public void cleanDB()
+        public void insertGalleria(string nome, string id)
         {
-            Debug.WriteLine("clean db");
-#if DEBUG
-            Debug.WriteLine("Dropping tables...");
-            dropDB();
-#else
-            Debug.WriteLine("Cleaning tables...");
-            cleanTables();
-#endif
+            string query = $"INSERT INTO {TABLE_GALLERIE} (id, nome) VALUES (\"{id}\",\"{nome}\")";
+            using (var st = conn.Prepare(query))
+                st.Step();
+        }
+        public bool multiInsertGallerie(List<KeyValuePair<string, string>> lista)
+        {
+            if (lista.Count == 0)
+                return true;
+            StringBuilder builder = new StringBuilder($"INSERT INTO {TABLE_GALLERIE} (id,nome) VALUES ", 40 + (lista.Count * 32));
+            for (int i = 0; i < lista.Count - 1; i++)
+            {
+                var item = lista[i];
+                builder.Append($"(\"{item.Key}\",\"{item.Value}\"),");
+            }
+            KeyValuePair<string, string> last = lista.Last();
+            builder.Append($"(\"{last.Key}\",\"{last.Value}\")");
+
+            using (var st = conn.Prepare(builder.ToString()))
+            {
+                try
+                {
+                    if (st.Step() == SQLiteResult.DONE)
+                        return true;
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
+            }
+            return false;
+        }
+        public string selectTitoloGalleria(string id)
+        {
+            string query = $"SELECT nome FROM {TABLE_GALLERIE} WHERE id = ?";
+            using(var st = conn.Prepare(query))
+            {
+                st.Bind(1, id);
+                if(st.Step() == SQLiteResult.ROW)
+                {
+                    string titolo = st.GetText("nome");
+                    return titolo;
+                }
+            }
+            return string.Empty;
+        }
+        public bool hasGalleria(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return false;
+            return true;
         }
         private void dropTable(string table)
         {
-            string dropQ = "DROP TABLE IF EXISTS " + table;
+            string dropQ = $"DROP TABLE IF EXISTS {table}";
             using (var st = conn.Prepare(dropQ))
             {
                 st.Step();
@@ -675,24 +677,26 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void dropDB()
         {
-            dropTable("recensioni");
-            dropTable("soluzioni");
-            dropTable("podcast");
-            dropTable("news");
+            dropTable(TABLE_NEWS);
+            dropTable(TABLE_RECENSIONI);
+            dropTable(TABLE_SOLUZIONI);
+            dropTable(TABLE_PODCAST);
+            dropTable(TABLE_GALLERIE);
             vacuum();
             creaDB();
         }
         public void cleanTables()
         {
-            cleanTable("recensioni");
-            cleanTable("soluzioni");
-            cleanTable("podcast");
-            cleanTable("news");
+            cleanTable(TABLE_NEWS);
+            cleanTable(TABLE_RECENSIONI);
+            cleanTable(TABLE_SOLUZIONI);
+            cleanTable(TABLE_PODCAST);
+            cleanTable(TABLE_GALLERIE);
             vacuum();
         }
         private void cleanTable(string table)
         {
-            string cleanT = "DELETE FROM " + table;
+            string cleanT = $"DELETE FROM {table}";
             using (var st = conn.Prepare(cleanT))
             {
                 st.Step();
@@ -700,34 +704,38 @@ namespace AdventuresPlanetUWP.Classes
         }
         public void cleanNews()
         {
-            dropTable("news");
-            using (var st = conn.Prepare("CREATE TABLE IF NOT EXISTS news (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT UNIQUE, titolo TEXT, anteprima TEXT, testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', data TEXT DEFAULT '', img TEXT, meselink TEXT NOT NULL)"))
+            dropTable(TABLE_NEWS);
+            using (var st = conn.Prepare(QUERY_NEWS))
                 st.Step();
         }
         public void cleanRecensioni()
         {
-            dropTable("recensioni");
-            using (var st = conn.Prepare("CREATE TABLE IF NOT EXISTS recensioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', voto TEXT DEFAULT '', votoUtenti TEXT DEFAULT '', link TEXT NOT NULL, testoBreve TEXT DEFAULT '', testo TEXT DEFAULT '', testoRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;"))
+            dropTable(TABLE_RECENSIONI);
+            using (var st = conn.Prepare(QUERY_RECENSIONI))
                 st.Step();
         }
         public void cleanSoluzioni()
         {
-            dropTable("soluzioni");
-            using (var st = conn.Prepare("CREATE TABLE IF NOT EXISTS soluzioni (id TEXT PRIMARY KEY, nome TEXT NOT NULL, autore TEXT DEFAULT '', link TEXT NOT NULL, soluzione TEXT DEFAULT '', soluzioneRich TEXT DEFAULT '', store TEXT DEFAULT '') WITHOUT ROWID;"))
+            dropTable(TABLE_SOLUZIONI);
+            using (var st = conn.Prepare(QUERY_SOLUZIONI))
                 st.Step();
         }
         public void cleanPodcast()
         {
-            dropTable("podcast");
-            using (var st = conn.Prepare("CREATE TABLE IF NOT EXISTS podcast (link TEXT PRIMARY KEY, titolo TEXT NOT NULL, data TEXT, stagione INTEGER, episodio INTEGER, descrizione TEXT DEFAULT '', immagine TEXT) WITHOUT ROWID;"))
+            dropTable(TABLE_PODCAST);
+            using (var st = conn.Prepare(QUERY_PODCAST))
+                st.Step();
+        }
+        public void cleanGallerie()
+        {
+            dropTable(TABLE_GALLERIE);
+            using (var st = conn.Prepare(QUERY_GALLERIE))
                 st.Step();
         }
         public void vacuum()
         {
             using (var st = conn.Prepare("VACUUM"))
-            {
                 st.Step();
-            }
         }
     }
 }

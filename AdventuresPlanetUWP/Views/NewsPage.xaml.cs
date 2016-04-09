@@ -65,5 +65,10 @@ namespace AdventuresPlanetUWP.Views
         {
             Flyout.ShowAttachedFlyout(sender as FrameworkElement);
         }
+
+        private void test(object sender, RoutedEventArgs e)
+        {
+            VM.Test();
+        }
     }
 }

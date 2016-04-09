@@ -128,6 +128,7 @@
     <PRIResource Include="Strings\it\Contents.resw" />
     <PRIResource Include="Strings\en\App.resw" />
     <PRIResource Include="Strings\it\App.resw" />
+    <Content Include="gallerie.json" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\candle.scale-100.png" />
     <Content Include="Assets\candle.scale-200.png" />
@@ -206,6 +207,7 @@
     <Compile Include="ViewModels\ChristmasTime.cs" />
     <Compile Include="ViewModels\ContentsPageViewModel.cs" />
     <Compile Include="ViewModels\FirstStartViewModel.cs" />
+    <Compile Include="ViewModels\GalleriaImmaginiVM.cs" />
     <Compile Include="ViewModels\InfoPageViewModel.cs" />
     <Compile Include="ViewModels\NewsPageViewModel.cs" />
     <Compile Include="ViewModels\OpzioniPageViewModel.cs" />
@@ -220,6 +222,9 @@
     </Compile>
     <Compile Include="Views\FirstStartPage.xaml.cs">
       <DependentUpon>FirstStartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GalleriaImmagini.xaml.cs">
+      <DependentUpon>GalleriaImmagini.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ImageViewPage.xaml.cs">
       <DependentUpon>ImageViewPage.xaml</DependentUpon>
@@ -309,6 +314,10 @@
     <Page Include="Views\FirstStartPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GalleriaImmagini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ImageViewPage.xaml">
       <SubType>Designer</SubType>

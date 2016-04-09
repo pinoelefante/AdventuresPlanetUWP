@@ -1,6 +1,7 @@
 ﻿using AdventuresPlanetUWP.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using static AdventuresPlanetUWP.Classes.AdventuresPlanetManager;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,24 +23,13 @@ namespace AdventuresPlanetUWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SettingsPage : Page
+    public sealed partial class GalleriaImmagini : Page
     {
-        public SettingsPage()
+        public GalleriaImmagini()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
         }
-
-        public OpzioniPageViewModel VM => this.DataContext as OpzioniPageViewModel;
-
-        private void cancella_selezionati(object sender, RoutedEventArgs e)
-        {
-            bool news = (bool)del_news.IsChecked;
-            bool rece = (bool)del_rece.IsChecked;
-            bool solu = (bool)del_solu.IsChecked;
-            bool podc = (bool)del_podcast.IsChecked;
-            bool gall = (bool)del_gallerie.IsChecked;
-            if(news || rece || solu || podc)
-                VM.cancella_dati_sel(news, rece, solu, podc, gall);
-        }
+        public GalleriaImmaginiVM VM => this.DataContext as GalleriaImmaginiVM;
     }
 }

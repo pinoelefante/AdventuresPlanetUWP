@@ -83,6 +83,15 @@ namespace AdventuresPlanetUWP.ViewModels
             else 
                 NavigationService.Navigate(typeof(ViewNewsPage), n);
         }
+
+        public void Test()
+        {
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p.Add("url", "http://www.adventuresplanet.it/scheda_immagini.php?game=15 days");
+            p.Add("titolo", "15 Days");
+            NavigationService.Navigate(typeof(GalleriaImmagini), p);
+        }
+
         public void AggiornaNews(object sender = null, object e = null)
         {
             Debug.WriteLine("Aggiorno le news");

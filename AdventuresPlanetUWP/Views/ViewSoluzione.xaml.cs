@@ -27,6 +27,7 @@ namespace AdventuresPlanetUWP.Views
         public ViewSoluzione()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
         }
         public ContentsPageViewModel VM => this.DataContext as ContentsPageViewModel;
         private void GoToIndex(object sender, object e)

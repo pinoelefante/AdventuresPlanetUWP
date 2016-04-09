@@ -39,12 +39,7 @@ namespace AdventuresPlanetUWP.ViewModels
         private DataTransferManager _transferManager;
         public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            VideoPlayerManager.Instance.Clear();
-            if (state.ContainsKey(nameof(Item)))
-            {
-                SetStato(state[nameof(Item)] as PaginaContenuti);
-            }
-            else
+            if(mode == NavigationMode.New || mode == NavigationMode.Refresh)
             {
                 SetStato(parameter as PaginaContenuti);
             }
@@ -127,12 +122,15 @@ namespace AdventuresPlanetUWP.ViewModels
             }
         }
         public bool ItemLoaded { get; set; }
+        private bool _gallery = false;
+        public bool HasGallery { get { return _gallery; } set { Set(ref _gallery, value); } }
         private async void SetStato(PaginaContenuti cont)
         {
             Item = cont;
             IsRecensione = cont is RecensioneItem;
             IsSoluzione = cont is SoluzioneItem;
             IsVideo = Item.isVideo;
+            HasGallery = DatabaseSystem.Instance.hasGalleria(Item.Id);
             if (ItemLoaded = await ScaricaContenuti())
             {
                 AssemblaComponenti();
@@ -436,6 +434,13 @@ namespace AdventuresPlanetUWP.ViewModels
                 HasRecensione = true;
                 HasSoluzione = DatabaseSystem.Instance.selectSoluzione(Item.Id) != null;
             }
+        }
+        public void ApriGalleria(object sender, object e)
+        {
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p.Add("id", Item.Id);
+            p.Add("titolo", Item.Titolo);
+            NavigationService.Navigate(typeof(GalleriaImmagini), p);
         }
         public void OpenAlternative(object s, object e)
         {

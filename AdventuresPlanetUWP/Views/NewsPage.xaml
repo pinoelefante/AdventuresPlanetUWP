@@ -34,6 +34,11 @@
                 <AppBarButton Click="{x:Bind VM.AggiornaNews}" Label="Aggiorna" IsEnabled="{Binding IsUpdatingNews, Converter={StaticResource NotBool}}">
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72C;"/>
                 </AppBarButton>
+                
+                <!--
+                <AppBarButton Icon="Target" Label="Test" Click="test"/>
+                -->
+                
             </controls:PageHeader.PrimaryCommands>
         </controls:PageHeader>
 

@@ -172,7 +172,6 @@ namespace AdventuresPlanetUWP.ViewModels
                                 }
                                 else
                                 {
-                                    //Debug.WriteLine("sol not found - " + link);
                                     sol = new SoluzioneItem(text, "", link) {isTemporary = true };
                                     NavigationService.Navigate(typeof(ViewSoluzione), sol);
                                 }
@@ -188,7 +187,6 @@ namespace AdventuresPlanetUWP.ViewModels
                                 else
                                 {
                                     rec = new RecensioneItem(text, "", "", link) { isTemporary = true };
-                                    //Debug.WriteLine("rec not found - " + link);
                                     NavigationService.Navigate(typeof(ViewRecensione), rec);
                                 }
                             }
@@ -203,13 +201,19 @@ namespace AdventuresPlanetUWP.ViewModels
                                     NavigationService.Navigate(typeof(PodcastPage), parameters);
                                 }
                             }
+                            else if (AdventuresPlanetManager.isGalleriaImmagini(link))
+                            {
+                                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                                parameters.Add("url", link);
+                                NavigationService.Navigate(typeof(GalleriaImmagini), parameters);
+                            }
                             else
                                 await Launcher.LaunchUriAsync(new Uri(link));
                         };
                         Run link_text = new Run();
                         link_text.Text = text;
                         link_text.FontWeight = FontWeights.Bold;
-                        if (AdventuresPlanetManager.isSoluzione(link) || AdventuresPlanetManager.isRecensione(link) || AdventuresPlanetManager.isPodcast(link))
+                        if (AdventuresPlanetManager.isSoluzione(link) || AdventuresPlanetManager.isRecensione(link) || AdventuresPlanetManager.isPodcast(link) || AdventuresPlanetManager.isGalleriaImmagini(link))
                         {
                             link_text.FontSize = Settings.Instance.DimensioneFont + 2;
                             link_text.Foreground = new SolidColorBrush(Colors.Orange);

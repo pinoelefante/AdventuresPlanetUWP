@@ -124,6 +124,7 @@
                 <CommandBar.PrimaryCommands>
                     <AppBarButton x:Uid="/Contents/contents_menu_aggpreferiti" Label="Aggiungi a preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource NotBoolVisibility}}" Icon="Favorite"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_rempreferiti" Label="Rimuovi da preferiti" Click="{x:Bind VM.ChangePreferiti}" Visibility="{Binding Item.IsPreferita, Converter={StaticResource BoolVisibility}}" Icon="UnFavorite"/>
+                    <AppBarButton Label="Galleria" Icon="Pictures" Click="{x:Bind VM.ApriGalleria}" IsEnabled="{Binding HasGallery}" Visibility="{Binding HasGallery, Converter={StaticResource BoolVisibility}}"/>
                     <AppBarButton x:Uid="/Contents/contents_menu_condividi" Label="Condividi" Click="{x:Bind VM.Share}">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xE72D;" FontFamily="Segoe MDL2 Assets"/>

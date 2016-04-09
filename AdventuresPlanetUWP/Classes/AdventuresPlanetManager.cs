@@ -157,6 +157,25 @@ namespace AdventuresPlanetUWP.Classes
             WriteLine("fine = " + DateTime.Now.ToLocalTime());
             return list_soluzioni;
         }
+        private async Task<List<KeyValuePair<string, string>>> getAggiornamentiGallerie(string response = null)
+        {
+            long last_update = Settings.Instance.LastGallerieUpdate;
+            if (response == null)
+                response = await jsonClient.GetStringAsync(new Uri("http://pinoelefante.altervista.org/avp_it/avp_gallerie.php?from=" + last_update));
+            JsonObject resp_json = JsonObject.Parse(response);
+            long time = (long)resp_json["time"].GetNumber();
+            JsonArray list_avv = resp_json["avventure"].GetArray();
+            List<KeyValuePair<string, string>> list_gallerie = new List<KeyValuePair<string, string>>();
+            for(int i = 0;i<list_avv.Count;i++)
+            {
+                JsonObject avv = list_avv[i].GetObject();
+                var id = avv["link"].GetString();
+                var nome = avv["titolo"].GetString();
+                list_gallerie.Add(new KeyValuePair<string, string>(id, nome));
+            }
+            Settings.Instance.LastGallerieUpdate = time;
+            return list_gallerie;
+        }
         public async Task initPodcastFromJsonFile()
         {
             App.KeepScreenOn();
@@ -169,6 +188,20 @@ namespace AdventuresPlanetUWP.Classes
             List<PodcastItem> list = await getAggiornamentiPodcast(fileContent);
             if (list.Count > 0)
                 DatabaseSystem.Instance.insertPodcast(list);
+            App.KeepScreenOn_Release();
+        }
+        public async Task initGallerieFromJsonFile()
+        {
+            App.KeepScreenOn();
+            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///gallerie.json"));
+            string fileContent;
+            using (StreamReader sRead = new StreamReader(await file.OpenStreamForReadAsync()))
+            {
+                fileContent = await sRead.ReadToEndAsync();
+            }
+            var list = await getAggiornamentiGallerie(fileContent);
+            if (list.Count > 0)
+                DatabaseSystem.Instance.multiInsertGallerie(list);
             App.KeepScreenOn_Release();
         }
         public async Task initRecensioniFromJsonFile()
@@ -210,6 +243,7 @@ namespace AdventuresPlanetUWP.Classes
                 ListaRecensioni.AddRange(list);
             }
             list.Clear();
+            aggiornaGallerie();
             App.KeepScreenOn_Release();
             return count > 0;
         }
@@ -414,7 +448,52 @@ namespace AdventuresPlanetUWP.Classes
                 App.KeepScreenOn_Release();
             }
         }
+        public async Task<Dictionary<string, object>> loadGalleria(string id, int page)
+        {
+            try
+            {
+                string url_page = $"{URL_BASE}scheda_immagini.php?game={id}&pagina={page}";
+                string response = await http.GetStringAsync(url_page);
+                HtmlDocument doc = new HtmlDocument();
+                doc.LoadHtml(response);
 
+                HtmlNode mainNode = doc.GetElementbyId("scheda_completa");
+                if (mainNode != null)
+                {
+                    IEnumerable<HtmlNode> schede = mainNode.Descendants("div").Where(x => x.Attributes.Contains("class") && x.Attributes["class"].Value.Equals("scheda_immagini"));
+                    if (schede != null && schede.Count() > 0)
+                    {
+                        Dictionary<string, object> results = new Dictionary<string, object>();
+                        List<KeyValuePair<string,List<AdvImage>>> schede_img = new List<KeyValuePair<string, List<AdvImage>>>();
+                        foreach (var scheda in schede)
+                        {
+                            var nomeGruppo = scheda.Descendants("b")?.FirstOrDefault()?.InnerText;
+                            List<AdvImage> imgs = new List<AdvImage>();
+                            var descendants = scheda.Descendants("a").ToList();
+                            foreach (var htmlImg in descendants)
+                            {
+                                var link = htmlImg.Attributes["href"].Value;
+                                var thumb = htmlImg.Descendants("img").First().Attributes["src"].Value;
+                                AdvImage image = new AdvImage() { ImageLink = link, Thumb = thumb };
+                                imgs.Add(image);
+                            }
+                            
+                            schede_img.Add(new KeyValuePair<string, List<AdvImage>>(nomeGruppo, imgs));
+                        }
+                        HtmlNode nodeFoot = doc.GetElementbyId("next_page");
+                        bool nextPage = nodeFoot != null;
+                        results.Add("HasNext", nextPage);
+                        results.Add("Images", schede_img);
+                        return results;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return null;
+        }
         public async Task<Boolean> loadRecensione(RecensioneItem rec)
         {
             App.KeepScreenOn();
@@ -467,6 +546,7 @@ namespace AdventuresPlanetUWP.Classes
                 App.KeepScreenOn_Release();
             }
         }
+        /*
         private List<string> parseHtml(HtmlNode node)
         {
             List<string> rich = new List<string>();
@@ -527,6 +607,7 @@ namespace AdventuresPlanetUWP.Classes
 
             return rich;
         }
+        */
         private List<String> parseNewsRich(HtmlNode node)
         {
             List<string> rich = new List<string>();
@@ -677,8 +758,30 @@ namespace AdventuresPlanetUWP.Classes
                 ListaSoluzioni.AddRange(list_sol);
             }
             list_sol.Clear();
+            aggiornaGallerie();
             App.KeepScreenOn_Release();
             return count > 0;
+        }
+        public async Task<bool> aggiornaGallerie()
+        {
+            Debug.WriteLine("Aggiorno gallerie");
+            App.KeepScreenOn();
+            if (!await Settings.Instance.IsGallerieUpdated())
+            {
+                List<KeyValuePair<string, string>> gallerie = await getAggiornamentiGallerie();
+                Debug.WriteLine(gallerie.Count + " nuove gallerie");
+                bool ok = gallerie.Count > 0;
+
+                if (!DatabaseSystem.Instance.multiInsertGallerie(gallerie))
+                {
+                    foreach (var gal in gallerie)
+                        DatabaseSystem.Instance.insertGalleria(gal.Key, gal.Value);
+                }
+                gallerie.Clear();
+                return ok;
+            }
+            App.KeepScreenOn_Release();
+            return false;
         }
         public async Task<Boolean> loadSoluzione(SoluzioneItem sol)
         {
@@ -725,6 +828,12 @@ namespace AdventuresPlanetUWP.Classes
         public static bool isSoluzione(String uri)
         {
             if (uri.StartsWith(URL_BASE + "scheda_soluzione.php"))
+                return true;
+            return false;
+        }
+        public static bool isGalleriaImmagini(String uri)
+        {
+            if (uri.StartsWith(URL_BASE + "scheda_immagini.php"))
                 return true;
             return false;
         }
@@ -849,6 +958,11 @@ namespace AdventuresPlanetUWP.Classes
                 currAnno = now.Year;
                 currMese = now.Month;
             }
+        }
+        public class AdvImage
+        {
+            public string Thumb { get; set; }
+            public string ImageLink { get; set; }
         }
     }
 }

@@ -147,6 +147,19 @@ namespace AdventuresPlanetUWP.Classes
                 local_settings.Values["recensioni_last_update"] = value;
             }
         }
+        public long LastGallerieUpdate
+        {
+            get
+            {
+                if (local_settings.Values["gallerie_last_update"] == null)
+                    return 0;
+                return (long)local_settings.Values["gallerie_last_update"];
+            }
+            set
+            {
+                local_settings.Values["gallerie_last_update"] = value;
+            }
+        }
         public async Task<bool> IsRecensioniUpdated()
         {
             if (!_isOnlineConfigRead)
@@ -159,6 +172,22 @@ namespace AdventuresPlanetUWP.Classes
             else
             {
                 if (getUnixTimeStamp() - LastRecensioniUpdate > 86400)
+                    return false;
+            }
+            return true;
+        }
+        public async Task<bool> IsGallerieUpdated()
+        {
+            if (!_isOnlineConfigRead)
+                await OnlineConfig;
+            if (_OnlineSettings != null)
+            {
+                if (getUnixTimeStamp() - LastGallerieUpdate > _OnlineSettings.GallerieUpdateTime)
+                    return false;
+            }
+            else
+            {
+                if (getUnixTimeStamp() - LastGallerieUpdate > 86400)
                     return false;
             }
             return true;
@@ -456,6 +485,7 @@ namespace AdventuresPlanetUWP.Classes
             public long RecensioniUpdateTime { get; set; } = 86400;
             public long SoluzioniUpdateTime { get; set; } = 86400;
             public long PodcastUpdateTime { get; set; } = 86400;
+            public long GallerieUpdateTime { get; set; } = 86400;
         }
     }
 }

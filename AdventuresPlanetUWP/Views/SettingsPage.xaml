@@ -79,6 +79,7 @@
                         <CheckBox Content="Recensioni" IsChecked="False" x:Name="del_rece"/>
                         <CheckBox Content="Soluzioni" IsChecked="False" x:Name="del_solu"/>
                         <CheckBox Content="Podcast" IsChecked="False" x:Name="del_podcast"/>
+                        <CheckBox Content="Gallerie" IsChecked="False" x:Name="del_gallerie"/>
                         <StackPanel Orientation="Horizontal">
                             <Button Content="Cancella selezionati" Click="cancella_selezionati" Margin="8"/>
                             <Button x:Uid="/Settings/settings_cancella_tutto" Content="Cancella tutti i dati" Click="{x:Bind VM.cancella_dati}" Margin="8"/>

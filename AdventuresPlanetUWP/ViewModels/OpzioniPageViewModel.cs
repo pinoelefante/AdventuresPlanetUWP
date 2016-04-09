@@ -33,6 +33,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 Settings.LastPodcastUpdate = 0;
                 Settings.LastRecensioniUpdate = 0;
                 Settings.LastSoluzioniUpdate = 0;
+                Settings.LastGallerieUpdate = 0;
                 AdventuresPlanetManager.Instance.Reset(true, true, true, true);
             };
             UICommand annulla = new UICommand(res.GetString("settings_cancellazione_annulla")) { Id = 1 };
@@ -43,7 +44,7 @@ namespace AdventuresPlanetUWP.ViewModels
 
             await dlg.ShowAsync();
         }
-        public async void cancella_dati_sel(bool news, bool rece, bool solu, bool podc)
+        public async void cancella_dati_sel(bool news, bool rece, bool solu, bool podc, bool gall)
         {
             MessageDialog dlg = new MessageDialog("Vuoi cancellare i dati selezionati?", "Conferma cancellazione");
             UICommand del = new UICommand("Si") { Id = 0 };
@@ -70,6 +71,11 @@ namespace AdventuresPlanetUWP.ViewModels
                 {
                     DatabaseSystem.Instance.cleanPodcast();
                     Settings.LastPodcastUpdate = 0;
+                }
+                if (gall)
+                {
+                    DatabaseSystem.Instance.cleanGallerie();
+                    Settings.LastGallerieUpdate = 0;
                 }
                 AdventuresPlanetManager.Instance.Reset(news, rece, solu, podc);
                 DatabaseSystem.Instance.vacuum();

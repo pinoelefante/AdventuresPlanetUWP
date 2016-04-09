@@ -13,7 +13,7 @@ namespace AdventuresPlanetUWP.ViewModels
         public FirstStartViewModel()
         {
         }
-        private bool _rec,_sol,_pod;
+        private bool _rec,_sol,_pod, _gall;
         public bool IsRecensioniLoaded
         {
             get
@@ -47,6 +47,17 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<bool>(ref _pod, value);
             }
         }
+        public bool IsGallerieLoaded
+        {
+            get
+            {
+                return _gall;
+            }
+            set
+            {
+                Set<bool>(ref _gall, value);
+            }
+        }
         private List<Task> listTask;
         public async Task CheckComplete()
         {
@@ -56,6 +67,7 @@ namespace AdventuresPlanetUWP.ViewModels
             await StartRecensioni();
             await StartSoluzioni();
             await StartPodcast();
+            await StartGallerie();
             await Task.WhenAll(listTask).ContinueWith((t) =>
             {
 
@@ -108,12 +120,26 @@ namespace AdventuresPlanetUWP.ViewModels
             });
             listTask.Add(t1);
         }
+        public async Task StartGallerie()
+        {
+            Task t = AdventuresPlanetManager.Instance.initGallerieFromJsonFile();
+            listTask.Add(t);
+            Task t1 = t.ContinueWith((res) =>
+            {
+                WindowWrapper.Current().Dispatcher.Dispatch(() =>
+                {
+                    IsGallerieLoaded = true;
+                });
+            });
+            listTask.Add(t1);
+        }
         public void Dispose()
         {
             listTask?.Clear();
             IsPodcastLoaded = false;
             IsRecensioniLoaded = false;
             IsSoluzioniLoaded = false;
+            IsGallerieLoaded = false;
         }
     }
 }
