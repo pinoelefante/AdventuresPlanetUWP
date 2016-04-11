@@ -13,24 +13,77 @@
     <Page.DataContext>
         <vm:GalleriaImmaginiVM/>
     </Page.DataContext>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <controls:PageHeader BackButtonVisibility="Collapsed" Frame="{x:Bind Frame}"/>
 
         <TextBlock Grid.Row="1" Text="{Binding Titolo}" FontWeight="SemiBold" FontSize="20" Padding="4"/>
 
-        <ProgressRing Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" IsActive="{Binding IsLoading}" Width="100" Height="100" Canvas.ZIndex="999"/>
+        <ProgressRing x:Name="progressRing" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" IsActive="{Binding IsLoading}" Width="100" Height="100" Canvas.ZIndex="999"/>
 
         <GridView Grid.Row="2" Padding="4" ItemsSource="{Binding LinkImmagini}" IsItemClickEnabled="True" ItemClick="{x:Bind VM.OpenImage}">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Image Width="150" Height="150" Margin="8,4" Source="{Binding Thumb}"/>
+                    <UserControl>
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup>
+                                    <VisualState x:Name="mobile">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="0"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="image.(FrameworkElement.Width)" Value="138"/>
+                                            <Setter Target="image.(FrameworkElement.Height)" Value="138"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="mobile2">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="400"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="image.(FrameworkElement.Width)" Value="180"/>
+                                            <Setter Target="image.(FrameworkElement.Height)" Value="180"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="mobile3">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="500"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="image.(FrameworkElement.Width)" Value="230"/>
+                                            <Setter Target="image.(FrameworkElement.Height)" Value="230"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="desktop">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="600"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="image.(FrameworkElement.Width)" Value="180"/>
+                                            <Setter Target="image.(FrameworkElement.Height)" Value="180"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="desktop2">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="800"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="image.(FrameworkElement.Width)" Value="256"/>
+                                            <Setter Target="image.(FrameworkElement.Height)" Value="256"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Image x:Name="image" Width="100" Height="100" Margin="4" Source="{Binding Thumb}"/>
+                        </Grid>
+                    </UserControl>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
