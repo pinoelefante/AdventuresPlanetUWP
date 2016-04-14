@@ -19,6 +19,7 @@ using static System.Diagnostics.Debug;
 using Windows.Foundation;
 using AdventuresPlanetUWP.ViewModels;
 using Template10.Common;
+using AdventuresPlanetUWP.Views;
 
 namespace AdventuresPlanetUWP.Classes
 {
@@ -892,6 +893,28 @@ namespace AdventuresPlanetUWP.Classes
         private string GetPeriodoString(int anno, int mese)
         {
             return $"{anno.ToString("D4")}{mese.ToString("D2")}";
+        }
+        public async Task DownloadImage(string url, string titoloAvv, string filename)
+        {
+            try
+            {
+                StorageFolder folder = KnownFolders.PicturesLibrary;
+                StorageFolder folderAdv = await folder.CreateFolderAsync("AdventuresPlanet", CreationCollisionOption.OpenIfExists);
+                StorageFolder folderImgs = await folderAdv.CreateFolderAsync(titoloAvv, CreationCollisionOption.OpenIfExists);
+                StorageFile s_file = await folderImgs.CreateFileAsync(filename, CreationCollisionOption.GenerateUniqueName);
+                Debug.WriteLine(s_file.Path);
+                using (Stream imgBytes = await http.GetStreamAsync(new Uri(url)))
+                //using (StreamWriter sw = new StreamWriter(await s_file.OpenStreamForWriteAsync()))
+                using (Stream sw = await s_file.OpenStreamForWriteAsync())
+                {
+                    imgBytes.CopyTo(sw);
+                }
+                Shell.Instance.ShowMessagePopup($"Download {filename} completato!");
+            }
+            catch(Exception e)
+            {
+                Shell.Instance.ShowMessagePopup($"Download {filename} fallito!", true);
+            }
         }
         public class NewsCollection : ObservableCollection<News>, ISupportIncrementalLoading
         {

@@ -198,6 +198,7 @@
     <Compile Include="Converters\NotIntVisibility.cs" />
     <Compile Include="Converters\StringEmptyVisibility.cs" />
     <Compile Include="Converters\StringToBool.cs" />
+    <Compile Include="Converters\StringUri.cs" />
     <Compile Include="Converters\WidthConverter.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="ViewModels\ContentsPageViewModel.cs" />
     <Compile Include="ViewModels\FirstStartViewModel.cs" />
     <Compile Include="ViewModels\GalleriaImmaginiVM.cs" />
+    <Compile Include="ViewModels\ImageViewPageViewModel.cs" />
     <Compile Include="ViewModels\InfoPageViewModel.cs" />
     <Compile Include="ViewModels\NewsPageViewModel.cs" />
     <Compile Include="ViewModels\OpzioniPageViewModel.cs" />
@@ -413,8 +415,8 @@
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.UAP.2015, Version=3.10.2">
-      <Name>SQLite for Universal App Platform %28SQLite.UAP.2015, Version=3.10.2%29</Name>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.12.1">
+      <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup>

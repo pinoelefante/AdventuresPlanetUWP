@@ -84,7 +84,12 @@ namespace AdventuresPlanetUWP.ViewModels
         {
             AdvImage url = e.ClickedItem as AdvImage;
             Debug.WriteLine("Clicked: " + url.ImageLink);
-            NavigationService.Navigate(typeof(ImageViewPage), url.ImageLink);
+            int index = LinkImmagini.IndexOf(url);
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["index"] = index;
+            p["immagini"] = LinkImmagini.ToListUrls();
+            p["titolo"] = titolo;
+            NavigationService.Navigate(typeof(ImageViewPage), p);
         }
         public string Titolo
         {
@@ -140,10 +145,7 @@ namespace AdventuresPlanetUWP.ViewModels
                             WindowWrapper.Current().Dispatcher.Dispatch(() =>
                             {
                                 foreach (var img in kv.Value)
-                                {
-                                    Debug.WriteLine(img);
                                     Add(img);
-                                }
                             });
                         }
                         pagina++;
@@ -165,6 +167,13 @@ namespace AdventuresPlanetUWP.ViewModels
             {
                 Clear();
                 pagina = 1;
+            }
+            public List<string> ToListUrls()
+            {
+                List<string> list = new List<string>(this.Count);
+                foreach(var item in this)
+                    list.Add(item.ImageLink);
+                return list;
             }
         }
     }

@@ -1,28 +1,42 @@
 <Page
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:Controls="using:Template10.Controls"
-      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
-      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="using:AdventuresPlanetUWP.Views"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:views="using:AdventuresPlanetUWP.Views"
-      xmlns:Converters="using:AdventuresPlanetUWP.Converters" xmlns:Universal="using:Microsoft.AdMediator.Universal" x:Class="AdventuresPlanetUWP.Views.Shell"
-      mc:Ignorable="d"
-      >
+    x:Class="AdventuresPlanetUWP.Views.Shell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="using:Template10.Controls"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AdventuresPlanetUWP.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:AdventuresPlanetUWP.Views"
+    xmlns:Converters="using:AdventuresPlanetUWP.Converters" 
+    xmlns:Universal="using:Microsoft.AdMediator.Universal" 
+    mc:Ignorable="d">
+    
     <Page.Resources>
         <Converters:ChristmasVisibility x:Key="IsChristmas"/>
+        <Converters:BoolToVisibility x:Key="BoolVisibility"/>
     </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Controls:ModalDialog IsModal="{x:Bind IsBusy, Mode=OneWay}" Grid.Row="0">
-            <Controls:ModalDialog.ModalContent>
 
+        <Grid x:Name="MessageContainer" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Canvas.ZIndex="999" Height="50" MaxHeight="80" Opacity=".9" MaxWidth="300" Visibility="{x:Bind ShowMessage, Converter={StaticResource BoolVisibility}, Mode=OneWay}" CornerRadius="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Foreground="White" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="12,4" Text="{x:Bind MessageText, Mode=OneWay}" TextWrapping="Wrap" />
+            <Button Grid.Column="1" Content="x" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" Background="Transparent" Margin="4" Click="{x:Bind CloseMessagePopup}"/>
+        </Grid>
+
+        <Controls:ModalDialog IsModal="{x:Bind IsBusy, Mode=OneWay}" Grid.Row="1">
+            <Controls:ModalDialog.ModalContent>
                 <Viewbox Height="32">
                     <StackPanel Orientation="Horizontal">
                         <ProgressRing Width="16" Height="16"
@@ -95,7 +109,7 @@
             </Controls:HamburgerMenu>
         </Controls:ModalDialog>
 
-        <Grid x:Name="AdsContainer" Grid.Row="1" Visibility="Collapsed" x:DeferLoadStrategy="Lazy">
+        <Grid x:Name="AdsContainer" Grid.Row="2" Visibility="Collapsed" x:DeferLoadStrategy="Lazy">
             <Universal:AdMediatorControl x:Name="AdMediator_D58149" Id="AdMediator-Id-39AD79B3-C64B-463B-B0D1-B8F0E2249B77" Height="80" Width="480"/>
             <Button Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Gray" Opacity=".5" Canvas.ZIndex="1" Click="RemoveAds"/>
         </Grid>

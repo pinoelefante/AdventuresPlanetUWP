@@ -6,8 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:controls="using:Template10.Controls">
+    xmlns:controls="using:Template10.Controls"
+    xmlns:vm="using:AdventuresPlanetUWP.ViewModels"
+    xmlns:conv="using:AdventuresPlanetUWP.Converters">
+    
+    <Page.DataContext>
+        <vm:ImageViewPageViewModel />
+    </Page.DataContext>
 
+    <Page.Resources>
+        <conv:StringUri x:Key="StringUri"/>
+        <conv:BoolToVisibility x:Key="BoolVisibility"/>
+    </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
@@ -32,18 +42,39 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" Frame="{x:Bind Frame}" IsEnabled="False"/>
+        <controls:PageHeader Content="{Binding FileName}" BackButtonVisibility="Collapsed" Frame="{x:Bind Frame}">
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Download" Label="Scarica" Click="{x:Bind VM.Download}"/>
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
 
-        <ScrollViewer Grid.Row="1" x:Name="scroller" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" HorizontalScrollMode="Auto" VerticalScrollMode="Auto" MinZoomFactor="0.5" MaxZoomFactor="3" ZoomMode="Enabled">
-            <Image x:Name="image" HorizontalAlignment="Center" VerticalAlignment="Center" DoubleTapped="DoubleTapImage"/>
+        <ScrollViewer Grid.Row="1" x:Name="scroller" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" HorizontalScrollMode="Auto" VerticalScrollMode="Auto" MinZoomFactor="0.5" MaxZoomFactor="3" ZoomMode="Enabled" Canvas.ZIndex="0">
+            <Image x:Name="image" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   DoubleTapped="DoubleTapImage"
+                   Tapped="ShowNextPrev"
+                   Source="{Binding CurrentImage, Converter={StaticResource StringUri}}"/>
         </ScrollViewer>
-        <StackPanel x:Name="containtButtons" Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button x:Name="ZoomIN" Margin="8,0" Click="zoomIn" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8A3;"/>
+
+        <RelativePanel x:Name="NextPrevButtons" Tapped="ShowNextPrev" Visibility="Collapsed" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="100" Background="Transparent" Canvas.ZIndex="1">
+            <Button Background="Gray" Click="{x:Bind VM.Prev}" IsEnabled="{Binding HasPrev}" Visibility="{x:Bind VM.HasPrev, Converter={StaticResource BoolVisibility}}" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                <SymbolIcon Symbol="Back"/>
             </Button>
-            <Button x:Name="ZoomOUT" Margin="8,0" Click="zoomOut" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71F;"/>
+            <Button Background="Gray" Click="{x:Bind VM.Next}" IsEnabled="{Binding HasNext}" Visibility="{x:Bind VM.HasNext, Converter={StaticResource BoolVisibility}}" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                <SymbolIcon Symbol="Forward"/>
             </Button>
-        </StackPanel>
+        </RelativePanel>
+
+        <ProgressRing Grid.Row="1" Width="100" Height="100" IsActive="{Binding IsLoading}" Visibility="{Binding IsLoading, Converter={StaticResource BoolVisibility}}" Canvas.ZIndex="2"/>
+
+        <CommandBar x:Name="containtButtons" Grid.Row="2" HorizontalAlignment="Center">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Back" Label="Precedente" Click="{x:Bind VM.Prev}" IsEnabled="{Binding HasPrev}"/>
+                <AppBarButton Icon="ZoomOut" Label="Zoom out" Click="zoomOut"/>
+                <AppBarButton Icon="ZoomIn" Label="Zoom in" Click="zoomIn"/>
+                <AppBarButton Icon="Forward" Label="Prossima" Click="{x:Bind VM.Next}" IsEnabled="{Binding HasNext}"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
     </Grid>
 </Page>

@@ -13,6 +13,8 @@ using System;
 using Windows.UI.Xaml;
 using AdventuresPlanetUWP.Classes;
 using AdventuresPlanetUWP.Views.ContentDialogs;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace AdventuresPlanetUWP.Views
 {
@@ -49,6 +51,36 @@ namespace AdventuresPlanetUWP.Views
                 Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(IsBusy)));
                 Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(BusyText)));
             });
+        }
+        public bool ShowMessage { get; set; } = false;
+        public string MessageText { get; set; } = string.Empty;
+        public void ShowMessagePopup(string message, bool error = false)
+        {
+            MessageText = message;
+            if (!error)
+                MessageContainer.Background = new SolidColorBrush(Colors.LimeGreen);
+            else
+                MessageContainer.Background = new SolidColorBrush(Colors.Red);
+            ShowMessage = true;
+
+            Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(MessageText)));
+            Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(ShowMessage)));
+
+            DispatcherTimer timer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(1500) };
+            timer.Tick += (s,e) =>
+            {
+                CloseMessagePopup();
+                timer.Stop();
+            };
+            timer.Start();
+        }
+
+        public void CloseMessagePopup(object s = null, object e = null)
+        {
+            MessageText = string.Empty;
+            ShowMessage = false;
+            Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(MessageText)));
+            Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(ShowMessage)));
         }
         private ResourceLoader resHoliday = ResourceLoader.GetForCurrentView("Holidays");
         private async void Auguri(object sender, Windows.UI.Xaml.RoutedEventArgs e)

@@ -419,8 +419,14 @@ namespace AdventuresPlanetUWP.ViewModels
         {
             Image immagine = sender as Image;
             string url = (immagine.Source as BitmapImage).UriSource.AbsoluteUri.ToString();
-            NavigationService.Navigate(typeof(ImageViewPage), url.ToString());
-            
+
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["index"] = 0;
+            p["titolo"] = Item.Titolo;
+            List<string> imgs = new List<string>(1);
+            imgs.Add(url);
+            p["immagini"] = imgs;
+            NavigationService.Navigate(typeof(ImageViewPage), p);
         }
         private void LoadAlternative()
         {
