@@ -24,7 +24,7 @@
         <Converter:NotBoolToVisibility x:Key="NotBoolVisibility"/>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="{x:Bind VM.MarginFrame}">
         <!--  #region default visual states  -->
 
         <VisualStateManager.VisualStateGroups>

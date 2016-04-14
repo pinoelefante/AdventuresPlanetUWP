@@ -22,7 +22,7 @@
         <Converter:NotBoolToVisibility x:Key="NotBoolVisibility"/>
     </Page.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="{x:Bind VM.MarginFrame}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />

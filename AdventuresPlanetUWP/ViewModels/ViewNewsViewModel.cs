@@ -49,6 +49,7 @@ namespace AdventuresPlanetUWP.ViewModels
             }
             _dataTransferManager = DataTransferManager.GetForCurrentView();
             _dataTransferManager.DataRequested += OnDataRequested;
+            await base.OnNavigatedToAsync(parameter, mode, state);
         }
         private void OnDataRequested(DataTransferManager sender, DataRequestedEventArgs e)
         {

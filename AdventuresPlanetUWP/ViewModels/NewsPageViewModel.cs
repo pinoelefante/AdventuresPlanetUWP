@@ -47,7 +47,7 @@ namespace AdventuresPlanetUWP.ViewModels
             {
                 AggiornaNews();
             }
-            return Task.CompletedTask;
+            return base.OnNavigatedToAsync(parameter, mode, state);
         }
         public AdventuresPlanetManager.NewsCollection ListNews { get; } = AdventuresPlanetManager.Instance.ListaNews;
         public bool _updatingNews;

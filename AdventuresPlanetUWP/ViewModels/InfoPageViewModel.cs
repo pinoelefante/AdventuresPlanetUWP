@@ -5,11 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Store;
 using Windows.System;
+using Windows.UI.Xaml.Navigation;
 
 namespace AdventuresPlanetUWP.ViewModels
 {
     public class InfoPageViewModel : Mvvm.ViewModelBase
     {
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        {
+            return base.OnNavigatedToAsync(parameter, mode, state);
+        }
         public string Versione
         {
             get

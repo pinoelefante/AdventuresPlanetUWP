@@ -17,14 +17,34 @@
         <Converters:ChristmasVisibility x:Key="IsChristmas"/>
         <Converters:BoolToVisibility x:Key="BoolVisibility"/>
     </Page.Resources>
-    
-    <Grid>
+
+    <Grid x:Name="RootLayout">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="adsOverlay">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="575"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AdMediator_D58149.(FrameworkElement.HorizontalAlignment)" Value="Center"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="adsOverlay2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AdMediator_D58149.(FrameworkElement.HorizontalAlignment)" Value="Right"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
 
         <Grid x:Name="MessageContainer" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Canvas.ZIndex="999" Height="50" MaxHeight="80" Opacity=".9" MaxWidth="300" Visibility="{x:Bind ShowMessage, Converter={StaticResource BoolVisibility}, Mode=OneWay}" CornerRadius="20">
             <Grid.ColumnDefinitions>
@@ -46,7 +66,43 @@
                     </StackPanel>
                 </Viewbox>
             </Controls:ModalDialog.ModalContent>
-            <Controls:HamburgerMenu x:Name="MyHamburgerMenu" IsFullScreen="False">
+            <Controls:HamburgerMenu x:Name="MyHamburgerMenu" IsFullScreen="False" PaneClosed="HamburgerClosed" PaneOpened="HamburgerOpen">
+                <Controls:HamburgerMenu.PrimaryButtons>
+                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsPage">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="PreviewLink" />
+                            <TextBlock x:Uid="/Shell/hamburger_news" Margin="12,0,0,0" VerticalAlignment="Center" Text="News" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+
+                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:RecensioniPage">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="Like" />
+                            <TextBlock x:Uid="/Shell/hamburger_recensioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Recensioni" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+
+                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:SoluzioniPage">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="AllApps" />
+                            <TextBlock x:Uid="/Shell/hamburger_soluzioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Soluzioni" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+
+                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PreferitiPage">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="OutlineStar" />
+                            <TextBlock x:Uid="/Shell/hamburger_preferiti" Margin="12,0,0,0" VerticalAlignment="Center" Text="Preferiti" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+
+                    <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PodcastPage">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="Microphone" />
+                            <TextBlock x:Uid="/Shell/hamburger_podcast" Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+                </Controls:HamburgerMenu.PrimaryButtons>
 
                 <Controls:HamburgerMenu.SecondaryButtons>
                     <Controls:HamburgerButtonInfo PageType="views:SettingsPage">
@@ -72,46 +128,12 @@
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
                 </Controls:HamburgerMenu.SecondaryButtons>
-                <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsPage">
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Width="48" Height="48" Symbol="PreviewLink" />
-                        <TextBlock x:Uid="/Shell/hamburger_news" Margin="12,0,0,0" VerticalAlignment="Center" Text="News" />
-                    </StackPanel>
-                </Controls:HamburgerButtonInfo>
-
-                <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:RecensioniPage">
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Width="48" Height="48" Symbol="Like" />
-                        <TextBlock x:Uid="/Shell/hamburger_recensioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Recensioni" />
-                    </StackPanel>
-                </Controls:HamburgerButtonInfo>
-
-                <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:SoluzioniPage">
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Width="48" Height="48" Symbol="AllApps" />
-                        <TextBlock x:Uid="/Shell/hamburger_soluzioni" Margin="12,0,0,0" VerticalAlignment="Center" Text="Soluzioni" />
-                    </StackPanel>
-                </Controls:HamburgerButtonInfo>
-
-                <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PreferitiPage">
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Width="48" Height="48" Symbol="OutlineStar" />
-                        <TextBlock x:Uid="/Shell/hamburger_preferiti" Margin="12,0,0,0" VerticalAlignment="Center" Text="Preferiti" />
-                    </StackPanel>
-                </Controls:HamburgerButtonInfo>
-
-                <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:PodcastPage">
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Width="48" Height="48" Symbol="Microphone" />
-                        <TextBlock x:Uid="/Shell/hamburger_podcast" Margin="12,0,0,0" VerticalAlignment="Center" Text="Podcast" />
-                    </StackPanel>
-                </Controls:HamburgerButtonInfo>
             </Controls:HamburgerMenu>
         </Controls:ModalDialog>
 
-        <Grid x:Name="AdsContainer" Grid.Row="2" Visibility="Collapsed" x:DeferLoadStrategy="Lazy">
-            <Universal:AdMediatorControl x:Name="AdMediator_D58149" Id="AdMediator-Id-39AD79B3-C64B-463B-B0D1-B8F0E2249B77" Height="80" Width="480"/>
-            <Button Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Gray" Opacity=".5" Canvas.ZIndex="1" Click="RemoveAds"/>
+        <Grid x:Name="AdsContainer" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Collapsed" x:DeferLoadStrategy="Lazy">
+            <Universal:AdMediatorControl x:Name="AdMediator_D58149" HorizontalAlignment="Center" Id="AdMediator-Id-39AD79B3-C64B-463B-B0D1-B8F0E2249B77" Height="80" Width="480"/>
+            <Button Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Gray" Canvas.ZIndex="1" Click="RemoveAds"/>
         </Grid>
     </Grid>
 </Page>

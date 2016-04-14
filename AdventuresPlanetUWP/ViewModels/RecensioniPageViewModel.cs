@@ -23,6 +23,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 AggiornaRecensioni();
             if(ListaRecensioni==null || ListaRecensioni.Count == 0)
                 GroupByLetter();
+            await base.OnNavigatedToAsync(parameter, mode, state);
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {

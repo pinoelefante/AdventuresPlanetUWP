@@ -32,6 +32,18 @@ namespace AdventuresPlanetUWP.Views
             EnableAds();
         }
 
+        private void HamburgerOpen(object sender, EventArgs e)
+        {
+            if (IsAdsEnabled && Window.Current.Bounds.Width<1200)
+                AdsContainer.Opacity = 0;
+        }
+
+        private void HamburgerClosed(object sender, EventArgs e)
+        {
+            if (IsAdsEnabled)
+                AdsContainer.Opacity = 1;
+        }
+
         public bool IsBusy { get; set; } = false;
         public string BusyText { get; set; } = "Please wait...";
         public event PropertyChangedEventHandler PropertyChanged;
@@ -83,7 +95,7 @@ namespace AdventuresPlanetUWP.Views
             Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(ShowMessage)));
         }
         private ResourceLoader resHoliday = ResourceLoader.GetForCurrentView("Holidays");
-        private async void Auguri(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void Auguri(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Tento di fare gli auguri");
             string message = resHoliday.GetString("auguri_feste");
@@ -96,6 +108,7 @@ namespace AdventuresPlanetUWP.Views
 
             await new MessageDialog(message, resHoliday.GetString("auguri_titolo")).ShowAsync();
         }
+        public bool IsAdsEnabled { get; set; } = false;
         private async void EnableAds()
         {
             if (await Settings.Instance.IsAdsActive())
@@ -104,10 +117,13 @@ namespace AdventuresPlanetUWP.Views
                 {
                     FrameworkElement adsCont = FindName("AdsContainer") as FrameworkElement;
                     adsCont.Visibility = Visibility.Visible;
+                    IsAdsEnabled = true;
+                    Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(IsAdsEnabled)));
+                    return;
                 }
             }
         }
-        private async void RemoveAds(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void RemoveAds(object sender, RoutedEventArgs e)
         {
             BuyRemoveAdsContentDialog dlg = new BuyRemoveAdsContentDialog();
             dlg.AtFinish = () =>
@@ -122,12 +138,19 @@ namespace AdventuresPlanetUWP.Views
         }
         private void CloseAds()
         {
-            if (AdsContainer != null)
+            WindowWrapper.Current().Dispatcher.Dispatch(() =>
             {
-                AdsContainer.Children.Clear();
-                AdsContainer.Visibility = Visibility.Collapsed;
-                AdsContainer = null;
-            }
+                if (AdsContainer != null)
+                {
+                    AdsContainer.Children.Clear();
+                    AdsContainer.Visibility = Visibility.Collapsed;
+                    AdsContainer = null;
+                }
+                IsAdsEnabled = false;
+                Instance.PropertyChanged?.Invoke(Instance, new PropertyChangedEventArgs(nameof(IsAdsEnabled)));
+                MyHamburgerMenu.PaneClosed -= HamburgerClosed;
+                MyHamburgerMenu.PaneOpened -= HamburgerOpen;
+            });
         }
     }
 }

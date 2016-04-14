@@ -15,6 +15,7 @@ using Windows.ApplicationModel.Resources;
 using Template10.Common;
 using Windows.Storage;
 using Windows.ApplicationModel;
+using Windows.UI.Xaml.Controls;
 
 namespace AdventuresPlanetUWP
 {
@@ -55,7 +56,6 @@ namespace AdventuresPlanetUWP
             Debug.WriteLine(e.GetType());
             Debug.WriteLine(e.Message +" \nSource = "+ e.Exception.Source);
             e.Handled = true;
-            
         }
 
         // runs even if restored from state
@@ -84,7 +84,6 @@ namespace AdventuresPlanetUWP
             else
                 NavigationService.Navigate(typeof(Views.NewsPage));
         }
-        
         private static DisplayRequest KSARequest;
         private static int KSACount = 0;
         internal static void KeepScreenOn_Release()

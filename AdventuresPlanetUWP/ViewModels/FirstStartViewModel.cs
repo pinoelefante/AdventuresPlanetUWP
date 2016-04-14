@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Template10.Common;
+using Windows.UI.Xaml.Navigation;
 
 namespace AdventuresPlanetUWP.ViewModels
 {
     public class FirstStartViewModel : Mvvm.ViewModelBase, IDisposable
     {
-        public FirstStartViewModel()
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
+            return base.OnNavigatedToAsync(parameter, mode, state);
         }
         private bool _rec,_sol,_pod, _gall;
         public bool IsRecensioniLoaded

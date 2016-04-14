@@ -21,8 +21,8 @@
         <Converters:NotBoolToVisibility x:Key="NotBoolVisibility"/>
         <Converters:StringEmptyVisibility x:Key="StringVisibility"/>
     </Page.Resources>
-    
-    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="{x:Bind VM.MarginFrame}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />

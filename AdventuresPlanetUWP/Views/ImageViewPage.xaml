@@ -18,7 +18,7 @@
         <conv:StringUri x:Key="StringUri"/>
         <conv:BoolToVisibility x:Key="BoolVisibility"/>
     </Page.Resources>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="{x:Bind VM.MarginFrame}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="phone">

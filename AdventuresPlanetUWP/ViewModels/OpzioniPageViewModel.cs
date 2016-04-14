@@ -21,6 +21,10 @@ namespace AdventuresPlanetUWP.ViewModels
                 return Settings.Instance;
             }
         }
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        {
+            return base.OnNavigatedToAsync(parameter, mode, state);
+        }
         private ResourceLoader res = ResourceLoader.GetForCurrentView("Settings");
         public async void cancella_dati(object sender, object e)
         {

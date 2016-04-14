@@ -33,7 +33,7 @@ namespace AdventuresPlanetUWP.ViewModels
             PodcastManager.Instance.IsPlayerLoaded();
             PlayerStateChanged(BackgroundMediaPlayer.Current, null);
             VerificaIsSalvabile();
-            //return Task.CompletedTask;
+            await base.OnNavigatedToAsync(parameter, mode, state);
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {

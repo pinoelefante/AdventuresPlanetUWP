@@ -17,7 +17,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 SingolaImmagine(parameter as string);
             else if(parameter is Dictionary<string,object>)
                 MultiImmagini(parameter as Dictionary<string, object>);
-            return Task.CompletedTask;
+            return base.OnNavigatedToAsync(parameter, mode, state);
         }
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {

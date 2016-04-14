@@ -27,7 +27,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 IsRecensioni = false;
                 IsSoluzioni = true;
             }
-            return Task.CompletedTask;
+            return base.OnNavigatedToAsync(parameter, mode, state);
         }
         
         private List<PaginaContenuti> listContenuti;
