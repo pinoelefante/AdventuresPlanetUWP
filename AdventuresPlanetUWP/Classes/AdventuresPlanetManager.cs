@@ -20,6 +20,7 @@ using Windows.Foundation;
 using AdventuresPlanetUWP.ViewModels;
 using Template10.Common;
 using AdventuresPlanetUWP.Views;
+using System.Text;
 
 namespace AdventuresPlanetUWP.Classes
 {
@@ -898,13 +899,13 @@ namespace AdventuresPlanetUWP.Classes
         {
             try
             {
+                var correctFolder = correctStringDirectory(titoloAvv);
                 StorageFolder folder = KnownFolders.PicturesLibrary;
                 StorageFolder folderAdv = await folder.CreateFolderAsync("AdventuresPlanet", CreationCollisionOption.OpenIfExists);
-                StorageFolder folderImgs = await folderAdv.CreateFolderAsync(titoloAvv, CreationCollisionOption.OpenIfExists);
+                StorageFolder folderImgs = await folderAdv.CreateFolderAsync(correctFolder, CreationCollisionOption.OpenIfExists);
                 StorageFile s_file = await folderImgs.CreateFileAsync(filename, CreationCollisionOption.GenerateUniqueName);
                 Debug.WriteLine(s_file.Path);
                 using (Stream imgBytes = await http.GetStreamAsync(new Uri(url)))
-                //using (StreamWriter sw = new StreamWriter(await s_file.OpenStreamForWriteAsync()))
                 using (Stream sw = await s_file.OpenStreamForWriteAsync())
                 {
                     imgBytes.CopyTo(sw);
@@ -915,6 +916,14 @@ namespace AdventuresPlanetUWP.Classes
             {
                 Shell.Instance.ShowMessagePopup($"Download {filename} fallito!", true);
             }
+        }
+        private string correctStringDirectory(string s)
+        {
+            return s.Replace(":", " ")
+                    .Replace("\""," ")
+                    .Replace("<"," ")
+                    .Replace(">"," ")
+                    .Replace("|", " ");
         }
         public class NewsCollection : ObservableCollection<News>, ISupportIncrementalLoading
         {

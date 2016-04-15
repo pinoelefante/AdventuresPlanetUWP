@@ -58,10 +58,10 @@
         </ScrollViewer>
 
         <RelativePanel x:Name="NextPrevButtons" Tapped="ShowNextPrev" Visibility="Collapsed" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="100" Background="Transparent" Canvas.ZIndex="1">
-            <Button Background="Gray" Click="{x:Bind VM.Prev}" IsEnabled="{Binding HasPrev}" Visibility="{x:Bind VM.HasPrev, Converter={StaticResource BoolVisibility}}" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+            <Button Background="Gray" Click="{x:Bind VM.Prev}" IsEnabled="{Binding HasPrev}" Visibility="{x:Bind VM.HasPrev, Converter={StaticResource BoolVisibility}, Mode=OneWay}" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
                 <SymbolIcon Symbol="Back"/>
             </Button>
-            <Button Background="Gray" Click="{x:Bind VM.Next}" IsEnabled="{Binding HasNext}" Visibility="{x:Bind VM.HasNext, Converter={StaticResource BoolVisibility}}" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <Button Background="Gray" Click="{x:Bind VM.Next}" IsEnabled="{Binding HasNext}" Visibility="{x:Bind VM.HasNext, Converter={StaticResource BoolVisibility}, Mode=OneWay}" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True">
                 <SymbolIcon Symbol="Forward"/>
             </Button>
         </RelativePanel>

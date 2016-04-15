@@ -43,6 +43,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 HasPrev = true;
             else
                 HasPrev = false;
+
             if (_index < _listImages.Count - 1)
                 HasNext = true;
             else
