@@ -24,6 +24,7 @@ namespace AdventuresPlanetUWP
 
     sealed partial class App : Template10.Common.BootStrapper
     {
+        public const string StoreId = "9nblggh67p38";
         ISettingsService _settings;
         public App()
         {

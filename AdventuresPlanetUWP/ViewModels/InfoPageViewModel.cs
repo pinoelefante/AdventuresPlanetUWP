@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventuresPlanetUWP.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,8 +35,9 @@ namespace AdventuresPlanetUWP.ViewModels
         }
         public async void Vota(object s, object e)
         {
-            var uri = new Uri(string.Format("ms-windows-store:reviewapp?appid={0}", CurrentApp.AppId));
+            var uri = new Uri($"ms-windows-store://review/?ProductId={App.StoreId}");
             await Launcher.LaunchUriAsync(uri);
+            Settings.Instance.Votato = true;
         }
         public async void VaiAlSitoWeb(object s, object e)
         {

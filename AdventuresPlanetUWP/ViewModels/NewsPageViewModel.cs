@@ -123,7 +123,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 UICommand si = new UICommand(resApp.GetString("app_vota_comando_vota")) { Id = 0 };
                 si.Invoked = async (x) =>
                 {
-                    var uri = new Uri(string.Format("ms-windows-store:reviewapp?appid={0}", CurrentApp.AppId));
+                    var uri = new Uri($"ms-windows-store://review/?ProductId={App.StoreId}");
                     await Launcher.LaunchUriAsync(uri);
                     Settings.Instance.Votato = true;
                 };

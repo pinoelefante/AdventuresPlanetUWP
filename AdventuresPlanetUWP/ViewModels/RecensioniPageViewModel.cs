@@ -102,18 +102,7 @@ namespace AdventuresPlanetUWP.ViewModels
                 Set<bool>(ref _isUpdating, value);
             }
         }
-        private CollectionViewSource _collection;
-        public CollectionViewSource Collection
-        {
-            get
-            {
-                return _collection;
-            }
-            set
-            {
-                Set<CollectionViewSource>(ref _collection, value);
-            }
-        }
+        
         private Dictionary<string, List<RecensioneItem>> _list;
         public Dictionary<string, List<RecensioneItem>> ListaRecensioni
         {
