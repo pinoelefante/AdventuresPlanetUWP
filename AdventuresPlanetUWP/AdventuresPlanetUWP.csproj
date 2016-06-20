@@ -188,6 +188,7 @@
     <Compile Include="Classes\VideoPlayerManager.cs" />
     <Compile Include="Classes\VisualTreeHelperExtensions.cs" />
     <Compile Include="Classes\YouTube.cs" />
+    <Compile Include="Classes\YouTubeApi.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
     <Compile Include="Converters\ChristmasVisibility.cs" />
     <Compile Include="Converters\IntToBool.cs" />
@@ -415,7 +416,7 @@
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.UWP.2015, Version=3.12.2">
+    <SDKReference Include="SQLite.UWP.2015, Version=3.13.0">
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
   </ItemGroup>

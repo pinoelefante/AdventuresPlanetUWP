@@ -35,13 +35,13 @@ namespace AdventuresPlanetUWP.Views
         private void HamburgerOpen(object sender, EventArgs e)
         {
             if (IsAdsEnabled && Window.Current.Bounds.Width<1200)
-                AdsContainer.Opacity = 0;
+                AdsContainer.Visibility = Visibility.Collapsed;
         }
 
         private void HamburgerClosed(object sender, EventArgs e)
         {
             if (IsAdsEnabled)
-                AdsContainer.Opacity = 1;
+                AdsContainer.Visibility = Visibility.Visible;
         }
 
         public bool IsBusy { get; set; } = false;

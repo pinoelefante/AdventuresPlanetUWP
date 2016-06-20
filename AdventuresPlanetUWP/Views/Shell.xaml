@@ -131,8 +131,8 @@
             </Controls:HamburgerMenu>
         </Controls:ModalDialog>
 
-        <Grid x:Name="AdsContainer" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Collapsed" x:DeferLoadStrategy="Lazy">
-            <Universal:AdMediatorControl x:Name="AdMediator_D58149" HorizontalAlignment="Center" Id="AdMediator-Id-39AD79B3-C64B-463B-B0D1-B8F0E2249B77" Height="80" Width="480"/>
+        <Grid x:Name="AdsContainer" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Collapsed" x:DeferLoadStrategy="Lazy" Margin="0">
+            <Universal:AdMediatorControl x:Name="AdMediator_D58149" VerticalAlignment="Top" HorizontalAlignment="Center" Id="AdMediator-Id-39AD79B3-C64B-463B-B0D1-B8F0E2249B77" Height="80" Width="480"/>
             <Button Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Gray" Canvas.ZIndex="1" Click="RemoveAds"/>
         </Grid>
     </Grid>
