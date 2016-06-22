@@ -26,7 +26,7 @@ namespace AdventuresPlanetUWP.Mvvm
             get
             {
                 if (Views.Shell.Instance.IsAdsEnabled)
-                    return new Thickness(0, 0, 0, 90);
+                    return new Thickness(0, 0, 0, 80);
                 else
                     return new Thickness(0);
             }
